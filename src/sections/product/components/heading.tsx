@@ -1,7 +1,7 @@
 import StarRating from '@/components/star-rating';
 import { Star } from 'lucide-react';
 
-const Heading = ({ product }: any) => {
+function Heading({ product }: any) {
   return (
     <section className="container flex flex-col sm:flex-row sm:justify-between">
       <div className="flex-1">
@@ -29,6 +29,6 @@ const Heading = ({ product }: any) => {
       </div>
     </section>
   );
-};
+}
 
 export default Heading;

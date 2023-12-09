@@ -7,21 +7,23 @@ import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 
-const Client = () => {
+function Client() {
   return (
     <Swiper
       slidesPerView="auto"
       loop={false}
-      pagination={true}
+      pagination
       modules={[Navigation, Pagination]}
       autoplay={false}
       className="relative !z-0 !pl-[10px] !pb-[30px] -top-[30px]"
-      style={{
-        '--swiper-pagination-color': '#000',
-        '--swiper-pagination-bullet-width': '5px',
-        '--swiper-pagination-bullet-height': '5px',
-        '--swiper-pagination-bullet-horizontal-gap': '5px',
-      } as any}
+      style={
+        {
+          "--swiper-pagination-color": "#000",
+          "--swiper-pagination-bullet-width": "5px",
+          "--swiper-pagination-bullet-height": "5px",
+          "--swiper-pagination-bullet-horizontal-gap": "5px",
+        } as any
+      }
     >
       <SwiperSlide className="relative">
         <blockquote className="flex flex-col items-center justify-center py-[10px] px-5">
@@ -75,6 +77,6 @@ const Client = () => {
       </SwiperSlide>
     </Swiper>
   );
-};
+}
 
 export default Client;

@@ -1,4 +1,5 @@
 'use client';
+
 import { RHFInput } from '@/components/hook-form';
 import FormProvider from '@/components/hook-form/form-provider';
 import {
@@ -64,7 +65,7 @@ export function Register({ children, ...other }: IProps & DialogProps) {
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
             <DialogTitle>
-              <span className='text-primary'>Register</span>
+              <span className="text-primary">Register</span>
             </DialogTitle>
           </DialogHeader>
 

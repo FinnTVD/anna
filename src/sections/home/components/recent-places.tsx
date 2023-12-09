@@ -1,10 +1,9 @@
-import { Button } from '@/components/ui/button';
 import PlaceItem from './place-item';
 import { MoveRight } from 'lucide-react';
 
 const spanCol = [1, 1, 3, 2, 1, 2];
 
-const RecentPlaces = ({ products }: any) => {
+function RecentPlaces({ products }: any) {
   return (
     <section className="block-section">
       <div className="container">
@@ -18,28 +17,32 @@ const RecentPlaces = ({ products }: any) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-[30px]">
           {products?.slice(0, 6)?.map((item: any, index: number) => {
-            const product = item?.attributes
-            
+            const product = item?.attributes;
+
             return (
-            <div
-              key={item?.id}
-              className={`md:col-span-${spanCol[index % 6]}`}
-            >
-              <PlaceItem
-                // priceText={`Average Price: $${
-                //   (product?.price * product?.discountPercentage) / 100
-                // } - $${product?.price}`}
-                priceText={`Average Price: $${product?.displayPrice}`}
-                category={product?.category?.data?.attributes?.name}
-                name={product?.name}
-                address={product?.address}
-                src={product?.image?.data?.attributes?.formats?.medium?.url || product?.image?.data?.attributes?.url}
-                verified
-                top
-                slug={product?.slug}
-              />
-            </div>
-          )})}
+              <div
+                key={item?.id}
+                className={`md:col-span-${spanCol[index % 6]}`}
+              >
+                <PlaceItem
+                  // priceText={`Average Price: $${
+                  //   (product?.price * product?.discountPercentage) / 100
+                  // } - $${product?.price}`}
+                  priceText={`Average Price: $${product?.displayPrice}`}
+                  category={product?.category?.data?.attributes?.name}
+                  name={product?.name}
+                  address={product?.address}
+                  src={
+                    product?.image?.data?.attributes?.formats?.medium?.url ||
+                    product?.image?.data?.attributes?.url
+                  }
+                  verified
+                  top
+                  slug={product?.slug}
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* View All */}
@@ -54,6 +57,6 @@ const RecentPlaces = ({ products }: any) => {
       </div>
     </section>
   );
-};
+}
 
 export default RecentPlaces;

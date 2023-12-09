@@ -1,8 +1,7 @@
-import { Input } from '@/components/ui/input';
 import { InputUnderline } from '@/components/ui/input-underline';
 import React from 'react';
 
-const Subcribe = () => {
+function Subcribe() {
   return (
     <section className="py-[60px] bg-[#0000000d] w-full">
       <div className="container">
@@ -11,12 +10,16 @@ const Subcribe = () => {
             Subscribe and be notified about new locations
           </h3>
           <div className="flex-1 w-full">
-            <InputUnderline isShowButton className='w-full' placeholder='Your email' />
+            <InputUnderline
+              isShowButton
+              className="w-full"
+              placeholder="Your email"
+            />
           </div>
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default Subcribe;

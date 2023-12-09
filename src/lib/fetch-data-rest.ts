@@ -1,9 +1,9 @@
-const revalidate = Number(process.env.NEXT_PUBLIC_REVALIDATE) || 3600 // 1h
-const baseUrl = process.env.NEXT_PUBLIC_REST_API
+const revalidate = Number(process.env.NEXT_PUBLIC_REVALIDATE) || 3600; // 1h
+const baseUrl = process.env.NEXT_PUBLIC_REST_API;
 
 export const fetchDataRest = async (url: string) => {
   const res = await fetch(`${baseUrl}/${url}`, {
-    next: { revalidate }
+    next: { revalidate },
     // cache: 'no-store'
   });
   // The return value is *not* serialized
@@ -15,4 +15,4 @@ export const fetchDataRest = async (url: string) => {
   }
 
   return res.json();
-}
+};

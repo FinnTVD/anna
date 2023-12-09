@@ -9,8 +9,8 @@ interface Props {
   isDark?: boolean;
 }
 
-const StarRating = ({ value = 0, isDark = false }: Props) => {
-  let arr = new Array(5);
+function StarRating({ value = 0, isDark = false }: Props) {
+  const arr = new Array(5);
   arr.fill(null);
   arr.fill(1, 0, value);
 
@@ -21,15 +21,15 @@ const StarRating = ({ value = 0, isDark = false }: Props) => {
           key={idx}
           strokeWidth={0.5}
           className={cn(
-            'w-[11px] h-[11px] fill-black opacity-10',
+            "w-[11px] h-[11px] fill-black opacity-10",
             isDark && "fill-white",
-            !!val && 'text-primary fill-primary opacity-100',
-            isDark && !!val && 'text-white fill-white opacity-100',
+            !!val && "text-primary fill-primary opacity-100",
+            isDark && !!val && "text-white fill-white opacity-100"
           )}
         />
       ))}
     </div>
   );
-};
+}
 
 export default StarRating;

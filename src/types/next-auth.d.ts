@@ -1,6 +1,4 @@
-import NextAuth from "next-auth";
-
-declare module "next-auth" {
+declare module 'next-auth' {
   interface Session {
     user: {
       id: number;
@@ -10,7 +8,6 @@ declare module "next-auth" {
       confirmed: boolean;
       blocked: boolean;
       accessToken: string;
-    }
+    };
   }
 }
-

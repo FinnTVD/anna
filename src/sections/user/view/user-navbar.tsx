@@ -1,4 +1,5 @@
 'use client';
+
 import {
   HoverCard,
   HoverCardContent,
@@ -14,7 +15,7 @@ interface IProps {
   username: string;
 }
 
-const UserNavBar = ({ username }: IProps) => {
+function UserNavBar({ username }: IProps) {
   return (
     <HoverCard openDelay={0}>
       <HoverCardTrigger asChild>
@@ -44,6 +45,6 @@ const UserNavBar = ({ username }: IProps) => {
       </HoverCardContent>
     </HoverCard>
   );
-};
+}
 
 export default UserNavBar;

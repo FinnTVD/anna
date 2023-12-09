@@ -1,5 +1,4 @@
-import { cn } from '@/lib/utils';
-import { Clock, MoveRight } from 'lucide-react';
+import { MoveRight } from 'lucide-react';
 
 interface Props {
   name: string;
@@ -8,7 +7,7 @@ interface Props {
   linkMore: string;
 }
 
-const BlogItem = ({ name, date, desc, linkMore }: Props) => {
+function BlogItem({ name, date, desc, linkMore }: Props) {
   return (
     <div className="relative">
       <div className="flex flex-col space-y-3 mt-[10px]">
@@ -23,6 +22,6 @@ const BlogItem = ({ name, date, desc, linkMore }: Props) => {
       </div>
     </div>
   );
-};
+}
 
 export default BlogItem;

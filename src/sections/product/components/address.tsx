@@ -4,7 +4,7 @@ import { Link, Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 
-const Address = () => {
+function Address() {
   return (
     <section className="shadow-md bg-[#fafafa]">
       <div className="h-[250px] relative overflow-hidden">
@@ -18,10 +18,10 @@ const Address = () => {
           <div className="h-10">
             <Image
               className="w-full h-full object-contain"
-              src={'/img/logo-2.png'}
+              src="/img/logo-2.png"
               height={40}
               width={116}
-              alt={''}
+              alt=""
             />
           </div>
           <div>
@@ -70,12 +70,14 @@ const Address = () => {
                 className="w-[14px] h-[14px] mr-4 text-primary"
               />
             </div>
-            <a href='www.markysrestaurant.com' className="text-sm text-primary">www.markysrestaurant.com</a>
+            <a href="www.markysrestaurant.com" className="text-sm text-primary">
+              www.markysrestaurant.com
+            </a>
           </figure>
         </address>
       </div>
     </section>
   );
-};
+}
 
 export default Address;
