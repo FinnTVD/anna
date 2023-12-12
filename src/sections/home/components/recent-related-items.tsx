@@ -4,7 +4,7 @@ import Client from './client';
 
 const spanCol = [3, 5, 4];
 
-const RecentRelatedItems = ({ products }: any) => {
+function RecentRelatedItems({ products }: any) {
   return (
     <section className="block-section">
       <div className="container">
@@ -20,10 +20,7 @@ const RecentRelatedItems = ({ products }: any) => {
                 const product = item?.attributes;
 
                 return (
-                  <div
-                    key={item?.id}
-                    className={`md:col-span-4`}
-                  >
+                  <div key={item?.id} className="md:col-span-4">
                     <PlaceItem
                       // priceText={`Average Price: $${
                       //   (product?.price * product?.discountPercentage) / 100
@@ -61,6 +58,6 @@ const RecentRelatedItems = ({ products }: any) => {
       </div>
     </section>
   );
-};
+}
 
 export default RecentRelatedItems;

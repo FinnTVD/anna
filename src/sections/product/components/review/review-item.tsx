@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import StarRating from '@/components/star-rating';
 
-const ReviewItem = () => {
+function ReviewItem() {
   return (
     <div className="flex">
       <div className="rounded-full shadow-md w-[80px] h-[80px]">
@@ -34,6 +34,6 @@ const ReviewItem = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ReviewItem;

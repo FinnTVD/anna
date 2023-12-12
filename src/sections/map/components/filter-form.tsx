@@ -13,7 +13,7 @@ import { DEAL_CATEGORIES, LOCATIONS } from '@/mock/common';
 import { Search } from 'lucide-react';
 import React from 'react';
 
-const FilterForm = () => {
+function FilterForm() {
   return (
     <div>
       <div className="p-5 mb-5">
@@ -82,6 +82,6 @@ const FilterForm = () => {
       </div>
     </div>
   );
-};
+}
 
 export default FilterForm;

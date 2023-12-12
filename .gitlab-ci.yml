@@ -32,7 +32,7 @@ build:
   stage: build
   only:
     refs:
-    - main
+      - main
   script:
     - docker pull $CI_REGISTRY_IMAGE:latest || true
     - docker build --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
@@ -45,7 +45,7 @@ release-dev:
   extends: .allow_run
   only:
     refs:
-    - main
+      - main
   script:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:dev
@@ -58,7 +58,7 @@ deploy-dev:
   extends: .allow_run
   only:
     refs:
-    - main
+      - main
   before_script:
     - apk update && apk add openssh-client bash
     - chmod 400 $SSH_PRIVATE_KEY_PRODUCTION
@@ -84,7 +84,7 @@ release-latest:
   extends: .allow_run
   only:
     refs:
-    - production
+      - production
   script:
     - docker pull $CI_REGISTRY_IMAGE:dev
     - docker tag $CI_REGISTRY_IMAGE:dev $CI_REGISTRY_IMAGE:latest
@@ -97,7 +97,7 @@ deploy-production:
   extends: .allow_run
   only:
     refs:
-    - production
+      - production
   before_script:
     - apk update && apk add openssh-client bash
     - chmod 400 $SSH_PRIVATE_KEY_PRODUCTION

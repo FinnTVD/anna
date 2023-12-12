@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OpeningHours = () => {
+function OpeningHours() {
   return (
     <section className="block-detail">
       <h2 className="text-[26px] text-primary font-light mb-5">
@@ -38,6 +38,6 @@ const OpeningHours = () => {
       </div>
     </section>
   );
-};
+}
 
 export default OpeningHours;

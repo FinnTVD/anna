@@ -1,14 +1,16 @@
-import Footer from '@/sections/home/components/footer';
-import Navbar from '@/sections/main/components/navbar';
+import Footer from '@/sections/main/components/footer/footer';
+import Navbar from '@/sections/main/components/navbar/navbar';
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="h-full">
       <Navbar />
-      <main className="h-full">{children}</main>
+      <main className="h-full">
+        <div className="px-6">{children}</div>
+      </main>
       <Footer />
     </div>
   );
-};
+}
 
 export default MainLayout;

@@ -1,7 +1,7 @@
 import { Facebook, Linkedin, Twitter } from 'lucide-react';
 import React from 'react';
 
-const ShareThisListing = () => {
+function ShareThisListing() {
   return (
     <section className="block-detail">
       <h2 className="text-[26px] text-primary font-light mb-5">
@@ -20,6 +20,6 @@ const ShareThisListing = () => {
       </div>
     </section>
   );
-};
+}
 
 export default ShareThisListing;

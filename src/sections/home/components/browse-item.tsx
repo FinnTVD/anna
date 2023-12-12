@@ -14,7 +14,7 @@ interface Props {
   items: ItemBrowse[];
 }
 
-const BrowseItem = ({ title, icon: Icon, items }: Props) => {
+function BrowseItem({ title, icon: Icon, items }: Props) {
   return (
     <div>
       <div className="mb-[10px] flex sm:flex-col lg:flex-row sm:items-start items-center lg:items-center">
@@ -41,6 +41,6 @@ const BrowseItem = ({ title, icon: Icon, items }: Props) => {
       </ul>
     </div>
   );
-};
+}
 
 export default BrowseItem;

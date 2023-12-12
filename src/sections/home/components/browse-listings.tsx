@@ -2,7 +2,7 @@ import { Brush } from 'lucide-react';
 import BrowseItem from './browse-item';
 import { BROWSE_LIST } from '@/mock/common';
 
-const BrowseListings = ({ categories }: any) => {
+function BrowseListings({ categories }: any) {
   return (
     <section className="block-section">
       <div className="container pb-[30px]">
@@ -13,8 +13,8 @@ const BrowseListings = ({ categories }: any) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-[30px]">
           {categories?.map((item: any) => {
-            const category = item?.attributes
-            
+            const category = item?.attributes;
+
             return (
               <BrowseItem
                 key={item?.id}
@@ -22,12 +22,12 @@ const BrowseListings = ({ categories }: any) => {
                 title={category?.name}
                 items={category?.children?.data}
               />
-            )
+            );
           })}
         </div>
       </div>
     </section>
   );
-};
+}
 
 export default BrowseListings;

@@ -10,7 +10,7 @@ const ITEMS = [
   'balcony',
 ];
 
-const Features = () => {
+function Features() {
   return (
     <section className="block-section">
       <h2 className="text-[26px] text-primary font-light mb-5">
@@ -32,6 +32,6 @@ const Features = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Features;

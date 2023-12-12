@@ -1,20 +1,20 @@
 'use client';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
-import { PROMOTE_LIST } from '@/mock/common';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const ImageSlide = ({ product }: any) => {
+function ImageSlide({ product }: any) {
   return (
     <section className="mt-[5px] mb-[10px]">
       <Swiper
         slidesPerView="auto"
         spaceBetween={0}
-        loop={true}
+        loop
         navigation={{
           nextEl: '.detail-swiper-button-next',
           prevEl: '.detail-swiper-button-prev',
@@ -24,7 +24,10 @@ const ImageSlide = ({ product }: any) => {
       >
         {!!product?.previews?.data?.length &&
           product?.previews?.data?.map((item: any) => {
-            const src = item?.attributes?.formats?.large?.url || item?.attributes?.url || ''
+            const src =
+              item?.attributes?.formats?.large?.url ||
+              item?.attributes?.url ||
+              '';
 
             return (
               <SwiperSlide key={item.id} className="!w-[550px]">
@@ -53,6 +56,6 @@ const ImageSlide = ({ product }: any) => {
       </div>
     </section>
   );
-};
+}
 
 export default ImageSlide;

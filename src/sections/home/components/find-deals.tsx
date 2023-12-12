@@ -15,7 +15,7 @@ import { DEAL_CATEGORIES, LOCATIONS } from '@/mock/common';
 import { Search } from 'lucide-react';
 import { SlidersCustom } from '@/components/sliders-custom';
 
-const FindDeals = () => {
+function FindDeals() {
   return (
     <section className="block-section bg-primary/80 ">
       <div className="container">
@@ -101,6 +101,6 @@ const FindDeals = () => {
       </div>
     </section>
   );
-};
+}
 
 export default FindDeals;

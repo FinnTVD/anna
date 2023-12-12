@@ -1,4 +1,5 @@
 'use client';
+
 import FormProvider, { RHFInput } from '@/components/hook-form';
 import { Button } from '@/components/ui/button';
 import { TextareaUnderline } from '@/components/ui/textarea-underline';
@@ -7,7 +8,6 @@ import { Session } from 'next-auth';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import useSWR from 'swr';
 
 interface IProps {
   session: Session | null;
@@ -29,7 +29,7 @@ const formSchema = z.object({
   }),
 });
 
-const UserInforForm = ({ session }: IProps) => {
+function UserInforForm({ session }: IProps) {
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -87,6 +87,6 @@ const UserInforForm = ({ session }: IProps) => {
       </div>
     </FormProvider>
   );
-};
+}
 
 export default UserInforForm;

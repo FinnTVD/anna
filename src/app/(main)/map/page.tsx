@@ -1,10 +1,7 @@
 import MapDetail from '@/sections/map/view/map-detail';
 
 const MapPage = async () => {
-
-  return (
-    <MapDetail />
-  );
+  return <MapDetail />;
 };
 
 export default MapPage;

@@ -39,7 +39,9 @@ export default function RHFInput({
               <InputUnderline
                 {...field}
                 type={type}
-                value={type === 'number' && field.value === 0 ? '' : field.value}
+                value={
+                  type === 'number' && field.value === 0 ? '' : field.value
+                }
                 onChange={(event) => {
                   if (type === 'number') {
                     field.onChange(Number(event.target.value));

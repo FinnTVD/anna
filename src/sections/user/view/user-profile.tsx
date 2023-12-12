@@ -8,11 +8,7 @@ const UserProfile = async () => {
   const session = await getServerSession(NEXT_AUTH_OPTIONS);
 
   if (!session) {
-    return (
-      <div>
-        Please Sign In!
-      </div>
-    )
+    return <div>Please Sign In!</div>;
   }
 
   return (

@@ -1,4 +1,5 @@
 'use client';
+
 import { RHFInput } from '@/components/hook-form';
 import FormProvider from '@/components/hook-form/form-provider';
 import {
@@ -63,13 +64,15 @@ export function Login({ children, ...other }: IProps & DialogProps) {
       <DialogContent className="sm:max-w-[425px]">
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
           <DialogHeader>
-            <DialogTitle><span className='text-primary'>Sign In</span></DialogTitle>
+            <DialogTitle>
+              <span className="text-primary">Sign In</span>
+            </DialogTitle>
           </DialogHeader>
 
           <div className="grid gap-4 py-4">
             <div className="flex flex-col gap-2">
               <label className="opacity-70 text-[10px] uppercase font-bold">
-                Email<em className='text-red-500'>*</em>
+                Email<em className="text-red-500">*</em>
               </label>
               <RHFInput
                 name="email"
@@ -80,7 +83,7 @@ export function Login({ children, ...other }: IProps & DialogProps) {
             </div>
             <div className="flex flex-col gap-2">
               <label className="opacity-70 text-[10px] uppercase font-bold">
-                Password<em className='text-red-500'>*</em>
+                Password<em className="text-red-500">*</em>
               </label>
               <RHFInput
                 type="password"

@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import PlaceItem from '@/sections/home/components/place-item';
 
-const SearchResults = ({ products }: any) => {
+function SearchResults({ products }: any) {
   return (
     <ScrollArea className="h-[639px]">
       <div className="p-5">
@@ -27,7 +27,8 @@ const SearchResults = ({ products }: any) => {
                   name={product?.name}
                   address={product?.address}
                   src={
-                    product?.image?.data?.attributes?.formats?.medium?.url || product?.image?.data?.attributes?.url
+                    product?.image?.data?.attributes?.formats?.medium?.url ||
+                    product?.image?.data?.attributes?.url
                   }
                   verified
                   top
@@ -42,6 +43,6 @@ const SearchResults = ({ products }: any) => {
       </div>
     </ScrollArea>
   );
-};
+}
 
 export default SearchResults;

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
-import ReviewForm from "./review-form";
+import { Button } from '@/components/ui/button';
+import ReviewForm from './review-form';
 
-const ReviewWriting = () => {
+function ReviewWriting() {
   return (
     <section className="block-detail">
       <h2 className="text-[26px] text-primary font-light mb-5">
@@ -19,6 +19,6 @@ const ReviewWriting = () => {
       </form>
     </section>
   );
-};
+}
 
 export default ReviewWriting;

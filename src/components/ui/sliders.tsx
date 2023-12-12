@@ -26,21 +26,26 @@ const Sliders = React.forwardRef<
     <SliderPrimitive.Track
       className={cn(
         'relative h-[2px] w-full grow overflow-hidden rounded-full bg-primary/80',
-        props.isDark && "bg-[#00000014]"
+        props.isDark && 'bg-[#00000014]'
       )}
     >
-      <SliderPrimitive.Range className={cn('absolute h-full bg-secondary', props.isDark && "bg-primary")} />
+      <SliderPrimitive.Range
+        className={cn(
+          'absolute h-full bg-secondary',
+          props.isDark && 'bg-primary'
+        )}
+      />
     </SliderPrimitive.Track>
     <SliderPrimitive.Thumb
       className={cn(
         'block h-[10px] w-[10px] rounded-full border-2 border-secondary bg-primary ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50',
-        props.isDark && "bg-white border-primary"
+        props.isDark && 'bg-white border-primary'
       )}
     />
     <SliderPrimitive.Thumb
       className={cn(
         'block h-[10px] w-[10px] rounded-full border-2 border-secondary bg-primary ring-offset-background transition-colors disabled:pointer-events-none disabled:opacity-50',
-        props.isDark && "bg-white border-primary"
+        props.isDark && 'bg-white border-primary'
       )}
     />
   </SliderPrimitive.Root>

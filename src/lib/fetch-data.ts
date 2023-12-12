@@ -6,7 +6,6 @@ export default async function fetchData(
   variables = {}
   // usePonyfill = true
 ) {
-  
   const res = await fetch(baseUrl, {
     method: 'POST',
     headers: {

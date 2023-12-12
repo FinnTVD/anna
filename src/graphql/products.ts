@@ -8,7 +8,7 @@ export const ALL_PRODUCTS_SLUGS = `
     }
   }
 }
-`
+`;
 
 export const HOME_PRODUCTS_QUERY = `
 query getProducts {
@@ -55,4 +55,4 @@ query getProducts {
     }
   }
 }
-`
+`;

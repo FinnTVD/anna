@@ -1,21 +1,29 @@
 'use client';
+
 import { InputUnderline } from '@/components/ui/input-underline';
 import { TextareaUnderline } from '@/components/ui/textarea-underline';
 import { Rating } from '@material-tailwind/react';
 import { Star } from 'lucide-react';
 
-const RatedIcon = () => (
-  <Star
-    strokeWidth={0.5}
-    className="w-[14px] h-[14px] text-primary fill-primary opacity-100"
-  />
-);
+function RatedIcon() {
+  return (
+    <Star
+      strokeWidth={0.5}
+      className="w-[14px] h-[14px] text-primary fill-primary opacity-100"
+    />
+  );
+}
 
-const UnratedIcon = () => (
-  <Star strokeWidth={0.5} className="w-[14px] h-[14px] fill-black opacity-10" />
-);
+function UnratedIcon() {
+  return (
+    <Star
+      strokeWidth={0.5}
+      className="w-[14px] h-[14px] fill-black opacity-10"
+    />
+  );
+}
 
-const ReviewForm = () => {
+function ReviewForm() {
   return (
     <div className="flex flex-col gap-[20px]">
       <h4 className="text-sm font-bold">Review your experience</h4>
@@ -83,6 +91,6 @@ const ReviewForm = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ReviewForm;

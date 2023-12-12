@@ -1,8 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-
 
 @layer base {
   :root {
@@ -27,7 +25,7 @@
     --ring: 262.1 83.3% 57.8%;
     --radius: 0rem;
   }
- 
+
   .dark {
     --background: 224 71.4% 4.1%;
     --foreground: 210 20% 98%;
@@ -51,8 +49,6 @@
   }
 }
 
-
- 
 @layer base {
   * {
     @apply border-border;
@@ -63,7 +59,15 @@
 }
 
 .primary-nav > li.active > a {
-  @apply text-primary px-[10px] border-[#00000033]
+  @apply text-primary px-[10px] border-[#00000033];
+}
+
+/*body {*/
+/*  font-family: 'SVN-Nexa' !important;*/
+/*}*/
+
+html {
+  font-size: 1vw;
 }
 
 .container {
@@ -105,6 +109,7 @@
   display: none !important;
 }
 
-.gm-style a[href^="https://maps.google.com/maps"] {
+.gm-style a[href^="https://maps.google.com/maps"]
+{
   display: none !important;
 }

@@ -1,7 +1,7 @@
 import { EVENT_LIST } from '@/mock/common';
 import EventItem from './event-item';
 
-const EventNearYou = () => {
+function EventNearYou() {
   return (
     <section className="block-section bg-[#0000000d] !pb-[60px]">
       <div className="container">
@@ -26,6 +26,6 @@ const EventNearYou = () => {
       </div>
     </section>
   );
-};
+}
 
 export default EventNearYou;

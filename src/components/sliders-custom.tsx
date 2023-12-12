@@ -28,7 +28,7 @@ export function SlidersCustom({
         <div
           className={cn(
             'flex justify-between px-[2px] py-1 text-white text-[11px] font-bold',
-            props.isDark && "text-muted-foreground"
+            props.isDark && 'text-muted-foreground'
           )}
         >
           <div>
@@ -41,11 +41,7 @@ export function SlidersCustom({
           </div>
         </div>
       )}
-      <Sliders
-        value={value}
-        onValueChange={handleValueChange}
-        {...props}
-      />
+      <Sliders value={value} onValueChange={handleValueChange} {...props} />
     </div>
   );
 }

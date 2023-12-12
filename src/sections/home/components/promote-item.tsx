@@ -1,4 +1,5 @@
 'use client';
+
 import StarRating from '@/components/star-rating';
 import {
   HoverCard,
@@ -23,7 +24,7 @@ interface Props {
   slug: string;
 }
 
-const PromoteItem = ({
+function PromoteItem({
   priceText,
   category,
   name,
@@ -32,7 +33,7 @@ const PromoteItem = ({
   slug,
   star = 0,
   review = 0,
-}: Props) => {
+}: Props) {
   const control = useBoolean();
 
   return (
@@ -64,7 +65,7 @@ const PromoteItem = ({
       {/* Additional Info */}
       <div
         className={cn(
-          "px-5 py-[15px] bg-primary shadow-md relative",
+          'px-5 py-[15px] bg-primary shadow-md relative',
           'after:content-[""] after:absolute after:top-0 after:left-0 after:w-full after:h-full bg-[#0000004d] after:-z-10'
         )}
       >
@@ -105,6 +106,6 @@ const PromoteItem = ({
       </div>
     </div>
   );
-};
+}
 
 export default PromoteItem;

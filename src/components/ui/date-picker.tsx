@@ -25,8 +25,11 @@ export function DatePicker({ placeholder, className, ...props }: Props) {
     <Popover>
       <PopoverTrigger className="h-11" asChild>
         <Button
-          variant={'outline'}
-          className={cn('w-full justify-start text-left font-normal', className)}
+          variant="outline"
+          className={cn(
+            'w-full justify-start text-left font-normal',
+            className
+          )}
         >
           {date ? (
             format(date, 'dd/MM/yyyy')
