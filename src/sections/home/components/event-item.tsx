@@ -15,7 +15,7 @@ function EventItem({ name, time, desc, linkMore, day, month }: Props) {
     <div className="relative pl-[70px]">
       <div
         className={cn(
-          "absolute w-[50px] left-0 rounded-[3px] border-2 border-[#0000001a] text-center pt-[5px] pb-2 px-[3px]",
+          'absolute w-[50px] left-0 rounded-[3px] border-2 border-[#0000001a] text-center pt-[5px] pb-2 px-[3px]',
           'before:w-[37px] before:h-[6px] before:content-[""] before:absolute before:-top-[3px] before:left-1 before:bg-[url("/img/calendar-spring.png")]'
         )}
       >

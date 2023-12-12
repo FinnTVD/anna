@@ -5,7 +5,7 @@ function Heroes() {
   return (
     <section
       className={cn(
-        "flex flex-col items-center justify-center relative text-center w-full",
+        'flex flex-col items-center justify-center relative text-center w-full',
         `md:h-[calc(100vh_-_43px)]`
       )}
     >

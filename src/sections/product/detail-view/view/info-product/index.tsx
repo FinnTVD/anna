@@ -1,17 +1,17 @@
-"use client"
+'use client';
 import { Color_1, MapMobile } from '@/app/icons';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 const InfoProduct = () => {
   const [numberInfor, setNumberInfor] = useState<number>(1);
 
   const handleChangeColor = (e: any) => {
     console.log(e);
-  }
+  };
 
   const handleHiddenInfor = (e: any, value: number) => {
     console.log(e);
-  }
+  };
 
   return (
     <div className="right-detail max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-sm:mt-[0rem] max-sm:ml-[0rem] max-sm:relative max-md:w-full">
@@ -60,9 +60,9 @@ const InfoProduct = () => {
       </ul>
       {/* support */}
       <p className="max-lg:text-[0.95rem] max-lg:mb-[2.5rem] max-md:w-[31.625rem] text-[1rem] text-[#3F3F3F] font-bold leading-[1.5rem] mb-[3.7rem] max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
-        Hướng dẫn sử dụng:<br></br> + Tháo kính bằng 2 tay hoặc những nơi có nhiệt độ
-        cao làm biến dạng kính.<br></br> + Không bỏ kính vào cốp xe hoặc những nơi có
-        nhiệt độ cao làm biến dạng kính.
+        Hướng dẫn sử dụng:<br></br> + Tháo kính bằng 2 tay hoặc những nơi có
+        nhiệt độ cao làm biến dạng kính.<br></br> + Không bỏ kính vào cốp xe
+        hoặc những nơi có nhiệt độ cao làm biến dạng kính.
       </p>
       {/* button */}
       <div className="max-lg:px-[0.5rem]  max-lg:py-[0.5rem] px-[1rem] py-[1.06rem] bg-[#CAF2F1]  rounded-[5rem] mb-[2.6rem] max-sm:p-0 ">
@@ -81,7 +81,9 @@ const InfoProduct = () => {
             </div>
           </div>
           <div className="flex bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] max-lg:ml-[0.5rem] text-white text-[1rem] font-extrabold leading-[1.4rem] items-center px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between">
-            <p className="max-lg:mr-[0.49rem] max-lg:text-[1rem] mr-[1.49rem]">Thêm vào giỏ</p>
+            <p className="max-lg:mr-[0.49rem] max-lg:text-[1rem] mr-[1.49rem]">
+              Thêm vào giỏ
+            </p>
             <p className=" title-add-cart">120.000.000đ</p>
           </div>
         </div>
@@ -113,8 +115,10 @@ const InfoProduct = () => {
         <div>
           <div>
             <div
-              className={`flex justify-between py-[0.9375rem] ${numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'} border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 1)}
+              className={`flex justify-between py-[0.9375rem] ${
+                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
+              } border-[#ECECEC]`}
+              onClick={() => handleHiddenInfor('show', 1)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Thông tin
@@ -158,23 +162,24 @@ const InfoProduct = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-
               )}
             </div>
             <p className="max-lg:text-[0.9rem] max-lg:w-full hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
-              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại
-              Anna Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử
-              dụng: + Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc
-              những nơi có nhiệt độ cao làm biến dạng kính. + Không bỏ kính
-              vào túi sách nếu không có hộp kính, vật dụng nhọn như chìa
-              khóa sẽ làm xước kính. + Không rửa kính lau kính bằng các chất
-              có tính tẩy rửa mạnh làm bong tróc lớp váng phủ
+              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
+              Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
+              Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
+              nhiệt độ cao làm biến dạng kính. + Không bỏ kính vào túi sách nếu
+              không có hộp kính, vật dụng nhọn như chìa khóa sẽ làm xước kính. +
+              Không rửa kính lau kính bằng các chất có tính tẩy rửa mạnh làm
+              bong tróc lớp váng phủ
             </p>
           </div>
           <div>
             <div
-              className={`flex justify-between py-[0.9375rem] ${numberInfor !== 2 ? 'border-b-[1px]' : 'border-b-[0px]'} border-[#ECECEC] `}
-              onClick={() => handleHiddenInfor("show", 2)}
+              className={`flex justify-between py-[0.9375rem] ${
+                numberInfor !== 2 ? 'border-b-[1px]' : 'border-b-[0px]'
+              } border-[#ECECEC] `}
+              onClick={() => handleHiddenInfor('show', 2)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Vận chuyển
@@ -221,19 +226,21 @@ const InfoProduct = () => {
               )}
             </div>
             <p className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
-              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại
-              Anna Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử
-              dụng: + Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc
-              những nơi có nhiệt độ cao làm biến dạng kính. + Không bỏ kính
-              vào túi sách nếu không có hộp kính, vật dụng nhọn như chìa
-              khóa sẽ làm xước kính. + Không rửa kính lau kính bằng các chất
-              có tính tẩy rửa mạnh làm bong tróc lớp váng phủ
+              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
+              Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
+              Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
+              nhiệt độ cao làm biến dạng kính. + Không bỏ kính vào túi sách nếu
+              không có hộp kính, vật dụng nhọn như chìa khóa sẽ làm xước kính. +
+              Không rửa kính lau kính bằng các chất có tính tẩy rửa mạnh làm
+              bong tróc lớp váng phủ
             </p>
           </div>
           <div>
             <div
-              className={`flex justify-between py-[0.9375rem] ${numberInfor !== 3 ? 'border-b-[1px]' : 'border-b-[0px]'} border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 3)}
+              className={`flex justify-between py-[0.9375rem] ${
+                numberInfor !== 3 ? 'border-b-[1px]' : 'border-b-[0px]'
+              } border-[#ECECEC]`}
+              onClick={() => handleHiddenInfor('show', 3)}
             >
               <span className=" max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Đổi trả
@@ -280,32 +287,46 @@ const InfoProduct = () => {
               )}
             </div>
             <p className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
-              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại
-              Anna Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử
-              dụng: + Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc
-              những nơi có nhiệt độ cao làm biến dạng kính. + Không bỏ kính
-              vào túi sách nếu không có hộp kính, vật dụng nhọn như chìa
-              khóa sẽ làm xước kính. + Không rửa kính lau kính bằng các chất
-              có tính tẩy rửa mạnh làm bong tróc lớp váng phủ
+              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
+              Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
+              Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
+              nhiệt độ cao làm biến dạng kính. + Không bỏ kính vào túi sách nếu
+              không có hộp kính, vật dụng nhọn như chìa khóa sẽ làm xước kính. +
+              Không rửa kính lau kính bằng các chất có tính tẩy rửa mạnh làm
+              bong tróc lớp váng phủ
             </p>
           </div>
           <div>
             <div
-              className={`flex justify-between py-[0.9375rem] ${numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'} border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 1)}
+              className={`flex justify-between py-[0.9375rem] ${
+                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
+              } border-[#ECECEC]`}
+              onClick={() => handleHiddenInfor('show', 1)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Chọn kính theo gương mặt
               </span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-                <path d="M9 5.5L16 12.5L9 19.5" stroke="#262626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
+              >
+                <path
+                  d="M9 5.5L16 12.5L9 19.5"
+                  stroke="#262626"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InfoProduct
+export default InfoProduct;

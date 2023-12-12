@@ -21,10 +21,10 @@ function StarRating({ value = 0, isDark = false }: Props) {
           key={idx}
           strokeWidth={0.5}
           className={cn(
-            "w-[11px] h-[11px] fill-black opacity-10",
-            isDark && "fill-white",
-            !!val && "text-primary fill-primary opacity-100",
-            isDark && !!val && "text-white fill-white opacity-100"
+            'w-[11px] h-[11px] fill-black opacity-10',
+            isDark && 'fill-white',
+            !!val && 'text-primary fill-primary opacity-100',
+            isDark && !!val && 'text-white fill-white opacity-100'
           )}
         />
       ))}

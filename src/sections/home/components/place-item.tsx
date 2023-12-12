@@ -46,7 +46,7 @@ function PlaceItem({
       {top && (
         <figure
           className={cn(
-            "absolute shadow-md bg-primary text-white font-bold uppercase text-[11px] p-[5px] -top-[6px] -right-[6px] z-10",
+            'absolute shadow-md bg-primary text-white font-bold uppercase text-[11px] p-[5px] -top-[6px] -right-[6px] z-10',
             'after:content-[""] after:w-0 after:h-0 after:border-solid after:border-t-[6px] after:border-r-[6px] after:border-t-primary after:border-x-transparent after:border-b-transparent after:absolute after:-bottom-[6px] after:right-0 '
           )}
         >
@@ -69,7 +69,7 @@ function PlaceItem({
         </div>
         <div
           className={cn(
-            "group-hover/item:scale-110 transition-all ease-in-out duration-600 absolute w-full h-full hidde scale-[1.01] top-0 left-0 overflow-auto -z-10 after:opacity-70  bg-center bg-contain bg-no-repeat",
+            'group-hover/item:scale-110 transition-all ease-in-out duration-600 absolute w-full h-full hidde scale-[1.01] top-0 left-0 overflow-auto -z-10 after:opacity-70  bg-center bg-contain bg-no-repeat',
             'after:bg-gradient-to-b after:from-transparent after:to-black after:bg-[#00000033] after:absolute after:bottom-0 after:left-0 after:w-full after:h-full after:content-[""]'
           )}
           style={{ backgroundImage: `url(${src})` }}

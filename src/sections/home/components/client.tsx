@@ -18,10 +18,10 @@ function Client() {
       className="relative !z-0 !pl-[10px] !pb-[30px] -top-[30px]"
       style={
         {
-          "--swiper-pagination-color": "#000",
-          "--swiper-pagination-bullet-width": "5px",
-          "--swiper-pagination-bullet-height": "5px",
-          "--swiper-pagination-bullet-horizontal-gap": "5px",
+          '--swiper-pagination-color': '#000',
+          '--swiper-pagination-bullet-width': '5px',
+          '--swiper-pagination-bullet-height': '5px',
+          '--swiper-pagination-bullet-horizontal-gap': '5px',
         } as any
       }
     >

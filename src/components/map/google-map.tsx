@@ -22,7 +22,7 @@ function MapUI({ center, currentLocation }: Props) {
   // laod script for google map
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_APIKEY!,
-    libraries: ["places"],
+    libraries: ['places'],
   });
 
   if (!isLoaded) return <div>Loading....</div>;
@@ -33,7 +33,7 @@ function MapUI({ center, currentLocation }: Props) {
       zoom={currentLocation ? 14 : 10}
       center={(currentLocation || center) as any}
       mapContainerClassName="map"
-      mapContainerStyle={{ width: "100%", height: "100%", margin: "auto" }}
+      mapContainerStyle={{ width: '100%', height: '100%', margin: 'auto' }}
     >
       <MarkerF position={currentLocation} icon="/img/marker.png" />
     </GoogleMap>
