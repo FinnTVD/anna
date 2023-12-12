@@ -5,7 +5,6 @@ import ICFacebookFooter from '@/components/Icons/ICFacebookFooter';
 import ICInstagramFooter from '@/components/Icons/ICInstagramFooter';
 import ICShopeeFooter from '@/components/Icons/ICShoppeeFooter';
 import ICTiktokFooter from '@/components/Icons/ICTiktokFooter';
-import Image from 'next/image';
 
 function Footer() {
   const listIcon = [

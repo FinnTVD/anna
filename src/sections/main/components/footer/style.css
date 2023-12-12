@@ -1,31 +1,27 @@
-.footer-layout-main .input-email::placeholder {
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
-  padding: 0.5rem 1.5rem;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.footer-right .footer-info-row {
-  display: flex;
-}
+@layer components {
+  .footer-layout-main .input-email::placeholder {
+    @apply text-[1rem] not-italic font-bold leading-snug py-[0.5rem] px-[1.5rem];
+  }
 
-.footer-right .footer-info-row .footer-info-row-left,
-.footer-right .footer-info-row .footer-info-row-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .footer-right .footer-info-row {
+    @apply flex;
+  }
 
-.footer-right .footer-info-row .footer-info-row-left p,
-.footer-right .footer-info-row .footer-info-row-right p {
-  color: #caf2f1;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 140%; /* 1.05rem */
-}
+  .footer-right .footer-info-row .footer-info-row-left,
+  .footer-right .footer-info-row .footer-info-row-right {
+    @apply flex flex-col items-start;
+  }
 
-.footer-right .footer-info-row .footer-info-row-left {
-  margin-right: 4rem;
+  .footer-right .footer-info-row .footer-info-row-left p,
+  .footer-right .footer-info-row .footer-info-row-right p {
+    @apply text-[#caf2f1] text-[0.75rem] not-italic font-extrabold leading-[140%];
+  }
+
+  .footer-right .footer-info-row .footer-info-row-left {
+    @apply mr-[4rem];
+  }
 }
