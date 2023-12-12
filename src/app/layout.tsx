@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import './globals.css';
-import Head from 'next/head';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -27,9 +26,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="./favicon.ico" />
-      </Head>
       <body className={lato.className}>{children}</body>
     </html>
   );
