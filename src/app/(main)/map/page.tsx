@@ -1,7 +1,5 @@
-import MapDetail from '@/sections/map/view/map-detail';
-
 const MapPage = async () => {
-  return <MapDetail />;
+  return <>map không có gì đâu</>;
 };
 
 export default MapPage;
