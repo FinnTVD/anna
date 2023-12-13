@@ -62,12 +62,9 @@
   @apply text-primary px-[10px] border-[#00000033];
 }
 
-/*body {*/
-/*  font-family: 'SVN-Nexa' !important;*/
-/*}*/
-
 html {
   font-size: 1vw;
+  font-family: SVN-Nexa !important;
 }
 
 .container {

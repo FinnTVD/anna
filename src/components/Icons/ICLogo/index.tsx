@@ -1,9 +1,14 @@
-function ICLogo() {
+interface IProps {
+  width?: string | number;
+  height?: string | number;
+}
+
+function ICLogo(props: IProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="45"
-      height="40"
+      width={props.width ?? '45'}
+      height={props.height ?? '40'}
       viewBox="0 0 45 40"
       fill="none"
     >
