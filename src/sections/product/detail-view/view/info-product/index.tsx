@@ -1,8 +1,10 @@
 'use client';
+
 import { Color_1, MapMobile } from '@/app/icons';
+import { ICIncreaseIcon, ICDecreaseIcon } from '@/components/Icons';
 import React, { useState } from 'react';
 
-const InfoProduct = () => {
+function InfoProduct() {
   const [numberInfor, setNumberInfor] = useState<number>(1);
 
   const handleChangeColor = (e: any) => {
@@ -10,7 +12,7 @@ const InfoProduct = () => {
   };
 
   const handleHiddenInfor = (e: any, value: number) => {
-    console.log(e);
+    setNumberInfor(value);
   };
 
   return (
@@ -60,9 +62,11 @@ const InfoProduct = () => {
       </ul>
       {/* support */}
       <p className="max-lg:text-[0.95rem] max-lg:mb-[2.5rem] max-md:w-[31.625rem] text-[1rem] text-[#3F3F3F] font-bold leading-[1.5rem] mb-[3.7rem] max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
-        Hướng dẫn sử dụng:<br></br> + Tháo kính bằng 2 tay hoặc những nơi có
-        nhiệt độ cao làm biến dạng kính.<br></br> + Không bỏ kính vào cốp xe
-        hoặc những nơi có nhiệt độ cao làm biến dạng kính.
+        Hướng dẫn sử dụng:
+        <br /> + Tháo kính bằng 2 tay hoặc những nơi có nhiệt độ cao làm biến
+        dạng kính.
+        <br /> + Không bỏ kính vào cốp xe hoặc những nơi có nhiệt độ cao làm
+        biến dạng kính.
       </p>
       {/* button */}
       <div className="max-lg:px-[0.5rem]  max-lg:py-[0.5rem] px-[1rem] py-[1.06rem] bg-[#CAF2F1]  rounded-[5rem] mb-[2.6rem] max-sm:p-0 ">
@@ -71,11 +75,11 @@ const InfoProduct = () => {
             <div className="max-lg:ml-[-0.95rem] max-lg:mr-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]">
               -
             </div>
-            <div className="number-add-cart-opacity"></div>
+            <div className="number-add-cart-opacity" />
             <span className="max-lg:px-[0.5rem] number-add-cart text-[1rem] font-[800] leading-[1.5rem] font-[SVN-Nexa]">
               08
             </span>
-            <div className="number-add-cart-opacity"></div>
+            <div className="number-add-cart-opacity" />
             <div className="max-lg:mr-[-0.95rem] max-lg:ml-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]">
               +
             </div>
@@ -123,48 +127,13 @@ const InfoProduct = () => {
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Thông tin
               </span>
-              {numberInfor == 1 ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6 12.5H18H6Z"
-                    fill="#6A6A6A"
-                  />
-                  <path
-                    d="M6 12.5H18"
-                    stroke="#262626"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className=""
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    d="M6 12.5H12M12 12.5H18M12 12.5V18.5M12 12.5V6.5"
-                    stroke="#262626"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
+              {numberInfor == 1 ? <ICDecreaseIcon /> : <ICIncreaseIcon />}
             </div>
-            <p className="max-lg:text-[0.9rem] max-lg:w-full hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
+            <p
+              className={`max-lg:text-[0.9rem] max-lg:w-full ${
+                numberInfor !== 1 ? 'h-0' : 'h-fit'
+              } overflow-hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
+            >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
               Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
               Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
@@ -184,48 +153,13 @@ const InfoProduct = () => {
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Vận chuyển
               </span>
-              {numberInfor == 2 ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6 12.5H18H6Z"
-                    fill="#6A6A6A"
-                  />
-                  <path
-                    d="M6 12.5H18"
-                    stroke="#262626"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className=""
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    d="M6 12.5H12M12 12.5H18M12 12.5V18.5M12 12.5V6.5"
-                    stroke="#262626"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
+              {numberInfor == 2 ? <ICDecreaseIcon /> : <ICIncreaseIcon />}
             </div>
-            <p className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
+            <p
+              className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
+                numberInfor !== 2 ? 'h-0' : 'h-fit'
+              } overflow-hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
+            >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
               Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
               Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
@@ -245,48 +179,13 @@ const InfoProduct = () => {
               <span className=" max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Đổi trả
               </span>
-              {numberInfor == 3 ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M6 12.5H18H6Z"
-                    fill="#6A6A6A"
-                  />
-                  <path
-                    d="M6 12.5H18"
-                    stroke="#262626"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className=""
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    d="M6 12.5H12M12 12.5H18M12 12.5V18.5M12 12.5V6.5"
-                    stroke="#262626"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
+              {numberInfor == 3 ? <ICDecreaseIcon /> : <ICIncreaseIcon />}
             </div>
-            <p className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
+            <p
+              className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none ${
+                numberInfor !== 3 ? 'h-0' : 'h-fit'
+              } overflow-hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
+            >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
               Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
               Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
@@ -316,9 +215,9 @@ const InfoProduct = () => {
                 <path
                   d="M9 5.5L16 12.5L9 19.5"
                   stroke="#262626"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -327,6 +226,6 @@ const InfoProduct = () => {
       </div>
     </div>
   );
-};
+}
 
 export default InfoProduct;
