@@ -20,13 +20,16 @@ export interface numberArrow {
 
 const SlideProduct: React.FC<numberArrow> = ({ number }) => {
   return (
-    <div className="flex ">
+    <div className="flex relative h-full">
       <Swiper
         spaceBetween={32}
         loop={true}
         breakpoints={{
-          1024: {
+          1280: {
             slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 3,
           },
           910: {
             slidesPerView: 3,
@@ -39,25 +42,25 @@ const SlideProduct: React.FC<numberArrow> = ({ number }) => {
         modules={[Pagination, Navigation]}
         className="mySwiper pl-[0rem] mx-[1rem] "
       >
-        <SwiperSlide className="slide-hover rounded-[1rem] box-shadown  pb-1rem">
+        <SwiperSlide className="slide-hover rounded-[1rem] box-shadown pb-1rem overflow-hidden">
           <Iterm />
         </SwiperSlide>
-        <SwiperSlide className="slide-hover ">
+        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Iterm />
         </SwiperSlide>
-        <SwiperSlide className="slide-hover ">
+        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Iterm />
         </SwiperSlide>
-        <SwiperSlide className="slide-hover ">
+        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Iterm />
         </SwiperSlide>
-        <SwiperSlide className="slide-hover ">
+        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Iterm />
         </SwiperSlide>
-        <SwiperSlide className="slide-hover ">
+        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Iterm />
         </SwiperSlide>
-        <SwiperSlide className="slide-hover ">
+        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Iterm />
         </SwiperSlide>
       </Swiper>
