@@ -1,8 +1,9 @@
 'use client';
+
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-const ImageProduct = () => {
+function ImageProduct() {
   const [imageView, setImageView] = useState('');
   const handleChangeImage = (img: string) => {
     console.log(img);
@@ -103,6 +104,6 @@ const ImageProduct = () => {
       </ul>
     </div>
   );
-};
+}
 
 export default ImageProduct;

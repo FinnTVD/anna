@@ -11,3 +11,10 @@ declare module 'next-auth' {
     };
   }
 }
+
+export interface IPostData {
+  url: string;
+  method: 'post' | 'put' | 'get' | 'delete';
+  body?: FormData | any;
+  token?: string;
+}

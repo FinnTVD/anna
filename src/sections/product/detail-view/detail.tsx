@@ -4,13 +4,24 @@ import ImageProduct from '@/sections/product/detail-view/view/image-product';
 import InfoProduct from '@/sections/product/detail-view/view/info-product';
 import RecommendProduct from '@/sections/product/detail-view/view/recommend-product';
 import { ArrowRight } from 'lucide-react';
+import { postData } from '@/lib/post-data';
+import { IPostData } from '@/types/next-auth';
 
 interface IProps {
   slug: string;
 }
 
-const ProductDetail = async ({ slug }: IProps) => {
+function ProductDetail({ slug }: IProps) {
+  const bodyApi: IPostData = {
+    url: `products/${slug}`,
+    method: 'get',
+  };
+
+  const check = postData(bodyApi);
+
+  console.log('check', check);
   return (
+    // <div>ssss</div>
     <div className="pt-[3.41rem]">
       {/* section 1 */}
       <div className=" flex  justify-center max-lg:px-[1rem]  max-lg:mx-[0rem] mx-[1.5rem] mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-sm:mx-0 max-sm:px-[0.75rem]">
@@ -70,7 +81,7 @@ const ProductDetail = async ({ slug }: IProps) => {
         <div className="max-sm:hidden h-[25.625rem]">
           <SlideProduct number={1} />
         </div>
-        <div className="hidden max-sm:flex flex-wrap px-[0.375rem]"></div>
+        <div className="hidden max-sm:flex flex-wrap px-[0.375rem]" />
         <div className="hidden justify-center h-full mt-[1rem] max-sm:flex">
           <ArrowRight />
           <p className=" text-[1.125rem] ml-[0.62rem] text-right max-sm:hidden">
@@ -90,7 +101,7 @@ const ProductDetail = async ({ slug }: IProps) => {
         <div className="max-sm:hidden h-[25.625rem]">
           <SlideProduct number={2} />
         </div>
-        <div className="hidden max-sm:flex flex-wrap px-[0.375rem]"></div>
+        <div className="hidden max-sm:flex flex-wrap px-[0.375rem]" />
         <div className="hidden justify-center h-full mt-[1rem] max-sm:flex">
           <ArrowRight />
           <p className=" text-[1.125rem] ml-[0.62rem] text-right max-sm:hidden">
@@ -113,6 +124,6 @@ const ProductDetail = async ({ slug }: IProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductDetail;

@@ -1,4 +1,4 @@
-export function ICIncreaseIcon() {
+export default function ICIncreaseIcon() {
   return (
     <svg
       className=""
