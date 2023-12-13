@@ -105,7 +105,7 @@
       @apply text-[4.26667rem] leading-[5.97333rem] font-extrabold not-italic;
     }
     .footer-left p {
-      @apply text-[3.73333rem] font-extrabold leading-[5.22667rem] not-italic;
+      @apply text-[3.73333rem] mt-[5rem] font-extrabold leading-[5.22667rem] not-italic;
     }
     .list-icon-footer-left {
       @apply hidden;
