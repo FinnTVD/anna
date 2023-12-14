@@ -1,3 +1,5 @@
+// 'use client';
+
 import { Change, Clean, Executive, Fixed, Free } from '@/app/icons';
 import SlideProduct from '@/sections/product/components/slide/Slide';
 import ImageProduct from '@/sections/product/detail-view/view/image-product';
@@ -11,23 +13,36 @@ interface IProps {
   slug: string;
 }
 
-function ProductDetail({ slug }: IProps) {
+const ProductDetail = async ({ slug }: IProps) => {
+  let dataInit;
+
+  // use
   const bodyApi: IPostData = {
-    url: `products/${slug}`,
+    url: `products-details/${slug}`,
     method: 'get',
   };
+  // postData(bodyApi)
 
-  const check = postData(bodyApi);
+  try {
+    await postData(bodyApi).then((res) => {
+      dataInit = res;
+    });
+  } catch (error: any) {
+    console.log(error);
+  }
 
-  console.log('check', check);
+  console.log('dataInit', dataInit);
+
   return (
     // <div>ssss</div>
     <div className="pt-[3.41rem]">
       {/* section 1 */}
-      <div className=" flex  justify-center max-lg:px-[1rem]  max-lg:mx-[0rem] mx-[1.5rem] mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-sm:mx-0 max-sm:px-[0.75rem]">
-        <ImageProduct />
-        {/* right */}
-        <InfoProduct />
+      <div className="flex justify-center w-full">
+        <div className="flex xl:max-w-[1400px] max-xl:px-[6.25rem]  mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-md:mx-[3.2rem] max-sm:px-[0.75rem]">
+          <ImageProduct dataInit={dataInit} />
+          {/* right */}
+          <InfoProduct dataInit={dataInit} />
+        </div>
       </div>
       {/* section 2 */}
       <div className="px-[6.25rem] border-t border-b border-teal-300 ">
@@ -124,6 +139,6 @@ function ProductDetail({ slug }: IProps) {
       </div>
     </div>
   );
-}
+};
 
 export default ProductDetail;

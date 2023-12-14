@@ -6,7 +6,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
     <div className="h-full">
       <Navbar />
       <main className="h-full">
-        <div className="px-6">{children}</div>
+        <div>{children}</div>
       </main>
       <Footer />
     </div>

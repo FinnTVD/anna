@@ -2,9 +2,15 @@
 
 import { Color_1, MapMobile } from '@/app/icons';
 import { ICIncreaseIcon, ICDecreaseIcon } from '@/components/Icons';
+import { IDetailProductRes } from '@/types/detail-product';
 import React, { useState } from 'react';
 
-function InfoProduct() {
+interface IProps {
+  dataInit?: IDetailProductRes;
+}
+
+function InfoProduct(props: IProps) {
+  const { dataInit } = props;
   const [numberInfor, setNumberInfor] = useState<number>(1);
 
   const handleChangeColor = (e: any) => {
@@ -19,17 +25,18 @@ function InfoProduct() {
     <div className="right-detail max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-sm:mt-[0rem] max-sm:ml-[0rem] max-sm:relative max-md:w-full">
       <div className="bg-[#CAF2F1] h-[1.4375rem] border-[#C5C5C5] md:border-[1px] rounded-[2.5rem] mb-[0.62rem] w-[4.875rem]  max-sm:mb-[0.5rem] ">
         <p className="text-[0.75rem]  text-[#454545] font-bold leading-[1.2375rem] h-[1.4375rem] text-center items-center max-sm:text-[0.625rem] ">
-          Gọng kính
+          Gọng kính 
+          {/* {dataInit?.name} */}
         </p>
       </div>
       <p className="text-[1.75rem] font-[850] text-[#454545] leading-[2.1rem] mb-[0.99rem] max-sm:text-[1.5rem] max-sm:leading-[1.95rem] max-sm:mb-[0.75rem]">
-        GK – 380CK081
+        {dataInit?.name}
       </p>
       <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] max-sm:hidden">
-        320.000đ
+        {dataInit?.price}đ 
       </p>
       <p className="text-[1rem] leading-[1.4rem] font-bold text-[#6A6A6A] line-through max-sm:hidden">
-        640.000
+        {dataInit?.regular_price}đ
       </p>
       <ul className="max-lg:mt-[1.06rem] max-lg:mb-[2.31rem] list-color flex mt-[2.06rem] mb-[3.31rem] max-sm:hidden">
         <li
@@ -134,13 +141,7 @@ function InfoProduct() {
                 numberInfor !== 1 ? 'h-0' : 'h-fit'
               } overflow-hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
-              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
-              Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
-              Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
-              nhiệt độ cao làm biến dạng kính. + Không bỏ kính vào túi sách nếu
-              không có hộp kính, vật dụng nhọn như chìa khóa sẽ làm xước kính. +
-              Không rửa kính lau kính bằng các chất có tính tẩy rửa mạnh làm
-              bong tróc lớp váng phủ
+              {dataInit?.description}
             </p>
           </div>
           <div>
@@ -153,7 +154,7 @@ function InfoProduct() {
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Vận chuyển
               </span>
-              {numberInfor == 2 ? <ICDecreaseIcon /> : <ICIncreaseIcon />}
+              {numberInfor === 2 ? <ICDecreaseIcon /> : <ICIncreaseIcon />}
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
