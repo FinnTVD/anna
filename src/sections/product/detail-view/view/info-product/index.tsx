@@ -1,17 +1,16 @@
-'use client';
+"use client";
 
-import { MapMobile } from '@/app/icons';
-import { ICIncreaseIcon, ICDecreaseIcon } from '@/components/Icons';
-import { postData } from '@/lib/post-data';
-import { IDetailProductRes } from '@/types/detail-product';
-import { IPostData } from '@/types/next-auth';
-import { formatCurrencyVND } from '@/ultils/format-price';
-import React, { useEffect, useState } from 'react';
-import useSWR from 'swr';
+import { MapMobile } from "@/app/icons";
+import { ICIncreaseIcon, ICDecreaseIcon } from "@/components/Icons";
+import { IDetailProductRes } from "@/types/detail-product";
+import { formatCurrencyVND } from "@/ultils/format-price";
+import React, { useEffect, useState } from "react";
+// import "./style.css";
 
 interface IProps {
   dataInit?: IDetailProductRes;
-  slug?: string | number;
+  handleChangeColorGetApi: (value: string | number | null) => void;
+  listColorProduct: any;
 }
 
 interface IDataProduct {
@@ -21,82 +20,76 @@ interface IDataProduct {
 }
 
 function InfoProduct(props: IProps) {
-  const { dataInit, slug } = props;
-  const [dataInitInfoProduct, setDataInitInfoProduct] = useState(dataInit);
+  const { dataInit, handleChangeColorGetApi, listColorProduct } = props;
+
   const [numberInfor, setNumberInfor] = useState<number>(0);
-  const [priceProduct, setPriceProduct] = useState<number>();
-  const [dataProduct, setDataProduct] = useState<IDataProduct>({
+  const [priceProduct, setPriceProduct] = useState<number>(0);
+  const [dataProductSubmit, setDataProductSubmit] = useState<IDataProduct>({
     color: '',
     idColor: null,
     quantityProduct: 1,
   });
 
-  console.log("dataProduct.idColor", dataProduct.idColor);
-  console.log("dataInitInfoProduct", dataInitInfoProduct);
-
   console.log('dataInit', dataInit);
 
-  const handleGet = () => {
-    const bodyGetProductByColor: any = {
-      url: `products-details/${dataProduct.idColor}`,
-      method: 'get',
-    };
+  // GET COLOR DETAIL PRODUCT
+  // const bodyApi: IPostData = {
+  //   url: `product-variations/${slug}`,
+  //   method: "get",
+  // };
+  // const listColorProduct = useSWR(bodyApi.url, () => postData(bodyApi));
+  // END
 
-    const { data } = useSWR(`product-variations/${slug}`, async () =>
-      postData(bodyGetProductByColor)
-    );
-
-    return { data };
-  };
-
-  // const getDataDetail = ()
-  const handleChangeColor = async (value: any) => {
-    setDataProduct({
-      ...dataProduct,
+  const handleChangeColor = (value: any) => {
+    setDataProductSubmit({
+      ...dataProductSubmit,
       color: value.attributes.color,
       idColor: value.id,
     });
-
-    console.log('handleGet', handleGet());
-    // const bodyGetProductByColor: any = {
-    //   url: `products-details/${dataProduct.idColor}`,
-    //   method: 'get',
-    // };
-
-    // const { data: detailData } = await useSWR(
-    //   `product-variations/${slug}`,
-    //   async () => postData(bodyGetProductByColor)
-    // );
-
-    // console.log('data', data);
-    // setDataInitInfoProduct(getDetailProductByColor.data);
+    handleChangeColorGetApi(value.id);
   };
+  // console.log('dataProductSubmit', dataProductSubmit.quantityProduct);
 
   const handleHiddenInfor = (e: any, value: number) => {
     setNumberInfor(value);
   };
 
+  const handleOnchangeQuantity = (value: any): void => {
+    console.log('valueeee', value.target.value.length);
+
+    const valueConvert = parseInt(
+      value.target.value.replace(/[^0-9]/g, ''),
+      10
+    );
+
+    let check;
+
+    if (dataInit?.stoc_quantity) {
+      check =
+        valueConvert > dataInit?.stoc_quantity
+          ? dataInit?.stoc_quantity
+          : valueConvert;
+    } else check = valueConvert;
+
+    setDataProductSubmit({
+      ...dataProductSubmit,
+      quantityProduct: Number.isNaN(check) ? 1 : check,
+    });
+  };
+
   const subQuantityProduct = (): void => {
-    setDataProduct({
-      ...dataProduct,
-      quantityProduct: dataProduct.quantityProduct - 1,
+    setDataProductSubmit({
+      ...dataProductSubmit,
+      quantityProduct: dataProductSubmit.quantityProduct - 1,
     });
   };
 
   const addQuantityProduct = (): void => {
-    setDataProduct({
-      ...dataProduct,
-      quantityProduct: dataProduct.quantityProduct + 1,
+    setDataProductSubmit({
+      ...dataProductSubmit,
+      quantityProduct: dataProductSubmit.quantityProduct + 1,
     });
   };
-
-  const bodyApi: IPostData = {
-    url: `product-variations/${slug}`,
-    method: "get",
-  };
-  const listColorProduct = useSWR(bodyApi.url, () => postData(bodyApi));
-
-  console.log("listColorProduct", listColorProduct?.data);
 
   useEffect(() => {
     const priceProduct = dataInit?.price ? parseInt(dataInit.price, 10) : 0;
@@ -104,56 +97,60 @@ function InfoProduct(props: IProps) {
   }, [dataInit]);
 
   useEffect(() => {
-    listColorProduct.isLoading;
-  }, [dataProduct.idColor]);
+    // listColorProduct.isLoading;
+  }, [dataProductSubmit.idColor]);
 
   // console.log("data", data);
 
   return (
-    <div className="right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-sm:mt-[0rem] max-sm:ml-[0rem] max-sm:relative max-md:w-full">
-      <div className="h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] h-fit w-fit bg-[#CAF2F1]">
-        {dataInitInfoProduct?.category[0]?.name && (
+    <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-sm:mt-[0rem] max-sm:ml-[0rem] max-sm:relative max-md:w-full">
+      {dataInit?.category[0]?.name && (
+        <div className="h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] h-fit w-fit bg-[#CAF2F1]">
           <span className="leading-[0.9rem] text-[0.75rem] not-italic font-bold">
-            {dataInitInfoProduct?.category[0]?.name}
+            {dataInit?.category[0]?.name}
           </span>
-        )}
-      </div>
-      <p className="text-[1.75rem] font-[850] text-[#454545] leading-[2.1rem] my-[0.75rem] max-sm:text-[1.5rem] max-sm:leading-[1.95rem] max-sm:mb-[0.75rem]">
-        {dataInitInfoProduct?.name}
-      </p>
-
-      {dataInitInfoProduct?.price && (
-        <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] max-sm:hidden">
-          {formatCurrencyVND(dataInitInfoProduct?.price)}
+        </div>
+      )}
+      {dataInit?.name && (
+        <p className="text-[1.75rem] font-[850] text-[#454545] leading-[2.1rem] my-[0.75rem] max-sm:text-[1.5rem] max-sm:leading-[1.95rem] max-sm:mb-[0.75rem]">
+          {dataInit?.name}
         </p>
       )}
 
-      {dataInitInfoProduct?.regular_price && (
+      {dataInit?.price && (
+        <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] max-sm:hidden">
+          {formatCurrencyVND(dataInit?.price)}
+        </p>
+      )}
+
+      {dataInit?.regular_price && (
         <p className="text-[1rem] leading-[1.4rem] font-bold text-[#6A6A6A] line-through max-sm:hidden">
-          {formatCurrencyVND(dataInitInfoProduct?.regular_price)}
+          {formatCurrencyVND(dataInit?.regular_price)}
         </p>
       )}
 
       <ul className="max-lg:mt-[1.06rem] max-lg:mb-[2.31rem] list-color flex mt-[2.06rem] mb-[3.31rem] max-sm:hidden">
-        {listColorProduct?.data &&
-          listColorProduct?.data.map((item: any, index: number) => (
+        {listColorProduct &&
+          listColorProduct.map((item: any, index: number) => (
+            // <Link href={{pathname: "/detail/[id]",query: { id: item.id },}}>
             <li
               key={index}
               style={{
                 backgroundColor: item.attributes.color,
                 borderColor:
-                  item.attributes.color === dataProduct.color
-                    ? '#55D5D2'
+                  item.attributes.color === dataProductSubmit.color
+                    ? "#55D5D2"
                     : item.attributes.color,
               }}
               className="h-[1.875rem] w-[1.875rem] rounded-full border-2 mr-[1rem]"
               onClick={() => handleChangeColor(item)}
             />
+            // </Link>
           ))}
       </ul>
       {/* support */}
       <p className="max-lg:text-[0.95rem] max-lg:mb-[2.5rem] max-md:w-[31.625rem] text-[1rem] text-[#3F3F3F] font-bold leading-[1.5rem] mb-[3.7rem] max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]">
-        short description: {dataInitInfoProduct?.short_description}
+        short description: {dataInit?.short_description}
         <br />
         Hướng dẫn sử dụng:
         <br /> + Tháo kính bằng 2 tay hoặc những nơi có nhiệt độ cao làm biến
@@ -167,20 +164,34 @@ function InfoProduct(props: IProps) {
           <div className="w-[12.3125rem] h-full mr-[1.5rem] text-[#44AAA8] flex justify-between items-center rounded-[2.3125rem] bg-white border-[#4DC0BD] border-[1px] max-sm:hidden ">
             <div
               onClick={
-                dataProduct.quantityProduct > 1 ? subQuantityProduct : undefined
+                dataProductSubmit.quantityProduct > 1
+                  ? subQuantityProduct
+                  : undefined
               }
               style={{
                 cursor:
-                  dataProduct.quantityProduct > 1 ? 'pointer' : 'not-allowed',
+                  dataProductSubmit.quantityProduct > 1
+                    ? "pointer"
+                    : "not-allowed",
               }}
               className="px-[1.5rem] py-[0.8rem] select-none max-lg:mr-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]"
             >
               -
             </div>
             {/* <div className="number-add-cart-opacity" /> */}
-            <span className="flex grow justify-center items-center max-lg:px-[0.5rem] number-add-cart text-[1rem] font-[800] leading-[1.5rem] font-[SVN-Nexa]">
-              {dataProduct.quantityProduct}
-            </span>
+            {/* <span className="flex grow justify-center items-center max-lg:px-[0.5rem] number-add-cart text-[1rem] font-[800] leading-[1.5rem] font-[SVN-Nexa]">
+              {dataProductSubmit.quantityProduct}
+            </span> */}
+            <div className="quantity-product flex grow">
+              <input
+                type="text"
+                // pattern="[0-9]/g*"
+                className="w-full focus:outline-none text-center"
+                defaultValue={dataProductSubmit.quantityProduct}
+                value={dataProductSubmit.quantityProduct}
+                onChange={(value) => handleOnchangeQuantity(value)}
+              />
+            </div>
             {/* <div className="number-add-cart-opacity" /> */}
             <div
               onClick={addQuantityProduct}
@@ -206,7 +217,7 @@ function InfoProduct(props: IProps) {
               </svg>
             </div>
             <p className="title-add-cart grow">
-              {priceProduct * dataProduct.quantityProduct}
+              {priceProduct * dataProductSubmit.quantityProduct}
             </p>
           </div>
         </div>
@@ -239,9 +250,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
+                numberInfor !== 1 ? "border-b-[1px]" : "border-b-[0px]"
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor('show', 1)}
+              onClick={() => handleHiddenInfor("show", 1)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Thông tin
@@ -250,18 +261,18 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full ${
-                numberInfor !== 1 ? 'h-0' : 'h-fit'
+                numberInfor !== 1 ? "h-0" : "h-fit"
               } overflow-hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
-              {dataInitInfoProduct?.description}
+              {dataInit?.description}
             </p>
           </div>
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 2 ? 'border-b-[1px]' : 'border-b-[0px]'
+                numberInfor !== 2 ? "border-b-[1px]" : "border-b-[0px]"
               } border-[#ECECEC] `}
-              onClick={() => handleHiddenInfor('show', 2)}
+              onClick={() => handleHiddenInfor("show", 2)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Vận chuyển
@@ -270,7 +281,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
-                numberInfor !== 2 ? 'h-0' : 'h-fit'
+                numberInfor !== 2 ? "h-0" : "h-fit"
               } overflow-hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
@@ -285,9 +296,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 3 ? 'border-b-[1px]' : 'border-b-[0px]'
+                numberInfor !== 3 ? "border-b-[1px]" : "border-b-[0px]"
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor('show', 3)}
+              onClick={() => handleHiddenInfor("show", 3)}
             >
               <span className=" max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Đổi trả
@@ -296,7 +307,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none ${
-                numberInfor !== 3 ? 'h-0' : 'h-fit'
+                numberInfor !== 3 ? "h-0" : "h-fit"
               } overflow-hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
@@ -311,9 +322,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
+                numberInfor !== 1 ? "border-b-[1px]" : "border-b-[0px]"
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor('show', 1)}
+              onClick={() => handleHiddenInfor("show", 1)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Chọn kính theo gương mặt

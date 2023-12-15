@@ -17,7 +17,8 @@ export interface IDetailProductRes {
   };
   status?: string;
   featuredImage?: string;
-  gallrry?: {
+  stoc_quantity?: number;
+  gallery?: {
     id?: number;
     src?: string;
     name?: string;

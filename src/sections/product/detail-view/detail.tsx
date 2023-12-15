@@ -1,5 +1,6 @@
-// 'use client';
+'use client';
 
+import React, { useEffect, useState } from 'react';
 import { Change, Clean, Executive, Fixed, Free } from '@/app/icons';
 import SlideProduct from '@/sections/product/components/slide/Slide';
 import ImageProduct from '@/sections/product/detail-view/view/image-product';
@@ -8,35 +9,86 @@ import RecommendProduct from '@/sections/product/detail-view/view/recommend-prod
 import { ArrowRight } from 'lucide-react';
 import { postData } from '@/lib/post-data';
 import { IPostData } from '@/types/next-auth';
-// import useSWR from 'swr';
+import useSWR from 'swr';
+import './style.css';
+import ItermMobile from './view/Iterm';
 
 interface IProps {
   slug: string;
 }
 
-const ProductDetail = async ({ slug }: IProps) => {
-  let dataInit;
+function ProductDetail({ slug }: IProps) {
+  // let dataInit;
+  const [dataInit, setDatainit] = useState();
+  const [colorGetDetail, setColorGetDetail] = useState<number | string | null>(
+    null
+  );
+  const [listColorProduct, setListColorProduct] = useState<any>([]);
+  // const [name, setName] = useQueryState();
+
+  // console.log('listColorProductlistColorProduct', listColorProduct);
+
   const bodyApi: IPostData = {
     url: `products-details/${slug}`,
-    method: 'get',
+    method: "get",
   };
-  // const { data } = useSWR(bodyApi.url, () => postData(bodyApi));
+  const dataInitDetail = useSWR(bodyApi.url, () => postData(bodyApi));
 
-  try {
-    await postData(bodyApi).then((res) => {
-      dataInit = res;
-    });
-  } catch (error: any) {
-    console.log(error);
-  }
+  // GET DETAIL PRODUCT BY COLOR
+  const bodyGetProductByColor: any = {
+    url: `products-details/${colorGetDetail}`,
+    method: "get",
+  };
+
+  const getDetailProductByColor = useSWR(
+    `products-details/${colorGetDetail}`,
+    () => (colorGetDetail ? postData(bodyGetProductByColor) : undefined)
+  );
+
+  const handleChangeColorGetApi = (value: string | number | null): void => {
+    setColorGetDetail(value);
+    // setName(value);
+    // console.log('value', value);
+  };
+
+  useEffect(() => {
+    getDetailProductByColor.mutate();
+    setDatainit(
+      colorGetDetail !== "null"
+        ? getDetailProductByColor.data
+        : dataInitDetail.data
+    );
+  }, [colorGetDetail, getDetailProductByColor.data]);
+
+  useEffect(() => {
+    setDatainit(dataInitDetail.data);
+    setListColorProduct(dataInitDetail?.data?.variant ?? []);
+    // console.log('datainittess', dataInitDetail?.data?.variant);
+  }, [dataInitDetail.data]);
+
+  // console.log('colorGetDetail', colorGetDetail);
+  // console.log('getDetailProductByColor', getDetailProductByColor.data);
+  // try {
+  //   await postData(bodyApi).then((res) => {
+  //     dataInit = res;
+  //   });
+  // } catch (error: any) {
+  //   console.log(error);
+  // }
+
+  // const memoizedInforProduct = useMemo(() => {})
   return (
     <div className="pt-[3.41rem]">
       {/* section 1 */}
-      <div className="flex justify-center w-full">
-        <div className="w-full flex xl:max-w-[1400px] max-xl:px-[6.25rem]  mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-md:mx-[3.2rem] max-sm:px-[0.75rem]">
+      <div className="flex justify-center w-full px-[6.25rem]">
+        <div className="w-full flex  mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-md:mx-[3.2rem]">
           <ImageProduct dataInit={dataInit} />
           {/* right */}
-          <InfoProduct dataInit={dataInit} slug={slug} />
+          <InfoProduct
+            dataInit={dataInit}
+            handleChangeColorGetApi={handleChangeColorGetApi}
+            listColorProduct={listColorProduct}
+          />
         </div>
       </div>
       {/* section 2 */}
@@ -73,9 +125,9 @@ const ProductDetail = async ({ slug }: IProps) => {
         </div>
       </div>
       {/* section 3 */}
-      <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] max-sm:mx-0 max-sm:mb-[3.5rem]">
+      <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-sm:mx-0 max-sm:mb-[3.5rem]">
         <div className="flex justify-between mb-[2.62rem] items-center max-sm:mb-[1rem] max-sm:px-[0.75rem]">
-          <h4 className="text-[2rem] font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem]  text-center max-sm:text-[1.25rem] ">
+          <h4 className="text-[2rem] font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem]  text-center max-sm:text-[1.25rem]">
             TRÒNG KÍNH BỔ TRỢ
           </h4>
           <div className="flex justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer">
@@ -88,10 +140,23 @@ const ProductDetail = async ({ slug }: IProps) => {
             </p>
           </div>
         </div>
-        <div className="max-sm:hidden h-[25.625rem]">
+        <div className="max-sm:hidden">
           <SlideProduct number={1} />
         </div>
-        <div className="hidden max-sm:flex flex-wrap px-[0.375rem]" />
+        <div className="hidden max-sm:flex flex-wrap px-[0.375rem]">
+          <div className="w-[50%] relative px-[0.375rem] mb-[1rem]">
+            <ItermMobile />
+          </div>
+          <div className="w-[50%] relative px-[0.375rem] mb-[1rem]">
+            <ItermMobile />
+          </div>
+          <div className="w-[50%] relative px-[0.375rem] mb-[1rem]">
+            <ItermMobile />
+          </div>
+          <div className="w-[50%] relative px-[0.375rem] mb-[1rem]">
+            <ItermMobile />
+          </div>
+        </div>
         <div className="hidden justify-center h-full mt-[1rem] max-sm:flex">
           <ArrowRight />
           <p className=" text-[1.125rem] ml-[0.62rem] text-right max-sm:hidden">
@@ -108,7 +173,7 @@ const ProductDetail = async ({ slug }: IProps) => {
             GỌNG KÍNH TƯƠNG TỰ
           </h4>
         </div>
-        <div className="max-sm:hidden h-[25.625rem]">
+        <div className="max-sm:hidde">
           <SlideProduct number={2} />
         </div>
         <div className="hidden max-sm:flex flex-wrap px-[0.375rem]" />
@@ -134,6 +199,6 @@ const ProductDetail = async ({ slug }: IProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductDetail;

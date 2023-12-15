@@ -1,0 +1,20 @@
+.item-slider-product:hover .image-item-slide {
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
+
+.item-slider-product:hover .price-product-slide {
+  transition: transform 0.3s ease-in-out;
+}
+
+.item-slider-product:hover .price-product-slide {
+  background-color: #f58f5d;
+}
+
+.item-slider-product:hover .arrow-peoduct-slide {
+  transition: transform 0.3s ease-in-out;
+}
+
+.item-slider-product:hover .arrow-peoduct-slide {
+  transform: rotate(45deg);
+}

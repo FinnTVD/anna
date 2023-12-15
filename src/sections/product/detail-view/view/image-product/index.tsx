@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import Image from 'next/image';
@@ -52,10 +52,11 @@ function ImageProduct(props: IProps) {
   const { dataInit } = props;
   const [itemImagePreview, setItemImagePreview] = useState<IItemImage>({
     id: null,
-    name: '',
-    src: dataInit?.featuredImage,
+    name: "",
+    src: "",
   });
 
+  console.log('dataInit', dataInit);
   const handleChangeImage = (value: IItemImage): void => {
     const newObject: IItemImage = {
       id: value.id,
@@ -64,6 +65,10 @@ function ImageProduct(props: IProps) {
     };
     setItemImagePreview(newObject);
   };
+
+  useEffect(() => {
+    setItemImagePreview({ ...itemImagePreview, src: dataInit?.featuredImage });
+  }, [dataInit?.featuredImage]);
   return (
     <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[52rem] flex-col justify-center max-sm:block max-sm:w-full max-sm:h-[21.5rem] max-sm:mb-[1.5rem]">
       <div className="max-sm:h-full">
@@ -81,16 +86,26 @@ function ImageProduct(props: IProps) {
         </div>
       </div>
       <ul className="flex min-w-full max-lg:h-[7.5rem] mt-[1rem] justify-between h-[12.15rem] max-sm:hidden">
-        {dataInit?.gallrry?.map((item: any, index: number) => (
-          <li key={index} className=" mr-[1rem]">
+        {dataInit?.gallery ? (
+          dataInit?.gallery?.map((item: any, index: number) => (
+            <li key={index} className="mr-[1rem]">
+              <img
+                onClick={(e) => handleChangeImage(item)}
+                className="flex h-full object-cover"
+                src={item.src ?? '/img/no_image.jpg'}
+                alt=""
+              />
+            </li>
+          ))
+        ) : (
+          <div>
             <img
-              onClick={(e) => handleChangeImage(item)}
               className="flex h-full object-cover"
-              src={item.src ?? '/img/no_image.jpg'}
+              src="/img/no_image.jpg"
               alt=""
             />
-          </li>
-        ))}
+          </div>
+        )}
       </ul>
     </div>
   );
