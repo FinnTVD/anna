@@ -1,18 +1,27 @@
 export interface IDetailProductRes {
   id?: number;
-  name: string;
-  slug: string;
-  date_created: {
+  name?: string;
+  slug?: string;
+  category?: {
+    name?: string;
+  }[];
+  date_created?: {
     date: string;
     timezone_type: number;
     timezone: string;
   };
-  date_modified: {
+  date_modified?: {
     date: string;
     timezone_type: number;
     timezone: string;
   };
-  status: string;
+  status?: string;
+  featuredImage?: string;
+  gallrry?: {
+    id?: number;
+    src?: string;
+    name?: string;
+  }[];
   featured: boolean;
   catalog_visibility: string;
   description: string;

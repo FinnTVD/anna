@@ -1491,17 +1491,3 @@ export function Fixed() {
     </div>
   );
 }
-export function Color_1() {
-  return (
-    <svg
-      className="w-[1.875rem] h-[1.875rem]"
-      xmlns="http://www.w3.org/2000/svg"
-      width=""
-      height=""
-      viewBox="0 0 30 30"
-      fill="none"
-    >
-      <circle cx="15" cy="15" r="15" fill="#6E402A" />
-    </svg>
-  );
-}

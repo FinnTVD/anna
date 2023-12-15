@@ -8,6 +8,7 @@ import RecommendProduct from '@/sections/product/detail-view/view/recommend-prod
 import { ArrowRight } from 'lucide-react';
 import { postData } from '@/lib/post-data';
 import { IPostData } from '@/types/next-auth';
+// import useSWR from 'swr';
 
 interface IProps {
   slug: string;
@@ -15,13 +16,11 @@ interface IProps {
 
 const ProductDetail = async ({ slug }: IProps) => {
   let dataInit;
-
-  // use
   const bodyApi: IPostData = {
     url: `products-details/${slug}`,
     method: 'get',
   };
-  // postData(bodyApi)
+  // const { data } = useSWR(bodyApi.url, () => postData(bodyApi));
 
   try {
     await postData(bodyApi).then((res) => {
@@ -30,18 +29,14 @@ const ProductDetail = async ({ slug }: IProps) => {
   } catch (error: any) {
     console.log(error);
   }
-
-  console.log('dataInit', dataInit);
-
   return (
-    // <div>ssss</div>
     <div className="pt-[3.41rem]">
       {/* section 1 */}
       <div className="flex justify-center w-full">
-        <div className="flex xl:max-w-[1400px] max-xl:px-[6.25rem]  mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-md:mx-[3.2rem] max-sm:px-[0.75rem]">
+        <div className="w-full flex xl:max-w-[1400px] max-xl:px-[6.25rem]  mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-md:mx-[3.2rem] max-sm:px-[0.75rem]">
           <ImageProduct dataInit={dataInit} />
           {/* right */}
-          <InfoProduct dataInit={dataInit} />
+          <InfoProduct dataInit={dataInit} slug={slug} />
         </div>
       </div>
       {/* section 2 */}
