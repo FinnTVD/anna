@@ -178,10 +178,6 @@ function InfoProduct(props: IProps) {
             >
               -
             </div>
-            {/* <div className="number-add-cart-opacity" /> */}
-            {/* <span className="flex grow justify-center items-center max-lg:px-[0.5rem] number-add-cart text-[1rem] font-[800] leading-[1.5rem] font-[SVN-Nexa]">
-              {dataProductSubmit.quantityProduct}
-            </span> */}
             <div className="quantity-product flex grow">
               <input
                 type="text"

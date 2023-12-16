@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { ArrowSlideLeft, ArrowSlideRight } from '@/app/icons';
 import Item from './Item';
-// import "./style.css";
+import "./style.css";
 
 export interface numberArrow {
   number: number;
@@ -17,7 +17,7 @@ export interface numberArrow {
 
 const SlideProduct: React.FC<numberArrow> = ({ number }) => {
   return (
-    <div className="flex h-full relative">
+    <div className="swiper-detail-product flex h-full relative">
       <Swiper
         spaceBetween={32}
         loop

@@ -18,3 +18,11 @@
 .item-slider-product:hover .arrow-peoduct-slide {
   transform: rotate(45deg);
 }
+
+.item-slider-product {
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.05);
+}
+
+.swiper-detail-product .swiper-slide {
+  height: 29.9375rem;
+}

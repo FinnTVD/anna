@@ -80,8 +80,8 @@ function ProductDetail({ slug }: IProps) {
   return (
     <div className="pt-[3.41rem]">
       {/* section 1 */}
-      <div className="flex justify-center w-full px-[6.25rem]">
-        <div className="w-full flex  mb-[5rem] max-sm:block max-sm:mb-[2.25rem] max-md:mx-[3.2rem]">
+      <div className="flex justify-center w-full px-[6.25rem] max-md:px-[3.2rem]">
+        <div className="w-full flex max-md:flex-col mb-[5rem] max-md:mb-[0]">
           <ImageProduct dataInit={dataInit} />
           {/* right */}
           <InfoProduct
