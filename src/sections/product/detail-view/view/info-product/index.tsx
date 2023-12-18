@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { MapMobile } from "@/app/icons";
-import { ICIncreaseIcon, ICDecreaseIcon } from "@/components/Icons";
-import { IDetailProductRes } from "@/types/detail-product";
-import { formatCurrencyVND } from "@/ultils/format-price";
-import React, { useEffect, useState } from "react";
+import { MapMobile } from '@/app/icons';
+import { ICIncreaseIcon, ICDecreaseIcon } from '@/components/Icons';
+import { IDetailProductRes } from '@/types/detail-product';
+import { formatCurrencyVND } from '@/ultils/format-price';
+import React, { useEffect, useState } from 'react';
 // import "./style.css";
 
 interface IProps {
@@ -103,28 +103,29 @@ function InfoProduct(props: IProps) {
   // console.log("data", data);
 
   return (
-    <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-sm:mt-[0rem] max-sm:ml-[0rem] max-sm:relative max-md:w-full">
-      {dataInit?.category[0]?.name && (
-        <div className="h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] h-fit w-fit bg-[#CAF2F1]">
-          <span className="leading-[0.9rem] text-[0.75rem] not-italic font-bold">
-            {dataInit?.category[0]?.name}
-          </span>
-        </div>
-      )}
+    <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[0rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
+      <div>
+        {dataInit?.category[0]?.name && (
+          <div className="flex items-center justify-center h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] h-fit w-fit bg-[#CAF2F1] max-md:h-fit max-md:py-[3.46667rem] max-md:w-[20.8rem] max-md:px-[2.66667rem] max-md:rounded-[10.66667rem]">
+            <span className="leading-[0.9rem] text-[0.75rem] not-italic font-bold max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
+              {dataInit?.category[0]?.name}
+            </span>
+          </div>
+        )}
+      </div>
       {dataInit?.name && (
-        <p className="text-[1.75rem] font-[850] text-[#454545] leading-[2.1rem] my-[0.75rem] max-sm:text-[1.5rem] max-sm:leading-[1.95rem] max-sm:mb-[0.75rem]">
+        <p className="text-[1.75rem] font-[850] text-[#454545] leading-[2.1rem] my-[0.75rem] max-md:text-[6.4rem] max-md:mt-[2.13rem] max-md:leading-[8.32rem] max-sm:mb-[0.75rem]">
           {dataInit?.name}
         </p>
       )}
-
       {dataInit?.price && (
-        <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] max-sm:hidden">
+        <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] max-md:hidden">
           {formatCurrencyVND(dataInit?.price)}
         </p>
       )}
 
       {dataInit?.regular_price && (
-        <p className="text-[1rem] leading-[1.4rem] font-bold text-[#6A6A6A] line-through max-sm:hidden">
+        <p className="text-[1rem] leading-[1.4rem] font-bold text-[#6A6A6A] line-through max-md:hidden">
           {formatCurrencyVND(dataInit?.regular_price)}
         </p>
       )}
@@ -139,7 +140,7 @@ function InfoProduct(props: IProps) {
                 backgroundColor: item.attributes.color,
                 borderColor:
                   item.attributes.color === dataProductSubmit.color
-                    ? "#55D5D2"
+                    ? '#55D5D2'
                     : item.attributes.color,
               }}
               className="h-[1.875rem] w-[1.875rem] rounded-full border-2 mr-[1rem]"
@@ -171,8 +172,8 @@ function InfoProduct(props: IProps) {
               style={{
                 cursor:
                   dataProductSubmit.quantityProduct > 1
-                    ? "pointer"
-                    : "not-allowed",
+                    ? 'pointer'
+                    : 'not-allowed',
               }}
               className="px-[1.5rem] py-[0.8rem] select-none max-lg:mr-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]"
             >
@@ -233,10 +234,10 @@ function InfoProduct(props: IProps) {
             fill="#55D5D2"
           />
         </svg>
-        <div className="hidden max-sm:flex max-sm:bg-[#55D5D2] rounded-[50%] w-[1.5rem] h-[1.5rem] justify-center">
+        <div className="hidden max-sm:flex max-sm:bg-[#55D5D2] rounded-[50%] w-[6.4rem] h-[6.4rem] justify-center items-center">
           <MapMobile />
         </div>
-        <p className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] ml-[0.62rem] text-[#55D5D2] mx-[1.5rem] my-[0.94rem] max-sm:text-[0.625rem] max-sm:font-bold max-sm:leading-[1.5rem] max-sm:my-[0px]">
+        <p className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] ml-[0.62rem] text-[#55D5D2] mx-[1.5rem] my-[0.94rem] max-md:text-[2.66667rem] max-md:font-bold max-md:leading-[1.5rem] max-md:my-[0px]">
           Tìm cửa hàng
         </p>
       </div>
@@ -246,9 +247,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 1 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 1)}
+              onClick={() => handleHiddenInfor('show', 1)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Thông tin
@@ -257,7 +258,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full ${
-                numberInfor !== 1 ? "h-0" : "h-fit"
+                numberInfor !== 1 ? 'h-0' : 'h-fit'
               } overflow-hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
               {dataInit?.description}
@@ -266,9 +267,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 2 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 2 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC] `}
-              onClick={() => handleHiddenInfor("show", 2)}
+              onClick={() => handleHiddenInfor('show', 2)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Vận chuyển
@@ -277,7 +278,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
-                numberInfor !== 2 ? "h-0" : "h-fit"
+                numberInfor !== 2 ? 'h-0' : 'h-fit'
               } overflow-hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
@@ -292,9 +293,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 3 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 3 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 3)}
+              onClick={() => handleHiddenInfor('show', 3)}
             >
               <span className=" max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Đổi trả
@@ -303,7 +304,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none ${
-                numberInfor !== 3 ? "h-0" : "h-fit"
+                numberInfor !== 3 ? 'h-0' : 'h-fit'
               } overflow-hidden max-sm:text-[0.875rem] max-sm:leading-[1.3125rem] max-sm:w-[100%]`}
             >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
@@ -318,9 +319,9 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               className={`flex justify-between items-center py-[0.9375rem] ${
-                numberInfor !== 1 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 1)}
+              onClick={() => handleHiddenInfor('show', 1)}
             >
               <span className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-sm:text-[1.25rem] max-sm:leading-[1.75rem]">
                 Chọn kính theo gương mặt

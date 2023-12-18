@@ -11,7 +11,7 @@ const Navbar = async () => {
       {/* <Logo /> */}
       <div
         className={cn(
-          'flex justify-between w-full py-[6px] px-20 py-6 fixed top-[0px] z-10 bg-[white] max-sm:hidden'
+          'flex justify-between w-full py-[6px] px-20 py-6 fixed top-[0px] z-10 bg-[white] max-md:hidden'
         )}
       >
         <NavItems session={session} />

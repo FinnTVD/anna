@@ -1,7 +1,7 @@
 export function Executive() {
   return (
     <svg
-      className="max-sm:w-[1.5rem] max-sm:h-[1.5rem]"
+      className="max-md:w-[1.5rem] max-md:h-[1.5rem]"
       height="48"
       viewBox="0 0 49 48"
       fill="none"
@@ -139,7 +139,7 @@ export function Executive() {
 export function Free() {
   return (
     <svg
-      className="max-sm:w-[1.5rem] max-sm:h-[1.5rem]"
+      className="max-md:w-[1.5rem] max-md:h-[1.5rem]"
       width="48"
       height="48"
       viewBox="0 0 48 48"
@@ -647,7 +647,7 @@ export function Free() {
 export function Change() {
   return (
     <svg
-      className="max-sm:w-[1.5rem] max-sm:h-[1.5rem]"
+      className="max-md:w-[1.5rem] max-md:h-[1.5rem]"
       width="48"
       height="48"
       viewBox="0 0 48 48"
@@ -911,7 +911,7 @@ export function Change() {
 export function Clean() {
   return (
     <svg
-      className="max-sm:w-[1.5rem] max-sm:h-[1.5rem]"
+      className="max-md:w-[1.5rem] max-md:h-[1.5rem]"
       width="49"
       height="48"
       viewBox="0 0 49 48"
@@ -1204,7 +1204,7 @@ export function Clean() {
 export function ColorPink() {
   return (
     <svg
-      className="max-sm:w-[0.75rem] max-sm:h-[0.75rem]"
+      className="max-md:w-[0.75rem] max-md:h-[0.75rem]"
       width="24"
       height="25"
       viewBox="0 0 24 25"
@@ -1221,7 +1221,7 @@ export function ColorPink() {
 export function ArrowTopRight() {
   return (
     <svg
-      className="max-sm:text-[#55D5D2]"
+      className="max-md:text-[#55D5D2]"
       width="18"
       height="18"
       viewBox="0 0 18 18"
@@ -1263,7 +1263,7 @@ export function ArrowTopRightActive() {
 export function ArrowRight() {
   return (
     <svg
-      className="max-sm:w-[1rem] max-sm:h-[1rem]"
+      className="max-md:w-[1rem] max-md:h-[1rem]"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -1340,20 +1340,17 @@ export function ArrowSlideRight() {
 export function MapMobile() {
   return (
     <svg
-      className="map-mobile"
-      width="20"
-      height="24"
-      viewBox="0 0 20 24"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="27"
+      viewBox="0 0 24 27"
+      fill="none"
     >
-      <g id="Map icon animation">
-        <path
-          id="Vector"
-          d="M10 15.8584C10.5746 15.8584 11.0965 15.5822 11.3962 15.1195C13.4965 11.8776 16 7.60496 16 5.66075C16 2.5394 13.3084 0 10 0C6.69157 0 4 2.5394 4 5.66075C4 7.60496 6.50357 11.8776 8.60379 15.1195C8.90353 15.5822 9.42547 15.8584 10 15.8584ZM7.58834 5.27208C7.58834 4.01752 8.67022 2.99684 10 2.99684C11.3298 2.99684 12.4117 4.01752 12.4117 5.27208C12.4117 6.52667 11.3298 7.54735 10 7.54735C8.67022 7.54735 7.58834 6.52671 7.58834 5.27208Z"
-          fill="#EEFBFB"
-        />
-      </g>
+      <circle cx="12" cy="12" r="12" fill="#55D5D2" />
+      <path
+        d="M12 18.8584C12.5746 18.8584 13.0965 18.5822 13.3962 18.1195C15.4965 14.8776 18 10.605 18 8.66075C18 5.5394 15.3084 3 12 3C8.69157 3 6 5.5394 6 8.66075C6 10.605 8.50357 14.8776 10.6038 18.1195C10.9035 18.5822 11.4255 18.8584 12 18.8584ZM9.58834 8.27208C9.58834 7.01752 10.6702 5.99684 12 5.99684C13.3298 5.99684 14.4117 7.01752 14.4117 8.27208C14.4117 9.52667 13.3298 10.5474 12 10.5474C10.6702 10.5474 9.58834 9.52671 9.58834 8.27208Z"
+        fill="#EEFBFB"
+      />
     </svg>
   );
 }

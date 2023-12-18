@@ -32,7 +32,7 @@ function SlideProductMobile() {
       >
         <SwiperSlide className="w-full">
           <img
-            className="h-full w-full object-cover  max-sm:min-w-full"
+            className="h-full w-full object-cover  max-md:min-w-full"
             src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           />
         </SwiperSlide>
@@ -52,8 +52,8 @@ function ImageProduct(props: IProps) {
   const { dataInit } = props;
   const [itemImagePreview, setItemImagePreview] = useState<IItemImage>({
     id: null,
-    name: "",
-    src: "",
+    name: '',
+    src: '',
   });
 
   console.log('dataInit', dataInit);
@@ -70,7 +70,7 @@ function ImageProduct(props: IProps) {
     setItemImagePreview({ ...itemImagePreview, src: dataInit?.featuredImage });
   }, [dataInit?.featuredImage]);
   return (
-    <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[52rem] flex-col justify-center max-sm:block max-sm:w-full max-sm:h-[21.5rem] max-sm:mb-[1.5rem]">
+    <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[91.73333rem] flex-col justify-center max-md:block max-md:w-full max-md:h-[21.5rem] max-md:mb-[1.5rem]">
       <div className="max-sm:h-full">
         <div className="w-full  h-[38.8125rem] relative max-sm:hidden">
           <Image
@@ -81,11 +81,11 @@ function ImageProduct(props: IProps) {
             alt=""
           />
         </div>
-        <div className="hidden max-sm:block h-full w-full">
+        <div className="hidden max-md:block h-full w-full">
           <SlideProductMobile />
         </div>
       </div>
-      <ul className="flex min-w-full max-lg:h-[7.5rem] mt-[1rem] justify-between h-[12.15rem] max-sm:hidden">
+      <ul className="flex min-w-full max-lg:h-[7.5rem] mt-[1rem] justify-between h-[12.15rem] max-md:hidden">
         {dataInit?.gallery ? (
           dataInit?.gallery?.map((item: any, index: number) => (
             <li key={index} className="mr-[1rem]">

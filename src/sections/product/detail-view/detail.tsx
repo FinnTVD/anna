@@ -30,14 +30,14 @@ function ProductDetail({ slug }: IProps) {
 
   const bodyApi: IPostData = {
     url: `products-details/${slug}`,
-    method: "get",
+    method: 'get',
   };
   const dataInitDetail = useSWR(bodyApi.url, () => postData(bodyApi));
 
   // GET DETAIL PRODUCT BY COLOR
   const bodyGetProductByColor: any = {
     url: `products-details/${colorGetDetail}`,
-    method: "get",
+    method: 'get',
   };
 
   const getDetailProductByColor = useSWR(
@@ -54,7 +54,7 @@ function ProductDetail({ slug }: IProps) {
   useEffect(() => {
     getDetailProductByColor.mutate();
     setDatainit(
-      colorGetDetail !== "null"
+      colorGetDetail !== 'null'
         ? getDetailProductByColor.data
         : dataInitDetail.data
     );

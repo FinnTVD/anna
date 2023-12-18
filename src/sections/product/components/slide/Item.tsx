@@ -1,5 +1,5 @@
-import React from "react";
-import { ArrowTopRight } from "@/app/icons";
+import React from 'react';
+import { ArrowTopRight } from '@/app/icons';
 import './style.css';
 
 function Item() {

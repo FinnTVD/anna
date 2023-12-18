@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { ArrowSlideLeft, ArrowSlideRight } from '@/app/icons';
 import Item from './Item';
-import "./style.css";
+import './style.css';
 
 export interface numberArrow {
   number: number;
