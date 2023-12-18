@@ -10,7 +10,6 @@ import { ArrowRight } from 'lucide-react';
 import { postData } from '@/lib/post-data';
 import { IPostData } from '@/types/next-auth';
 import useSWR from 'swr';
-import './style.css';
 import ItermMobile from './view/Iterm';
 
 interface IProps {
