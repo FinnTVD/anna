@@ -1,22 +1,22 @@
 interface IProps {
-  width: string | number;
-  height: string | number;
+  width?: string | number;
+  height?: string | number;
   fill?: string;
+  stroke?: string;
 }
 
-export default function ICIncreaseIcon(props: IProps) {
+function ICArrowRight(props: IProps) {
   return (
     <svg
-      className=""
       xmlns="http://www.w3.org/2000/svg"
       width={props.width ?? '24'}
-      height={props.height ?? '25'}
+      height={props.height ?? '24'}
       viewBox="0 0 24 25"
       fill={props.fill ?? 'none'}
     >
       <path
-        d="M6 12.5H12M12 12.5H18M12 12.5V18.5M12 12.5V6.5"
-        stroke="#262626"
+        d="M9 5.5L16 12.5L9 19.5"
+        stroke={props.stroke ?? '#262626'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -24,3 +24,5 @@ export default function ICIncreaseIcon(props: IProps) {
     </svg>
   );
 }
+
+export default ICArrowRight;

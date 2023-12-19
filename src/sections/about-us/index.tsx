@@ -1,4 +1,4 @@
-import "./style.css";
+import './style.css';
 
 export default function AboutUs() {
   return (
@@ -176,7 +176,23 @@ export default function AboutUs() {
               KHÁCH HÀNG THÂN YÊU
             </h2>
           </div>
+
+          
         </div>
+
+        {/* <div className="w-full flex justify-start">
+          <div className="w-[39.6875rem]  mr-[2rem] w-[30.6875rem] max-md:flex max-md:flex-col max-md:items-center max-md:w-full">
+            <div className="flex items-center">
+              <div className="h-[0.2rem] w-[2.5rem] bg-black mr-[0.4rem]" />
+              <p className="uppercase max-md:text-[3rem] font-normal">
+                HỎI ĐÁP
+              </p>
+            </div>
+            <h2 className="mb-[2.5rem] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
+              Q & A CÙNG ANNA
+            </h2>
+          </div>
+        </div> */}
       </div>
     </div>
   );

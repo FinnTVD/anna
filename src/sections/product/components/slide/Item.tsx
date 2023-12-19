@@ -2,7 +2,13 @@ import React from 'react';
 import { ArrowTopRight } from '@/app/icons';
 import './style.css';
 
-function Item() {
+interface IProps {
+  item: any;
+}
+
+function Item(props: IProps) {
+  const { item } = props;
+  console.log("item", item);
   const listColor = [
     {
       id: 1,

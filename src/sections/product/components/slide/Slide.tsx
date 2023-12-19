@@ -13,11 +13,15 @@ import './style.css';
 
 export interface numberArrow {
   number: number;
+  data: any[];
 }
 
-const SlideProduct: React.FC<numberArrow> = ({ number }) => {
+const SlideProduct: React.FC<numberArrow> = ({ number, data }) => {
+  // console.log("data", data ? data[0]?.product_variant : []);
+
   return (
-    <div className="swiper-detail-product flex h-full relative">
+    <div className="swiper-detail-product h-full relative">
+      {/* <div>{JSON.stringify(data)}</div> */}
       <Swiper
         spaceBetween={32}
         loop
@@ -31,15 +35,30 @@ const SlideProduct: React.FC<numberArrow> = ({ number }) => {
           910: {
             slidesPerView: 3,
           },
+          767: {
+            slidesPerView: 3,
+          },
         }}
         navigation={{
-          prevEl: `.prev-${number}`,
-          nextEl: `.next-${number}`,
+          prevEl: `.prev-${data?.length}`,
+          nextEl: `.next-${data?.length}`,
         }}
         modules={[Pagination, Navigation]}
         className="mySwiper pl-[0rem] mx-[1rem] "
       >
-        <SwiperSlide className="slide-hover rounded-[1rem] box-shadown pb-1rem overflow-hidden">
+        {/* {data && data?.map((item, index) => ( */}
+        {/* <SwiperSlide className="slide-hover rounded-[1rem] box-shadown pb-1rem overflow-hidden">
+          <Item />
+        </SwiperSlide> */}
+        {/* ))} */}
+        {data &&
+          data[0]?.product_variant.map((item) => (
+            <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
+              <Item item={item} />
+            </SwiperSlide>
+          ))}
+
+        {/* <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Item />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
@@ -53,13 +72,7 @@ const SlideProduct: React.FC<numberArrow> = ({ number }) => {
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <Item />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <Item />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <Item />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
       <div
         className={`prev-${number} max-lg:left-[1.2rem] max-lg:z-[2] top-[50%] -translate-y-1/2 absolute lg:left-[-6.5%] md:left-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}

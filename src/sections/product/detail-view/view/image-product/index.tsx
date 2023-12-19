@@ -72,7 +72,7 @@ function ImageProduct(props: IProps) {
   return (
     <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[91.73333rem] flex-col justify-center max-md:block max-md:w-full max-md:h-[21.5rem] max-md:mb-[1.5rem]">
       <div className="max-sm:h-full">
-        <div className="w-full  h-[38.8125rem] relative max-sm:hidden">
+        <div className="w-full  h-[38.8125rem] relative max-md:hidden">
           <Image
             fill
             objectFit="cover"
