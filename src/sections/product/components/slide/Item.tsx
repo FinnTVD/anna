@@ -8,7 +8,7 @@ interface IProps {
 
 function Item(props: IProps) {
   const { item } = props;
-  console.log("item", item);
+  console.log('item', item);
   const listColor = [
     {
       id: 1,

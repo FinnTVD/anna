@@ -1,10 +1,11 @@
+import SwiperFamilierCustomer from './components/SwiperFamilierCustomer';
 import './style.css';
 
 export default function AboutUs() {
   return (
     <div className="about-us-container">
       {/* banner */}
-      <div className="relative bg-banner-about-us bg-[url('/img/about-us/bg-banner-about-us.jpg')] h-[32.6875rem] max-md:h-[47.2rem]">
+      <div className="relative bg-banner-about-us bg-[url('/img/about-us/bg-banner-about-us.jpg')] bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
         <div className="absolute bottom-20 left-[8rem]">
           <h1 className="text-white text-[3.125rem] leading-[4.6875rem] font-semibold font-sans not-italic max-md:font-bold max-md:text-[4.8rem] max-md:leading-[7.2rem]">
             LỜI CẢM ƠN
@@ -22,7 +23,7 @@ export default function AboutUs() {
       </div>
 
       {/* content */}
-      <div className="flex flex-col items-center mt-[7.2rem] mx-[8.38rem] max-md:mx-[6.4rem]">
+      <div className="w-[87.5rem] mx-auto my-0 flex flex-col items-center mt-[7.2rem] mx-[8.38rem] max-xl:mx-[3rem] max-md:mx-[6.4rem]">
         <div className="flex justify-between w-full max-md:flex-col-reverse">
           <div className="flex max-md:flex-col">
             <img
@@ -166,33 +167,21 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-
+      </div>
+      <div className="w-[87.5rem] mx-auto max-md:w-full mb-[5rem]">
         <div className="w-full flex justify-start">
           <div className="w-[39.6875rem]  mr-[2rem] w-[30.6875rem] max-md:flex max-md:flex-col max-md:items-center max-md:w-full">
             <p className="uppercase max-md:text-[3rem]">
               Tình thương mến thương
             </p>
-            <h2 className="bg-[url('/img/about-us/vecto1.svg')] mb-[2.5rem] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
+            <h2 className="bg-[url('/img/about-us/vecto1.svg')] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
               KHÁCH HÀNG THÂN YÊU
             </h2>
           </div>
-
-          
         </div>
-
-        {/* <div className="w-full flex justify-start">
-          <div className="w-[39.6875rem]  mr-[2rem] w-[30.6875rem] max-md:flex max-md:flex-col max-md:items-center max-md:w-full">
-            <div className="flex items-center">
-              <div className="h-[0.2rem] w-[2.5rem] bg-black mr-[0.4rem]" />
-              <p className="uppercase max-md:text-[3rem] font-normal">
-                HỎI ĐÁP
-              </p>
-            </div>
-            <h2 className="mb-[2.5rem] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
-              Q & A CÙNG ANNA
-            </h2>
-          </div>
-        </div> */}
+        <div className="w-full">
+          <SwiperFamilierCustomer />
+        </div>
       </div>
     </div>
   );

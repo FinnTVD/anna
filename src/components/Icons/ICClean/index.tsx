@@ -7,8 +7,8 @@ interface IProps {
 export function ICClean(props: IProps) {
   return (
     <svg
-      width={props.width ?? "49"}
-      height={props.height ?? "48"}
+      width={props.width ?? '49'}
+      height={props.height ?? '48'}
       viewBox="0 0 49 48"
       fill={props.fill ?? 'none'}
       xmlns="http://www.w3.org/2000/svg"

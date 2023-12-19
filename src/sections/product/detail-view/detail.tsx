@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { Fixed } from "@/app/icons";
-import SlideProduct from "@/sections/product/components/slide/Slide";
-import ImageProduct from "@/sections/product/detail-view/view/image-product";
-import InfoProduct from "@/sections/product/detail-view/view/info-product";
-import RecommendProduct from "@/sections/product/detail-view/view/recommend-product";
-import { postData } from "@/lib/post-data";
-import { IPostData } from "@/types/next-auth";
-import useSWR from "swr";
-import { ICProtected } from "@/components/Icons/ICProtected";
-import { ICFree } from "@/components/Icons/ICFree";
-import { ICChange } from "@/components/Icons/ICChange";
-import { ICClean } from "@/components/Icons/ICClean";
-import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
-import ItemMobile from "./view/Item-mobile";
+import React, { useEffect, useState } from 'react';
+import { Fixed } from '@/app/icons';
+import SlideProduct from '@/sections/product/components/slide/Slide';
+import ImageProduct from '@/sections/product/detail-view/view/image-product';
+import InfoProduct from '@/sections/product/detail-view/view/info-product';
+import RecommendProduct from '@/sections/product/detail-view/view/recommend-product';
+import { postData } from '@/lib/post-data';
+import { IPostData } from '@/types/next-auth';
+import useSWR from 'swr';
+import { ICProtected } from '@/components/Icons/ICProtected';
+import { ICFree } from '@/components/Icons/ICFree';
+import { ICChange } from '@/components/Icons/ICChange';
+import { ICClean } from '@/components/Icons/ICClean';
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import ItemMobile from './view/Item-mobile';
 
 interface IProps {
   slug: string;
@@ -33,26 +33,26 @@ function ProductDetail({ slug }: IProps) {
 
   const bodyApi: IPostData = {
     url: `products-details/${slug}`,
-    method: "get",
+    method: 'get',
   };
   const dataInitDetail = useSWR(bodyApi.url, () => postData(bodyApi));
 
   const bodyApiGetGlasses: IPostData = {
     url: `related-products/93`,
-    method: "get",
+    method: 'get',
   };
   const dataGlasses = useSWR(bodyApiGetGlasses.url, () =>
     postData(bodyApiGetGlasses)
   );
 
   if (dataGlasses?.data) {
-    console.log("dataGlasses", dataGlasses?.data[0]?.product_variant);
+    console.log('dataGlasses', dataGlasses?.data[0]?.product_variant);
   }
 
   // GET DETAIL PRODUCT BY COLOR
   const bodyGetProductByColor: any = {
     url: `products-details/${colorGetDetail}`,
-    method: "get",
+    method: 'get',
   };
 
   const getDetailProductByColor = useSWR(
@@ -69,7 +69,7 @@ function ProductDetail({ slug }: IProps) {
   useEffect(() => {
     getDetailProductByColor.mutate();
     setDatainit(
-      colorGetDetail !== "null"
+      colorGetDetail !== 'null'
         ? getDetailProductByColor.data
         : dataInitDetail.data
     );

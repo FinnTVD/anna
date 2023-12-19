@@ -67,6 +67,12 @@ html {
   font-family: SVN-Nexa !important;
 }
 
+@media screen and (min-width: 1600px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 .container {
   max-width: 100%;
   padding-left: 15px;
