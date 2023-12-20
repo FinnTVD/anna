@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { ArrowTopRight, ArrowTopRightActive } from '@/app/icons';
-import Image from 'next/image';
-import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
-import { formatCurrencyVND } from '@/ultils/format-price';
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { ArrowTopRight, ArrowTopRightActive } from "@/app/icons";
+import Image from "next/image";
+import { IItemProduct, IProductVariantItem } from "@/types/detail-product";
+import { formatCurrencyVND } from "@/ultils/format-price";
+import Link from "next/link";
 
 interface IProps {
   item?: {
@@ -36,7 +36,7 @@ function ItemProduct(props: IProps) {
           width={122}
           height={222}
           className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 max-md:rounded-[1.5rem]"
-          src={item?.item_product.featuredImage ?? '/img/no_image.jpg'}
+          src={item?.item_product.featuredImage ?? "/img/no_image.jpg"}
           alt=""
         />
       </div>
@@ -46,7 +46,7 @@ function ItemProduct(props: IProps) {
           <div className="max-md:hidden lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center w-[4.875rem] max-md:h-[1.0625rem]  flex justify-center">
             {item?.item_product?.category && (
               <p className="text-[0.75rem] text-[#454545] font-bold leading-[0.9rem] text-center">
-                {item?.item_product?.category[0].name ?? 'null'}
+                {item?.item_product?.category[0].name ?? "null"}
               </p>
             )}
           </div>
@@ -55,7 +55,7 @@ function ItemProduct(props: IProps) {
           <div className="hidden max-md:block bg-[#CAF2F1] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center mb-[0.62rem] flex justify-center w-fit">
             {item?.item_product?.category && (
               <p className="text-[2.66667rem] text-[#454545] font-bold py-[0.2rem] px-[1.6rem] text-center items-center">
-                {item?.item_product?.category[0].name ?? 'null'}
+                {item?.item_product?.category[0].name ?? "null"}
               </p>
             )}
           </div>
@@ -89,18 +89,19 @@ function ItemProduct(props: IProps) {
 
               {item?.product_variant && item?.product_variant.length > 4 && (
                 <div
-                  style={{ background: '#A9A9A9' }}
+                  style={{ background: "#A9A9A9" }}
                   className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[0.625rem] leading-[0.75rem] font-bold not-italic max-md:h-[3.2rem] max-md:w-[3.2rem] max-md:text-[2.13333rem] max-md:leading-[2.56rem]"
                 >
-                  +{item?.product_variant.length - 4}
+                  +{item?.product_variant.length ?? 4 - 4}
                 </div>
               )}
             </div>
-            {item?.item_product?.sale_price !== 0 && (
-              <span className="line-through max-md:text-[2.66667rem]">
-                {formatCurrencyVND(item?.item_product?.sale_price.toString())}
-              </span>
-            )}
+            {item?.item_product?.sale_price &&
+              item?.item_product?.sale_price !== 0 && (
+                <span className="line-through max-md:text-[2.66667rem]">
+                  {formatCurrencyVND(item?.item_product?.sale_price.toString())}
+                </span>
+              )}
           </div>
 
           {/* button show in PC */}
