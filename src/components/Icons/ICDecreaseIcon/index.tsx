@@ -1,11 +1,17 @@
-export function ICDecreaseIcon() {
+interface IProps {
+  width: string | number;
+  height: string | number;
+  fill?: string;
+}
+
+export function ICDecreaseIcon(props: IProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="25"
+      width={props.width ?? '24'}
+      height={props.height ?? '25'}
       viewBox="0 0 24 25"
-      fill="none"
+      fill={props.fill ?? 'none'}
     >
       <path
         fillRule="evenodd"
