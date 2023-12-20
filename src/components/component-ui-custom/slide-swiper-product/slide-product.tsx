@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
@@ -16,6 +16,7 @@ export interface IProps {
   keySlide: string;
   data?: any[];
   spaceBetween?: number;
+  spaceBetWeenMobile?: number;
   breakPoint?: {
     PerView1280?: number;
     PerView1024?: number;
@@ -23,33 +24,52 @@ export interface IProps {
     PerView767?: number;
   };
   heightImage?: number;
+  isShowArrow?: boolean;
 }
 
 function SlideProductComponent(props: IProps) {
-  const { keySlide, data, spaceBetween, breakPoint, heightImage } = props;
+  const {
+    keySlide,
+    data,
+    spaceBetween,
+    spaceBetWeenMobile,
+    breakPoint,
+    heightImage,
+    isShowArrow = true,
+  } = props;
   // console.log("data", data ? data[0]?.product_variant : []);
+  const [resSpaceBetweenSlide, setResSpaceBetweenSlide] = useState<number>(32);
+
+  useEffect(() => {
+    if (window.innerWidth < 767) {
+      setResSpaceBetweenSlide(spaceBetWeenMobile ?? 4);
+    } else setResSpaceBetweenSlide(spaceBetween ?? 32);
+  }, []);
 
   return (
-    <div className="swiper-detail-product h-full relative">
+    <div className="swiper-detail-product h-full relative w-full">
       <Swiper
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
-        spaceBetween={spaceBetween ?? 32}
+        spaceBetween={resSpaceBetweenSlide}
         loop
         breakpoints={{
-          1280: {
-            slidesPerView: breakPoint?.PerView1280 ?? 4,
+          0: {
+            slidesPerView: 2,
           },
-          1024: {
-            slidesPerView: breakPoint?.PerView1024 ?? 3,
+          767: {
+            slidesPerView: 2,
           },
           910: {
             slidesPerView: breakPoint?.PerView910 ?? 3,
           },
-          767: {
-            slidesPerView: breakPoint?.PerView767 ?? 3,
+          1024: {
+            slidesPerView: breakPoint?.PerView1024 ?? 3,
+          },
+          1280: {
+            slidesPerView: breakPoint?.PerView1280 ?? 4,
           },
         }}
         navigation={{
@@ -90,16 +110,20 @@ function SlideProductComponent(props: IProps) {
           <ItemProduct heightImage={heightImage} />
         </SwiperSlide>
       </Swiper>
-      <div
-        className={`prev-${keySlide} max-lg:left-[1.2rem] max-lg:z-[2] top-[50%] -translate-y-1/2 absolute lg:left-[-6.5%] md:left-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}
-      >
-        <ArrowSlideLeft />
-      </div>
-      <div
-        className={`next-${keySlide} max-lg:right-[-1.2rem] max-lg:z-[2]  top-[50%] -translate-y-1/2 absolute lg:right-[-6.5%]  md:right-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}
-      >
-        <ArrowSlideRight />
-      </div>
+      {isShowArrow && (
+        <>
+          <div
+            className={`prev-${keySlide}  max-lg:z-[2] top-[36%] absolute left-[-5.5%] w-[4.5rem] h-[4.5rem] cursor-pointer max-md:opacity-90 max-md:h-[8rem] max-md:w-[8rem] max-md:left-[-4.5rem]`}
+          >
+            <ArrowSlideLeft />
+          </div>
+          <div
+            className={`next-${keySlide}  max-lg:z-[2]  top-[36%] absolute right-[-5.5%] w-[4.5rem] h-[4.5rem] cursor-pointer max-md:opacity-90 max-md:h-[8rem] max-md:w-[8rem] max-md:right-[-4.5rem]`}
+          >
+            <ArrowSlideRight />
+          </div>
+        </>
+      )}
     </div>
   );
 }

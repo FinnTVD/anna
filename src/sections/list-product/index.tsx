@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import "./style.css";
-import FilterListProduct from "./components/filter-list-product";
-import OutstandingProduct from "./components/outstanding-product";
-import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
-import Image from "next/image";
-import ListNewProduct from "./components/list-new-product";
-import SlideProductComponent from "@/components/component-ui-custom/slide-swiper-product/slide-product";
+import './style.css';
+import FilterListProduct from './components/filter-list-product';
+import OutstandingProduct from './components/outstanding-product';
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import Image from 'next/image';
+import ListNewProduct from './components/list-new-product';
+import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 
 export default function ListProduct() {
   return (
@@ -32,7 +32,7 @@ export default function ListProduct() {
       {/* content */}
       <div className="w-[87.5rem] mx-auto mt-[2.5rem] max-md:w-full max-md:px-[3.2rem] max-md:mt-[3.2rem]">
         <FilterListProduct />
-        <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
+        <div className="mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
           <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
             <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
               SẢN PHẨM NỔI BẬT
@@ -47,9 +47,12 @@ export default function ListProduct() {
               </p>
             </div>
           </div>
-          <div className="max-md:hidden">
+          <div className="w-full">
             {/* <OutstandingProduct /> */}
-            <SlideProductComponent keySlide="out-standing-product" />
+            <SlideProductComponent
+              keySlide="out-standing-product"
+              breakPoint={{ PerView767: 2 }}
+            />
           </div>
           {/* <div className="hidden max-md:block px-[3.2rem]">
           <div className="flex justify-between">
@@ -84,12 +87,12 @@ export default function ListProduct() {
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] max-md:text-[5.33333rem] mb-[3rem]">
             SẢN PHẨM MỚI NHẤT
           </h4>
-          <div className="flex w-full">
+          <div className="flex w-full max-md:flex-col">
             <Image
               width={400}
               height={300}
               // width={}
-              className="w-2/5 h-[21.875rem] rounded-3xl mr-[1.25rem]"
+              className="w-2/5 h-[21.875rem] rounded-3xl mr-[1.25rem] max-md:w-full max-md:h-[60rem] max-md:rounded-[4.5rem] max-md:mb-[3rem]"
               src="https://kinhmatanna.com/wp-content/uploads/2022/06/Rectangle-416.jpg"
               alt=""
             />
@@ -97,6 +100,9 @@ export default function ListProduct() {
               <SlideProductComponent
                 keySlide="list-new-product"
                 heightImage={17}
+                breakPoint={{
+                  PerView1280: 3,
+                }}
               />
             </div>
           </div>

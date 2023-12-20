@@ -1,15 +1,24 @@
-import React from 'react';
-import { ArrowTopRight } from '@/app/icons';
+import React, { useEffect, useState } from 'react';
+import { ArrowTopRight, ArrowTopRightActive } from '@/app/icons';
 import Image from 'next/image';
 
 interface IProps {
   item?: any;
-  heightImage?: string | number;
+  heightImage?: number;
+  heightImageMobile?: number;
 }
 
 function ItemProduct(props: IProps) {
-  const { item, heightImage } = props;
+  const { item, heightImage, heightImageMobile } = props;
+  const [heightSlider, setHeightSlider] = useState<number>(20.375);
   console.log('item', item);
+
+  useEffect(() => {
+    if (window.innerWidth < 767) {
+      setHeightSlider(heightImageMobile ?? 40);
+    } else setHeightSlider(heightImage ?? 20.375);
+  }, []);
+
   const listColor = [
     {
       id: 1,
@@ -45,39 +54,49 @@ function ItemProduct(props: IProps) {
     },
   ];
   return (
-    <div className="item-slider-product rounded-2xl overflow-hidden  cursor-pointer relative">
+    <div className="item-slider-product rounded-2xl overflow-hidden  cursor-pointer relative max-md:mb-[2rem]">
       <div
         style={{
-          height: `${heightImage ?? 20.375}rem`,
+          height: `${heightSlider}rem`,
         }}
-        className="max-sm:h-[25rem] w-full overflow-hidden"
+        className="w-full overflow-hidden"
       >
         <Image
           width={122}
           height={222}
-          className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 "
+          className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 max-md:rounded-[1.5rem]"
           src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"
           alt=""
         />
       </div>
-      <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-sm:h-[5.75rem]">
+      <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-md:h-[30.5rem] max-md:-mt-[15.1rem]">
         <div className="flex ml-[1rem] mb-[0.9rem]">
-          <div className="lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center w-[4.875rem] max-sm:h-[1.0625rem]  flex justify-center">
+          {/* show in PC */}
+          <div className="max-md:hidden lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center w-[4.875rem] max-md:h-[1.0625rem]  flex justify-center">
             <p className="text-[0.75rem] text-[#454545] font-bold leading-[0.9rem] text-center">
               Gọng kính
             </p>
           </div>
-          <div className="lg:mb-mb-[0.75rem] bg-[#F58F5D] h-[1.25rem] flex items-center justify-center border-[#C5C5C5] border-[1px] rounded-[2.5rem] w-[6.375rem] ml-[0.25rem] max-sm:hidden">
+
+          {/* Show in Mobile */}
+          <div className="hidden max-md:block bg-[#CAF2F1] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center mb-[0.62rem] flex justify-center w-fit">
+            <p className="text-[2.66667rem] text-[#454545] font-bold py-[0.2rem] px-[1.6rem] text-center items-center">
+              Gọng kính
+            </p>
+          </div>
+
+          {/* hide in mobile */}
+          <div className="lg:mb-mb-[0.75rem] bg-[#F58F5D] h-[1.25rem] flex items-center justify-center border-[#C5C5C5] border-[1px] rounded-[2.5rem] w-[6.375rem] ml-[0.25rem] max-md:hidden">
             <p className="text-[0.75rem] text-white font-bold leading-[0.9rem] text-center mb-0">
               Siêu Sale 10.10
             </p>
           </div>
         </div>
-        <div className="p-[1rem] rounded-2xl bg-[#FFF] box-slide max-sm:p-[0.5rem]">
-          <span className="text-[1rem] mb-[0.25rem] text-[#454545] font-[850] leading-[1.2rem] max-sm:text-[0.875rem] max-sm:leading-[1.225rem] max-sm:mb-[0.25rem]">
+        <div className="relative p-[1rem] rounded-2xl bg-[#FFF] box-slide max-md:p-[2.13rem] max-md:rounded-[3.2rem] max-md:p-[0.5rem]">
+          <span className="text-[1rem] mb-[0.25rem] text-[#454545] font-[850] leading-[1.2rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
             GK – 380CK081 111
           </span>
-          <div className="flex justify-between mt-[0.25rem] mb-[0.75rem]">
+          <div className="flex justify-between mt-[0.25rem] mb-[0.75rem] max-md:flex-row-reverse">
             <div className="flex items-center">
               {listColor.map(
                 (item: any, index: number) =>
@@ -85,25 +104,39 @@ function ItemProduct(props: IProps) {
                     <div
                       key={index}
                       style={{ background: item.color }}
-                      className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem]"
+                      className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem] max-md:h-[3.2rem] max-md:w-[3.2rem]"
                     />
                   )
               )}
               <div
                 style={{ background: '#A9A9A9' }}
-                className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[0.625rem] leading-[0.75rem] font-bold not-italic "
+                className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[0.625rem] leading-[0.75rem] font-bold not-italic max-md:h-[3.2rem] max-md:w-[3.2rem] max-md:text-[2.13333rem] max-md:leading-[2.56rem]"
               >
                 +{listColor.length - 4}
               </div>
             </div>
-            <span className="line-through">440.000đ</span>
+            <span className="line-through max-md:text-[2.66667rem]">
+              440.000đ
+            </span>
           </div>
-          <div className="bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[3.125rem] max-sm:py-[0.38rem] max-sm:px-[0.75rem] max-sm:h-[1.875rem] max-sm:rounded-[2.5rem]">
-            <p className="text-[1.5rem] font-[850] text-[#fff] max-sm:text-[0.875rem] leading-[1.8rem] max-sm:text-[#55D5D2]">
+
+          {/* button show in PC */}
+          <div className="max-md:hidden bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[3.125rem] ">
+            <p className="text-[1.5rem] font-[850] text-[#fff] leading-[1.8rem] ">
               320.000đ
             </p>
             <div className="arrow-peoduct-slide pl-[0.5rem] text-[#fff]">
               <ArrowTopRight />
+            </div>
+          </div>
+
+          {/* button show in mobile */}
+          <div className=" hidden max-md:flex price-product-slide justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] mt-[2rem] rounded-[2.5rem] border-[1px] border-[#55D5D2]">
+            <p className="text-[3.73333rem] font-[850] leading-[4.85333rem] text-[#55D5D2]">
+              320.000đ
+            </p>
+            <div className="arrow-peoduct-slide p-[0.5rem]">
+              <ArrowTopRightActive />
             </div>
           </div>
         </div>
