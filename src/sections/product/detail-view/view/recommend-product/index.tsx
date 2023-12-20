@@ -2,7 +2,7 @@ import React from 'react';
 
 function RecommendProduct() {
   return (
-    <div className="mx-[6.25rem] max-lg:mx-[3.25rem] max-md-w-full max-md:mx-0 mb-[10rem] max-md:pl-[2.67rem] max-md:bg-[#EEFBFB] max-md:pb-[3.27rem]">
+    <div className="w-[87.5rem] mx-auto max-lg:mx-[3.25rem] max-md-w-full max-md:mx-0 mb-[10rem] max-md:pl-[2.67rem] max-md:bg-[#EEFBFB] max-md:pb-[3.27rem]">
       <h4 className="pt-[2.06rem] text-[2rem] font-[850] text-[#4DC0BD] max-md:text-[5.33333rem] max-md:text-[#313131] text-left ">
         GỢI Ý CHO BẠN
       </h4>

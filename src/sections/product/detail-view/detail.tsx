@@ -99,7 +99,7 @@ function ProductDetail({ slug }: IProps) {
   return (
     <div className="pt-[3.41rem]">
       {/* section 1 */}
-      <div className="flex justify-center w-full px-[6.25rem] max-md:px-[3.2rem]">
+      <div className="flex justify-center w-[87.5rem] mx-auto max-md:w-full max-md:px-[3.2rem]">
         <div className="w-full flex max-md:flex-col mb-[5rem] max-md:mb-[0]">
           <ImageProduct dataInit={dataInit} />
           {/* right */}
@@ -163,7 +163,7 @@ function ProductDetail({ slug }: IProps) {
         </div>
       </div>
       {/* section 3 */}
-      <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
+      <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
         <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH BỔ TRỢ
@@ -209,7 +209,7 @@ function ProductDetail({ slug }: IProps) {
           </p>
         </div>
       </div>
-      <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
+      <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
         <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH TƯƠNG TỰ

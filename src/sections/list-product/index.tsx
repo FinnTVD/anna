@@ -1,12 +1,15 @@
 'use client';
 
-import { Checkbox } from '@/components/ui/checkbox';
 import './style.css';
 import FilterListProduct from './components/filter-list-product';
+import OutstandingProduct from './components/outstanding-product';
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import Image from 'next/image';
+import ListNewProduct from './components/list-new-product';
 
 export default function ListProduct() {
   return (
-    <div className="list-product-container">
+    <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
       <div className="relative bg-banner-about-us bg-[url('/img/about-us/bg-banner-about-us.jpg')] bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
         <div className="absolute bottom-20 left-[8rem]">
@@ -26,9 +29,76 @@ export default function ListProduct() {
       </div>
 
       {/* content */}
-      <div className="px-[6.25rem] mt-[1.5rem]">
+      <div className="w-[87.5rem] mx-auto mt-[1.5rem]">
         <FilterListProduct />
+        <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
+          <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
+            <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
+              SẢN PHẨM NỔI BẬT
+            </h4>
+            <div className="flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
+              <ICArrowRight2 fill="#F58F5D" />
+              <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
+                Xem thêm
+              </p>
+              <p className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]">
+                Xem tất cả
+              </p>
+            </div>
+          </div>
+          <div className="max-md:hidden">
+            <OutstandingProduct />
+          </div>
+          {/* <div className="hidden max-md:block px-[3.2rem]">
+          <div className="flex justify-between">
+            <div className="relative mb-[4.27rem]">
+              <ItemMobile />
+            </div>
+            <div className="relative mb-[4.27rem]">
+              <ItemMobile />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="relative mb-[4.27rem]">
+              <ItemMobile />
+            </div>
+            <div className="relative mb-[4.27rem]">
+              <ItemMobile />
+            </div>
+          </div>
+        </div> */}
+          {/* <div className="hidden max-md:flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer">
+          <ICArrowRight2 fill="#F58F5D" />
+          <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
+            Xem thêm
+          </p>
+          <p className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]">
+            Xem tất cả
+          </p>
+        </div> */}
+        </div>
+        {/* newest product */}
+        <div>
+          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] max-md:text-[5.33333rem] mb-[3rem]">
+            SẢN PHẨM MỚI NHẤT
+          </h4>
+          <div className="flex w-full">
+            <Image
+              width={400}
+              height={300}
+              // width={}
+              className="w-2/5 h-[21.875rem] rounded-3xl mr-[1.25rem]"
+              src="https://kinhmatanna.com/wp-content/uploads/2022/06/Rectangle-416.jpg"
+              alt=""
+            />
+            <div className="grow w-full overflow-hidden">
+              <ListNewProduct />
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* outstanding product */}
     </div>
   );
 }

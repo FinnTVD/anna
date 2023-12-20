@@ -7,9 +7,10 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { ArrowSlideLeft, ArrowSlideRight } from '@/app/icons';
-import Item from './Item';
 import './style.css';
+import ItemProduct from './ItemProduct';
+import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
+import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 
 export interface numberArrow {
   number: number;
@@ -21,7 +22,6 @@ const SlideProduct: React.FC<numberArrow> = ({ number, data }) => {
 
   return (
     <div className="swiper-detail-product h-full relative">
-      {/* <div>{JSON.stringify(data)}</div> */}
       <Swiper
         spaceBetween={32}
         loop
@@ -49,7 +49,7 @@ const SlideProduct: React.FC<numberArrow> = ({ number, data }) => {
         {data &&
           data[0]?.product_variant.map((item) => (
             <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-              <Item item={item} />
+              <ItemProduct item={item} />
             </SwiperSlide>
           ))}
       </Swiper>
