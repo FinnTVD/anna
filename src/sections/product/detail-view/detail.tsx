@@ -14,7 +14,7 @@ import { ICFree } from '@/components/Icons/ICFree';
 import { ICChange } from '@/components/Icons/ICChange';
 import { ICClean } from '@/components/Icons/ICClean';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
-import ItemMobile from './view/Item-mobile';
+import ItemMobile from '../../../components/component-ui-custom/item-product-mobile';
 
 interface IProps {
   slug: string;
@@ -163,7 +163,7 @@ function ProductDetail({ slug }: IProps) {
         </div>
       </div>
       {/* section 3 */}
-      <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
+      <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:w-full max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
         <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH BỔ TRỢ
@@ -209,7 +209,7 @@ function ProductDetail({ slug }: IProps) {
           </p>
         </div>
       </div>
-      <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
+      <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:w-full max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
         <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH TƯƠNG TỰ

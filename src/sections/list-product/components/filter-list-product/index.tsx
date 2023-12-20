@@ -2,7 +2,8 @@
 
 import { Checkbox } from '@/components/ui/checkbox';
 import './style.css';
-import ItemProduct from '@/sections/product/components/slide/ItemProduct';
+import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
+import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
 
 export default function FilterListProduct() {
   const listMaterial = [
@@ -169,8 +170,19 @@ export default function FilterListProduct() {
   };
   return (
     <div className="filter-list-product-container">
-      <div className="flex justify-between">
-        <div className="w-[13.875rem]">
+      <div className="mb-[2rem] max-md:mt-[6rem] max-md:mb-[5rem]">
+        <h2 className="font-semibold text-[2.188rem] uppercase max-md:text-[4.8rem]">
+          GỌNG KÍNH
+        </h2>
+        <p className="text-[1.125rem] font-normal w-1/2 mt-[1.5rem] mb-[3rem] max-md:text-[3.733rem] max-md:w-full">
+          Gọng kính được xem như bộ khung vững chắc, là giá đỡ vững chắc cho mắt
+          kính. Không những thế, các loại gọng kính còn được thiết kế như là một
+          phụ kiện thời trang hấp dẫn giúp chủ sở hữu nổi bần bật, thu hút mọi
+          ánh nhìn.
+        </p>
+      </div>
+      <div className="flex justify-between  max-md:hidden">
+        <div className="w-[17.875rem]">
           <h3 className="title-filter">Chất liệu</h3>
           {listMaterial.map((item, index) => (
             <div key={index} className="flex items-center">
@@ -241,13 +253,49 @@ export default function FilterListProduct() {
             </div>
           ))}
         </div>
-        <div className="grow grid grid-cols-4 gap-4">
+        <div className="w-full grow grid grid-cols-4 gap-4">
           {listProduct.map((item, index) => (
-            <div className="w-[16.5rem] rounded-[1rem]" key={index}>
-              <ItemProduct />
+            <div className="rounded-[1rem]" key={index}>
+              <ItemProduct heightImage={17} />
             </div>
           ))}
         </div>
+      </div>
+      <div className="hidden max-md:block">
+        <div className="grid grid-cols-2">
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+          <div className="relative mb-[4.27rem]">
+            <ItemMobile />
+          </div>
+        </div>
+        {/* <div className="flex justify-between">
+            <div className="relative mb-[4.27rem]">
+              <ItemMobile />
+            </div>
+            <div className="relative mb-[4.27rem]">
+              <ItemMobile />
+            </div>
+          </div> */}
       </div>
     </div>
   );

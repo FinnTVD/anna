@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import ItemProduct from '@/sections/product/components/slide/ItemProduct';
-import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
-import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import ItemProduct from "@/components/component-ui-custom/item-product/ItemProduct";
+import { ArrowSlideLeft } from "@/components/Icons/ICArrowSlideLeft";
+import { ArrowSlideRight } from "@/components/Icons/ICArrowSlideRight";
 
 export default function OutstandingProduct() {
   return (

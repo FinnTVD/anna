@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowTopRightActive, ColorPink } from '@/app/icons';
+import { ArrowTopRightActive } from '@/app/icons';
 import './style.css';
 
 function ItemMobile() {
@@ -41,7 +41,7 @@ function ItemMobile() {
     <div className="relative max-md:h-[50rem] max-md:w-[45.2rem]">
       <div className="overflow-hidden rounded-[1rem] ">
         <img
-          className="h-[20.375rem] object-cover  max-md:h-[40rem]"
+          className=" object-cover h-[40rem]"
           src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
       </div>

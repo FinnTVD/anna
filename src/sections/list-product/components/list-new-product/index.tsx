@@ -7,7 +7,7 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import ItemProduct from '@/sections/product/components/slide/ItemProduct';
+import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
 import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
 import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 
@@ -15,10 +15,10 @@ export default function ListNewProduct() {
   return (
     <div className="swiper-list-new-product w-full h-full relative">
       <Swiper
-        // autoplay={{
-        //   delay: 2000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         spaceBetween={32}
         loop
         breakpoints={{
@@ -43,22 +43,22 @@ export default function ListNewProduct() {
         className="mySwiper pl-[0rem] mx-[1rem] "
       >
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct height={23} />
+          <ItemProduct heightImage={17} />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct height={23} />
+          <ItemProduct heightImage={17} />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct height={23} />
+          <ItemProduct heightImage={17} />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct height={23} />
+          <ItemProduct heightImage={17} />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct height={23} />
+          <ItemProduct heightImage={17} />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct height={23} />
+          <ItemProduct heightImage={17} />
         </SwiperSlide>
       </Swiper>
       <div

@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './style.css';
-import ItemProduct from './ItemProduct';
+import ItemProduct from '../../../../components/component-ui-custom/item-product/ItemProduct';
 import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
 import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 

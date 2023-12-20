@@ -22,14 +22,14 @@ export default function ListProduct() {
             </span>
             <div className="bg-[#81C8C2] h-[0.625rem] w-[0.625rem] rounded-full mx-[1rem] max-md:w-[2.13333rem] max-md:h-[2.13333rem] max-md:mx-[2rem]" />
             <span className="text-white text-[0.875rem] leading-[2.25rem] not-italic max-md:text-[3.2rem] max-md:leading-[4.8rem]">
-              Về Anna
+              Danh sách sản phẩm
             </span>
           </div>
         </div>
       </div>
 
       {/* content */}
-      <div className="w-[87.5rem] mx-auto mt-[1.5rem]">
+      <div className="w-[87.5rem] mx-auto mt-[2.5rem] max-md:w-full max-md:px-[3.2rem] max-md:mt-[3.2rem]">
         <FilterListProduct />
         <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
           <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">

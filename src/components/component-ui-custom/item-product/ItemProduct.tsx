@@ -1,15 +1,14 @@
 import React from 'react';
 import { ArrowTopRight } from '@/app/icons';
-import './style.css';
 import Image from 'next/image';
 
 interface IProps {
   item?: any;
-  height?: string;
+  heightImage?: string | number;
 }
 
 function ItemProduct(props: IProps) {
-  const { item, height } = props;
+  const { item, heightImage } = props;
   console.log('item', item);
   const listColor = [
     {
@@ -46,13 +45,20 @@ function ItemProduct(props: IProps) {
     },
   ];
   return (
-    <div className="item-slider-product rounded-2xl max-sm:h-[15.125rem] cursor-pointer relative">
-      <div className="h-[20.375rem] w-full overflow-hidden">
+    <div className="item-slider-product rounded-2xl overflow-hidden  cursor-pointer relative">
+      <div
+        style={{
+          height: `${heightImage ?? 20.375}rem`,
+        }}
+        className="max-sm:h-[25rem] w-full overflow-hidden"
+      >
         <Image
           width={122}
           height={222}
-          className="image-item-slide rounded-2xl w-full h-full object-cover max-sm:h-[9.375rem] bg-slate-500 "
-          src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt={''}        />
+          className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 "
+          src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg"
+          alt=""
+        />
       </div>
       <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-sm:h-[5.75rem]">
         <div className="flex ml-[1rem] mb-[0.9rem]">
