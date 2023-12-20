@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navbar-container .input-search::placeholder {
+    @apply font-normal text-[1rem] not-italic leading-[5.12rem];
+  }
+}

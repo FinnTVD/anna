@@ -3,10 +3,10 @@ import Navbar from '@/sections/main/components/navbar/navbar';
 
 function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-full">
+    <div>
       <Navbar />
-      <main className="h-full">
-        <div className="px-6">{children}</div>
+      <main className="mt-[8rem] max-md:mt-0">
+        <div>{children}</div>
       </main>
       <Footer />
     </div>
