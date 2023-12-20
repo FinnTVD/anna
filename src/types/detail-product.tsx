@@ -5,17 +5,6 @@ export interface IDetailProductRes {
   category?: {
     name?: string;
   }[];
-  date_created?: {
-    date: string;
-    timezone_type: number;
-    timezone: string;
-  };
-  date_modified?: {
-    date: string;
-    timezone_type: number;
-    timezone: string;
-  };
-  status?: string;
   featuredImage?: string;
   stoc_quantity?: number;
   gallery?: {
@@ -23,19 +12,12 @@ export interface IDetailProductRes {
     src?: string;
     name?: string;
   }[];
-  featured: boolean;
-  catalog_visibility: string;
   description: string;
   short_description: string;
-  sku: string;
   price: string;
   regular_price: string;
   sale_price: string;
-  date_on_sale_from: null | string;
-  date_on_sale_to: null | string;
   total_sales: number;
-  tax_status: string;
-  tax_class: string;
   manage_stock: boolean;
   stock_quantity: any;
   stock_status: string;
@@ -69,4 +51,26 @@ export interface IDetailProductRes {
   average_rating: string;
   review_count: number;
   meta_data: string[];
+}
+
+export interface IItemProduct {
+  id?: number;
+  name?: string;
+  price?: number;
+  ratings?: number;
+  sale_price?: number;
+  seller?: string;
+  sku?: string;
+  slug?: string;
+  featuredImage?: string;
+  category?: {
+    name: string;
+  }[];
+}
+
+export interface IProductVariantItem {
+  attributes?: {
+    color: string;
+  };
+  id?: number;
 }

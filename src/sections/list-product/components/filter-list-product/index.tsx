@@ -4,8 +4,16 @@ import { Checkbox } from '@/components/ui/checkbox';
 import './style.css';
 import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
 import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
+import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
 
-export default function FilterListProduct() {
+interface IProps {
+  data: {
+    item_product: IItemProduct;
+    product_variant: IProductVariantItem[];
+  }[];
+}
+export default function FilterListProduct(props: IProps) {
+  const { data } = props;
   const listMaterial = [
     {
       id: 1,
@@ -254,11 +262,12 @@ export default function FilterListProduct() {
           ))}
         </div>
         <div className="w-full grow grid grid-cols-4 gap-4">
-          {listProduct.map((item, index) => (
-            <div className="rounded-[1rem]" key={index}>
-              <ItemProduct heightImage={17} />
-            </div>
-          ))}
+          {data &&
+            data.map((item, index) => (
+              <div className="rounded-[1rem]" key={index}>
+                <ItemProduct heightImage={17} item={item} />
+              </div>
+            ))}
         </div>
       </div>
       <div className="hidden max-md:block">

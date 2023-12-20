@@ -1,14 +1,51 @@
 'use client';
 
 import './style.css';
+import { useEffect, useState } from 'react';
+import { useQueryState } from 'next-usequerystate';
+import useSWR from 'swr';
 import FilterListProduct from './components/filter-list-product';
-import OutstandingProduct from './components/outstanding-product';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
-import ListNewProduct from './components/list-new-product';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
+import { postData } from '@/lib/post-data';
 
-export default function ListProduct() {
+interface IProps {
+  slug?: any;
+}
+
+interface IParamsSearch {
+  per_page: number;
+  page: number;
+}
+
+export default function ListProduct(props: IProps) {
+  const { slug } = props;
+
+  // const [paramsSearch, setParamsSearch] = useQueryState<IParamsSearch>({
+  //   per_page: 12,
+  //   page: 1,
+  // });
+  const [paramsSearch, setParamsSearch] = useState<IParamsSearch>({
+    per_page: 12,
+    page: 1,
+  });
+  const [dataInit, setDatainit] = useState<any>();
+
+  const bodyGetListProduct: any = {
+    url: `products?per_page=${paramsSearch.per_page}&page=${paramsSearch.page}`,
+    method: 'get',
+  };
+
+  const getlistProduct = useSWR(bodyGetListProduct.url, () =>
+    postData(bodyGetListProduct)
+  );
+
+  useEffect(() => {
+    setDatainit(getlistProduct.data);
+  }, [getlistProduct]);
+
+  // console.log('dataInit', dataInit);
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
@@ -31,7 +68,7 @@ export default function ListProduct() {
 
       {/* content */}
       <div className="w-[87.5rem] mx-auto mt-[2.5rem] max-md:w-full max-md:px-[3.2rem] max-md:mt-[3.2rem]">
-        <FilterListProduct />
+        <FilterListProduct data={dataInit} />
         <div className="mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
           <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
             <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
@@ -52,6 +89,7 @@ export default function ListProduct() {
             <SlideProductComponent
               keySlide="out-standing-product"
               breakPoint={{ PerView767: 2 }}
+              data={dataInit}
             />
           </div>
           {/* <div className="hidden max-md:block px-[3.2rem]">
@@ -103,6 +141,7 @@ export default function ListProduct() {
                 breakPoint={{
                   PerView1280: 3,
                 }}
+                data={dataInit}
               />
             </div>
           </div>

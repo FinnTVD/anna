@@ -78,10 +78,6 @@ export function ArrowRight() {
   );
 }
 
-
-
-
-
 export function MapMobile() {
   return (
     <svg

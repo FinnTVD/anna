@@ -11,10 +11,14 @@ import './style.css';
 import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
 import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 import ItemProduct from '../item-product/ItemProduct';
+import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
 
 export interface IProps {
   keySlide: string;
-  data?: any[];
+  data?: {
+    item_product: IItemProduct;
+    product_variant: IProductVariantItem[];
+  }[];
   spaceBetween?: number;
   spaceBetWeenMobile?: number;
   breakPoint?: {
@@ -37,7 +41,7 @@ function SlideProductComponent(props: IProps) {
     heightImage,
     isShowArrow = true,
   } = props;
-  // console.log("data", data ? data[0]?.product_variant : []);
+  console.log('data', data);
   const [resSpaceBetweenSlide, setResSpaceBetweenSlide] = useState<number>(32);
 
   useEffect(() => {
@@ -79,13 +83,16 @@ function SlideProductComponent(props: IProps) {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper pl-[0rem] mx-[1rem] "
       >
-        {/* {data &&
-          data[0]?.product_variant.map((item: any, index: number) => (
-            <SwiperSlide key={index} className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-              <ItemProduct item={item} />
+        {data &&
+          data.map((item: any, index: number) => (
+            <SwiperSlide
+              key={index}
+              className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
+            >
+              <ItemProduct item={item} heightImage={heightImage} />
             </SwiperSlide>
-          ))} */}
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
+          ))}
+        {/* <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <ItemProduct heightImage={heightImage} />
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
@@ -108,7 +115,7 @@ function SlideProductComponent(props: IProps) {
         </SwiperSlide>
         <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
           <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
       {isShowArrow && (
         <>
