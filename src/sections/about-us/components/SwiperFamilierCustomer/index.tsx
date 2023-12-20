@@ -2,11 +2,10 @@
 
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { ArrowSlideLeft, ArrowSlideRight } from '@/app/icons';
 import './style.css';
 import Image from 'next/image';
 // import Item from '@/sections/product/components/slide/Item';
