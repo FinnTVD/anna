@@ -9,11 +9,11 @@ import {
 } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICLocation from '@/components/Icons/ICLocation';
-import ICArrowDown from '@/components/Icons/ICArrowDown';
 import ICCart from '@/components/Icons/ICCart';
 import { Input } from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
+import ICArrowDown from '@/components/Icons/ICArrowDown';
 
 interface IProps {
   session: Session | null;
