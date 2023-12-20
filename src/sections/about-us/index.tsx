@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SwiperFamilierCustomer from './components/SwiperFamilierCustomer';
 import './style.css';
 
@@ -26,12 +27,16 @@ export default function AboutUs() {
       <div className="w-[87.5rem] mx-auto my-0 flex flex-col items-center mt-[7.2rem] mx-[8.38rem] max-xl:mx-[3rem] max-md:mx-[6.4rem]">
         <div className="flex justify-between w-full max-md:flex-col-reverse">
           <div className="flex max-md:flex-col">
-            <img
+            <Image
+              width={180}
+              height={290}
               className="w-[18.9375rem] h-[29.75rem] mr-[1.8125rem] object-cover max-md:w-full max-md:h-[105.06667rem]"
               src="/img/about-us/content1.jpg"
               alt=""
             />
-            <img
+            <Image
+              width={180}
+              height={290}
               className="w-[18.9375rem] h-[29.75rem] mr-[1.75rem] object-cover mt-[6.75rem] max-md:w-full max-md:h-[105.06667rem]"
               src="/img/about-us/content2.jpg"
               alt=""
@@ -48,7 +53,9 @@ export default function AboutUs() {
           <h2 className="mt-[6.75rem] mr-[5rem] font-semibold text-[2.1875rem] not-italic leading-[3.28125rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
             HỆ THỐNG CỬA HÀNG KÍNH MẮT
           </h2>
-          <img
+          <Image
+            height={330}
+            width={390}
             className="w-[39.6875rem] h-[33.8125rem] object-cover max-md:w-full max-md:mt-[4.27rem] max-md:h-[105.06667rem]"
             src="/img/about-us/content3.jpg"
             alt=""
@@ -76,7 +83,9 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="relative marketing-war w-[20rem] h-[20rem] mr-[11.5rem] max-md:my-[28rem] max-md:h-[45rem] max-md:w-[45rem]  max-md:mr-[3.5rem] ">
-            <img
+            <Image
+              height={200}
+              width={200}
               className="w-[20rem] h-[20rem] object-cover rounded-full max-md:h-[45rem] max-md:w-[45rem]"
               src="/img/about-us/content4.jpg"
               alt=""

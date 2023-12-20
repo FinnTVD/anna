@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 function RecommendProduct() {
@@ -8,8 +9,10 @@ function RecommendProduct() {
       </h4>
       <div className="flex w-full justify-between mt-[2.12rem]">
         <div className="w-[27.5rem]">
-          <img
-            className="w-full rounded-[1rem] mb-[1.5rem]"
+          <Image
+            width={100}
+            height={100}
+            className="w-[24.25rem] rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
             src="https://kinhmatanna.com/wp-content/uploads/2023/03/6021.-300x300.jpg"
             alt=""
           />
@@ -18,8 +21,10 @@ function RecommendProduct() {
           </p>
         </div>
         <div className="w-[27.5rem]">
-          <img
-            className="w-full rounded-[1rem] mb-[1.5rem]"
+          <Image
+            width={100}
+            height={100}
+            className="w-[24.25rem] rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
             src="https://kinhmatanna.com/wp-content/uploads/2023/03/6021.-300x300.jpg"
             alt=""
           />
@@ -28,8 +33,10 @@ function RecommendProduct() {
           </p>
         </div>
         <div className="w-[27.5rem]">
-          <img
-            className="w-full rounded-[1rem] mb-[1.5rem]"
+          <Image
+            width={100}
+            height={100}
+            className="w-[24.25rem] rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
             src="https://kinhmatanna.com/wp-content/uploads/2023/03/6021.-300x300.jpg"
             alt=""
           />

@@ -8,6 +8,7 @@ import ICTiktokFooter from '@/components/Icons/ICTiktokFooter';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICEmail from '@/components/Icons/ICEmail';
 import ICPhone from '@/components/Icons/ICPhone';
+import Image from 'next/image';
 
 function Footer() {
   const listIcon = [
@@ -183,12 +184,20 @@ function Footer() {
               <h2 className="font-extrabold not-italic leading-4 text-[#CAF2F1] text-[1.125rem]">
                 MST: 0108195925
               </h2>
-              <img
-                className="my-[0.75rem]"
+              <Image
+                width={1}
+                height={1}
+                className="my-[0.75rem] w-[12.29306rem] h-[4.6505rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
                 src="/img/footer/logoSaleNoti.png"
                 alt=""
               />
-              <img src="/img/footer/protected.png" alt="" />
+              <Image
+                width={80}
+                height={10}
+                className="w-[8.2715rem] h-[1.64063rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
+                src="/img/footer/protected.png"
+                alt=""
+              />
             </div>
           </div>
         </div>
