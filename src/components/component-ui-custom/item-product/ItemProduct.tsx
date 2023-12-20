@@ -20,7 +20,7 @@ function ItemProduct(props: IProps) {
 
   useEffect(() => {
     if (window.innerWidth < 767) {
-      setHeightSlider(heightImageMobile ?? 40);
+      setHeightSlider(heightImageMobile ?? 44);
     } else setHeightSlider(heightImage ?? 20.375);
   }, []);
 
@@ -40,7 +40,7 @@ function ItemProduct(props: IProps) {
           alt=""
         />
       </div>
-      <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-md:h-[30.5rem] max-md:-mt-[15.1rem]">
+      <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-md:h-[35.5rem] max-md:-mt-[15.1rem]">
         <div className="flex ml-[1rem] mb-[0.9rem]">
           {/* show in PC */}
           <div className="max-md:hidden lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center w-[4.875rem] max-md:h-[1.0625rem]  flex justify-center">
@@ -74,7 +74,7 @@ function ItemProduct(props: IProps) {
             </span>
           </div>
           <div className="flex justify-between mt-[0.25rem] mb-[0.75rem] max-md:flex-row-reverse">
-            <div className="flex items-center h-[1rem] max-md:h-[3.2rem]">
+            <div className="flex flex-start h-[1rem] max-md:h-[3.2rem]">
               {item?.product_variant &&
                 item?.product_variant.map(
                   (item: any, index: number) =>
@@ -96,10 +96,11 @@ function ItemProduct(props: IProps) {
                 </div>
               )}
             </div>
-            <span className="line-through max-md:text-[2.66667rem]">
-              {item?.item_product?.sale_price !== 0 &&
-                formatCurrencyVND(item?.item_product?.sale_price.toString())}
-            </span>
+            {item?.item_product?.sale_price !== 0 && (
+              <span className="line-through max-md:text-[2.66667rem]">
+                {formatCurrencyVND(item?.item_product?.sale_price.toString())}
+              </span>
+            )}
           </div>
 
           {/* button show in PC */}
