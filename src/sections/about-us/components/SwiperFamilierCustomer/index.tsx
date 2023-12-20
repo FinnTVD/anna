@@ -38,7 +38,8 @@ function SlideProduct() {
           disableOnInteraction: false,
         }}
         loop
-        centeredSlides={1}
+        // centeredSlides={1}
+        centeredSlides
         // slidesPerView={3}
         pagination={{
           clickable: true,
