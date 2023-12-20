@@ -36,8 +36,8 @@ export default function ListNewProduct() {
           },
         }}
         navigation={{
-          prevEl: `.prev-${1}`,
-          nextEl: `.next-${1}`,
+          prevEl: `.prev-${"abc"}`,
+          nextEl: `.next-${"abc"}`,
         }}
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper pl-[0rem] mx-[1rem] "
@@ -62,12 +62,12 @@ export default function ListNewProduct() {
         </SwiperSlide>
       </Swiper>
       <div
-        className={`prev-${1} max-lg:left-[1.2rem] max-lg:z-[2] top-[50%] -translate-y-1/2 absolute lg:left-[-6.5%] md:left-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}
+        className={`prev-${"abc"} max-lg:left-[1.2rem] max-lg:z-[2] top-[50%] -translate-y-1/2 absolute lg:left-[-6.5%] md:left-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}
       >
         <ArrowSlideLeft />
       </div>
       <div
-        className={`next-${1} max-lg:right-[-1.2rem] max-lg:z-[2]  top-[50%] -translate-y-1/2 absolute lg:right-[-6.5%]  md:right-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}
+        className={`next-${"abc"} max-lg:right-[-1.2rem] max-lg:z-[2]  top-[50%] -translate-y-1/2 absolute lg:right-[-6.5%]  md:right-[-4.5%] md:w-[4.5rem] md:h-[4.5rem] cursor-pointer`}
       >
         <ArrowSlideRight />
       </div>

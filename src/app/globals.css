@@ -73,6 +73,12 @@ html {
   }
 }
 
+@media screen and (max-width: 767px) {
+  body {
+    background-color: #fafafa;
+  }
+}
+
 .container {
   max-width: 100%;
   padding-left: 15px;

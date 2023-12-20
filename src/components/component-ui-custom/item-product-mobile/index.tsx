@@ -38,14 +38,14 @@ function ItemMobile() {
     },
   ];
   return (
-    <div className="relative max-md:h-[50rem] max-md:w-[45.2rem]">
+    <div className="item-product-mobile relative max-md:h-[50rem] max-md:w-[45.2rem] rounded-[3.2rem]">
       <div className="overflow-hidden rounded-[1rem] ">
         <img
-          className=" object-cover h-[40rem]"
+          className=" object-cover h-[40rem] rounded-3xl"
           src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
       </div>
-      <div className="absolute z-99 bottom-[1rem] w-full md:h-[8.5rem] box-slide">
+      <div className="absolute z-99 bottom-[0rem] w-full md:h-[8.5rem] box-slide">
         <div className="bg-[#CAF2F1] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center mb-[0.62rem] flex justify-center w-fit">
           <p className="text-[2.66667rem] text-[#454545] font-bold py-[0.2rem] px-[1.6rem] text-center items-center">
             Gọng kính

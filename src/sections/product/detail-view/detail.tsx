@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { Fixed } from '@/app/icons';
-import SlideProduct from '@/sections/product/components/slide/Slide';
 import ImageProduct from '@/sections/product/detail-view/view/image-product';
 import InfoProduct from '@/sections/product/detail-view/view/info-product';
 import RecommendProduct from '@/sections/product/detail-view/view/recommend-product';
@@ -15,6 +14,7 @@ import { ICChange } from '@/components/Icons/ICChange';
 import { ICClean } from '@/components/Icons/ICClean';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import ItemMobile from '../../../components/component-ui-custom/item-product-mobile';
+import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 
 interface IProps {
   slug: string;
@@ -179,7 +179,10 @@ function ProductDetail({ slug }: IProps) {
           </div>
         </div>
         <div className="max-md:hidden">
-          <SlideProduct number={1} data={dataGlasses?.data} />
+          <SlideProductComponent
+            keySlide="support-lenses"
+            data={dataGlasses?.data}
+          />
         </div>
         <div className="hidden max-md:block px-[3.2rem]">
           <div className="flex justify-between">
@@ -225,7 +228,10 @@ function ProductDetail({ slug }: IProps) {
           </div>
         </div>
         <div className="max-md:hidden">
-          <SlideProduct number={1} data={dataGlasses?.data} />
+          <SlideProductComponent
+            keySlide="same-glasses"
+            data={dataGlasses?.data}
+          />
         </div>
         <div className="hidden max-md:block px-[3.2rem]">
           <div className="flex justify-between">

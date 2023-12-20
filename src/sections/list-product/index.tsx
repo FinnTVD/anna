@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import './style.css';
-import FilterListProduct from './components/filter-list-product';
-import OutstandingProduct from './components/outstanding-product';
-import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
-import Image from 'next/image';
-import ListNewProduct from './components/list-new-product';
+import "./style.css";
+import FilterListProduct from "./components/filter-list-product";
+import OutstandingProduct from "./components/outstanding-product";
+import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
+import Image from "next/image";
+import ListNewProduct from "./components/list-new-product";
+import SlideProductComponent from "@/components/component-ui-custom/slide-swiper-product/slide-product";
 
 export default function ListProduct() {
   return (
@@ -47,7 +48,8 @@ export default function ListProduct() {
             </div>
           </div>
           <div className="max-md:hidden">
-            <OutstandingProduct />
+            {/* <OutstandingProduct /> */}
+            <SlideProductComponent keySlide="out-standing-product" />
           </div>
           {/* <div className="hidden max-md:block px-[3.2rem]">
           <div className="flex justify-between">
@@ -92,7 +94,10 @@ export default function ListProduct() {
               alt=""
             />
             <div className="grow w-full overflow-hidden">
-              <ListNewProduct />
+              <SlideProductComponent
+                keySlide="list-new-product"
+                heightImage={17}
+              />
             </div>
           </div>
         </div>
