@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { MapMobile } from "@/app/icons";
-import { ICIncreaseIcon, ICDecreaseIcon } from "@/components/Icons";
-import ICArrowRight from "@/components/Icons/ICArrowRight";
-import ICBag from "@/components/Icons/ICBag";
-import { IDetailProductRes } from "@/types/detail-product";
-import { formatCurrencyVND } from "@/ultils/format-price";
-import React, { useEffect, useState } from "react";
+import { MapMobile } from '@/app/icons';
+import { ICIncreaseIcon, ICDecreaseIcon } from '@/components/Icons';
+import ICArrowRight from '@/components/Icons/ICArrowRight';
+import ICBag from '@/components/Icons/ICBag';
+import { IDetailProductRes } from '@/types/detail-product';
+import { formatCurrencyVND } from '@/ultils/format-price';
+import React, { useEffect, useState } from 'react';
 // import "./style.css";
 
 interface IProps {
@@ -27,12 +27,12 @@ function InfoProduct(props: IProps) {
   const [numberInfor, setNumberInfor] = useState<number>(0);
   const [priceProduct, setPriceProduct] = useState<number>(0);
   const [dataProductSubmit, setDataProductSubmit] = useState<IDataProduct>({
-    color: "",
+    color: '',
     idColor: null,
     quantityProduct: 1,
   });
 
-  console.log("dataInit", dataInit);
+  console.log('dataInit', dataInit);
 
   // GET COLOR DETAIL PRODUCT
   // const bodyApi: IPostData = {
@@ -57,10 +57,10 @@ function InfoProduct(props: IProps) {
   };
 
   const handleOnchangeQuantity = (value: any): void => {
-    console.log("valueeee", value.target.value.length);
+    console.log('valueeee', value.target.value.length);
 
     const valueConvert = parseInt(
-      value.target.value.replace(/[^0-9]/g, ""),
+      value.target.value.replace(/[^0-9]/g, ''),
       10
     );
 
@@ -142,17 +142,22 @@ function InfoProduct(props: IProps) {
           listColorProduct.map((item: any, index: number) => (
             // <Link href={{pathname: "/detail/[id]",query: { id: item.id },}}>
             <li
+              // role="button"
               key={index}
-              style={{
-                backgroundColor: item.attributes.color,
-                borderColor:
-                  item.attributes.color === dataProductSubmit.color
-                    ? "#55D5D2"
-                    : item.attributes.color,
-              }}
-              className="h-[1.875rem] w-[1.875rem] rounded-full border-2 mr-[1rem]"
-              onClick={() => handleChangeColor(item)}
-            />
+            >
+              <div
+                style={{
+                  backgroundColor: item.attributes.color,
+                  borderColor:
+                    item.attributes.color === dataProductSubmit.color
+                      ? '#55D5D2'
+                      : item.attributes.color,
+                }}
+                role="button"
+                onClick={() => handleChangeColor(item)}
+                className="h-[1.875rem] w-[1.875rem] rounded-full border-2 mr-[1rem]"
+              />
+            </li>
             // </Link>
           ))}
       </ul>
@@ -179,8 +184,8 @@ function InfoProduct(props: IProps) {
               style={{
                 cursor:
                   dataProductSubmit.quantityProduct > 1
-                    ? "pointer"
-                    : "not-allowed",
+                    ? 'pointer'
+                    : 'not-allowed',
               }}
               className="px-[1.5rem] py-[0.8rem] select-none max-lg:mr-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]"
             >
@@ -198,8 +203,9 @@ function InfoProduct(props: IProps) {
             </div>
             {/* <div className="number-add-cart-opacity" /> */}
             <div
+              role="button"
               onClick={addQuantityProduct}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
               className="select-none px-[1.5rem] py-[0.8rem] max-lg:ml-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]"
             >
               +
@@ -267,10 +273,11 @@ function InfoProduct(props: IProps) {
         <div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
-                numberInfor !== 1 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 1)}
+              onClick={() => handleHiddenInfor('show', 1)}
             >
               <span className="max-lg:text-[1rem] not-italic max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-md:text-[5.33333rem] max-md:leading-[7.46667rem]">
                 Thông tin
@@ -292,7 +299,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full ${
-                numberInfor !== 1 ? "h-0" : "h-fit"
+                numberInfor !== 1 ? 'h-0' : 'h-fit'
               } overflow-hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
             >
               {dataInit?.description}
@@ -300,10 +307,11 @@ function InfoProduct(props: IProps) {
           </div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
-                numberInfor !== 2 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 2 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC] `}
-              onClick={() => handleHiddenInfor("show", 2)}
+              onClick={() => handleHiddenInfor('show', 2)}
             >
               <span className="max-lg:text-[1rem] not-italic max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-md:text-[5.33333rem] max-md:leading-[7.46667rem]">
                 Vận chuyển
@@ -325,7 +333,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
-                numberInfor !== 2 ? "h-0" : "h-fit"
+                numberInfor !== 2 ? 'h-0' : 'h-fit'
               } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
             >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
@@ -339,10 +347,11 @@ function InfoProduct(props: IProps) {
           </div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
-                numberInfor !== 3 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 3 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 3)}
+              onClick={() => handleHiddenInfor('show', 3)}
             >
               <span className=" max-lg:text-[1rem] not-italic max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-md:text-[5.33333rem] max-md:leading-[7.46667rem]">
                 Đổi trả
@@ -364,7 +373,7 @@ function InfoProduct(props: IProps) {
             </div>
             <p
               className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none ${
-                numberInfor !== 3 ? "h-0" : "h-fit"
+                numberInfor !== 3 ? 'h-0' : 'h-fit'
               } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
             >
               Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
@@ -378,10 +387,11 @@ function InfoProduct(props: IProps) {
           </div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
-                numberInfor !== 1 ? "border-b-[1px]" : "border-b-[0px]"
+                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor("show", 1)}
+              onClick={() => handleHiddenInfor('show', 1)}
             >
               <span className="max-lg:text-[1rem] not-italic max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] text-[#454545] max-md:text-[5.33333rem] max-md:leading-[7.46667rem]">
                 Chọn kính theo gương mặt
