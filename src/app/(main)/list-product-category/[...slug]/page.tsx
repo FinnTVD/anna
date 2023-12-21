@@ -1,3 +1,5 @@
+'use client';
+
 import ListProduct from '@/sections/list-product';
 
 // Return a list of `params` to populate the [slug] dynamic segment
