@@ -71,9 +71,9 @@ export function Login({ children, ...other }: IProps & DialogProps) {
 
           <div className="grid gap-4 py-4">
             <div className="flex flex-col gap-2">
-              <label className="opacity-70 text-[10px] uppercase font-bold">
+              <span className="opacity-70 text-[10px] uppercase font-bold">
                 Email<em className="text-red-500">*</em>
-              </label>
+              </span>
               <RHFInput
                 name="email"
                 inputStyle="input-underline"
@@ -82,9 +82,9 @@ export function Login({ children, ...other }: IProps & DialogProps) {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <label className="opacity-70 text-[10px] uppercase font-bold">
+              <span className="opacity-70 text-[10px] uppercase font-bold">
                 Password<em className="text-red-500">*</em>
-              </label>
+              </span>
               <RHFInput
                 type="password"
                 name="password"
