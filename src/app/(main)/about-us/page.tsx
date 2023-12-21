@@ -1,9 +1,7 @@
-'use client';
-
 import AboutUs from '@/sections/about-us';
 
-const AboutUsPage = async () => {
+function AboutUsPage() {
   return <AboutUs />;
-};
+}
 
 export default AboutUsPage;

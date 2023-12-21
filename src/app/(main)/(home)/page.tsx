@@ -1,7 +1,5 @@
-'use client';
-
-const HomePage = async () => {
+function HomePage() {
   return <div>sss</div>;
-};
+}
 
 export default HomePage;
