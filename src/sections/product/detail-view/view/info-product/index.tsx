@@ -107,7 +107,7 @@ function InfoProduct(props: IProps) {
   return (
     <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[0rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
       <div>
-        {dataInit?.category[0]?.name && (
+        {dataInit?.category && dataInit?.category[0]?.name && (
           <div className="flex items-center justify-center h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] h-fit w-fit bg-[#CAF2F1] max-md:h-fit max-md:py-[3.46667rem] max-md:w-[20.8rem] max-md:px-[2.66667rem] max-md:rounded-[10.66667rem]">
             <span className="leading-[0.9rem] text-[0.75rem] not-italic font-bold max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
               {dataInit?.category[0]?.name}
@@ -142,17 +142,22 @@ function InfoProduct(props: IProps) {
           listColorProduct.map((item: any, index: number) => (
             // <Link href={{pathname: "/detail/[id]",query: { id: item.id },}}>
             <li
+              // role="button"
               key={index}
-              style={{
-                backgroundColor: item.attributes.color,
-                borderColor:
-                  item.attributes.color === dataProductSubmit.color
-                    ? '#55D5D2'
-                    : item.attributes.color,
-              }}
-              className="h-[1.875rem] w-[1.875rem] rounded-full border-2 mr-[1rem]"
-              onClick={() => handleChangeColor(item)}
-            />
+            >
+              <div
+                style={{
+                  backgroundColor: item.attributes.color,
+                  borderColor:
+                    item.attributes.color === dataProductSubmit.color
+                      ? '#55D5D2'
+                      : item.attributes.color,
+                }}
+                role="button"
+                onClick={() => handleChangeColor(item)}
+                className="h-[1.875rem] w-[1.875rem] rounded-full border-2 mr-[1rem]"
+              />
+            </li>
             // </Link>
           ))}
       </ul>
@@ -198,6 +203,7 @@ function InfoProduct(props: IProps) {
             </div>
             {/* <div className="number-add-cart-opacity" /> */}
             <div
+              role="button"
               onClick={addQuantityProduct}
               style={{ cursor: 'pointer' }}
               className="select-none px-[1.5rem] py-[0.8rem] max-lg:ml-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]"
@@ -267,6 +273,7 @@ function InfoProduct(props: IProps) {
         <div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
                 numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
@@ -300,6 +307,7 @@ function InfoProduct(props: IProps) {
           </div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
                 numberInfor !== 2 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC] `}
@@ -339,6 +347,7 @@ function InfoProduct(props: IProps) {
           </div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
                 numberInfor !== 3 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}
@@ -378,6 +387,7 @@ function InfoProduct(props: IProps) {
           </div>
           <div>
             <div
+              role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
                 numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
               } border-[#ECECEC]`}

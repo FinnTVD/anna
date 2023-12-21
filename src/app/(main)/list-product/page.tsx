@@ -1,7 +1,7 @@
 import ListProduct from '@/sections/list-product';
 
-const ListProductPage = async () => {
+function ListProductPage() {
   return <ListProduct />;
-};
+}
 
 export default ListProductPage;

@@ -4,11 +4,11 @@ import Navbar from '@/sections/main/components/navbar/navbar';
 function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <Navbar />
       <main className="mt-[8rem] max-md:mt-0">
+        <Navbar />
         <div>{children}</div>
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 }

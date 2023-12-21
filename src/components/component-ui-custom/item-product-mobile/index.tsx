@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowTopRightActive } from '@/app/icons';
 import './style.css';
+import Image from 'next/image';
 
 function ItemMobile() {
   const listColor = [
@@ -40,9 +41,12 @@ function ItemMobile() {
   return (
     <div className="item-product-mobile relative max-md:h-[50rem] max-md:w-[45.2rem] rounded-[3.2rem]">
       <div className="overflow-hidden rounded-[1rem] ">
-        <img
+        <Image
+          width={200}
+          height={200}
           className=" object-cover h-[40rem] rounded-3xl"
           src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
         />
       </div>
       <div className="absolute z-99 bottom-[0rem] w-full md:h-[8.5rem] box-slide">

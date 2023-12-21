@@ -92,15 +92,16 @@ function ItemProduct(props: IProps) {
                   style={{ background: '#A9A9A9' }}
                   className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[0.625rem] leading-[0.75rem] font-bold not-italic max-md:h-[3.2rem] max-md:w-[3.2rem] max-md:text-[2.13333rem] max-md:leading-[2.56rem]"
                 >
-                  +{item?.product_variant.length - 4}
+                  +{item?.product_variant.length ?? 4 - 4}
                 </div>
               )}
             </div>
-            {item?.item_product?.sale_price !== 0 && (
-              <span className="line-through max-md:text-[2.66667rem]">
-                {formatCurrencyVND(item?.item_product?.sale_price.toString())}
-              </span>
-            )}
+            {item?.item_product?.sale_price &&
+              item?.item_product?.sale_price !== 0 && (
+                <span className="line-through max-md:text-[2.66667rem]">
+                  {formatCurrencyVND(item?.item_product?.sale_price.toString())}
+                </span>
+              )}
           </div>
 
           {/* button show in PC */}

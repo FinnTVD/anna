@@ -1,6 +1,5 @@
 'use client';
 
-import { MapDefaultStyle, mapStyle } from '@/configs/google-map';
 import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api';
 
 interface MapType {

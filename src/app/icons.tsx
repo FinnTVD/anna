@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function ColorPink() {
   return (
     <svg
@@ -130,7 +132,9 @@ export function Fixed() {
     "
     >
       <div className="left flex items-center">
-        <img
+        <Image
+          width={200}
+          height={200}
           className="w-[7.5rem] h-[7.5rem] mr-[2rem] object-cover"
           src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""

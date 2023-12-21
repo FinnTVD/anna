@@ -4,7 +4,7 @@ const formatCurrencyVND = (amount: string) => {
     currency: 'VND',
   });
 
-  return formatter.format(parseInt(amount, 10));
+  return formatter.format(parseInt(amount ?? 10, 10));
 };
 
 export { formatCurrencyVND };

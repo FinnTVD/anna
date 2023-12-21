@@ -2,7 +2,6 @@
 
 import './style.css';
 import { useEffect, useState } from 'react';
-import { useQueryState } from 'next-usequerystate';
 import useSWR from 'swr';
 import FilterListProduct from './components/filter-list-product';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
@@ -21,7 +20,7 @@ interface IParamsSearch {
 
 export default function ListProduct(props: IProps) {
   const { slug } = props;
-
+  console.log('slug', slug);
   // const [paramsSearch, setParamsSearch] = useQueryState<IParamsSearch>({
   //   per_page: 12,
   //   page: 1,
@@ -30,6 +29,9 @@ export default function ListProduct(props: IProps) {
     per_page: 12,
     page: 1,
   });
+
+  setParamsSearch({ per_page: 1, page: 1 });
+
   const [dataInit, setDatainit] = useState<any>();
 
   const bodyGetListProduct: any = {

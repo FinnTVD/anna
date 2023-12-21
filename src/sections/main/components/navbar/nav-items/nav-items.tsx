@@ -1,6 +1,5 @@
 'use client';
 
-import { Session } from 'next-auth';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import {
   HoverCard,
@@ -9,17 +8,18 @@ import {
 } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICLocation from '@/components/Icons/ICLocation';
-import ICArrowDown from '@/components/Icons/ICArrowDown';
 import ICCart from '@/components/Icons/ICCart';
 import { Input } from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
+import ICArrowDown from '@/components/Icons/ICArrowDown';
 
 interface IProps {
-  session: Session | null;
+  session?: any;
 }
-
-function NavItems({ session }: IProps) {
+function NavItems(props: IProps) {
+  const { session } = props;
+  console.log(session);
   return (
     <nav className="navbar-container w-full">
       <div className="top-nav flex items-center justify-between ">
@@ -43,10 +43,7 @@ function NavItems({ session }: IProps) {
           <li className="active has-child mx-3.5">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
-                <a
-                  href="src/sections/main-layout/components/navbar/nav-items"
-                  className="px-[6px] py-[4px] flex items-center"
-                >
+                <a href="#" className="px-[6px] py-[4px] flex items-center">
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Sản phẩm
                   </span>
@@ -64,34 +61,22 @@ function NavItems({ session }: IProps) {
               >
                 <ul>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="#">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="#">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="#">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="#">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
@@ -119,10 +104,7 @@ function NavItems({ session }: IProps) {
           <li className="active has-child mx-3.5">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
-                <a
-                  href="src/sections/main-layout/components/navbar/nav-items"
-                  className="px-[6px] py-[4px] flex items-center"
-                >
+                <a href="#" className="px-[6px] py-[4px] flex items-center">
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Xem Thêm
                   </span>
@@ -140,34 +122,22 @@ function NavItems({ session }: IProps) {
               >
                 <ul>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="#">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>
                   <li className="border-b px-2 py-[6px]">
-                    <a
-                      className="uppercase font-bold"
-                      href="src/sections/main-layout/components/navbar/nav-items"
-                    >
+                    <a className="uppercase font-bold" href="">
                       Map Full Screen Sidebar Results
                     </a>
                   </li>

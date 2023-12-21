@@ -31,15 +31,21 @@ function SlideProductMobile() {
         className="mySwiper h-full rounded-[1rem] overflow-hidden"
       >
         <SwiperSlide className="w-full">
-          <img
+          <Image
+            width={93}
+            height={91}
             className="h-full w-full object-cover  max-md:min-w-full"
             src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
           />
         </SwiperSlide>
         <SwiperSlide className="">
-          <img
-            className="h-full w-full object-cover "
+          <Image
+            width={93}
+            height={91}
+            className="h-full w-full object-cover  max-md:min-w-full"
             src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
           />
         </SwiperSlide>
       </Swiper>
@@ -89,9 +95,11 @@ function ImageProduct(props: IProps) {
         {dataInit?.gallery ? (
           dataInit?.gallery?.map((item: any, index: number) => (
             <li key={index} className="mr-[1rem]">
-              <img
+              <Image
+                width={52}
+                height={52}
                 onClick={(e) => handleChangeImage(item)}
-                className="flex h-full object-cover"
+                className="flex h-[12.25rem] w-[12.25rem] object-cover"
                 src={item.src ?? '/img/no_image.jpg'}
                 alt=""
               />
@@ -99,8 +107,10 @@ function ImageProduct(props: IProps) {
           ))
         ) : (
           <div>
-            <img
-              className="flex h-full object-cover"
+            <Image
+              width={52}
+              height={52}
+              className="flex h-[12.25rem] w-[12.25rem] object-cover"
               src="/img/no_image.jpg"
               alt=""
             />

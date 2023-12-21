@@ -2,18 +2,20 @@
 
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { ArrowSlideLeft, ArrowSlideRight } from '@/app/icons';
 import './style.css';
+import Image from 'next/image';
 // import Item from '@/sections/product/components/slide/Item';
 
 function Item() {
   return (
     <div className="h-[42.288rem] w-full max-md:w-full max-md:h-[68.288rem]">
-      <img
+      <Image
+        height={420}
+        width={420}
         className="h-full w-full rounded-[1.5rem] object-cover"
         src="https://kinhmatanna.com/wp-content/uploads/2022/10/dantri-pr-4-kinh-mat-annaf-849-ac-10-fe-864-f-4-c-93-b-9-ccf-0-ad-166-d-5-c-1-docx-1600340955236-1536x1024.webp"
         alt=""
@@ -36,7 +38,8 @@ function SlideProduct() {
           disableOnInteraction: false,
         }}
         loop
-        centeredSlides={1}
+        // centeredSlides={1}
+        centeredSlides
         // slidesPerView={3}
         pagination={{
           clickable: true,

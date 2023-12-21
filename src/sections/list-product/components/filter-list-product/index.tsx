@@ -112,7 +112,6 @@ export default function FilterListProduct(props: IProps) {
       label: '500.000đ — 10.000.000đ',
     },
   ];
-  const listProduct = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
 
   // function ItemProduct() {
   //   const listColorItem = [
