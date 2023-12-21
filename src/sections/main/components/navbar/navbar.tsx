@@ -1,8 +1,10 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import NavItems from './nav-items/nav-items';
 import NavMobileDetail from './nav-mobile-detail';
 
-const Navbar = async () => {
+function Navbar() {
   return (
     <div>
       {/* <Logo /> */}
@@ -19,6 +21,6 @@ const Navbar = async () => {
       </div>
     </div>
   );
-};
+}
 
 export default Navbar;

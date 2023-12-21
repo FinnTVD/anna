@@ -1,18 +1,14 @@
 'use client';
 
-import { HoverCardArrow } from '@radix-ui/react-hover-card';
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardTrigger } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICLocation from '@/components/Icons/ICLocation';
-import ICCart from '@/components/Icons/ICCart';
 import { Input } from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
 import ICArrowDown from '@/components/Icons/ICArrowDown';
+import DropdownProductHeader from '@/components/component-ui-custom/dropdown-product-header';
+import DropdownSeeMoreHeader from '@/components/component-ui-custom/dropdown-see-more-header';
 
 function NavItems() {
   return (
@@ -49,35 +45,7 @@ function NavItems() {
                   />
                 </a>
               </HoverCardTrigger>
-              <HoverCardContent
-                className="border-none p-0"
-                side="bottom"
-                align="start"
-              >
-                <ul>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="#">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="#">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="#">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="#">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                </ul>
-                <HoverCardArrow className="fill-white shadow-md" />
-              </HoverCardContent>
+              <DropdownProductHeader />
             </HoverCard>
           </li>
           <li className="has-child flex items-center mx-3.5">
@@ -110,35 +78,7 @@ function NavItems() {
                   />
                 </a>
               </HoverCardTrigger>
-              <HoverCardContent
-                className="border-none p-0"
-                side="bottom"
-                align="start"
-              >
-                <ul>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="#">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                  <li className="border-b px-2 py-[6px]">
-                    <a className="uppercase font-bold" href="">
-                      Map Full Screen Sidebar Results
-                    </a>
-                  </li>
-                </ul>
-                <HoverCardArrow className="fill-white shadow-md" />
-              </HoverCardContent>
+              <DropdownSeeMoreHeader />
             </HoverCard>
           </li>
           <li className="has-child flex items-center mx-3.5">
@@ -150,12 +90,21 @@ function NavItems() {
             <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
               Giỏ hàng
             </span>
-            <div className="relative">
-              <ICCart fill="#4DC0BD" width="1.47381rem" height="1.44581rem" />
-              <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem]">
-                3
-              </div>
-            </div>
+            {/* <div className="relative"> */}
+            {/*  <HoverCard openDelay={0}> */}
+            {/*    <HoverCardTrigger asChild> */}
+            {/*      <ICCart */}
+            {/*        fill="#4DC0BD" */}
+            {/*        width="1.47381rem" */}
+            {/*        height="1.44581rem" */}
+            {/*      /> */}
+            {/*      <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem]"> */}
+            {/*        3 */}
+            {/*      </div> */}
+            {/*    </HoverCardTrigger> */}
+            {/*    <DropdownSeeMoreHeader /> */}
+            {/*  </HoverCard> */}
+            {/* </div> */}
           </li>
         </ul>
       </div>
