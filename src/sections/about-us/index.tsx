@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import SwiperFamilierCustomer from './components/SwiperFamilierCustomer';
 import './style.css';
