@@ -2,13 +2,7 @@ import ICCart from '@/components/Icons/ICCart';
 import ICSearch from '@/components/Icons/ICSearch';
 import ICTabMenu from '@/components/Icons/ICTabMenu';
 
-interface IProps {
-  session?: any;
-}
-
-function NavMobileDetail(props: IProps) {
-  const { session } = props;
-  console.log(session);
+function NavMobileDetail() {
   return (
     <div className="py-[2.66667rem] px-[2.13333rem] bg-[#CAC9C7] rounded-[13.33333rem]">
       <div className="pb-[2.67rem]">

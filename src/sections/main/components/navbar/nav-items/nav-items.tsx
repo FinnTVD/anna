@@ -14,12 +14,7 @@ import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
 import ICArrowDown from '@/components/Icons/ICArrowDown';
 
-interface IProps {
-  session?: any;
-}
-function NavItems(props: IProps) {
-  const { session } = props;
-  console.log(session);
+function NavItems() {
   return (
     <nav className="navbar-container w-full">
       <div className="top-nav flex items-center justify-between ">

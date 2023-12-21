@@ -1,3 +1,5 @@
+'use client';
+
 import ListProduct from '@/sections/list-product';
 
 function ListProductPage() {
