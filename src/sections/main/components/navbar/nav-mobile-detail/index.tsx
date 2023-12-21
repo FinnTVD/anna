@@ -1,13 +1,14 @@
 import ICCart from '@/components/Icons/ICCart';
 import ICSearch from '@/components/Icons/ICSearch';
 import ICTabMenu from '@/components/Icons/ICTabMenu';
-import { Session } from 'next-auth';
 
 interface IProps {
-  session: Session | null;
+  session?: any;
 }
 
-function NavMobileDetail({ session }: IProps) {
+function NavMobileDetail(props: IProps) {
+  const { session } = props;
+  console.log(session);
   return (
     <div className="py-[2.66667rem] px-[2.13333rem] bg-[#CAC9C7] rounded-[13.33333rem]">
       <div className="pb-[2.67rem]">
