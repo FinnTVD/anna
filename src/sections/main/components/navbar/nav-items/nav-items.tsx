@@ -19,7 +19,7 @@ interface IProps {
 }
 function NavItems(props: IProps) {
   const { session } = props;
-  console.log(props);
+  console.log(session);
   return (
     <nav className="navbar-container w-full">
       <div className="top-nav flex items-center justify-between ">
