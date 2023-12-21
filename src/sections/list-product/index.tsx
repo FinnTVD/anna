@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import "./style.css";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
-import FilterListProduct from "./components/filter-list-product";
-import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
-import Image from "next/image";
-import SlideProductComponent from "@/components/component-ui-custom/slide-swiper-product/slide-product";
-import { postData } from "@/lib/post-data";
+import './style.css';
+import { useEffect, useState } from 'react';
+import useSWR from 'swr';
+import FilterListProduct from './components/filter-list-product';
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import Image from 'next/image';
+import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
+import { postData } from '@/lib/post-data';
 
 interface IProps {
   slug?: any;
@@ -20,7 +20,7 @@ interface IParamsSearch {
 
 export default function ListProduct(props: IProps) {
   const { slug } = props;
-  console.log("slug", slug);
+  console.log('slug', slug);
   // const [paramsSearch, setParamsSearch] = useQueryState<IParamsSearch>({
   //   per_page: 12,
   //   page: 1,
@@ -36,7 +36,7 @@ export default function ListProduct(props: IProps) {
 
   const bodyGetListProduct: any = {
     url: `products?per_page=${paramsSearch.per_page}&page=${paramsSearch.page}`,
-    method: "get",
+    method: 'get',
   };
 
   const getlistProduct = useSWR(bodyGetListProduct.url, () =>
