@@ -30,8 +30,6 @@ export default function ListProduct(props: IProps) {
     page: 1,
   });
 
-  setParamsSearch({ per_page: 1, page: 1 });
-
   const [dataInit, setDatainit] = useState<any>();
 
   const bodyGetListProduct: any = {

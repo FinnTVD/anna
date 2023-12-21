@@ -15,10 +15,7 @@ import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
 
 export interface IProps {
   keySlide: string;
-  data?: {
-    item_product: IItemProduct;
-    product_variant: IProductVariantItem[];
-  }[];
+  data?: IItemProduct[];
   spaceBetween?: number;
   spaceBetWeenMobile?: number;
   breakPoint?: {

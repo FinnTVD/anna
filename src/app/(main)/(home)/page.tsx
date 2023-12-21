@@ -1,7 +1,7 @@
 'use client';
 
 function HomePage() {
-  return <div>sss</div>;
+  return <div>khong co gi dau</div>;
 }
 
 export default HomePage;

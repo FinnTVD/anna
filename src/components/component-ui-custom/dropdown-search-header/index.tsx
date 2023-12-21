@@ -3,12 +3,12 @@
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import { HoverCardContent } from '@/components/ui/hover-card';
 
-function DropdownProductHeader() {
+function DropdownSearchHeader() {
   return (
     <HoverCardContent
-      className="border-none p-0 w-[100rem]"
+      className="border-none p-0 w-[25.875rem]"
       side="bottom"
-      align="start"
+      align="end"
       sideOffset={6}
     >
       <div>sss</div>
@@ -17,4 +17,4 @@ function DropdownProductHeader() {
   );
 }
 
-export default DropdownProductHeader;
+export default DropdownSearchHeader;

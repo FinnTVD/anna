@@ -63,8 +63,12 @@ export interface IItemProduct {
   sku?: string;
   slug?: string;
   featuredImage?: string;
-  category?: {
-    name: string;
+  category?: string[];
+  variations?: {
+    attributes?: {
+      attribute_color?: string;
+      variation_id?: number;
+    };
   }[];
 }
 

@@ -7,10 +7,7 @@ import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
 import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
 
 interface IProps {
-  data: {
-    item_product: IItemProduct;
-    product_variant: IProductVariantItem[];
-  }[];
+  data: IItemProduct[];
 }
 export default function FilterListProduct(props: IProps) {
   const { data } = props;
