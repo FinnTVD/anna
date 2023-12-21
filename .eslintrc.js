@@ -79,7 +79,7 @@ module.exports = {
         // semi: 1,
         // 'no-console': 1,
         // 'max-statements-per-line': [1, { max: 2 }],
-        // 'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+        'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
         // quotes: [
         //   1,
         //   'double',
