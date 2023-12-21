@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
-import Image from "next/image";
-import { IDetailProductRes } from "@/types/detail-product";
+import React, { useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+import Image from 'next/image';
+import { IDetailProductRes } from '@/types/detail-product';
 
 interface IProps {
   dataInit?: IDetailProductRes;
@@ -23,7 +23,7 @@ function SlideProductMobile() {
         slidesPerView={1}
         spaceBetween={0}
         pagination={{
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true,
         }}
         loop
@@ -58,11 +58,11 @@ function ImageProduct(props: IProps) {
   const { dataInit } = props;
   const [itemImagePreview, setItemImagePreview] = useState<IItemImage>({
     id: null,
-    name: "",
-    src: "",
+    name: '',
+    src: '',
   });
 
-  console.log("dataInit", dataInit);
+  console.log('dataInit', dataInit);
   const handleChangeImage = (value: IItemImage): void => {
     const newObject: IItemImage = {
       id: value.id,
@@ -83,7 +83,7 @@ function ImageProduct(props: IProps) {
             fill
             objectFit="cover"
             className="image-current w-full h-full object-cover "
-            src={itemImagePreview.src ?? "/img/no_image.jpg"}
+            src={itemImagePreview.src ?? '/img/no_image.jpg'}
             alt=""
           />
         </div>
@@ -100,7 +100,7 @@ function ImageProduct(props: IProps) {
                 height={52}
                 onClick={(e) => handleChangeImage(item)}
                 className="flex h-[12.25rem] w-[12.25rem] object-cover"
-                src={item.src ?? "/img/no_image.jpg"}
+                src={item.src ?? '/img/no_image.jpg'}
                 alt=""
               />
             </li>

@@ -1,41 +1,41 @@
-import React from "react";
-import { ArrowTopRightActive } from "@/app/icons";
-import "./style.css";
-import Image from "next/image";
+import React from 'react';
+import { ArrowTopRightActive } from '@/app/icons';
+import './style.css';
+import Image from 'next/image';
 
 function ItemMobile() {
   const listColor = [
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
     {
       id: 1,
-      color: "blue",
+      color: 'blue',
     },
   ];
   return (
@@ -76,7 +76,7 @@ function ItemMobile() {
                   )
               )}
               <div
-                style={{ background: "#A9A9A9" }}
+                style={{ background: '#A9A9A9' }}
                 className="h-[3.2rem] w-[3.2rem] rounded-full ml-[1.07rem] flex justify-center items-center text-[2.13333rem] leading-[2.56rem] font-bold not-italic "
               >
                 +{listColor.length - 4}
