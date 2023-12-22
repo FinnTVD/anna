@@ -54,12 +54,12 @@ export interface IItemProduct {
   name?: string;
   price?: number;
   ratings?: number;
-  sale_price?: number;
+  salePrice?: number;
   seller?: string;
   sku?: string;
   slug?: string;
   featuredImage?: string;
-  category?: string[];
+  categories?: string[];
   variations?: {
     attributes?: {
       attribute_color?: string;
