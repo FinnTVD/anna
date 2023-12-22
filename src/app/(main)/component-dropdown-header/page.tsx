@@ -1,208 +1,208 @@
 'use client';
 
-import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
-import Image from "next/image";
-import { formatCurrencyVND } from "@/ultils/format-price";
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import Image from 'next/image';
+import { formatCurrencyVND } from '@/ultils/format-price';
 
 function ComponentDropdownHeader() {
   // dropdown product header
   const listProduct = [
     {
       id: 1,
-      title: "Gọng kính",
+      title: 'Gọng kính',
     },
     {
       id: 1,
-      title: "tròng kính",
+      title: 'tròng kính',
     },
 
     {
       id: 1,
-      title: "Kính râm",
+      title: 'Kính râm',
     },
     {
       id: 1,
-      title: "kính trẻ em",
+      title: 'kính trẻ em',
     },
     {
       id: 1,
-      title: "kính ÁP TRÒNG",
+      title: 'kính ÁP TRÒNG',
     },
   ];
 
   const listCategory1 = [
     {
       id: 1,
-      title: "Acetate",
+      title: 'Acetate',
     },
     {
       id: 1,
-      title: "Kim loại",
+      title: 'Kim loại',
     },
     {
       id: 1,
-      title: "Nhựa",
+      title: 'Nhựa',
     },
     {
       id: 1,
-      title: "Nhựa dẻo",
+      title: 'Nhựa dẻo',
     },
   ];
   const listCategory2 = [
     {
       id: 1,
-      title: "Browline",
+      title: 'Browline',
     },
     {
       id: 1,
-      title: "Hình vuông",
+      title: 'Hình vuông',
     },
 
     {
       id: 1,
-      title: "Mắt mèo",
+      title: 'Mắt mèo',
     },
     {
       id: 1,
-      title: "Oval",
+      title: 'Oval',
     },
   ];
 
   const listHistory = [
     {
       id: 1,
-      title: "Kính áp tròng không khô mắt",
+      title: 'Kính áp tròng không khô mắt',
     },
     {
       id: 1,
-      title: "Kính áp tròng không khô mắt",
+      title: 'Kính áp tròng không khô mắt',
     },
     {
       id: 1,
-      title: "Kính áp tròng không khô mắt",
+      title: 'Kính áp tròng không khô mắt',
     },
     {
       id: 1,
-      title: "Kính áp tròng không khô mắt",
+      title: 'Kính áp tròng không khô mắt',
     },
   ];
 
   const listTextOutstanding = [
     {
       id: 1,
-      title: "Essilor",
+      title: 'Essilor',
     },
     {
       id: 1,
-      title: "Elements",
+      title: 'Elements',
     },
     {
       id: 1,
-      title: "Chemi",
+      title: 'Chemi',
     },
     {
       id: 1,
-      title: "Kodak",
+      title: 'Kodak',
     },
     {
       id: 1,
-      title: "Essilor",
+      title: 'Essilor',
     },
     {
       id: 1,
-      title: "Elements",
+      title: 'Elements',
     },
     {
       id: 1,
-      title: "Chemi",
+      title: 'Chemi',
     },
     {
       id: 1,
-      title: "Kodak",
+      title: 'Kodak',
     },
     {
       id: 1,
-      title: "Essilor",
+      title: 'Essilor',
     },
     {
       id: 1,
-      title: "Elements",
+      title: 'Elements',
     },
     {
       id: 1,
-      title: "Chemi",
+      title: 'Chemi',
     },
     {
       id: 1,
-      title: "Kodak",
+      title: 'Kodak',
     },
     {
       id: 1,
-      title: "Essilor",
+      title: 'Essilor',
     },
     {
       id: 1,
-      title: "Elements",
+      title: 'Elements',
     },
     {
       id: 1,
-      title: "Chemi",
+      title: 'Chemi',
     },
     {
       id: 1,
-      title: "Kodak",
+      title: 'Kodak',
     },
   ];
 
   const listSeemore = [
     {
       id: 1,
-      title: "Giúp bạn chọn kính",
+      title: 'Giúp bạn chọn kính',
     },
     {
       id: 1,
-      title: "Về chúng tôi",
+      title: 'Về chúng tôi',
     },
     {
       id: 1,
-      title: "blog",
+      title: 'blog',
     },
   ];
 
   const listProductCart = [
     {
       image:
-        "https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png",
-      category: "Gọng kính",
-      name: "GK – 380CK081",
-      material: "Kim loại titan",
-      color: "Đen vàng",
+        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
+      category: 'Gọng kính',
+      name: 'GK – 380CK081',
+      material: 'Kim loại titan',
+      color: 'Đen vàng',
       price: 495000,
       salePrice: 440000,
     },
     {
       image:
-        "https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png",
-      category: "Gọng kính",
-      name: "GK – 380CK081",
-      material: "Kim loại titan",
-      color: "Đen vàng",
+        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
+      category: 'Gọng kính',
+      name: 'GK – 380CK081',
+      material: 'Kim loại titan',
+      color: 'Đen vàng',
       price: 495000,
       salePrice: 440000,
     },
     {
       image:
-        "https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png",
-      category: "Gọng kính",
-      name: "GK – 380CK081",
-      material: "Kim loại titan",
-      color: "Đen vàng",
+        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
+      category: 'Gọng kính',
+      name: 'GK – 380CK081',
+      material: 'Kim loại titan',
+      color: 'Đen vàng',
       price: 495000,
       salePrice: 440000,
     },
   ];
 
-  const color = "#55D5D2";
+  const color = '#55D5D2';
   return (
     <div className="w-[92.5rem] mx-auto my-[3rem] mt-[12rem] bg-[black] p-[2rem]">
       {/* dropdown product header */}
@@ -441,7 +441,7 @@ function ComponentDropdownHeader() {
                 height={80}
                 width={80}
                 className="w-[8.125rem] h-[8.125rem] rounded-[0.5rem] mr-[1rem]"
-                src={item.image}
+                src={item.image ?? ""}
                 alt=""
               />
               <div className="grow">

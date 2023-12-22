@@ -12,7 +12,7 @@ function RecommendProduct() {
           <Image
             width={100}
             height={100}
-            className="w-[24.25rem] rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
+            className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
             src="https://kinhmatanna.com/wp-content/uploads/2023/03/6021.-300x300.jpg"
             alt=""
           />
@@ -24,7 +24,7 @@ function RecommendProduct() {
           <Image
             width={100}
             height={100}
-            className="w-[24.25rem] rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
+            className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
             src="https://kinhmatanna.com/wp-content/uploads/2023/03/6021.-300x300.jpg"
             alt=""
           />
@@ -36,7 +36,7 @@ function RecommendProduct() {
           <Image
             width={100}
             height={100}
-            className="w-[24.25rem] rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
+            className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
             src="https://kinhmatanna.com/wp-content/uploads/2023/03/6021.-300x300.jpg"
             alt="image"
           />

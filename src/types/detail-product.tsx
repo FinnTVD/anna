@@ -7,11 +7,7 @@ export interface IDetailProductRes {
   }[];
   featuredImage?: string;
   stoc_quantity?: number;
-  gallery?: {
-    id?: number;
-    src?: string;
-    name?: string;
-  }[];
+  galleryImgs?: string[];
   description: string;
   short_description: string;
   price: string;

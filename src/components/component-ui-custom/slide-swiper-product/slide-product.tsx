@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -11,7 +11,7 @@ import './style.css';
 import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
 import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 import ItemProduct from '../item-product/ItemProduct';
-import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
+import { IItemProduct } from '@/types/detail-product';
 
 export interface IProps {
   keySlide: string;

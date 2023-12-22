@@ -9,8 +9,8 @@ import './style.css';
 import ICArrowDown from '@/components/Icons/ICArrowDown';
 import DropdownProductHeader from '@/components/component-ui-custom/dropdown-product-header';
 import DropdownSeeMoreHeader from '@/components/component-ui-custom/dropdown-see-more-header';
-import ICCart from "@/components/Icons/ICCart";
-import DropdownCartHeader from "@/components/component-ui-custom/dropdown-cart-header";
+import ICCart from '@/components/Icons/ICCart';
+import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 
 function NavItems() {
   return (
