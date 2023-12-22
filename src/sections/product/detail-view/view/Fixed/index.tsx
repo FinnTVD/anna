@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { IDetailProductRes } from "@/types/detail-product";
-import React from "react";
-import { formatCurrencyVND } from "@/ultils/format-price";
+import Image from 'next/image';
+import { IDetailProductRes } from '@/types/detail-product';
+import React from 'react';
+import { formatCurrencyVND } from '@/ultils/format-price';
 
 interface IProps {
   dataInit?: IDetailProductRes;

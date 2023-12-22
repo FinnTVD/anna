@@ -33,7 +33,7 @@ function ProductDetail({ slug }: IProps) {
   // };
 
   useEffect(() => {
-    console.log("scrollY.current", scrollY.current);
+    console.log('scrollY.current', scrollY.current);
   }, [scrollY.current]);
 
   const bodyApi: IPostData = {
@@ -91,7 +91,7 @@ function ProductDetail({ slug }: IProps) {
     const elementTop = getElemetToShow?.offsetTop;
     const getElementFixed = document.getElementById('fixed-product');
     if (window.scrollY < elementTop && window.scrollY - elementTop < 0) {
-      getElementFixed.style.bottom = window.scrollY - elementTop + "px";
+      getElementFixed.style.bottom = window.scrollY - elementTop + 'px';
     } else if (
       window.scrollY < elementTop &&
       elementTop - window.scrollY < 120
@@ -101,9 +101,9 @@ function ProductDetail({ slug }: IProps) {
       window.scrollY > elementTop &&
       window.scrollY < elementTop + 120
     ) {
-      getElementFixed.style.bottom = elementTop - window.scrollY + "px";
+      getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
     } else if (window.scrollY > elementTop + 120) {
-      getElementFixed.style.bottom = "0px";
+      getElementFixed.style.bottom = '0px';
     }
   });
 

@@ -8,7 +8,7 @@ import SlideProductComponent from '@/components/component-ui-custom/slide-swiper
 import { postData } from '@/lib/post-data';
 
 interface IProps {
-  slug?: any;
+  dataListProductNew?: any;
 }
 
 interface IParamsSearch {
@@ -17,33 +17,14 @@ interface IParamsSearch {
 }
 
 export default function Cart(props: IProps) {
-  const { slug } = props;
-  console.log("slug", slug);
-  // const [paramsSearch, setParamsSearch] = useQueryState<IParamsSearch>({
-  //   per_page: 12,
-  //   page: 1,
-  // });
-  const [paramsSearch, setParamsSearch] = useState<IParamsSearch>({
-    per_page: 12,
-    page: 1,
-  });
+  const { dataListProductNew } = props;
 
   const [dataInit, setDatainit] = useState<any>();
 
-  const bodyGetListProduct: any = {
-    url: `products?per_page=${paramsSearch.per_page}&page=${paramsSearch.page}`,
-    method: "get",
-  };
-
-  const getlistProduct = useSWR(bodyGetListProduct.url, () =>
-    postData(bodyGetListProduct)
-  );
-
   useEffect(() => {
-    setDatainit(getlistProduct.data);
-  }, [getlistProduct]);
+    setDatainit(dataListProductNew);
+  }, [dataListProductNew]);
 
-  // console.log('dataInit', dataInit);
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
