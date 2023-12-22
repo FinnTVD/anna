@@ -1,6 +1,3 @@
-import Image from 'next/image';
-import { IDetailProductRes } from "@/types/detail-product";
-
 export function ColorPink() {
   return (
     <svg

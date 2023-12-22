@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import { IDetailProductRes } from '@/types/detail-product';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import ICArrowRight from "@/components/Icons/ICArrowRight";
-import ICArrowLeft from "@/components/Icons/ICArrowLeft";
+import ICArrowRight from '@/components/Icons/ICArrowRight';
+import ICArrowLeft from '@/components/Icons/ICArrowLeft';
 
 interface IProps {
   dataInit?: IDetailProductRes;
@@ -61,7 +61,7 @@ function SlideProductMobile() {
 
 function ImageProduct(props: IProps) {
   const { dataInit } = props;
-  const [itemImagePreview, setItemImagePreview] = useState<string>("");
+  const [itemImagePreview, setItemImagePreview] = useState<string>('');
 
   const handleChangeImage = (value: string): void => {
     setItemImagePreview(value);

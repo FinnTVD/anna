@@ -441,7 +441,7 @@ function ComponentDropdownHeader() {
                 height={80}
                 width={80}
                 className="w-[8.125rem] h-[8.125rem] rounded-[0.5rem] mr-[1rem]"
-                src={item.image ?? ""}
+                src={item.image ?? ''}
                 alt=""
               />
               <div className="grow">

@@ -7,9 +7,9 @@ import ICBag from '@/components/Icons/ICBag';
 import { IDetailProductRes } from '@/types/detail-product';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import React, { useEffect, useState } from 'react';
-import useSWR from "swr";
+import useSWR from 'swr';
 
-import "./style.css";
+import './style.css';
 
 interface IProps {
   dataInit?: IDetailProductRes;
