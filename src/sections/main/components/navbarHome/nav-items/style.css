@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navbar-container .input-search::placeholder {
+    @apply font-normal text-[1rem] not-italic leading-[5.12rem];
+  }
+}
+
+.navbar-home {
+  /* background: none; */
+}
+
+.navbar-main-home {
+  background: rgba(29, 29, 29, 0.26);
+  backdrop-filter: blur(12.5px);
+}
+
+.search-home-navbar {
+  opacity: 0.25;
+  background: var(--Foundation-BACKGROUND-ELEVATION-5, #FFF);
+
+}

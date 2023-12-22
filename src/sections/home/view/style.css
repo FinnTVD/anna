@@ -1,0 +1,111 @@
+.item-collect:hover .icon-arrow-right {
+    transform: translateX(-30px);
+    visibility: visible !important;
+    transition: ease-in-out;
+    color: #F58F5D;
+    transition: all 0.4s ease;
+}
+
+.item-collect:hover .category-collect {
+    color: #F58F5D;
+}
+
+.see-more:hover svg,
+.see-more:hover p,
+.feature-item:hover .feature-title,
+.feature-item:hover svg {
+    color: #F58F5D;
+}
+
+.collect-more:hover {
+    background-color: #F58F5D;
+    cursor: pointer;
+    color: #fff;
+}
+
+.collect-more:hover .collect-title {
+    color: #fff;
+}
+
+.about {
+    background-image: url('../../../../public/img/home/about_bg.png');
+    background-size: cover;
+    min-height: 1058px;
+}
+
+.about-card-content {
+    display: flex;
+    min-height: 500px;
+    align-items: flex-end;
+    justify-content: center;
+    color: rgb(211, 211, 211);
+
+    @media screen and (max-width: 767px) {
+        min-height: initial;
+    }
+}
+
+.about-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-content p {
+    font-size: 3rem;
+    margin: 0px;
+    margin-right: 0.5rem;
+    font-weight: 700;
+}
+
+.about-content span {
+    opacity: 0.2;
+    color: #fff;
+}
+
+.mySwiper-about {
+    height: 620px;
+    @media screen and (max-width: 767px) {
+        height: 400px;
+    }
+}
+
+.mySwiper-about .swiper-slide {
+    height: 580px;
+    @media screen and (max-width: 767px) {
+        height: 350px;
+    }
+}
+
+.search-about-slide:hover .arrow-about-slide {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(45deg);
+}
+
+.item-social:hover .image-item-slide {
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+
+.action-home {
+    background-image: url('../../../../public/img/home/image_1844.png');
+    background-size: cover;
+}
+
+.item-actions {
+    background: linear-gradient(94deg, rgba(0, 0, 0, 0.40) 3.25%, rgba(0, 0, 0, 0.40) 58.68%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.card-item-action {
+    border-radius: 2.5rem;
+    border: 10px solid rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(2px);
+}
+
+.mySwiper-action {
+    height: 570px;
+}
+
+.mySwiper-action .swiper-slide {
+    height: 510px;
+}

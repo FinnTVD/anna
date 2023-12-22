@@ -30,8 +30,8 @@ function ItemProduct(props: IProps) {
         className="w-full overflow-hidden"
       >
         <Image
-          width={122}
-          height={222}
+          width={326}
+          height={326}
           className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 max-md:rounded-[1.5rem]"
           src={
             item?.featuredImage
