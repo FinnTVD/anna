@@ -19,6 +19,5 @@
 
 .search-home-navbar {
   opacity: 0.25;
-  background: var(--Foundation-BACKGROUND-ELEVATION-5, #FFF);
-
+  background: var(--Foundation-BACKGROUND-ELEVATION-5, #fff);
 }

@@ -41,12 +41,15 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
       color: 'blue',
     },
   ];
-  const currencyFormat = Number(dataCollect?.price).toLocaleString('vi', {style : 'currency', currency : 'VND'});
+  const currencyFormat = Number(dataCollect?.price).toLocaleString('vi', {
+    style: 'currency',
+    currency: 'VND',
+  });
   return (
     <div className="item-slider-product cursor-pointer relative rounded-2xl">
       <div className="md:h-[20.375rem] w-full overflow-hidden rounded-2xl">
         <Image
-          alt=''
+          alt=""
           height={326}
           width={326}
           className="image-item-slide ease-out duration-300 h-full w-full object-fill  bg-slate-500 "

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowTopRight, ArrowTopRightActive } from '@/app/icons';
 import Image from 'next/image';
-import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
+import { IItemProduct } from '@/types/detail-product';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import Link from 'next/link';
 
@@ -47,18 +47,18 @@ function ItemProduct(props: IProps) {
         <div className="flex ml-[1rem] mb-[0.9rem]">
           {/* show in PC */}
           <div className="max-md:hidden lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center w-[4.875rem] max-md:h-[1.0625rem]  flex justify-center">
-            {item?.category && (
+            {item?.categories && (
               <p className="text-[0.75rem] text-[#454545] font-bold leading-[0.9rem] text-center">
-                {item?.category[0] ?? 'null'}
+                {item?.categories[0] ?? 'null'}
               </p>
             )}
           </div>
 
           {/* Show in Mobile */}
           <div className="hidden max-md:block bg-[#CAF2F1] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center mb-[0.62rem] flex justify-center w-fit">
-            {item?.category && (
+            {item?.categories && (
               <p className="text-[2.66667rem] text-[#454545] font-bold py-[0.2rem] px-[1.6rem] text-center items-center">
-                {item?.name ?? 'null'}
+                {item?.categories ?? 'null'}
               </p>
             )}
           </div>
@@ -99,9 +99,9 @@ function ItemProduct(props: IProps) {
                 </div>
               )}
             </div>
-            {item?.sale_price && item?.sale_price !== 0 && (
+            {item?.salePrice && item?.salePrice !== 0 && (
               <span className="line-through max-md:text-[2.66667rem]">
-                {formatCurrencyVND(item?.sale_price.toString())}
+                {formatCurrencyVND(item?.salePrice.toString())}
               </span>
             )}
           </div>

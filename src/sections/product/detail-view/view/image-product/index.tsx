@@ -15,12 +15,6 @@ interface IProps {
   dataInit?: IDetailProductRes;
 }
 
-interface IItemImage {
-  id: number | null;
-  src: string | undefined;
-  name: string;
-}
-
 function SlideProductMobile() {
   return (
     <>

@@ -1,11 +1,6 @@
 import ICCart from '@/components/Icons/ICCart';
 import ICSearch from '@/components/Icons/ICSearch';
 import ICTabMenu from '@/components/Icons/ICTabMenu';
-import { Session } from 'next-auth';
-
-interface IProps {
-  session: Session | null;
-}
 
 function NavMobileDetail() {
   return (

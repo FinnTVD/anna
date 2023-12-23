@@ -6,6 +6,7 @@ import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { postData } from '@/lib/post-data';
+import { CartComponent } from '@/sections/cart/CartComponent';
 
 interface IProps {
   dataListProductNew?: any;
@@ -47,8 +48,16 @@ export default function Cart(props: IProps) {
 
       {/* content */}
       <div className="w-[87.5rem] mx-auto mt-[2.5rem] max-md:w-full max-md:px-[3.2rem] max-md:mt-[3.2rem]">
-        <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
-          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
+        <div className="mb-[5rem] max-md:mb-[8rem]">
+          <div className="flex justify-start max-md:justify-center max-md:mt-[5rem]">
+            <span className="font-sans text-[1.5rem] not-italic font-bold leading-[2.25rem] max-md:text-center max-md:text-[5.3333rem] max-md:leading-[8rem]">
+              Sản Phẩm
+            </span>
+          </div>
+          <CartComponent />
+        </div>
+        <div className="flex justify-between mb-[2rem] items-center max-md:mb-[4.27rem]">
+          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[4.8rem] max-md:leading-[7.2rem] max-md:w-[64.26667rem] max-md:h-[12rem] max-md:mb-[4rem] max-md:text-start">
             SẢN PHẨM CÓ THỂ BẠN QUAN TÂM
           </h4>
           <div className="flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
@@ -69,8 +78,8 @@ export default function Cart(props: IProps) {
             data={dataInit}
           />
         </div>
-        <div>
-          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] max-md:text-[5.33333rem] mb-[3rem]">
+        <div className="max-md:mt-[5rem]">
+          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] max-md:text-[5.33333rem] mb-[3rem] max-md:mb-[5rem] max-md:leading-[5rem]">
             SẢN PHẨM TƯƠNG TỰ
           </h4>
           <div className="flex w-full max-md:flex-col">

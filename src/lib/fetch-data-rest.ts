@@ -2,7 +2,11 @@ const revalidate = Number(process.env.NEXT_PUBLIC_REVALIDATE) || 3600; // 1h
 const baseUrl = process.env.NEXT_PUBLIC_REST_API;
 const baseUrlAcf = process.env.NEXT_PUBLIC_ACF_API;
 
-export const fetchDataRest = async (method: string, url: string, variables = {}) => {
+export const fetchDataRest = async (
+  method: string,
+  url: string,
+  variables = {}
+) => {
   const res = await fetch(`${baseUrl}/${url}`, {
     method: method,
     headers: {
@@ -25,14 +29,17 @@ export const fetchDataRest = async (method: string, url: string, variables = {})
 };
 
 export const fetchDataAcf = async (method: string, url: string) => {
-  const res = await fetch(`${'https://woo-api.okhub.tech/wp-json/acf/v3'}/${url}`, {
-    method: method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    next: { revalidate },
-    // cache: 'no-store'
-  });
+  const res = await fetch(
+    `${'https://woo-api.okhub.tech/wp-json/acf/v3'}/${url}`,
+    {
+      method: method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      next: { revalidate },
+      // cache: 'no-store'
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
