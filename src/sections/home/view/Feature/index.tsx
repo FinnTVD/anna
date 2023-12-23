@@ -24,31 +24,19 @@ function Feature({ dataFeature }: IpropFeature) {
           className="w-full pr-5 sm:pr-[5.688rem]"
         />
       </div>
-      <div className="w-2/3 pr-0 sm:pr-32">
+      <div className="w-full md:w-2/3 pr-0 sm:pr-32  p-[6.67rem] md:p-[0]">
         <div className="md:h-[47px] px-5 py-2.5 bg-teal-100 rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] justify-center items-center gap-2.5 inline-flex">
           <div className="text-neutral-800 text-lg font-extrabold uppercase">
             Chọn kính phù hợp với bạn
           </div>
         </div>
-        {dataFeature?.option?.map(
-          (
-            value: { title: string; description: string; link: string },
-            index: number
-          ) => (
-            <div
-              className={`feature-item cursor-pointer py-11 flex items-center w-full justify-between pr-6 sm:pr-12 ${
-                index > 0 && "border-t-2 border-[#55D5D2]"
-              }`}
-            >
-              <div>
-                <div className="feature-title text-teal-300 text-[30px] md:text-[2.75rem] font-black uppercase">
-                  {value?.title}
-                </div>
-                <div className="w-[424px] text-zinc-700 text-lg font-extrabold">
-                  {value?.description}
-                </div>
-              </div>
-              <ICVectorRight />
+        {dataFeature?.option?.map((value: { title: string, description: string, link: string }, index: number) => (
+          <div className={`feature-item cursor-pointer py-11 flex items-center w-full justify-between pr-6 sm:pr-12 ${index > 0 && 'border-t-2 border-[#55D5D2]'}`}>
+            <div>
+              <div className="feature-title text-teal-300 text-[9.2rem] md:text-[2.75rem] font-black uppercase">{value?.title}</div>
+              <div className="w-full md:w-[424px] text-zinc-700 text-[4.8rem] md:text-lg font-extrabold">{value?.description}</div>
+            </div>
+            <ICVectorRight />
             </div>
           )
         )}

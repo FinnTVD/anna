@@ -12,7 +12,7 @@ interface IProps {
 
 function ItemSocial(props: IProps) {
   return (
-    <div className="w-full relative h-[29.188rem] item-social overflow-hidden">
+    <div className="w-full relative h-[133.26667rem] md:h-[29.188rem] item-social overflow-hidden">
       <Image
         src={props?.img}
         alt=""
@@ -29,9 +29,9 @@ function ItemSocial(props: IProps) {
           {props?.infor}
         </div>
         <div className="flex justify-center pt-3">
-          <div className="pl-5 pr-1 py-1 bg-orange-400 rounded-[100px] justify-start items-center gap-3 inline-flex">
-            <div className="text-right text-white">KHÁM PHÁ</div>
-            <div className="h-10 w-10 bg-white rounded-[100px] justify-center items-center flex">
+          <div className="pl-[5rem] md:pl-5 pr-1 py-1 bg-orange-400 rounded-[100px] justify-start items-center gap-3 inline-flex">
+            <div className="text-right text-white text-[3.46667rem] md:text-[1rem]">KHÁM PHÁ</div>
+            <div className="h-[10.5rem] md:h-10 w-[10.5rem] md:w-10 bg-white rounded-[100px] justify-center items-center flex">
               <ICArrowTopRightActive width={24} height={24} />
             </div>
           </div>
