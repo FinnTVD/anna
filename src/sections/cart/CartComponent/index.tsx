@@ -52,16 +52,16 @@ export function CartComponent() {
                   />
                 </div>
                 <div className="info-product">
-                  <div className="h-[7.5rem] max-md:h-fit flex ">
+                  <div className="h-[7.5rem] max-md:h-[34rem] flex ">
                     <Image
                       width={70}
                       height={70}
-                      className="h-full w-[7.5rem] max-md:w-[32rem] max-md:h-[32rem]"
+                      className="h-full w-[7.5rem] max-md:w-[32rem] max-md:h-[34rem]"
                       src="https://dl.memuplay.com/new_market/img/com.outfit7.mytalkingtom2.icon.2023-08-29-23-30-20.png"
                       alt="img product"
                     />
                     <div className="h-full ml-[1rem] flex flex-col justify-center max-md:ml-[3.25rem] max-md:justify-between">
-                      <h4 className="text-[0.875rem] not-italic font-bold  max-md:text-[4.267rem] max-md:mb-[1rem]">
+                      <h4 className="text-[0.875rem] not-italic font-bold  max-md:text-[4.267rem] max-md:mb-[1rem] line-clamp-2 max-md:leading-[5.2rem]">
                         Gọng kính thời trang KL060
                       </h4>
                       <div className="hidden max-md:flex mb-[1.2rem]">
@@ -80,7 +80,7 @@ export function CartComponent() {
                           200.000đ
                         </div>
                       </div>
-                      <div className="mt-[3rem] hidden max-md:block ">
+                      <div className="mt-[2.5rem] hidden max-md:block ">
                         <InputChangeAmount />
                       </div>
 
