@@ -14,7 +14,7 @@ function SectionHome() {
           <div className="hidden max-md:block">
             <ICProtected height="6.4rem" />
           </div>
-          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
+          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[3rem] max-md:leading-[3.46667rem]">
             Bảo hành trọn đời
           </p>
         </div>
@@ -25,7 +25,7 @@ function SectionHome() {
           <div className="hidden max-md:block">
             <ICFree height="6.4rem" width="6.4rem" />
           </div>
-          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
+          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[3rem] max-md:leading-[3.46667rem]">
             Đo mắt miễn phí
           </p>
         </div>
@@ -36,7 +36,7 @@ function SectionHome() {
           <div className="hidden max-md:block">
             <ICChange height="6.4rem" width="6.4rem" />
           </div>
-          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
+          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[3rem] max-md:leading-[3.46667rem]">
             Thu cũ đổi mới
           </p>
         </div>
@@ -50,7 +50,7 @@ function SectionHome() {
           <div className="hidden max-md:block">
             <ICClean height="6.4rem" width="6.4rem" />
           </div>
-          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
+          <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[3rem] max-md:leading-[3.46667rem]">
             Vệ sinh và bảo quản kính
           </p>
         </div>
