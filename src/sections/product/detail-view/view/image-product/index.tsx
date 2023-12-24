@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import { IDetailProductRes } from '@/types/detail-product';
+import { IDetailProductRes } from '@/types/types-general';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';

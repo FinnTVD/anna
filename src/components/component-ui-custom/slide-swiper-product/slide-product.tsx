@@ -11,7 +11,7 @@ import './style.css';
 import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
 import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 import ItemProduct from '../item-product/ItemProduct';
-import { IItemProduct } from '@/types/detail-product';
+import { IItemProduct } from '@/types/types-general';
 
 export interface IProps {
   keySlide: string;

@@ -4,7 +4,7 @@ import { MapMobile } from '@/app/icons';
 import { ICDecreaseIcon, ICIncreaseIcon } from '@/components/Icons';
 import ICArrowRight from '@/components/Icons/ICArrowRight';
 import ICBag from '@/components/Icons/ICBag';
-import { IDetailProductRes } from '@/types/detail-product';
+import { IDetailProductRes } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import React, { useEffect, useState } from 'react';
 import useSWR from 'swr';

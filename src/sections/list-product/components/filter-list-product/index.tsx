@@ -4,7 +4,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import './style.css';
 import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
 import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
-import { IItemProduct, IProductVariantItem } from '@/types/detail-product';
+import { IItemProduct, IProductVariantItem } from '@/types/types-general';
 
 interface IProps {
   data: IItemProduct[];
