@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IDetailProductRes } from '@/types/detail-product';
+import { IDetailProductRes } from '@/types/types-general';
 import React from 'react';
 import { formatCurrencyVND } from '@/ultils/format-price';
 

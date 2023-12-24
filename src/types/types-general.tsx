@@ -74,3 +74,31 @@ export interface IProductVariantItem {
   };
   id?: number;
 }
+
+export interface IItemInputGlobal {
+  name: string;
+  type: string;
+  placeHolder: string;
+}
+
+export interface IItemInputSelectGlobal {
+  name: string;
+  width?: string;
+  placeHolder: string;
+  listOption: {
+    value: string;
+    label: string;
+  }[];
+}
+
+export interface listInputGlobal {
+  name: string;
+  require?: boolean;
+  type: 'input' | 'select-option' | 'text-area';
+  placeHolder?: string;
+  width?: string;
+  listOption?: {
+    value: string;
+    label: string;
+  }[];
+}

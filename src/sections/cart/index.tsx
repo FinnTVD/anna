@@ -12,11 +12,6 @@ interface IProps {
   dataListProductNew?: any;
 }
 
-interface IParamsSearch {
-  per_page: number;
-  page: number;
-}
-
 export default function Cart(props: IProps) {
   const { dataListProductNew } = props;
 

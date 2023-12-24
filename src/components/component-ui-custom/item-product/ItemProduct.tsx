@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowTopRight, ArrowTopRightActive } from '@/app/icons';
 import Image from 'next/image';
-import { IItemProduct } from '@/types/detail-product';
+import { IItemProduct } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import Link from 'next/link';
 
