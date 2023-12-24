@@ -33,7 +33,7 @@ const AboutHome = ({ dataAbout }: IpropAbout) => {
         start: `-100% top`,
         pin: ".pin",
         end: `+=${window.innerHeight / 1.5}`,
-        markers: true,
+        // markers: true,
       },
       opacity: 1,
       ease: "none",
