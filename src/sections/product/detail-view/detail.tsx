@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Fixed } from '@/app/icons';
+import React, { useEffect, useRef, useState } from 'react';
 import ImageProduct from '@/sections/product/detail-view/view/image-product';
 import InfoProduct from '@/sections/product/detail-view/view/info-product';
 import RecommendProduct from '@/sections/product/detail-view/view/recommend-product';
@@ -15,21 +14,27 @@ import { ICClean } from '@/components/Icons/ICClean';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import ItemMobile from '../../../components/component-ui-custom/item-product-mobile';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
+import { Fixed } from '@/sections/product/detail-view/view/Fixed';
 
 interface IProps {
   slug: string;
 }
 
 function ProductDetail({ slug }: IProps) {
-  // let dataInit;
   const [dataInit, setDatainit] = useState();
   const [colorGetDetail, setColorGetDetail] = useState<number | string | null>(
     null
   );
   const [listColorProduct, setListColorProduct] = useState<any>([]);
-  // const [name, setName] = useQueryState();
+  const scrollY = useRef(0);
 
-  // console.log('listColorProductlistColorProduct', listColorProduct);
+  // const handleScroll = () => {
+  //   console.log(scrollElement.scrollY);
+  // };
+
+  useEffect(() => {
+    console.log('scrollY.current', scrollY.current);
+  }, [scrollY.current]);
 
   const bodyApi: IPostData = {
     url: `products-details/${slug}`,
@@ -81,9 +86,26 @@ function ProductDetail({ slug }: IProps) {
     // console.log('datainittess', dataInitDetail?.data?.variant);
   }, [dataInitDetail.data]);
 
-  // useEffect(() => {
-
-  // })
+  document.addEventListener('scroll', function () {
+    const getElemetToShow = document.getElementById('check-scroll-to-show');
+    const elementTop = getElemetToShow?.offsetTop;
+    const getElementFixed = document.getElementById('fixed-product');
+    if (window.scrollY < elementTop && window.scrollY - elementTop < 0) {
+      getElementFixed.style.bottom = window.scrollY - elementTop + 'px';
+    } else if (
+      window.scrollY < elementTop &&
+      elementTop - window.scrollY < 120
+    ) {
+      getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
+    } else if (
+      window.scrollY > elementTop &&
+      window.scrollY < elementTop + 120
+    ) {
+      getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
+    } else if (window.scrollY > elementTop + 120) {
+      getElementFixed.style.bottom = '0px';
+    }
+  });
 
   // console.log('colorGetDetail', colorGetDetail);
   // console.log('getDetailProductByColor', getDetailProductByColor.data);
@@ -111,9 +133,12 @@ function ProductDetail({ slug }: IProps) {
         </div>
       </div>
       {/* section 2 */}
-      <div className="px-[6.25rem] border-t border-b border-teal-300 max-md:mt-[5.6rem] max-md:py-[4.27rem] max-md:px-[5.33rem] max-md:bg-[#EEFBFB]">
+      <div
+        id="check-scroll-to-show"
+        className="px-[6.25rem] border-t border-b border-teal-300 max-md:mt-[5.6rem] max-md:py-[4.27rem] max-md:px-[5.33rem] max-md:bg-[#EEFBFB]"
+      >
         <div className="w-[87.5rem] mx-auto max-lg:mx-[0.75rem] flex justify-between text-[#454545] max-md:flex-wrap max-md:bg-[#EEFBFB] py-[1.875rem] max-md:py-[0rem]">
-          <div className="flex  justify-center max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-md:mr-[0.5rem] max-md:rounded-none max-sm:border-none max-sm:justify-start">
+          <div className="flex  justify-center cursor-pointer max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-md:mr-[0.5rem] max-md:rounded-none max-sm:border-none max-sm:justify-start">
             <div className="max-md:hidden">
               <ICProtected height="1.5rem" />
             </div>
@@ -124,7 +149,7 @@ function ProductDetail({ slug }: IProps) {
               Bảo hành trọn đời
             </p>
           </div>
-          <div className="flex justify-center max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start max-sm:mr-0">
+          <div className="flex justify-center cursor-pointer max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start max-sm:mr-0">
             <div className="max-md:hidden">
               <ICFree height="1.5rem" width="1.5rem" />
             </div>
@@ -135,7 +160,7 @@ function ProductDetail({ slug }: IProps) {
               Đo mắt miễn phí
             </p>
           </div>
-          <div className="flex justify-center max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)]  max-sm:mb-[1rem] max-sm:mr-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start">
+          <div className="flex justify-center cursor-pointer max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)]  max-sm:mb-[1rem] max-sm:mr-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start">
             <div className="max-md:hidden">
               <ICChange height="1.5rem" width="1.5rem" />
             </div>
@@ -146,10 +171,7 @@ function ProductDetail({ slug }: IProps) {
               Thu cũ đổi mới
             </p>
           </div>
-          <div
-            id="check-scroll-to-show"
-            className="flex justify-center  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-sm:mb-[1rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start"
-          >
+          <div className="flex justify-center cursor-pointer max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-sm:mb-[1rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start">
             <div className="max-md:hidden">
               <ICClean height="1.5rem" width="1.5rem" />
             </div>
@@ -269,7 +291,7 @@ function ProductDetail({ slug }: IProps) {
         id="fixed-product"
         className="px-[6.25rem] fixed h-[7.5rem] w-[100%] bg-[#fff] bottom-[-7.5rem] z-50 border-t-[1px] border-[#ECECEC] max-sm:hidden items-center"
       >
-        <Fixed />
+        <Fixed dataInit={dataInit} listColorProduct={listColorProduct} />
       </div>
     </div>
   );

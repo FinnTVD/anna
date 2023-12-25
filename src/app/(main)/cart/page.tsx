@@ -1,0 +1,15 @@
+import Cart from '@/sections/cart';
+import { postData } from '@/lib/post-data';
+
+const CartPage = async () => {
+  const bodyGetListProduct: any = {
+    url: `products?per_page=6&page=2`,
+    method: 'get',
+  };
+
+  const dataListProductNew = await postData(bodyGetListProduct);
+
+  return <Cart dataListProductNew={dataListProductNew} />;
+};
+
+export default CartPage;

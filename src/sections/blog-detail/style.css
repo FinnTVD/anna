@@ -1,0 +1,25 @@
+.banner-blog {
+    background-image: url('../../assets/blogImg/Rectangle146.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blog-content p,
+.blog-content li,
+.blog-content .wp-block-heading strong {
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.70);
+    padding: 1rem 0;
+
+    @media screen and (max-width: 767px) {
+        font-size: 4rem;
+        padding: 3rem 0;
+    }
+}
+.blog-content img {
+    margin: auto;
+}
+.blog-content .wp-block-heading strong {
+    color: #000;
+}

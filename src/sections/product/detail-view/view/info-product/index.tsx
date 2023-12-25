@@ -1,13 +1,15 @@
 'use client';
 
 import { MapMobile } from '@/app/icons';
-import { ICIncreaseIcon, ICDecreaseIcon } from '@/components/Icons';
+import { ICDecreaseIcon, ICIncreaseIcon } from '@/components/Icons';
 import ICArrowRight from '@/components/Icons/ICArrowRight';
 import ICBag from '@/components/Icons/ICBag';
-import { IDetailProductRes } from '@/types/detail-product';
+import { IDetailProductRes } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import React, { useEffect, useState } from 'react';
-// import "./style.css";
+import useSWR from 'swr';
+
+import './style.css';
 
 interface IProps {
   dataInit?: IDetailProductRes;
@@ -24,7 +26,7 @@ interface IDataProduct {
 function InfoProduct(props: IProps) {
   const { dataInit, handleChangeColorGetApi, listColorProduct } = props;
 
-  const [numberInfor, setNumberInfor] = useState<number>(0);
+  const [numberInfor, setNumberInfor] = useState<number | undefined>(undefined);
   const [priceProduct, setPriceProduct] = useState<number>(0);
   const [dataProductSubmit, setDataProductSubmit] = useState<IDataProduct>({
     color: '',
@@ -32,14 +34,27 @@ function InfoProduct(props: IProps) {
     quantityProduct: 1,
   });
 
-  console.log('dataInit', dataInit);
+  // GET transport
+  const apiTransport = useSWR(
+    'https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=van-chuyen',
+    () =>
+      fetch('https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=van-chuyen', {
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        }),
+      }).then((response) => response.json()) // Parse JSON response
+  );
 
-  // GET COLOR DETAIL PRODUCT
-  // const bodyApi: IPostData = {
-  //   url: `product-variations/${slug}`,
-  //   method: "get",
-  // };
-  // const listColorProduct = useSWR(bodyApi.url, () => postData(bodyApi));
+  // GET Return product
+  const apiReturnProduct = useSWR(
+    'https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=doi-tra',
+    () =>
+      fetch('https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=doi-tra', {
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        }),
+      }).then((response) => response.json()) // Parse JSON response
+  );
   // END
 
   const handleChangeColor = (value: any) => {
@@ -50,10 +65,9 @@ function InfoProduct(props: IProps) {
     });
     handleChangeColorGetApi(value.id);
   };
-  // console.log('dataProductSubmit', dataProductSubmit.quantityProduct);
 
   const handleHiddenInfor = (e: any, value: number) => {
-    setNumberInfor(value);
+    setNumberInfor(value === numberInfor ? undefined : value);
   };
 
   const handleOnchangeQuantity = (value: any): void => {
@@ -66,10 +80,10 @@ function InfoProduct(props: IProps) {
 
     let check;
 
-    if (dataInit?.stoc_quantity) {
+    if (dataInit?.stock_quantity) {
       check =
-        valueConvert > dataInit?.stoc_quantity
-          ? dataInit?.stoc_quantity
+        valueConvert > dataInit?.stock_quantity
+          ? dataInit?.stock_quantity
           : valueConvert;
     } else check = valueConvert;
 
@@ -101,8 +115,6 @@ function InfoProduct(props: IProps) {
   useEffect(() => {
     // listColorProduct.isLoading;
   }, [dataProductSubmit.idColor]);
-
-  // console.log("data", data);
 
   return (
     <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[0rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
@@ -204,7 +216,11 @@ function InfoProduct(props: IProps) {
             {/* <div className="number-add-cart-opacity" /> */}
             <div
               role="button"
-              onClick={addQuantityProduct}
+              onClick={
+                dataProductSubmit.quantityProduct <= dataInit?.stock_quantity
+                  ? addQuantityProduct
+                  : undefined
+              }
               style={{ cursor: 'pointer' }}
               className="select-none px-[1.5rem] py-[0.8rem] max-lg:ml-[.5rem] w-[0.6875rem] text-[1.25rem] font-bold leading-[1.875rem]"
             >
@@ -289,7 +305,7 @@ function InfoProduct(props: IProps) {
                   <ICIncreaseIcon width="1.5rem" height="1.5rem" />
                 )}
               </div>
-              <div className="hidden max-md:block">
+              <div className=" hidden max-md:block">
                 {numberInfor === 1 ? (
                   <ICDecreaseIcon width="6.4rem" height="6.4rem" />
                 ) : (
@@ -298,9 +314,9 @@ function InfoProduct(props: IProps) {
               </div>
             </div>
             <p
-              className={`max-lg:text-[0.9rem] max-lg:w-full ${
+              className={` left-0 max-lg:text-[0.9rem] max-lg:w-full ${
                 numberInfor !== 1 ? 'h-0' : 'h-fit'
-              } overflow-hidden infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
+              } overflow-hidden transition-all delay-300 infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
             >
               {dataInit?.description}
             </p>
@@ -331,19 +347,16 @@ function InfoProduct(props: IProps) {
                 )}
               </div>
             </div>
-            <p
-              className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
-                numberInfor !== 2 ? 'h-0' : 'h-fit'
-              } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
-            >
-              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
-              Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
-              Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
-              nhiệt độ cao làm biến dạng kính. + Không bỏ kính vào túi sách nếu
-              không có hộp kính, vật dụng nhọn như chìa khóa sẽ làm xước kính. +
-              Không rửa kính lau kính bằng các chất có tính tẩy rửa mạnh làm
-              bong tróc lớp váng phủ
-            </p>
+            {apiTransport?.data && (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: `${apiTransport?.data[0].content.rendered}`,
+                }}
+                className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
+                  numberInfor !== 2 ? 'h-0' : 'h-fit'
+                } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
+              />
+            )}
           </div>
           <div>
             <div
@@ -371,19 +384,18 @@ function InfoProduct(props: IProps) {
                 )}
               </div>
             </div>
-            <p
-              className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-3 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch flex-none ${
-                numberInfor !== 3 ? 'h-0' : 'h-fit'
-              } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
-            >
-              Chịu trách nhiệm sản phẩm: Công Ty TNHH Dịch vụ và Thương mại Anna
-              Việt Nam Cảnh báo: Bảo quản trong hộp kính Hướng dẫn sử dụng: +
-              Tháo kính bằng 2 tay + Không bỏ kính vào cốp xe hoặc những nơi có
-              nhiệt độ cao làm biến dạng kính. + Không bỏ kính vào túi sách nếu
-              không có hộp kính, vật dụng nhọn như chìa khóa sẽ làm xước kính. +
-              Không rửa kính lau kính bằng các chất có tính tẩy rửa mạnh làm
-              bong tróc lớp váng phủ
-            </p>
+            <div>
+              {apiReturnProduct?.data && (
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: `${apiReturnProduct?.data[0].content.rendered}`,
+                  }}
+                  className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
+                    numberInfor !== 3 ? 'h-0' : 'h-fit'
+                  } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
+                />
+              )}
+            </div>
           </div>
           <div>
             <div

@@ -4,7 +4,7 @@ interface IProps {
   fill?: string;
 }
 
-function ICArrowRight(props: IProps) {
+function ICArrowRight2(props: IProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,4 +21,4 @@ function ICArrowRight(props: IProps) {
   );
 }
 
-export default ICArrowRight;
+export default ICArrowRight2;
