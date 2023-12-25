@@ -3,7 +3,7 @@ import ICUser from '@/components/Icons/ICUser';
 import { formatDate } from '@/ultils/format-date';
 import React from 'react';
 
-const ContentBlogDetail = ({ listBlog }: any) => {
+function ContentBlogDetail({ listBlog }: any) {
   return (
     <div className="md:max-w-[57.25rem] px-12 md:px-2 m-auto py-[6.25rem] md:pb-6">
       <div className="flex items-center">
@@ -26,9 +26,9 @@ const ContentBlogDetail = ({ listBlog }: any) => {
       <div
         className="blog-content"
         dangerouslySetInnerHTML={{ __html: `${listBlog?.content?.rendered}` }}
-      ></div>
+      />
     </div>
   );
-};
+}
 
 export default ContentBlogDetail;

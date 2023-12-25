@@ -1,11 +1,11 @@
 import ICVectorRight from '@/components/Icons/ICVectorRight';
 import Image from 'next/image';
-import { format } from 'date-fns';
 import { formatDate } from '@/ultils/format-date';
+
 interface IpropsBlog {
   dataBlog: any;
 }
-const ItemBlog = ({ dataBlog }: IpropsBlog) => {
+function ItemBlog({ dataBlog }: IpropsBlog) {
   return (
     <div className={`p-4 mt-[1rem] md:mt-6 h-[90rem] md:h-[597px] `}>
       <div className="pb-16 md:pb-4 bg-white w-full h-full rounded-[6.4rem] md:rounded-3xl border-2 border-gray-200 flex-col justify-between items-start gap-4 inline-flex">
@@ -44,6 +44,6 @@ const ItemBlog = ({ dataBlog }: IpropsBlog) => {
       </div>
     </div>
   );
-};
+}
 
 export default ItemBlog;

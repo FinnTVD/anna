@@ -7,7 +7,7 @@ function ICYoutube(props: IProps) {
   return (
     <svg
       width={props.width ?? 100}
-      height={props.width ?? 100}
+      height={props.height ?? 100}
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

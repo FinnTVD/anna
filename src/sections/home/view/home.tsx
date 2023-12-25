@@ -2,7 +2,6 @@ import SectionHome from '@/sections/home/view/SectionHome';
 import NewCollection from '@/sections/home/view/CollectNew';
 import Feature from '@/sections/home/view/Feature';
 import FlashSale from '@/sections/home/view/FlashSale';
-import Image from 'next/image';
 import './style.css';
 import AboutHome from '@/sections/home/view/About';
 import Social from '@/sections/home/view/Social';

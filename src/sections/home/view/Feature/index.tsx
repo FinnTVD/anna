@@ -36,6 +36,7 @@ function Feature({ dataFeature }: IpropFeature) {
             index: number
           ) => (
             <div
+              key={index}
               className={`feature-item cursor-pointer py-11 flex items-center w-full justify-between pr-6 sm:pr-12 ${
                 index > 0 && 'border-t-2 border-[#55D5D2]'
               }`}

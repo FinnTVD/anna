@@ -4,7 +4,7 @@ import ServiceBlog from '@/sections/blog/Service';
 import SectionHome from '@/sections/home/view/SectionHome';
 import './style.css';
 
-const Blog = () => {
+function Blog() {
   return (
     <div>
       <BannerBlog />
@@ -13,6 +13,6 @@ const Blog = () => {
       <SectionHome />
     </div>
   );
-};
+}
 
 export default Blog;

@@ -1,7 +1,7 @@
 import ICDots from '@/components/Icons/ICDots';
 import Link from 'next/link';
 
-const BannerBlog = () => {
+function BannerBlog() {
   return (
     <div className="banner-blog py-10">
       <div className="min-h-[45rem] md:min-h-[33.25rem] px-[5rem] md:px-[10rem] flex items-end">
@@ -25,6 +25,6 @@ const BannerBlog = () => {
       </div>
     </div>
   );
-};
+}
 
 export default BannerBlog;

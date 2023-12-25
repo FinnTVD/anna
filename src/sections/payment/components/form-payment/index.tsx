@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Button } from '@/components/ui/button';
 import ListProductInCart from '@/sections/payment/components/list-product-in-cart';
-import GroupInputGlobal from "@/components/component-ui-custom/group-input-global";
+import GroupInputGlobal from '@/components/component-ui-custom/group-input-global';
 
 export default function FormPayment() {
   const {

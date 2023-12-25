@@ -16,7 +16,7 @@ function ItemBlog() {
         />
       </div>
       <Link
-        href={`#`}
+        href="#"
         className="md:h-[4rem] text-black text-[4.25rem] md:text-lg font-bold my-12 md:my-4 line-clamp-2 border-b border-b-neutral-700 border-opacity-20"
       >
         Có nên đeo kính áp tròng thay kính cận không?

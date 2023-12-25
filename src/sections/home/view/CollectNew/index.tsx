@@ -2,7 +2,6 @@ import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import ItemCollect from '@/sections/home/view/CollectNew/Item';
 import ICMore from '@/components/Icons/ICMore';
-import fetchData from '@/lib/fetch-data';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 
 const NewCollection = async () => {
@@ -50,10 +49,11 @@ const NewCollection = async () => {
       </div>
       <div>
         <div className="grid grid-cols-1 md:grid-cols-4">
+          {/* eslint-disable-next-line array-callback-return,consistent-return */}
           {collectNewData?.map((dataCollect: any, index: number) => {
             if (index <= 7) {
               return (
-                <div className="px-4">
+                <div key={index} className="px-4">
                   <ItemCollect dataCollect={dataCollect} key={index} />
                 </div>
               );

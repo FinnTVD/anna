@@ -1,5 +1,4 @@
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
-import ICFacebookFooter from '@/components/Icons/ICFacebookFooter';
 import Image, { StaticImageData } from 'next/image';
 import { ReactNode } from 'react';
 

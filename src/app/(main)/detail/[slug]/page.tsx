@@ -1,5 +1,3 @@
-'use client';
-
 import ProductDetail from '@/sections/product/detail-view/detail';
 
 // Return a list of `params` to populate the [slug] dynamic segment

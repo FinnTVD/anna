@@ -4,7 +4,7 @@ import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import ICSchedule from '@/components/Icons/ICSchedule';
 
-const ServiceBlog = () => {
+function ServiceBlog() {
   return (
     <div className="py-[6.25rem] px-[5rem] md:px-[10rem] pb-8 md:pb-0">
       <h4 className="text-black text-[9rem] md:text-[2.25rem] font-semibold">
@@ -48,6 +48,6 @@ const ServiceBlog = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ServiceBlog;

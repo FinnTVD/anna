@@ -3,7 +3,7 @@ import React from 'react';
 import logoImg from '@/assets/blogImg/kinh-mat-anna.jpg';
 import SliceBlogOther from '@/sections/blog-detail/BlogOther/Slide';
 
-const BlogOther = () => {
+function BlogOther() {
   return (
     <div className="md:max-w-[57.25rem] px-12 md:px-2 m-auto">
       <div className="flex flex-wrap">
@@ -34,6 +34,6 @@ const BlogOther = () => {
       <SliceBlogOther />
     </div>
   );
-};
+}
 
 export default BlogOther;
