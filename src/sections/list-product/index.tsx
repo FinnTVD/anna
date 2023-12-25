@@ -13,10 +13,10 @@ interface IProps {
   slug?: any;
 }
 
-interface IParamsSearch {
-  per_page: number;
-  page: number;
-}
+// interface IParamsSearch {
+//   per_page: number;
+//   page: number;
+// }
 
 export default function ListProduct(props: IProps) {
   const { slug } = props;
@@ -25,15 +25,15 @@ export default function ListProduct(props: IProps) {
   //   per_page: 12,
   //   page: 1,
   // });
-  const [paramsSearch, setParamsSearch] = useState<IParamsSearch>({
-    per_page: 12,
-    page: 1,
-  });
+  // const [paramsSearch, setParamsSearch] = useState<IParamsSearch>({
+  //   per_page: 12,
+  //   page: 1,
+  // });
 
   const [dataInit, setDatainit] = useState<any>();
 
   const bodyGetListProduct: any = {
-    url: `products?per_page=${paramsSearch.per_page}&page=${paramsSearch.page}`,
+    url: `products?per_page=12&page=1`,
     method: 'get',
   };
 

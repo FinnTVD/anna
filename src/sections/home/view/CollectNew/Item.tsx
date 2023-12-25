@@ -92,7 +92,9 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
                 +{listColor.length - 4}
               </div>
             </div>
-            <span className="line-through text-[3.73333rem] md:text-[0.875rem]">{dataCollect?.price}</span>
+            <span className="line-through text-[3.73333rem] md:text-[0.875rem]">
+              {dataCollect?.price}
+            </span>
           </div>
           <div className="bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
             <p className="text-[6.4rem] md:text-[1.5rem] font-[850] text-[#fff]">

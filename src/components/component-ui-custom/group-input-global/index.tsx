@@ -26,7 +26,7 @@ interface IProps {
   errors: any;
 }
 
-export default function InputGlobal(props: IProps) {
+export default function GroupInputGlobal(props: IProps) {
   const { listInputGlobal, setValueInput, register } = props;
 
   const [open, setOpen] = useState(false);

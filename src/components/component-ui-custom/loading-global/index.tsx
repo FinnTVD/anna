@@ -1,11 +1,4 @@
-interface IProps {
-  width?: string | number;
-  height?: string | number;
-  fill?: string;
-  stroke?: string;
-}
-
-function LoadingGlobal(props: IProps) {
+function LoadingGlobal() {
   return (
     <svg
       className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"

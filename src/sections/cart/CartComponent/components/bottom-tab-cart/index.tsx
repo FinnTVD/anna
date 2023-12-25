@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Checkbox } from "@/components/ui/checkbox";
-import "./style.css";
+import * as React from 'react';
+import { Checkbox } from '@/components/ui/checkbox';
+import './style.css';
 
 export function BottomTabCart(): React.JSX.Element {
   return (
@@ -20,7 +20,7 @@ export function BottomTabCart(): React.JSX.Element {
           </div>
           <div>
             <span className="text-[2.8rem] font-semibold">
-              Phí vận chuyển:{" "}
+              Phí vận chuyển:{' '}
             </span>
             <span className="text-[4rem] font-bold">50.000đ</span>
           </div>

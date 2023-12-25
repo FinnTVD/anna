@@ -1,8 +1,8 @@
-import Blog from '@/sections/blog'
-import React from 'react'
+import Blog from '@/sections/blog';
+import React from 'react';
 
-const BlogPage = () => {
-  return <Blog />
+function BlogPage() {
+  return <Blog />;
 }
 
-export default BlogPage
+export default BlogPage;

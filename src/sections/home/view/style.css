@@ -1,7 +1,7 @@
 .item-collect {
-    @media screen and (max-width: 767px) {
-        width: 50%;
-    }
+  @media screen and (max-width: 767px) {
+    width: 50%;
+  }
 }
 .item-collect:hover .icon-arrow-right {
   transform: translateX(-30px);
@@ -57,13 +57,13 @@
 }
 
 .about-content p {
-    font-size: 3rem;
-    margin: 0px;
-    margin-right: 0.5rem;
-    font-weight: 700;
-    @media screen and (max-width: 767px) {
-        font-size: 6rem;
-    }
+  font-size: 3rem;
+  margin: 0px;
+  margin-right: 0.5rem;
+  font-weight: 700;
+  @media screen and (max-width: 767px) {
+    font-size: 6rem;
+  }
 }
 
 .about-content span {
@@ -101,12 +101,16 @@
 }
 
 .item-actions {
-    background: linear-gradient(94deg, rgba(0, 0, 0, 0.40) 3.25%, rgba(0, 0, 0, 0.40) 58.68%, rgba(0, 0, 0, 0.05) 100%);
-    border-radius: 1.875rem 0rem 0rem 1.875rem;
-    @media screen and (max-width: 767px) {
-        border-radius: 8rem;
-    }
-
+  background: linear-gradient(
+    94deg,
+    rgba(0, 0, 0, 0.4) 3.25%,
+    rgba(0, 0, 0, 0.4) 58.68%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+  border-radius: 1.875rem 0rem 0rem 1.875rem;
+  @media screen and (max-width: 767px) {
+    border-radius: 8rem;
+  }
 }
 
 .card-item-action {
@@ -116,13 +120,13 @@
 }
 
 .mySwiper-action .swiper-slide {
-    height: 31.875rem;
-    @media screen and (max-width: 767px) {
-        height: 60rem;
-    }
+  height: 31.875rem;
+  @media screen and (max-width: 767px) {
+    height: 60rem;
+  }
 }
 
 .text-follow-shadow {
-    color: white;
-    text-shadow: -1px 0 #55D5D2, 0 1px #55D5D2, 1px 0 #55D5D2, 0 -1px #55D5D2;
+  color: white;
+  text-shadow: -1px 0 #55d5d2, 0 1px #55d5d2, 1px 0 #55d5d2, 0 -1px #55d5d2;
 }

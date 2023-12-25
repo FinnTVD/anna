@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
@@ -13,9 +14,8 @@ interface AboutHomeType {
 interface IpropAbout {
   dataAbout: AboutHomeType;
 }
-const AboutHome = ({ dataAbout }: IpropAbout) => {
-  const phrase = "Được thành lập từ năm 2015, trải qua hơn 8 năm phát triển kính mắt Anna đã, đang và sẽ chiếm vị trí không thể thiếu đối với các bạn trẻ. Với quy mô trên toàn quốc, Anna sẽ tiếp tục mở rộng thêm chi nhánh để mang những sản phẩm chất lượng đến tay người dùng";
-  let refs = useRef([]);
+function AboutHome({ dataAbout }: IpropAbout) {
+  const refs = useRef([]);
   const body = useRef(null);
 
   const container = useRef(null);
@@ -31,32 +31,36 @@ const AboutHome = ({ dataAbout }: IpropAbout) => {
         trigger: container.current,
         scrub: true,
         start: `-100% top`,
-        pin: ".pin",
+        pin: '.pin',
         end: `+=${window.innerHeight / 1.5}`,
         // markers: true,
       },
       opacity: 1,
-      ease: "none",
-      stagger: 0.1
-    })
-  }
+      ease: 'none',
+      stagger: 0.1,
+    });
+  };
 
   const splitWords = (phrase: string) => {
     const content: any = [];
-    phrase?.split(" ").forEach((word, i) => {
+    phrase?.split(' ').forEach((word, i) => {
       const letters = splitLetters(word);
-      content.push(<p key={word + "_" + i}>{letters}</p>);
+      content.push(<p key={word + '_' + i}>{letters}</p>);
     });
     return content;
   };
 
   const splitLetters = (word: string) => {
     const letters: any = [];
-    word.split("").forEach((letter: any, i: string) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    word.split('').forEach((letter: any, i: string) => {
       letters.push(
         <span
-          key={letter + "_" + i}
+          key={letter + '_' + i}
           ref={(el) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             refs.current.push(el);
           }}
         >
@@ -69,7 +73,9 @@ const AboutHome = ({ dataAbout }: IpropAbout) => {
   return (
     <div className="about p-[6.67rem] sm:p-24 flex justify-between flex-wrap">
       <div className="w-full md:w-1/2 px-4 pt-10">
-        <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">{dataAbout?.title}</h4>
+        <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
+          {dataAbout?.title}
+        </h4>
         <div ref={container} className="about-card-content">
           <div ref={body} className="about-content">
             {splitWords(dataAbout?.description)}

@@ -1,19 +1,11 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-import ICFacebookFooter from '@/components/Icons/ICFacebookFooter';
-import ICYoutube from '@/components/Icons/ICYoutube';
-import ICTiktokFooter from '@/components/Icons/ICTiktokFooter';
-import ICInstagramFooter from '@/components/Icons/ICInstagramFooter';
-import IMGYoutube from '@/assets/images/youtube.png';
-import IMGFacebook from '@/assets/images/facebook.png';
-import IMGIg from '@/assets/images/ig.png';
-import IMGTiktok from '@/assets/images/tiktok.png';
 import ItemBlog from '@/sections/blog-detail/BlogOther/Slide/Item';
 import { Autoplay } from 'swiper/modules';
 
@@ -22,7 +14,7 @@ function SliceBlogOther() {
     <div>
       <Swiper
         watchSlidesProgress
-        loop={true}
+        loop
         autoplay={{
           delay: 3000,
         }}

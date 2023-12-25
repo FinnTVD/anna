@@ -1,11 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import useSWR from 'swr';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
-import { postData } from '@/lib/post-data';
 import { CartComponent } from '@/sections/cart/CartComponent';
 
 interface IProps {

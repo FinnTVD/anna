@@ -4,8 +4,8 @@ import * as React from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
 import Image from 'next/image';
 import './style.css';
-import { InputChangeAmount } from "@/sections/cart/CartComponent/components/input-change-amount";
-import { BottomTabCart } from "@/sections/cart/CartComponent/components/bottom-tab-cart";
+import { InputChangeAmount } from '@/sections/cart/CartComponent/components/input-change-amount';
+import { BottomTabCart } from '@/sections/cart/CartComponent/components/bottom-tab-cart';
 
 export function CartComponent() {
   return (
@@ -112,9 +112,9 @@ export function CartComponent() {
           <button
             type="button"
             className={`${true ? 'cursor-not-allowed' : undefined}  ${
-              true ? "bg-[#D9D9D9]" : "bg-white"
+              true ? 'bg-[#D9D9D9]' : 'bg-white'
             } ${
-              true ? "text-[#00000040]" : "text-black"
+              true ? 'text-[#00000040]' : 'text-black'
             } transition-all duration-300 mt-[1.25rem] rounded-[0.5rem] px-[2rem] py-[0.75rem] border-2 border-[#D4D4D4]  text-[0.875rem] not-italic font-bold leading-[1.5rem] max-md:text-[2.5rem] max-md:leading-[6.4rem] `}
           >
             Xóa tất cả các sản phẩm

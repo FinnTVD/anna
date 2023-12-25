@@ -1,12 +1,12 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import InputGlobal from '@/components/component-ui-custom/input-global';
 import { listInputGlobal } from '@/types/types-general';
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button } from "@/components/ui/button";
-import ListProductInCart from "@/sections/payment/components/list-product-in-cart";
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Button } from '@/components/ui/button';
+import ListProductInCart from '@/sections/payment/components/list-product-in-cart';
+import GroupInputGlobal from "@/components/component-ui-custom/group-input-global";
 
 export default function FormPayment() {
   const {
@@ -35,34 +35,34 @@ export default function FormPayment() {
       name: 'gmail',
       require: true,
       type: 'input',
-      placeHolder: "Gmail",
+      placeHolder: 'Gmail',
     },
     {
       name: 'textarea',
       require: true,
       placeHolder: 'Tỉnh/Thành phố',
       type: 'select-option',
-      width: "40rem",
+      width: '40rem',
       listOption: [
         {
-          value: "next.js",
-          label: "Next.js 1111",
+          value: 'next.js',
+          label: 'Next.js 1111',
         },
         {
-          value: "sveltekit",
-          label: "SvelteKit",
+          value: 'sveltekit',
+          label: 'SvelteKit',
         },
         {
-          value: "nuxt.js",
-          label: "Nuxt.js",
+          value: 'nuxt.js',
+          label: 'Nuxt.js',
         },
         {
-          value: "remix",
-          label: "Remix",
+          value: 'remix',
+          label: 'Remix',
         },
         {
-          value: "astro",
-          label: "Astro",
+          value: 'astro',
+          label: 'Astro',
         },
       ],
     },
@@ -71,27 +71,27 @@ export default function FormPayment() {
       require: true,
       placeHolder: 'Quận/huyện',
       type: 'select-option',
-      width: "40rem",
+      width: '40rem',
       listOption: [
         {
-          value: "next.js",
-          label: "Next.js 1111",
+          value: 'next.js',
+          label: 'Next.js 1111',
         },
         {
-          value: "sveltekit",
-          label: "SvelteKit",
+          value: 'sveltekit',
+          label: 'SvelteKit',
         },
         {
-          value: "nuxt.js",
-          label: "Nuxt.js",
+          value: 'nuxt.js',
+          label: 'Nuxt.js',
         },
         {
-          value: "remix",
-          label: "Remix",
+          value: 'remix',
+          label: 'Remix',
         },
         {
-          value: "astro",
-          label: "Astro",
+          value: 'astro',
+          label: 'Astro',
         },
       ],
     },
@@ -141,7 +141,7 @@ export default function FormPayment() {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <InputGlobal
+        <GroupInputGlobal
           register={register}
           listInputGlobal={listInput}
           setValueInput={setValue}
