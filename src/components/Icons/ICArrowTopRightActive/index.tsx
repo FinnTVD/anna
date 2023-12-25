@@ -1,7 +1,6 @@
 interface IProps {
   width?: string | number;
   height?: string | number;
-  stroke?: string;
 }
 export function ICArrowTopRightActive(props: IProps) {
   return (
