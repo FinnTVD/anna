@@ -14,14 +14,13 @@ const defaultValues = {
   message: '',
   name: '',
   website: '',
-  remember: false
+  remember: false,
 };
 
 const formSchema = z.object({
-  name: z
-    .string({
-      required_error: 'Name is required',
-    }),
+  name: z.string({
+    required_error: 'Name is required',
+  }),
   email: z
     .string({
       required_error: 'Email is required',
@@ -34,34 +33,39 @@ const formSchema = z.object({
   remember: z.boolean(),
 });
 
-const CommentBlog = () => {
+function CommentBlog() {
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
 
-  const { handleSubmit, setError } = methods;
-  const [message, setMessage] = useState('')
-  const [checkRemember, setCheckRemember] = useState(false)
+  const { handleSubmit } = methods;
+  const [message, setMessage] = useState('');
+  const [checkRemember, setCheckRemember] = useState(false);
 
   const handleMessage = (e: any) => {
-    setMessage(e?.target?.value)
-  }
+    setMessage(e?.target?.value);
+  };
   const handleCheckRemember = (value: boolean) => {
-    setCheckRemember(value)
-  }
+    setCheckRemember(value);
+  };
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     const param = {
       ...values,
       remember: checkRemember,
-      message: message
-    }
-    console.log("value: ", param);
+      message: message,
+    };
+    console.log('value: ', param);
   };
   return (
     <div className="md:max-w-[57.25rem] px-12 md:px-2 m-auto">
-      <h4 className="text-black pt-8 md:pt-4 text-[4.5rem] md:text-[2.25rem] font-semibold">VIẾT BÌNH LUẬN</h4>
-      <p className='text-[3.25rem] md:text-[1.25rem]'>Email của bạn sẽ không được hiển thị công khai. Các trường bắt buộc được đánh dấu *</p>
+      <h4 className="text-black pt-8 md:pt-4 text-[4.5rem] md:text-[2.25rem] font-semibold">
+        VIẾT BÌNH LUẬN
+      </h4>
+      <p className="text-[3.25rem] md:text-[1.25rem]">
+        Email của bạn sẽ không được hiển thị công khai. Các trường bắt buộc được
+        đánh dấu *
+      </p>
 
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -75,7 +79,7 @@ const CommentBlog = () => {
               />
             </div>
             <div className="flex justify-between flex-wrap md:flex-nowrap gap-12 md:gap-3">
-              <div className='w-full'>
+              <div className="w-full">
                 <RHFInput
                   name="name"
                   inputStyle="input-underline"
@@ -83,7 +87,7 @@ const CommentBlog = () => {
                   className="w-full border border-stone-300 bg-[#FAFAFA] text-[3rem] md:text-base p-3"
                 />
               </div>
-              <div className='w-full'>
+              <div className="w-full">
                 <RHFInput
                   name="email"
                   inputStyle="input-underline"
@@ -91,7 +95,7 @@ const CommentBlog = () => {
                   className="w-full border border-stone-300 bg-[#FAFAFA] text-[3rem] md:text-base p-3"
                 />
               </div>
-              <div className='w-full'>
+              <div className="w-full">
                 <RHFInput
                   name="website"
                   inputStyle="input-underline"
@@ -101,25 +105,29 @@ const CommentBlog = () => {
               </div>
             </div>
             <div>
-            <Checkbox
-                onCheckedChange={(value: boolean) =>
-                  handleCheckRemember(value)
-                }
-                name='remember'
+              <Checkbox
+                onCheckedChange={(value: boolean) => handleCheckRemember(value)}
+                name="remember"
                 className="border-[#ccc] border-[1px] w-[3rem] md:w-[1rem] h-[3rem] md:h-[1rem]"
               />
-              <span className='ml-8 md:ml-4 text-[3.25rem] md:text-[1.25rem]'>Lưu tên của tôi, email, và trang web trong trình duyệt này cho lần bình luận kế tiếp của tôi.</span>
+              <span className="ml-8 md:ml-4 text-[3.25rem] md:text-[1.25rem]">
+                Lưu tên của tôi, email, và trang web trong trình duyệt này cho
+                lần bình luận kế tiếp của tôi.
+              </span>
             </div>
           </div>
-          <DialogFooter className='sm:justify-start'>
-            <button type="submit" className="text-white p-8 md:p-3 text-[3rem] md:text-[1.25rem] bg-[#81C8C2] mb-20 md:mb-16">
+          <DialogFooter className="sm:justify-start">
+            <button
+              type="submit"
+              className="text-white p-8 md:p-3 text-[3rem] md:text-[1.25rem] bg-[#81C8C2] mb-20 md:mb-16"
+            >
               Post Comments
             </button>
           </DialogFooter>
         </form>
       </FormProvider>
     </div>
-  )
+  );
 }
 
-export default CommentBlog
+export default CommentBlog;

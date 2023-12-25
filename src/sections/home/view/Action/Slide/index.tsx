@@ -24,8 +24,14 @@ function SliceAction() {
         className="mySwiper-action h-[66.625rem] md:h-[35.625rem]"
       >
         <SwiperSlide className="relative rounded-[8rem] md:rounded-2xl">
-          <Image src='/img/home/image1836.png' alt='' width={673} height={504} className="w-full h-full rounded-[8rem] md:rounded-2xl object-cover" />
-          <div className="absolute bottom-0 mb-8 right-[2.5rem] md:right-[0.5rem]" >
+          <Image
+            src="/img/home/image1836.png"
+            alt=""
+            width={673}
+            height={504}
+            className="w-full h-full rounded-[8rem] md:rounded-2xl object-cover"
+          />
+          <div className="absolute bottom-0 mb-8 right-[2.5rem] md:right-[0.5rem]">
             <div className="flex justify-between items-center pl-[5rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-white hover:bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
               <p className="text-[4rem] md:text-[1.5rem] font-[850] text-[#55D5D2] pr-2">
                 Xem dự án

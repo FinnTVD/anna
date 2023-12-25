@@ -2,50 +2,8 @@ import ICDown from '@/components/Icons/ICDown';
 import ICLine from '@/components/Icons/ICLine';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
-
-const dataSlide: any = [
-  {
-    item_product: {
-      id: 304,
-      name: 'test',
-      slug: 'test',
-      sku: '',
-      type: 'variable',
-      price: 120000,
-      sale_price: 150000,
-      featuredImage:
-        'https://woo-api.okhub.tech/wp-content/uploads/2023/12/20231117_xa44VCCaw2.jpeg',
-      ratings: '3',
-      shortDescription: '',
-      description: 'asdasd',
-      categories: ['tròng kính'],
-      seller: 'ad_okhub2',
-      isDownloadable: false,
-      crossSellCount: 0,
-      gallImgCOunt: 4,
-      galleryImgs: [
-        'https://woo-api.okhub.tech/wp-content/uploads/2023/12/20231117_5d65vLIk6O.jpeg',
-        'https://woo-api.okhub.tech/wp-content/uploads/2023/12/20231117_0dSsMgZnxM.jpeg',
-        'https://woo-api.okhub.tech/wp-content/uploads/2023/12/20231117_bqCvRQ103n.jpeg',
-        'https://woo-api.okhub.tech/wp-content/uploads/2023/12/20231117_QHtfmEaBXU.jpeg',
-      ],
-    },
-    product_variant: [
-      {
-        attributes: {
-          Color: 'Black | Blue | Pink',
-        },
-        variations: [],
-      },
-    ],
-
-    heightImage: 2,
-    heightImageMobile: 2,
-  },
-];
 
 interface IpropFlash {
   smallBanner1: string;
@@ -62,7 +20,9 @@ const FlashSale = async ({ smallBanner1, smallBanner2 }: IpropFlash) => {
             Flash Sale
           </h4>
           <ICLine />
-          <h4 className="text-[32px] uppercase leading-[56px] pl-0 md:pl-[1.688rem]">bán chạy nhất</h4>
+          <h4 className="text-[32px] uppercase leading-[56px] pl-0 md:pl-[1.688rem]">
+            bán chạy nhất
+          </h4>
         </div>
         <div>
           <SlideProductComponent keySlide="flash-sale" data={dataProduct} />

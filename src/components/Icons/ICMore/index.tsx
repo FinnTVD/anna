@@ -1,7 +1,6 @@
 interface IProps {
   width?: string | number;
   height?: string | number;
-  fill?: string;
 }
 
 function ICMore(props: IProps) {

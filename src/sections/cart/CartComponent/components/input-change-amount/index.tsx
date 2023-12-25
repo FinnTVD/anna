@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export function InputChangeAmount(): React.JSX.Element {
   return (
@@ -15,7 +15,7 @@ export function InputChangeAmount(): React.JSX.Element {
       </div>
       <div
         role="button"
-        style={{ cursor: "pointer" }}
+        style={{ cursor: 'pointer' }}
         className="select-none pr-[1.2rem] py-[0.8rem] text-[1.25rem] h-full flex items-center justify-center font-bold leading-[1.875rem] max-md:text-[4.25rem] max-md:w-[11rem] max-md:pr-[0rem] max-md:border-l-[#F2F2F2] max-md:border-l-[2px]"
       >
         +

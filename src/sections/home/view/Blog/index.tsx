@@ -1,11 +1,10 @@
-import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive'
-import { fetchDataRest, fetchDataV2 } from '@/lib/fetch-data-rest'
-import ItemBlog from '@/sections/home/view/Blog/Item'
-import Image from 'next/image'
-import React from 'react'
+import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
+import { fetchDataV2 } from '@/lib/fetch-data-rest';
+import ItemBlog from '@/sections/home/view/Blog/Item';
+import React from 'react';
 
 const Blog = async () => {
-  const listBlog = await fetchDataV2('GET', 'posts')
+  const listBlog = await fetchDataV2('GET', 'posts');
 
   return (
     <div className="px-[6.67rem] sm:p-24 flex flex-wrap">
@@ -25,22 +24,20 @@ const Blog = async () => {
       </div>
       <div className="flex w-full md:w-2/3 flex-wrap">
         <div className="w-full md:w-1/2">
+          {/* eslint-disable-next-line array-callback-return,consistent-return */}
           {listBlog?.map((blog: any, index: number) => {
             if (index <= 2) {
-              return (
-                <ItemBlog dataBlog={blog} />
-              )
+              return <ItemBlog key={index} dataBlog={blog} />;
             }
           })}
         </div>
         <div className="w-full md:w-1/2 pt-0 sm:pt-40">
-        {listBlog?.map((blog: any, index: number) => {
-          if (index > 2 && index <= 5) {
-            return(
-              <ItemBlog dataBlog={blog} />
-            )
-          }
-        })}
+          {/* eslint-disable-next-line array-callback-return,consistent-return */}
+          {listBlog?.map((blog: any, index: number) => {
+            if (index > 2 && index <= 5) {
+              return <ItemBlog key={index} dataBlog={blog} />;
+            }
+          })}
         </div>
       </div>
     </div>

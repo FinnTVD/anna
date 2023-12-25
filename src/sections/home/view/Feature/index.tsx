@@ -30,13 +30,26 @@ function Feature({ dataFeature }: IpropFeature) {
             Chọn kính phù hợp với bạn
           </div>
         </div>
-        {dataFeature?.option?.map((value: { title: string, description: string, link: string }, index: number) => (
-          <div className={`feature-item cursor-pointer py-11 flex items-center w-full justify-between pr-6 sm:pr-12 ${index > 0 && 'border-t-2 border-[#55D5D2]'}`}>
-            <div>
-              <div className="feature-title text-teal-300 text-[9.2rem] md:text-[2.75rem] font-black uppercase">{value?.title}</div>
-              <div className="w-full md:w-[424px] text-zinc-700 text-[4.8rem] md:text-lg font-extrabold">{value?.description}</div>
-            </div>
-            <ICVectorRight />
+        {dataFeature?.option?.map(
+          (
+            value: { title: string; description: string; link: string },
+            index: number
+          ) => (
+            <div
+              key={index}
+              className={`feature-item cursor-pointer py-11 flex items-center w-full justify-between pr-6 sm:pr-12 ${
+                index > 0 && 'border-t-2 border-[#55D5D2]'
+              }`}
+            >
+              <div>
+                <div className="feature-title text-teal-300 text-[9.2rem] md:text-[2.75rem] font-black uppercase">
+                  {value?.title}
+                </div>
+                <div className="w-full md:w-[424px] text-zinc-700 text-[4.8rem] md:text-lg font-extrabold">
+                  {value?.description}
+                </div>
+              </div>
+              <ICVectorRight />
             </div>
           )
         )}

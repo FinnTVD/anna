@@ -1,5 +1,3 @@
-'use client';
-
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import { formatCurrencyVND } from '@/ultils/format-price';
