@@ -86,26 +86,26 @@ function ProductDetail({ slug }: IProps) {
     // console.log('datainittess', dataInitDetail?.data?.variant);
   }, [dataInitDetail.data]);
 
-  document.addEventListener('scroll', function () {
-    const getElemetToShow = document.getElementById('check-scroll-to-show');
-    const elementTop = getElemetToShow?.offsetTop;
-    const getElementFixed = document.getElementById('fixed-product');
-    if (window.scrollY < elementTop && window.scrollY - elementTop < 0) {
-      getElementFixed.style.bottom = window.scrollY - elementTop + 'px';
-    } else if (
-      window.scrollY < elementTop &&
-      elementTop - window.scrollY < 120
-    ) {
-      getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
-    } else if (
-      window.scrollY > elementTop &&
-      window.scrollY < elementTop + 120
-    ) {
-      getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
-    } else if (window.scrollY > elementTop + 120) {
-      getElementFixed.style.bottom = '0px';
-    }
-  });
+  // document.addEventListener('scroll', function () {
+  //   const getElemetToShow = document.getElementById('check-scroll-to-show');
+  //   const elementTop = getElemetToShow?.offsetTop;
+  //   const getElementFixed = document.getElementById('fixed-product');
+  //   if (window.scrollY < elementTop && window.scrollY - elementTop < 0) {
+  //     getElementFixed.style.bottom = window.scrollY - elementTop + 'px';
+  //   } else if (
+  //     window.scrollY < elementTop &&
+  //     elementTop - window.scrollY < 120
+  //   ) {
+  //     getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
+  //   } else if (
+  //     window.scrollY > elementTop &&
+  //     window.scrollY < elementTop + 120
+  //   ) {
+  //     getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
+  //   } else if (window.scrollY > elementTop + 120) {
+  //     getElementFixed.style.bottom = '0px';
+  //   }
+  // });
 
   // console.log('colorGetDetail', colorGetDetail);
   // console.log('getDetailProductByColor', getDetailProductByColor.data);
