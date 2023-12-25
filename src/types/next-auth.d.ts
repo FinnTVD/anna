@@ -18,3 +18,10 @@ export interface IPostData {
   body?: FormData | any;
   token?: string;
 }
+
+export interface IFetchData {
+  url: string;
+  method: 'post' | 'put' | 'get' | 'delete' | 'patch';
+  body?: FormData | any;
+  token?: string;
+}

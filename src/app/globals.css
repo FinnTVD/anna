@@ -65,6 +65,7 @@
 html {
   font-size: 1vw;
   font-family: SVN-Nexa !important;
+  background-color: #fafafa;
 }
 
 @media screen and (min-width: 1600px) {
@@ -73,11 +74,11 @@ html {
   }
 }
 
-@media screen and (max-width: 767px) {
-  body {
-    background-color: #fafafa;
-  }
-}
+/*@media screen and (max-width: 767px) {*/
+/*  body {*/
+/*    background-color: #fafafa;*/
+/*  }*/
+/*}*/
 
 .container {
   max-width: 100%;

@@ -2,12 +2,13 @@ const revalidate = Number(process.env.NEXT_PUBLIC_REVALIDATE) || 3600; // 1h
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
 
 export default async function fetchData(
+  method: string,
   query: string,
   variables = {}
   // usePonyfill = true
 ) {
   const res = await fetch(baseUrl, {
-    method: 'POST',
+    method: method,
     headers: {
       'Content-Type': 'application/json',
     },

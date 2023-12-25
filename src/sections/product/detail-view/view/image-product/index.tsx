@@ -2,18 +2,17 @@
 
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import { IDetailProductRes } from '@/types/detail-product';
+import { IDetailProductRes } from '@/types/types-general';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import ICArrowRight from '@/components/Icons/ICArrowRight';
+import ICArrowLeft from '@/components/Icons/ICArrowLeft';
 
 interface IProps {
   dataInit?: IDetailProductRes;
-}
-
-interface IItemImage {
-  id: number | null;
-  src: string | undefined;
-  name: string;
 }
 
 function SlideProductMobile() {
@@ -56,24 +55,14 @@ function SlideProductMobile() {
 
 function ImageProduct(props: IProps) {
   const { dataInit } = props;
-  const [itemImagePreview, setItemImagePreview] = useState<IItemImage>({
-    id: null,
-    name: '',
-    src: '',
-  });
+  const [itemImagePreview, setItemImagePreview] = useState<string>('');
 
-  console.log('dataInit', dataInit);
-  const handleChangeImage = (value: IItemImage): void => {
-    const newObject: IItemImage = {
-      id: value.id,
-      src: value.src,
-      name: value.name,
-    };
-    setItemImagePreview(newObject);
+  const handleChangeImage = (value: string): void => {
+    setItemImagePreview(value);
   };
 
   useEffect(() => {
-    setItemImagePreview({ ...itemImagePreview, src: dataInit?.featuredImage });
+    setItemImagePreview(dataInit?.featuredImage ?? '');
   }, [dataInit?.featuredImage]);
   return (
     <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[91.73333rem] flex-col justify-center max-md:block max-md:w-full max-md:h-[21.5rem] max-md:mb-[1.5rem]">
@@ -83,7 +72,7 @@ function ImageProduct(props: IProps) {
             fill
             objectFit="cover"
             className="image-current w-full h-full object-cover "
-            src={itemImagePreview.src ?? '/img/no_image.jpg'}
+            src={itemImagePreview ?? '/img/no_image.jpg'}
             alt=""
           />
         </div>
@@ -91,32 +80,47 @@ function ImageProduct(props: IProps) {
           <SlideProductMobile />
         </div>
       </div>
-      <ul className="flex min-w-full max-lg:h-[7.5rem] mt-[1rem] justify-between h-[12.15rem] max-md:hidden">
-        {dataInit?.gallery ? (
-          dataInit?.gallery?.map((item: any, index: number) => (
-            <li key={index} className="mr-[1rem]">
-              <Image
-                width={52}
-                height={52}
-                onClick={(e) => handleChangeImage(item)}
-                className="flex h-[12.25rem] w-[12.25rem] object-cover"
-                src={item.src ?? '/img/no_image.jpg'}
-                alt=""
-              />
-            </li>
-          ))
-        ) : (
-          <div>
-            <Image
-              width={52}
-              height={52}
-              className="flex h-[12.25rem] w-[12.25rem] object-cover"
-              src="/img/no_image.jpg"
-              alt=""
-            />
-          </div>
-        )}
-      </ul>
+      <div className="flex min-w-full max-lg:h-[7.5rem] mt-[1rem] justify-between h-[12.15rem] max-md:hidden">
+        <div className="w-full relative">
+          {dataInit?.galleryImgs && (
+            <Swiper
+              slidesPerView={4}
+              modules={[Navigation, Pagination]}
+              navigation={{
+                prevEl: `.prev-${123}`,
+                nextEl: `.next-${123}`,
+              }}
+              spaceBetween={15}
+              className="mySwiper"
+            >
+              {dataInit?.galleryImgs?.map((item: any, index: number) => (
+                <SwiperSlide key={index}>
+                  <div role="button" onClick={() => handleChangeImage(item)}>
+                    <Image
+                      width={52}
+                      height={52}
+                      className="flex h-[12.25rem] w-[12.25rem] object-cover"
+                      src={item ?? '/img/no_image.jpg'}
+                      alt=""
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+
+              <div
+                className={`prev-${123}] z-10 top-[50%] -translate-y-1/2 left-2 absolute w-[3rem] h-[3rem] bg-white opacity-50 flex justify-center items-center rounded-full cursor-pointer`}
+              >
+                <ICArrowLeft stroke="#333333" />
+              </div>
+              <div
+                className={`next-${123} z-10  top-[50%] -translate-y-1/2 right-2 absolute w-[3rem] h-[3rem]  bg-white opacity-50 flex justify-center items-center rounded-full cursor-pointer`}
+              >
+                <ICArrowRight stroke="#333333" />
+              </div>
+            </Swiper>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
