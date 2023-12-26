@@ -13,7 +13,7 @@ import { Pagination } from 'swiper/modules';
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 
 interface IPropItem {
-  dataSlider: string[]
+  dataSlider: string[];
 }
 function SliceAction({ dataSlider }: IPropItem) {
   return (
@@ -46,8 +46,7 @@ function SliceAction({ dataSlider }: IPropItem) {
               </div>
             </div>
           </SwiperSlide>
-        ))
-        }
+        ))}
       </Swiper>
     </div>
   );

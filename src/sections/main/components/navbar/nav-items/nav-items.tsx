@@ -11,8 +11,8 @@ import DropdownProductHeader from '@/components/component-ui-custom/dropdown-pro
 import DropdownSeeMoreHeader from '@/components/component-ui-custom/dropdown-see-more-header';
 import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
-import Link from "next/link";
-import DropdownSearchHeader from "@/components/component-ui-custom/dropdown-search-header";
+import Link from 'next/link';
+import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
 
 function NavItems() {
   return (
