@@ -11,10 +11,12 @@ import DropdownProductHeader from '@/components/component-ui-custom/dropdown-pro
 import DropdownSeeMoreHeader from '@/components/component-ui-custom/dropdown-see-more-header';
 import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
+import Link from "next/link";
+import DropdownSearchHeader from "@/components/component-ui-custom/dropdown-search-header";
 
 function NavItems() {
   return (
-    <nav className="navbar-container w-full">
+    <nav className="navbar-container w-[87.5rem] mx-auto">
       <div className="top-nav flex items-center justify-between ">
         <span className="font-bold text-[0.875rem]  leading-5 uppercase text-[#828282]">
           giảm ngay 15% cho đơn hàng đầu tiên
@@ -36,7 +38,10 @@ function NavItems() {
           <li className="active has-child mx-3.5">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
-                <a href="#" className="px-[6px] py-[4px] flex items-center">
+                <Link
+                  href="/list-product"
+                  className="px-[6px] py-[4px] flex items-center"
+                >
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Sản phẩm
                   </span>
@@ -45,18 +50,18 @@ function NavItems() {
                     width="0.5625rem"
                     height="0.3125rem"
                   />
-                </a>
+                </Link>
               </HoverCardTrigger>
               <DropdownProductHeader />
             </HoverCard>
           </li>
           <li className="has-child flex items-center mx-3.5">
-            <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
+            <span className="cursor-pointer mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
               Tìm cửa hàng
             </span>
             <ICLocation fill="#4DC0BD" width="1.25rem" height="1.51338rem" />
           </li>
-          <li className=" grow has-child  grow mx-3.5">
+          <li className=" grow has-child w-[30.4375rem]">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
                 <div className="relative rounded-[6.25rem] flex items-center">
@@ -70,13 +75,16 @@ function NavItems() {
                   </div>
                 </div>
               </HoverCardTrigger>
-              <DropdownProductHeader />
+              <DropdownSearchHeader />
             </HoverCard>
           </li>
           <li className="active has-child mx-3.5">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
-                <a href="#" className="px-[6px] py-[4px] flex items-center">
+                <a
+                  href="#"
+                  className="cursor-pointer px-[6px] py-[4px] flex items-center"
+                >
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Xem Thêm
                   </span>
@@ -90,15 +98,15 @@ function NavItems() {
               <DropdownSeeMoreHeader />
             </HoverCard>
           </li>
-          <li className="has-child flex items-center mx-3.5">
+          <li className="cursor-pointer has-child flex items-center mx-3.5">
             <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
               Hành trình tử tế
             </span>
           </li>
-          <li className="has-child flex items-center mx-3.5">
+          <li className="cursor-pointer has-child flex items-center mx-3.5">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
-                <div className="flex relative">
+                <Link href="/cart" className="flex relative">
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Giỏ hàng
                   </span>
@@ -110,7 +118,7 @@ function NavItems() {
                   <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem]">
                     3
                   </div>
-                </div>
+                </Link>
               </HoverCardTrigger>
               <DropdownCartHeader />
             </HoverCard>
