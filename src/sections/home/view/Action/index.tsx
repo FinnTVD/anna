@@ -5,17 +5,15 @@ import React from 'react';
 
 interface TripType {
   banner: string;
-  slider: string[];
+  slider: string[]
 }
 interface IPropsAction {
-  dataTrip: TripType;
+  dataTrip: TripType
 }
-function ActionHome({ dataTrip }: IPropsAction) {
+function ActionHome({dataTrip}: IPropsAction) {
+  
   return (
-    <div
-      className={`p-[6.67rem] sm:p-24 bg-cover`}
-      style={{ backgroundImage: `url(${dataTrip?.banner})` }}
-    >
+    <div className={`p-[6.67rem] sm:p-24 bg-cover`} style={{backgroundImage: `url(${dataTrip?.banner})`}}>
       <div className="flex justify-between items-end">
         <Image
           src="/img/home/Logo_HTTT.png"
