@@ -1,8 +1,7 @@
 const revalidate = Number(process.env.NEXT_PUBLIC_REVALIDATE) || 3600; // 1h
-const baseUrl = process.env.NEXT_PUBLIC_REST_API;
-const baseUrlAcf = process.env.NEXT_PUBLIC_ACF_API;
-const baseUrlV2 = process.env.NEXT_PUBLIC_V2_API;
-
+export const baseUrlAcf = process.env.NEXT_PUBLIC_ACF_API;
+export const baseUrl = process.env.NEXT_PUBLIC_V2_API;
+export const baseUrlBlog = 'https://woo-api.okhub.tech/wp-json/post/v1/posts'
 export const fetchDataRest = async (
   method: string,
   url: string,
@@ -47,20 +46,3 @@ export const fetchDataAcf = async (method: string, url: string) => {
   return res.json();
 };
 
-export const fetchDataV2 = async (method: string, url: string) => {
-  const res = await fetch(`${baseUrlV2}/${url}`, {
-    method: method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    next: { revalidate },
-    // cache: 'no-store'
-  });
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-};

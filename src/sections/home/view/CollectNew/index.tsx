@@ -5,7 +5,7 @@ import ICMore from '@/components/Icons/ICMore';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 
 const NewCollection = async () => {
-  const collectNewData = await fetchDataRest('GET', 'products');
+  const collectNewData = await fetchDataRest('GET', 'custom/v1/products');
   // console.log("CcollectNewData: ", collectNewData);
 
   return (

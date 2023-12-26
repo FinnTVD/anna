@@ -4,12 +4,12 @@ import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import ICUser from '@/components/Icons/ICUser';
 import ICComment from '@/components/Icons/ICComment';
 import ICSchedule from '@/components/Icons/ICSchedule';
-import { fetchDataV2 } from '@/lib/fetch-data-rest';
+import { fetchDataRest } from '@/lib/fetch-data-rest';
 import { formatDate } from '@/ultils/format-date';
 import Link from 'next/link';
 
 const ListBlog = async () => {
-  const listBlog = await fetchDataV2('GET', 'posts');
+  const listBlog = await fetchDataRest('GET', 'wp/v2/posts');
 
   return (
     <div className="py-[6.25rem] px-[5rem] md:px-[9rem] md:py-0 flex flex-wrap md:pb-12">
