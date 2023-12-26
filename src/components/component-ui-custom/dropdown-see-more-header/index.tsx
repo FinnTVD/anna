@@ -1,9 +1,8 @@
 'use client';
 
-import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import { HoverCardContent } from '@/components/ui/hover-card';
-import Image from "next/image";
-import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
+import Image from 'next/image';
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 
 function DropdownSeeMoreHeader() {
   const color = '#55D5D2';

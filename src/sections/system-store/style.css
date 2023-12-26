@@ -1,34 +1,30 @@
-.select-system select{
-    width: 100% !important;
-    height: 40px !important;
-    clip: initial !important;
-    position: inherit !important;
-    border: 1px solid #fff !important;
-    background-color: #fff6 !important;
-    @media screen and (max-width: 767px) {
-        font-size: 4rem !important;
-    }
+.select-system select {
+  width: 100% !important;
+  height: 40px !important;
+  clip: initial !important;
+  position: inherit !important;
+  border: 1px solid #fff !important;
+  background-color: #fff6 !important;
+  @media screen and (max-width: 767px) {
+    font-size: 4rem !important;
+  }
 }
-.select-system select option{
-   
-    @media screen and (max-width: 767px) {
-        font-size: 4rem !important;
-    }
+.select-system select option {
+  @media screen and (max-width: 767px) {
+    font-size: 4rem !important;
+  }
 }
-.style-scroll::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+.style-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
 }
 
-.style-scroll::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
+.style-scroll::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
 }
 
-.style-scroll::-webkit-scrollbar-thumb
-{
-    border-radius: 20px;
-	background-color: #000000;
+.style-scroll::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #000000;
 }

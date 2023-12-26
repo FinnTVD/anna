@@ -1,8 +1,8 @@
-import SystemStore from '@/sections/system-store'
-import React from 'react'
+import SystemStore from '@/sections/system-store';
+import React from 'react';
 
 const SystemStorePage = () => {
-  return <SystemStore />
-}
+  return <SystemStore />;
+};
 
-export default SystemStorePage
+export default SystemStorePage;
