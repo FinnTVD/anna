@@ -26,11 +26,77 @@ interface IProps {
   errors: any;
 }
 
+interface IPropsItemSelectOption {
+  itemSelectOption: any;
+  setValueInputSelectOption: any;
+}
+function ItemSelectOption(props: IPropsItemSelectOption) {
+  const { itemSelectOption, setValueInputSelectOption } = props;
+  const [open, setOpen] = useState(false);
+  const [currentValue, setCurrentValue] = useState('');
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={open}
+          className="w-full h-[3.43rem] justify-between max-md:h-[10rem] max-md:text-[4rem] max-md:pl-[10px]"
+        >
+          {currentValue
+            ? itemSelectOption.listOption &&
+              itemSelectOption.listOption.find(
+                (framework: any) => framework.value === currentValue
+              )?.label
+            : itemSelectOption.placeHolder ?? 'No data found.'}
+          {/* <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" /> */}
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent
+        align="start"
+        style={{ width: itemSelectOption.width ?? '25rem' }}
+        className="p-0"
+      >
+        <Command className="w-full">
+          <CommandInput
+            placeholder={itemSelectOption?.placeHolder ?? ''}
+            className="h-9 w-full"
+          />
+          <CommandEmpty>No data found.</CommandEmpty>
+          <CommandGroup className="w-full">
+            {itemSelectOption.listOption &&
+              itemSelectOption.listOption.map((itemOption: any) => (
+                <CommandItem
+                  key={itemOption.value}
+                  value={itemOption.value}
+                  onSelect={(value) => {
+                    setCurrentValue(value === currentValue ? '' : value);
+                    setValueInputSelectOption(itemSelectOption.name, value);
+                    setOpen(false);
+                  }}
+                  className="w-full"
+                >
+                  {itemOption.label}
+                  <CheckIcon
+                    className={cn(
+                      'ml-auto h-4 w-4',
+                      currentValue === itemOption.value
+                        ? 'opacity-100'
+                        : 'opacity-0'
+                    )}
+                  />
+                </CommandItem>
+              ))}
+          </CommandGroup>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
+
 export default function GroupInputGlobal(props: IProps) {
   const { listInputGlobal, setValueInput, register } = props;
 
-  const [open, setOpen] = useState(false);
-  const [currentValue, setCurrentValue] = useState('');
   return (
     <div className="input-global">
       {listInputGlobal &&
@@ -96,64 +162,68 @@ export default function GroupInputGlobal(props: IProps) {
 
             {item.type === 'select-option' && (
               <div className="mb-[1rem] max-md:mb-[3rem]">
-                <Popover open={open} onOpenChange={setOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={open}
-                      className="w-full h-[3.43rem] justify-between max-md:h-[10rem] max-md:text-[4rem] max-md:pl-[10px]"
-                    >
-                      {currentValue
-                        ? item.listOption &&
-                          item.listOption.find(
-                            (framework) => framework.value === currentValue
-                          )?.label
-                        : item.placeHolder ?? 'No data found.'}
-                      {/* <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" /> */}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    align="start"
-                    style={{ width: item.width ?? '25rem' }}
-                    className="p-0"
-                  >
-                    <Command className="w-full">
-                      <CommandInput
-                        placeholder={item?.placeHolder ?? ''}
-                        className="h-9 w-full"
-                      />
-                      <CommandEmpty>No data found.</CommandEmpty>
-                      <CommandGroup className="w-full">
-                        {item.listOption &&
-                          item.listOption.map((itemOption) => (
-                            <CommandItem
-                              key={itemOption.value}
-                              value={itemOption.value}
-                              onSelect={(value) => {
-                                setCurrentValue(
-                                  value === currentValue ? '' : value
-                                );
-                                setValueInput(item.name, value);
-                                setOpen(false);
-                              }}
-                              className="w-full"
-                            >
-                              {itemOption.label}
-                              <CheckIcon
-                                className={cn(
-                                  'ml-auto h-4 w-4',
-                                  currentValue === itemOption.value
-                                    ? 'opacity-100'
-                                    : 'opacity-0'
-                                )}
-                              />
-                            </CommandItem>
-                          ))}
-                      </CommandGroup>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
+                <ItemSelectOption
+                  itemSelectOption={item}
+                  setValueInputSelectOption={setValueInput}
+                />
+                {/* <Popover open={open} onOpenChange={setOpen}> */}
+                {/*  <PopoverTrigger asChild> */}
+                {/*    <Button */}
+                {/*      variant="outline" */}
+                {/*      role="combobox" */}
+                {/*      aria-expanded={open} */}
+                {/*      className="w-full h-[3.43rem] justify-between max-md:h-[10rem] max-md:text-[4rem] max-md:pl-[10px]" */}
+                {/*    > */}
+                {/*      {currentValue */}
+                {/*        ? item.listOption && */}
+                {/*          item.listOption.find( */}
+                {/*            (framework) => framework.value === currentValue */}
+                {/*          )?.label */}
+                {/*        : item.placeHolder ?? 'No data found.'} */}
+                {/*      /!* <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" /> *!/ */}
+                {/*    </Button> */}
+                {/*  </PopoverTrigger> */}
+                {/*  <PopoverContent */}
+                {/*    align="start" */}
+                {/*    style={{ width: item.width ?? '25rem' }} */}
+                {/*    className="p-0" */}
+                {/*  > */}
+                {/*    <Command className="w-full"> */}
+                {/*      <CommandInput */}
+                {/*        placeholder={item?.placeHolder ?? ''} */}
+                {/*        className="h-9 w-full" */}
+                {/*      /> */}
+                {/*      <CommandEmpty>No data found.</CommandEmpty> */}
+                {/*      <CommandGroup className="w-full"> */}
+                {/*        {item.listOption && */}
+                {/*          item.listOption.map((itemOption) => ( */}
+                {/*            <CommandItem */}
+                {/*              key={itemOption.value} */}
+                {/*              value={itemOption.value} */}
+                {/*              onSelect={(value) => { */}
+                {/*                setCurrentValue( */}
+                {/*                  value === currentValue ? '' : value */}
+                {/*                ); */}
+                {/*                setValueInput(item.name, value); */}
+                {/*                setOpen(false); */}
+                {/*              }} */}
+                {/*              className="w-full" */}
+                {/*            > */}
+                {/*              {itemOption.label} */}
+                {/*              <CheckIcon */}
+                {/*                className={cn( */}
+                {/*                  'ml-auto h-4 w-4', */}
+                {/*                  currentValue === itemOption.value */}
+                {/*                    ? 'opacity-100' */}
+                {/*                    : 'opacity-0' */}
+                {/*                )} */}
+                {/*              /> */}
+                {/*            </CommandItem> */}
+                {/*          ))} */}
+                {/*      </CommandGroup> */}
+                {/*    </Command> */}
+                {/*  </PopoverContent> */}
+                {/* </Popover> */}
               </div>
             )}
           </div>
