@@ -1,11 +1,10 @@
 'use client';
 
-import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import { HoverCardContent } from '@/components/ui/hover-card';
-import Image from "next/image";
-import { formatCurrencyVND } from "@/ultils/format-price";
-import ICArrowRight2 from "@/components/Icons/ICArrowRight2";
-import Link from "next/link";
+import Image from 'next/image';
+import { formatCurrencyVND } from '@/ultils/format-price';
+import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import Link from 'next/link';
 
 function DropdownCartHeader() {
   const listProductCart = [
@@ -21,7 +20,7 @@ function DropdownCartHeader() {
     },
     {
       image:
-        "https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png",
+        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
       category: 'Gọng kính',
       name: 'GK – 380CK081',
       material: 'Kim loại titan',

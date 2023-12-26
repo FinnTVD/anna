@@ -1,8 +1,8 @@
-import Contact from '@/sections/contact'
-import React from 'react'
+import Contact from '@/sections/contact';
+import React from 'react';
 
 const ContactPage = () => {
-  return <Contact />
-}
+  return <Contact />;
+};
 
-export default ContactPage
+export default ContactPage;
