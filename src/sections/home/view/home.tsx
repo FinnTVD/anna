@@ -8,11 +8,12 @@ import Social from '@/sections/home/view/Social';
 import SliceSocial from '@/sections/home/view/Social/Slice';
 import Blog from '@/sections/home/view/Blog';
 import ActionHome from '@/sections/home/view/Action';
-import { fetchDataAcf } from '@/lib/fetch-data-rest';
+import { fetchDataRest } from '@/lib/fetch-data-rest';
 import BannerHome from '@/sections/home/view/Banner';
 
 const Home = async () => {
-  const dataHome = await fetchDataAcf('GET', 'posts/334');
+  const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
+  const dataProduct = await fetchDataRest('GET', 'custom/v1/products');
 
   return (
     <div className="min-h-full flex flex-col">
@@ -22,6 +23,7 @@ const Home = async () => {
       <FlashSale
         smallBanner1={dataHome?.acf?.small_banner_1}
         smallBanner2={dataHome?.acf?.small_banner_1}
+        dataProduct={dataProduct}
       />
       <NewCollection />
       <SectionHome />
@@ -30,7 +32,7 @@ const Home = async () => {
       <Social />
       <SliceSocial />
       <Blog />
-      <ActionHome />
+      <ActionHome dataTrip={dataHome?.acf?.trip[0]} />
     </div>
   );
 };

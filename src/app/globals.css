@@ -62,10 +62,48 @@
   @apply text-primary px-[10px] border-[#00000033];
 }
 
+@font-face {
+  font-family: "SVN-Nexa-Regular";
+  font-weight: 400;
+  src: url('/fonts/SVN-Nexa-Regular.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "SVN-Nexa-Medium";
+  font-weight: 500;
+  src: url('/fonts/SVN-Nexa-Regular.otf') format("opentype");
+}
+
+@font-face {
+  font-family: "SVN-Nexa-Semi-Bold";
+  src: url('/fonts/SVN-Nexa-Bold.otf') format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SVN-Nexa-Bold";
+  src: url('/fonts/SVN-Nexa-Bold.otf') format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SVN-Nexa-Extrabold";
+  src: url('/fonts/SVN-Nexa-XBold.otf') format("opentype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "SVN-Nexa-Black";
+  src: url('/fonts/SVN-Nexa-Black.otf') format("opentype");
+  font-weight: 900;
+}
+
 html {
   font-size: 1vw;
-  font-family: SVN-Nexa !important;
-  background-color: #fafafa;
+}
+
+body {
+  /*background-color: #fafafa;*/
 }
 
 @media screen and (min-width: 1600px) {

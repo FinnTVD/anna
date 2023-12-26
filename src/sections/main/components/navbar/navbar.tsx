@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@/lib/utils';
 import NavItems from './nav-items/nav-items';
 import NavMobileDetail from './nav-mobile-detail';
@@ -10,7 +8,7 @@ function Navbar() {
       {/* <Logo /> */}
       <div
         className={cn(
-          'flex justify-between w-full py-[6px] px-20 py-6 fixed top-[0px] z-10 bg-[white] max-md:hidden'
+          'flex justify-between w-full py-6 fixed top-[0px] z-10 bg-[white] max-md:hidden'
         )}
       >
         <NavItems />
