@@ -1,31 +1,35 @@
+'use client'
 import ICDown from '@/components/Icons/ICDown';
 import ICLine from '@/components/Icons/ICLine';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
-import { fetchDataRest } from '@/lib/fetch-data-rest';
+import { IItemProduct } from '@/types/types-general';
 import Image from 'next/image';
-import React from 'react';
+import { useState } from 'react';
 
 interface IpropFlash {
   smallBanner1: string;
   smallBanner2: string;
+  dataProduct: IItemProduct[];
 }
-const FlashSale = async ({ smallBanner1, smallBanner2 }: IpropFlash) => {
-  const dataProduct = await fetchDataRest('GET', 'products');
-
+const FlashSale = ({ smallBanner1, smallBanner2,dataProduct }: IpropFlash) => {
   return (
-    <div className="p-[6.67rem] md:p-[0]">
+    <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9]">
       <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-sm:mx-0 max-sm:mb-[3.5rem]">
         <div className="flex mb-[2.62rem] flex-wrap items-center max-sm:mb-[1rem] max-sm:px-[0.75rem]">
           <h4 className="text-teal-300 text-[38px] font-black uppercase pr-[1.688rem]">
             Flash Sale
+            <div className="bg-[#55D5D2] w-full">
+            <p className='h-2 bg-[#F58F5D]'></p>
+          </div>
           </h4>
+         
           <ICLine />
           <h4 className="text-[32px] uppercase leading-[56px] pl-0 md:pl-[1.688rem]">
             bán chạy nhất
           </h4>
         </div>
         <div>
-          <SlideProductComponent keySlide="flash-sale" data={dataProduct} />
+          <SlideProductComponent keySlide="flash-sale" data={dataProduct}/>
         </div>
         <div className="pt-6 flex justify-center">
           <ICDown />

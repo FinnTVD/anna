@@ -3,9 +3,17 @@ import SliceAction from '@/sections/home/view/Action/Slide';
 import Image from 'next/image';
 import React from 'react';
 
-function ActionHome() {
+interface TripType {
+  banner: string;
+  slider: string[]
+}
+interface IPropsAction {
+  dataTrip: TripType
+}
+function ActionHome({dataTrip}: IPropsAction) {
+  
   return (
-    <div className="p-[6.67rem] sm:p-24 action-home">
+    <div className={`p-[6.67rem] sm:p-24 bg-cover`} style={{backgroundImage: `url(${dataTrip?.banner})`}}>
       <div className="flex justify-between items-end">
         <Image
           src="/img/home/Logo_HTTT.png"
@@ -14,12 +22,12 @@ function ActionHome() {
           height={120}
           className="w-[12.563rem]"
         />
-        <div className="w-[238px] h-[50px] pl-5 pr-2 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-start items-center gap-3 inline-flex">
+        <div className="w-[238px] h-[50px] pl-5 pr-1 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-between items-center gap-3 inline-flex">
           <div className="text-right text-white text-base font-extrabold">
             Cộng đồng sống tử tế
           </div>
           <div className="p-2.5 bg-white rounded-[100px] justify-start items-center gap-2.5 flex">
-            <ICArrowTopRightActive height={30} width={30} />
+            <ICArrowTopRightActive height={25} width={25} />
           </div>
         </div>
       </div>
@@ -98,7 +106,7 @@ function ActionHome() {
           </div>
         </div>
         <div className="w-full md:w-1/2 mt-10 md:mt-0">
-          <SliceAction />
+          <SliceAction dataSlider={dataTrip?.slider} />
         </div>
       </div>
     </div>

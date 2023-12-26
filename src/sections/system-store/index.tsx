@@ -1,5 +1,5 @@
 "use client"
-import { Select, SelectContent, SelectGroup, SelectItem } from '@/components/ui/select'
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import ItemStore from '@/sections/system-store/ItemStore'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
@@ -29,10 +29,13 @@ const SystemStore = () => {
             <div className="flex justify-between md:flex-nowrap gap-12 md:gap-3 p-8 md:p-4 bg-[#fdcc0c] h-[13.375rem] md:h-[4.375rem]">
               <div className='w-full select-system'>
                 <Select
-                  // onValueChange={field.onChange}
-                  defaultValue={'blueberry'}
+                // onValueChange={field.onChange}
+                // defaultValue={'blueberry'}
                 >
-                  <SelectContent className=" w-full bg-blue">
+                  <SelectTrigger>
+                    <SelectValue placeholder="Thành phố" />
+                  </SelectTrigger>
+                  <SelectContent className="w-full">
                     <SelectGroup defaultValue={"blueberry"}>
                       <SelectItem value="apple">Apple</SelectItem>
                       <SelectItem value="banana">Banana</SelectItem>
@@ -45,10 +48,12 @@ const SystemStore = () => {
               </div>
               <div className='w-full select-system'>
                 <Select
-                  // onValueChange={field.onChange}
-                  defaultValue={'blueberry'}
+                // onValueChange={field.onChange}
                 >
-                  <SelectContent className=" w-full bg-blue">
+                  <SelectTrigger>
+                    <SelectValue placeholder="Quận/Huyện" />
+                  </SelectTrigger>
+                  <SelectContent className="w-full">
                     <SelectGroup defaultValue={"blueberry"}>
                       <SelectItem value="apple">Apple</SelectItem>
                       <SelectItem value="banana">Banana</SelectItem>

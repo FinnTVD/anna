@@ -1,10 +1,10 @@
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
-import { fetchDataV2 } from '@/lib/fetch-data-rest';
+import { fetchDataRest } from '@/lib/fetch-data-rest';
 import ItemBlog from '@/sections/home/view/Blog/Item';
 import React from 'react';
 
 const Blog = async () => {
-  const listBlog = await fetchDataV2('GET', 'posts');
+  const listBlog = await fetchDataRest('GET', 'wp/v2/posts');
 
   return (
     <div className="px-[6.67rem] sm:p-24 flex flex-wrap">
