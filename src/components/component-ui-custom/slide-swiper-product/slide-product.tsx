@@ -26,6 +26,7 @@ export interface IProps {
   };
   heightImage?: number;
   isShowArrow?: boolean;
+  typePagination?: "custom" | "bullets" | "fraction" | "progressbar";
 }
 
 function SlideProductComponent(props: IProps) {
@@ -37,6 +38,7 @@ function SlideProductComponent(props: IProps) {
     breakPoint,
     heightImage,
     isShowArrow = true,
+    typePagination
   } = props;
   console.log('data', data);
   const [resSpaceBetweenSlide, setResSpaceBetweenSlide] = useState<number>(32);
@@ -56,6 +58,9 @@ function SlideProductComponent(props: IProps) {
         }}
         spaceBetween={resSpaceBetweenSlide}
         loop
+        pagination={{
+          type: typePagination ? typePagination : 'custom',
+        }}
         breakpoints={{
           0: {
             slidesPerView: 2,

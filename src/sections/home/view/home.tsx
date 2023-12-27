@@ -13,7 +13,7 @@ import BannerHome from '@/sections/home/view/Banner';
 
 const Home = async () => {
   const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
-  const dataProduct = await fetchDataRest('GET', 'custom/v1/products');
+  const dataProductSale = await fetchDataRest('GET', 'custom/v1/product-sales');
 
   return (
     <div className="min-h-full flex flex-col">
@@ -23,7 +23,7 @@ const Home = async () => {
       <FlashSale
         smallBanner1={dataHome?.acf?.small_banner_1}
         smallBanner2={dataHome?.acf?.small_banner_1}
-        dataProduct={dataProduct}
+        dataProductSale={dataProductSale}
       />
       <NewCollection />
       <SectionHome />
