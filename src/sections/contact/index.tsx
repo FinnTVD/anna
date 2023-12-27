@@ -56,7 +56,7 @@ function Contact() {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log('value: ', values);
   };
-  const { handleSubmit, setError } = methods;
+  const { handleSubmit } = methods;
   return (
     <div className="md:max-w-[83.75rem] py-24 md:py-12 px-[5rem] md:px-0 m-auto">
       <FormProvider {...methods}>
@@ -102,6 +102,7 @@ function Contact() {
             <div className="flex flex-wrap">
               {dataBlog?.map((data: BlogItemType, index: number) => (
                 <Link
+                  key={index}
                   href="#"
                   className="text-[4.5rem] md:text-[1.75rem] w-full py-6 md:py-2"
                 >

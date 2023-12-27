@@ -23,7 +23,7 @@ const mockData = {
 function SystemStore() {
   const [checkLocate, setCheckLocate] = useState({
     index: 0,
-    link: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14896.247782127793!2d105.67005571128749!3d21.030207268424306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313456ae90ef0e6f%3A0x60aff99e0dc25bd8!2zxJDhuq9jIFPhu58sIEhvw6BpIMSQ4bupYywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1703473136093!5m2!1svi!2s",
+    link: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14896.247782127793!2d105.67005571128749!3d21.030207268424306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313456ae90ef0e6f%3A0x60aff99e0dc25bd8!2zxJDhuq9jIFPhu58sIEhvw6BpIMSQ4bupYywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1703473136093!5m2!1svi!2s',
   });
 
   return (
@@ -113,13 +113,15 @@ function SystemStore() {
             </div>
           </div>
           <div className="w-full md:w-2/3">
-            <iframe
-              className="w-full"
-              src={checkLocate?.link}
-              width="600"
-              height="600"
-              loading="lazy"
-            />
+            {checkLocate?.link && (
+              <iframe
+                className="w-full"
+                src={checkLocate?.link}
+                width="600"
+                height="600"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </div>
