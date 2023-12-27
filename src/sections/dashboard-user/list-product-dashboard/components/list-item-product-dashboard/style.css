@@ -76,7 +76,7 @@
     .body-list-product
     .row-body-list-product
     .info-product {
-    @apply grow flex items-center;
+    @apply w-[calc(100%-24rem)] flex items-center max-md:w-full;
   }
 
   .list-item-product-dashboard

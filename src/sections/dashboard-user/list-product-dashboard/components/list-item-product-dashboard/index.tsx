@@ -3,17 +3,18 @@
 import * as React from 'react';
 import Image from 'next/image';
 import './style.css';
-import { BottomTabCart } from '@/sections/cart/CartComponent/components/bottom-tab-cart';
 import ICTrash from '@/components/Icons/ICTrash';
+import ICView from '@/components/Icons/ICView';
+import Link from 'next/link';
 
 interface IProps {
   listProduct: any;
+  keyTab: 'buy' | 'favorite';
 }
 export function ListItemProductDashboard(props: IProps) {
-  const { listProduct } = props;
+  const { listProduct, keyTab } = props;
   return (
     <div className="list-item-product-dashboard mt-[1rem] flex justify-between max-md:flex-col">
-      <BottomTabCart />
       <div className="list-product-cart">
         <div className="header-list-product ">
           <div className="info-product-title">
@@ -43,52 +44,44 @@ export function ListItemProductDashboard(props: IProps) {
           </div>
         </div>
         <hr />
-        <div className="h-[calc(100%-16rem)] overflow-y-auto">
+        <div className="overflow-y-auto">
           {listProduct.map((item: any, index: number) => (
             <div key={index} className="body-list-product">
               <div className="row-body-list-product">
                 <div className="info-product">
-                  <div className="h-[5rem] max-md:h-[34rem] flex">
+                  <div className="h-[5rem] max-md:h-[20rem] flex items-center max-md:w-full">
                     <Image
                       width={70}
                       height={70}
-                      className="h-full rounded-[0.4rem] object-cover w-[5rem] max-md:w-[32rem] max-md:h-[34rem]"
+                      className="h-full rounded-[0.4rem] object-cover w-[5rem] max-md:w-[18.133rem] max-md:h-[18.133rem]"
                       src="https://dl.memuplay.com/new_market/img/com.outfit7.mytalkingtom2.icon.2023-08-29-23-30-20.png"
                       alt="img product"
                     />
-                    <div className="h-full ml-[1rem] flex flex-col justify-center max-md:ml-[3.25rem] max-md:justify-between">
+                    <div className="h-full ml-[1rem] flex flex-col justify-center max-md:ml-[3.25rem] max-md:justify-between max-md:w-full">
                       <div>
-                        <h4 className="text-[1rem] leading-[1.875rem] font-Nexa-Medium">
+                        <h4 className="text-[1rem] leading-[1.875rem] font-Nexa-Medium max-md:text-[3.733rem] max-md:leading-[4.5rem] max-md:hidden">
                           Gọng kính thời trang KL060
                         </h4>
-                        <div className="flex items-center">
-                          <h4 className="text-[1rem] leading-[1.875rem] font-Nexa-Medium">
+                        <Link
+                          href="/detail-order"
+                          className="hidden max-md:block text-[1rem] leading-[1.875rem] font-Nexa-Medium max-md:text-[3.733rem] max-md:leading-[4.5rem]"
+                        >
+                          Gọng kính thời trang KL060
+                        </Link>
+                        <div className="flex items-center max-md:mt-[1rem]">
+                          <h4 className="text-[1rem] leading-[1.875rem] font-Nexa-Medium max-md:text-[3.733rem] max-md:leading-[5rem]">
                             màu:
                           </h4>
-                          <div className="h-[0.875rem] w-[0.875rem] rounded-full bg-black ml-[0.3rem]" />
+                          <div className="h-[0.875rem] w-[0.875rem] rounded-full bg-black ml-[0.3rem] max-md:h-[3rem] max-md:w-[3rem] max-md:mt-[0.8rem] max-md:ml-[1rem]" />
                         </div>
                       </div>
-                      {/* <div className="hidden max-md:flex mb-[1.2rem]"> */}
-                      {/*  <div className="not-italic font-normal  text-[3.5rem] w-1/3"> */}
-                      {/*    Price: */}
-                      {/*  </div> */}
-                      {/*  <div className="not-italic font-bold  text-[3.5rem]"> */}
-                      {/*    200.000đ */}
-                      {/*  </div> */}
-                      {/* </div> */}
-                      {/* <div className="hidden max-md:flex"> */}
-                      {/*  <div className="not-italic font-normal  text-[3.5rem] w-1/3"> */}
-                      {/*    Subtotal: */}
-                      {/*  </div> */}
-                      {/*  <div className="not-italic font-bold text-[3.5rem]"> */}
-                      {/*    200.000đ */}
-                      {/*  </div> */}
-                      {/* </div> */}
-                      {/* <div className="mt-[2.5rem] hidden max-md:block ">1</div> */}
-
-                      {/* <u className="text-[1.125rem] not-italic font-normal leading-[1.6875rem] max-md:hidden"> */}
-                      {/*  Xóa */}
-                      {/* </u> */}
+                      <Link
+                        href="/detail-order"
+                        type="button"
+                        className="hidden max-md:block max-md:text-[3.733rem] underline max-md:leading-[4.5rem] text-[#55D5D2]"
+                      >
+                        <ICView fill="#55D5D2" width="6rem" height="5rem" />
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -113,13 +106,23 @@ export function ListItemProductDashboard(props: IProps) {
                     1
                   </span>
                 </div>
-                <div className="total-product ">
-                  <button
-                    type="button"
-                    className="flex justify-center items-center grow"
-                  >
-                    <ICTrash />
-                  </button>
+                <div className="total-product flex justify-center items-center">
+                  {keyTab === 'buy' ? (
+                    <Link
+                      href="/detail-order"
+                      type="button"
+                      className="flex justify-center items-center grow"
+                    >
+                      <ICView fill="#55D5D2" width="1.5rem" height="1.5rem" />
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      className="flex justify-center items-center grow"
+                    >
+                      <ICTrash />
+                    </button>
+                  )}
                 </div>
               </div>
               <hr />
