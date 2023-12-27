@@ -1,17 +1,17 @@
 'use client';
+
 import ICDown from '@/components/Icons/ICDown';
 import ICLine from '@/components/Icons/ICLine';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { IItemProduct } from '@/types/types-general';
 import Image from 'next/image';
-import { useState } from 'react';
 
 interface IpropFlash {
   smallBanner1: string;
   smallBanner2: string;
   dataProduct: IItemProduct[];
 }
-const FlashSale = ({ smallBanner1, smallBanner2, dataProduct }: IpropFlash) => {
+function FlashSale({ smallBanner1, smallBanner2, dataProduct }: IpropFlash) {
   return (
     <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9]">
       <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-sm:mx-0 max-sm:mb-[3.5rem]">
@@ -19,7 +19,7 @@ const FlashSale = ({ smallBanner1, smallBanner2, dataProduct }: IpropFlash) => {
           <h4 className="text-teal-300 text-[38px] font-black uppercase pr-[1.688rem]">
             Flash Sale
             <div className="bg-[#55D5D2] w-full">
-              <p className="h-2 bg-[#F58F5D]"></p>
+              <p className="h-2 bg-[#F58F5D]" />
             </div>
           </h4>
 
@@ -53,6 +53,6 @@ const FlashSale = ({ smallBanner1, smallBanner2, dataProduct }: IpropFlash) => {
       </div>
     </div>
   );
-};
+}
 
 export default FlashSale;

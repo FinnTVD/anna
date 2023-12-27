@@ -1,4 +1,5 @@
 'use client';
+
 import {
   Select,
   SelectContent,
@@ -8,10 +9,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import ItemStore from '@/sections/system-store/ItemStore';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import './style.css';
 import SectionHome from '@/sections/home/view/SectionHome';
 
@@ -22,10 +20,10 @@ const mockData = {
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.804718437435!2d105.73897487584011!3d20.96035599012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134533c20016423%3A0x9973b003daef8451!2sHH2A%20xu%C3%A2n%20mai%20complex!5e0!3m2!1svi!2s!4v1703481268016!5m2!1svi!2s',
 };
 
-const SystemStore = () => {
+function SystemStore() {
   const [checkLocate, setCheckLocate] = useState({
     index: 0,
-    link: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14896.247782127793!2d105.67005571128749!3d21.030207268424306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313456ae90ef0e6f%3A0x60aff99e0dc25bd8!2zxJDhuq9jIFPhu58sIEhvw6BpIMSQ4bupYywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1703473136093!5m2!1svi!2s',
+    link: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14896.247782127793!2d105.67005571128749!3d21.030207268424306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313456ae90ef0e6f%3A0x60aff99e0dc25bd8!2zxJDhuq9jIFPhu58sIEhvw6BpIMSQ4bupYywgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1703473136093!5m2!1svi!2s",
   });
 
   return (
@@ -46,7 +44,7 @@ const SystemStore = () => {
                     <SelectValue placeholder="Thành phố" />
                   </SelectTrigger>
                   <SelectContent className="w-full">
-                    <SelectGroup defaultValue={'blueberry'}>
+                    <SelectGroup defaultValue="blueberry">
                       <SelectItem value="apple">Apple</SelectItem>
                       <SelectItem value="banana">Banana</SelectItem>
                       <SelectItem value="blueberry">Blueberry</SelectItem>
@@ -64,7 +62,7 @@ const SystemStore = () => {
                     <SelectValue placeholder="Quận/Huyện" />
                   </SelectTrigger>
                   <SelectContent className="w-full">
-                    <SelectGroup defaultValue={'blueberry'}>
+                    <SelectGroup defaultValue="blueberry">
                       <SelectItem value="apple">Apple</SelectItem>
                       <SelectItem value="banana">Banana</SelectItem>
                       <SelectItem value="blueberry">Blueberry</SelectItem>
@@ -121,13 +119,13 @@ const SystemStore = () => {
               width="600"
               height="600"
               loading="lazy"
-            ></iframe>
+            />
           </div>
         </div>
       </div>
       <SectionHome />
     </div>
   );
-};
+}
 
 export default SystemStore;

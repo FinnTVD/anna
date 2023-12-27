@@ -45,8 +45,8 @@ function Contact() {
     )
   );
   useEffect(() => {
-    getListContact;
-    getListBlog;
+    getListContact.mutate();
+    getListBlog.mutate();
   }, []);
 
   const methods = useForm<z.infer<typeof formSchema>>({
