@@ -2,7 +2,7 @@ import ListProductDashboard from '@/sections/dashboard-user/list-product-dashboa
 
 const ListProductDashboardPage = async () => {
   return (
-    <div>
+    <div className="h-full">
       <ListProductDashboard />
     </div>
   );

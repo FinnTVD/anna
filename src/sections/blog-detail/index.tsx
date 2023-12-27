@@ -11,8 +11,8 @@ interface IpropBlogDetail {
   slug: string;
 }
 const BlogDetail = async ({ slug }: IpropBlogDetail) => {
-  const listBlog = await fetchDataRest('GET', `wp/v2/posts?slug=${slug}`)
-  
+  const listBlog = await fetchDataRest('GET', `wp/v2/posts?slug=${slug}`);
+
   return (
     <div>
       <BannerBlogDetail />
