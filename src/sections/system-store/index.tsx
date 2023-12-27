@@ -114,6 +114,7 @@ function SystemStore() {
           </div>
           <div className="w-full md:w-2/3">
             {checkLocate?.link && (
+              // eslint-disable-next-line jsx-a11y/iframe-has-title
               <iframe
                 className="w-full"
                 src={checkLocate?.link}
