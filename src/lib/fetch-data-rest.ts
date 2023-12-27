@@ -45,4 +45,3 @@ export const fetchDataAcf = async (method: string, url: string) => {
 
   return res.json();
 };
-
