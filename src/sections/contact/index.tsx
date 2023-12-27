@@ -30,9 +30,9 @@ function Contact() {
   const [dataBlog, setDataBlog] = useState(null) as any;
 
   const paramApi: any = {
-    method: "get",
-    urlContact: "wp/v2/pages?slug=lien-he",
-    urlBlog: "post/v1/posts",
+    method: 'get',
+    urlContact: 'wp/v2/pages?slug=lien-he',
+    urlBlog: 'post/v1/posts',
   };
   const getListContact = useSWR(`${baseUrl}${paramApi.urlContact}`, () =>
     fetchDataRest(paramApi.method, paramApi.urlContact).then((res: any) =>
@@ -54,7 +54,7 @@ function Contact() {
     defaultValues,
   });
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log("value: ", values);
+    console.log('value: ', values);
   };
   const { handleSubmit, setError } = methods;
   return (
@@ -91,7 +91,7 @@ function Contact() {
         <div
           className="w-full md:w-2/3 contact-page"
           dangerouslySetInnerHTML={{
-            __html: `${dataContact ? dataContact?.content?.rendered : ""}`,
+            __html: `${dataContact ? dataContact?.content?.rendered : ''}`,
           }}
         />
         <div className="w-full md:w-1/3">
