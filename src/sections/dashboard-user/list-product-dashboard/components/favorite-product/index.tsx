@@ -4,11 +4,11 @@ import { ListItemProductDashboard } from '@/sections/dashboard-user/list-product
 function FavoriteProduct() {
   const listProduct = [{}, {}, {}, {}, {}];
   return (
-    <div className="mt-[1.5rem]">
-      <h3 className="text-[1.5rem] font-semibold leading-[1.5rem]">
+    <div className="mt-[1.5rem] max-md:mt-[8rem]">
+      <h3 className="text-[1.5rem] font-semibold leading-[1.5rem] max-md:text-[5rem] max-md:pb-[3rem]">
         Sản phẩm yêu thích
       </h3>
-      <ListItemProductDashboard listProduct={listProduct} />
+      <ListItemProductDashboard listProduct={listProduct} keyTab="favorite" />
     </div>
   );
 }

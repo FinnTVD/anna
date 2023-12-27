@@ -24,4 +24,12 @@
   .sidebar-dashboard-hover svg path {
     @apply stroke-[#55D5D2];
   }
+
+  .side-bar-dashboard-user svg {
+    @apply max-md:h-[6rem] max-md:w-[6rem];
+  }
+
+  .side-bar-dashboard-user svg path {
+    @apply max-md:stroke-[white];
+  }
 }
