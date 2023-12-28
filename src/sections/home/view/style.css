@@ -1,5 +1,6 @@
 .flash-sale-home .swiper-wrapper {
   margin-top: 1rem;
+
   @media screen and (max-width: 767px) {
     margin-top: 3rem;
   }
@@ -10,6 +11,7 @@
   height: 5px;
   background-color: #55d5d2;
 }
+
 .flash-sale-home .swiper-pagination span {
   background: #f58f5d;
 }
@@ -34,9 +36,12 @@
 
 .see-more:hover svg,
 .see-more:hover p,
-.feature-item:hover .feature-title,
-.feature-item:hover svg {
+.feature-item:hover .feature-title {
   color: #f58f5d;
+}
+.feature-item:hover svg path{
+  fill: #f58f5d;
+  stroke: #f58f5d;
 }
 
 .collect-more:hover {
@@ -45,12 +50,20 @@
   color: #fff;
 }
 
-.collect-more:hover .collect-title {
+.collect-more:hover .collect-title,
+.show-project-home:hover p{
   color: #fff;
 }
+
 .collect-more:hover circle {
   fill: #fff;
 }
+
+.show-project-home:hover svg path {
+  fill: white;
+  stroke: white;
+}
+
 .collect-more:hover rect {
   fill: #55C3C4;
 }
@@ -62,7 +75,7 @@
 }
 
 .about .pin-spacer {
- height: 1280px !important;
+  height: 1280px !important;
 }
 
 .about-card-content {
@@ -131,12 +144,10 @@
 }
 
 .item-actions {
-  background: linear-gradient(
-    94deg,
-    rgba(0, 0, 0, 0.4) 3.25%,
-    rgba(0, 0, 0, 0.4) 58.68%,
-    rgba(0, 0, 0, 0.05) 100%
-  );
+  background: linear-gradient(94deg,
+      rgba(0, 0, 0, 0.4) 3.25%,
+      rgba(0, 0, 0, 0.4) 58.68%,
+      rgba(0, 0, 0, 0.05) 100%);
   border-radius: 1.875rem 0rem 0rem 1.875rem;
 
   @media screen and (max-width: 767px) {
