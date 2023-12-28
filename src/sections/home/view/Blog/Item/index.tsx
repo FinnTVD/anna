@@ -2,9 +2,19 @@ import ICVectorRight from '@/components/Icons/ICVectorRight';
 import Image from 'next/image';
 import { formatDate } from '@/ultils/format-date';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
+import Link from 'next/link';
 
+interface ItemBlogType {
+  post_id: number | string;
+  title: string;
+  post_date: string;
+  post_slug: string;
+  post_type: string;
+  content: string;
+  thumbnail_url: any;
+}
 interface IpropsBlog {
-  dataBlog: any;
+  dataBlog: ItemBlogType;
 }
 function ItemBlog({ dataBlog }: IpropsBlog) {
   return (
@@ -36,9 +46,9 @@ function ItemBlog({ dataBlog }: IpropsBlog) {
             </span>
           </div>
           <div className="py-[15px] rounded-[50px] justify-center items-center gap-2.5 flex">
-            <div className="text-center text-teal-300 text-[4rem] md:text-lg font-bold">
+            <Link href={`/blog/${dataBlog?.post_slug}`} className="text-center text-teal-300 text-[4rem] md:text-lg font-bold hover:text-orange-400">
               ĐỌC TIẾP
-            </div>
+            </Link>
             <ICVectorRight width={20} height={20} />
           </div>
         </div>

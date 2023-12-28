@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowTopRight } from '@/app/icons';
 import Image from 'next/image';
+import Link from 'next/link';
+import { formatCurrencyVND } from '@/ultils/format-price';
 
 interface IPropsItemCollect {
   dataCollect: any;
@@ -41,10 +43,6 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
       color: 'blue',
     },
   ];
-  const currencyFormat = Number(dataCollect?.price).toLocaleString('vi', {
-    style: 'currency',
-    currency: 'VND',
-  });
   return (
     <div className="item-slider-product cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl">
       <div className="h-[87.74773rem] md:h-[20.375rem] w-full overflow-hidden rounded-[4.26667rem] md:rounded-2xl">
@@ -93,17 +91,17 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
               </div>
             </div>
             <span className="line-through text-[3.73333rem] md:text-[0.875rem]">
-              {dataCollect?.price}
+              {dataCollect?.salePrice && formatCurrencyVND(dataCollect?.salePrice.toString())}
             </span>
           </div>
-          <div className="bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
+          <Link href={`/detail/${dataCollect?.id}`} className="bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
             <p className="text-[6.4rem] md:text-[1.5rem] font-[850] text-[#fff]">
-              {currencyFormat}
+              {dataCollect?.price && formatCurrencyVND(dataCollect?.price.toString())}
             </p>
             <div className="arrow-peoduct-slide p-[0.5rem] text-[#fff]">
               <ArrowTopRight />
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

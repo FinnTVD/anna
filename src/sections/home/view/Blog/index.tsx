@@ -1,6 +1,7 @@
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import ItemBlog from '@/sections/home/view/Blog/Item';
+import Link from 'next/link';
 import React from 'react';
 
 const Blog = async () => {
@@ -13,14 +14,14 @@ const Blog = async () => {
           ANNA BLOG
           <br />& SHARE
         </h4>
-        <div className="md:w-[252px] md:h-[52px] pl-12 pr-1 py-1 bg-teal-300 rounded-[100px] flex justify-between items-center gap-3">
+        <Link href='/blog' className="md:w-[252px] md:h-[52px] pl-12 pr-1 py-1 bg-teal-300 rounded-[100px] flex justify-between items-center gap-3">
           <div className="text-white text-[20px] md:text-lg font-black uppercase">
             Xem tất cả
           </div>
           <div className="p-1.5 bg-white rounded-[50px] justify-start items-center gap-2.5 flex">
             <ICArrowTopRightActive width={35} height={35} stroke="#55D5D2" />
           </div>
-        </div>
+        </Link>
       </div>
       <div className="flex w-full md:w-2/3 flex-wrap">
         <div className="w-full md:w-1/2">
