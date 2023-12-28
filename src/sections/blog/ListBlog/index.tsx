@@ -36,7 +36,7 @@ const ListBlog = async () => {
           </div>
           <Link
             href={`/blog/${dataBlog?.slug}`}
-            className="md:h-[4rem] text-black text-[4.25rem] md:text-lg font-bold my-8 md:my-4 line-clamp-2"
+            className="md:h-[3.5rem] text-black text-[4.25rem] md:text-lg font-bold my-8 md:my-4 line-clamp-2"
           >
             {dataBlog?.title?.rendered}
           </Link>

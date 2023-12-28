@@ -3,6 +3,7 @@ import React from 'react';
 import ItemCollect from '@/sections/home/view/CollectNew/Item';
 import ICMore from '@/components/Icons/ICMore';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
+import Link from 'next/link';
 
 const NewCollection = async () => {
   const collectNewData = await fetchDataRest('GET', 'custom/v1/products');
@@ -39,12 +40,12 @@ const NewCollection = async () => {
               Kính áp tròng
             </p>
           </div>
-          <div className="see-more cursor-pointer flex items-center">
+          <Link href='/list-product' className="see-more cursor-pointer flex items-center">
             <ArrowRight className="text-stone-300" />
             <p className="text-stone-300 text-[4.8rem] md:text-lg font-black uppercase">
               Xem thêm
             </p>
-          </div>
+          </Link>
         </div>
       </div>
       <div>
@@ -61,14 +62,14 @@ const NewCollection = async () => {
           })}
         </div>
       </div>
-      <div className="collect-more w-full mt-11 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5 inline-flex">
+      <Link href='/list-product' className="collect-more w-full mt-11 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5 inline-flex">
         <div className="collect-title text-center text-teal-300 text-[4.8rem] md:text-lg font-extrabold leading-normal">
           XEM THÊM GỌNG KÍNH
         </div>
         <div className="w-[6.4rem] md:w-6 h-[6.4rem] md:h-6 justify-center items-center flex">
           <ICMore />
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

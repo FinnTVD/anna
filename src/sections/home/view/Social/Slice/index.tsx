@@ -21,6 +21,7 @@ function SliceSocial() {
     <div>
       <Swiper
         watchSlidesProgress
+        loop
         breakpoints={{
           414: {
             slidesPerView: 1,

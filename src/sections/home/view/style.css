@@ -48,15 +48,21 @@
 .collect-more:hover .collect-title {
   color: #fff;
 }
+.collect-more:hover circle {
+  fill: #fff;
+}
+.collect-more:hover rect {
+  fill: #55C3C4;
+}
 
 .about {
-  background-image: url('../../../../public/img/home/about_bg.png');
+  background-image: url('../../../../public/img/home/about_bg.jpg');
   background-size: cover;
   min-height: 1058px;
 }
 
-.about-pin .pin-spacer {
-  inset: 100px auto auto !important;
+.about .pin-spacer {
+ height: 1280px !important;
 }
 
 .about-card-content {
