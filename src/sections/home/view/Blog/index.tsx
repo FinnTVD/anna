@@ -4,7 +4,7 @@ import ItemBlog from '@/sections/home/view/Blog/Item';
 import React from 'react';
 
 const Blog = async () => {
-  const listBlog = await fetchDataRest('GET', 'wp/v2/posts');
+  const listBlog = await fetchDataRest('GET', 'post/v1/posts');
 
   return (
     <div className="px-[6.67rem] sm:p-24 flex flex-wrap">
