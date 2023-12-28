@@ -27,7 +27,10 @@ function SliceAction({ dataSlider }: IPropItem) {
         className="mySwiper-action h-[66.625rem] md:h-[35.625rem]"
       >
         {dataSlider?.map((img: string, index: number) => (
-          <SwiperSlide className="relative rounded-[8rem] md:rounded-2xl">
+          <SwiperSlide
+            key={index}
+            className="relative rounded-[8rem] md:rounded-2xl"
+          >
             <Image
               src={img}
               alt=""

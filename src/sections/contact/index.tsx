@@ -30,9 +30,9 @@ function Contact() {
   const [dataBlog, setDataBlog] = useState(null) as any;
 
   const paramApi: any = {
-    method: "get",
-    urlContact: "wp/v2/pages?slug=lien-he",
-    urlBlog: "post/v1/posts",
+    method: 'get',
+    urlContact: 'wp/v2/pages?slug=lien-he',
+    urlBlog: 'post/v1/posts',
   };
   const getListContact = useSWR(`${baseUrl}${paramApi.urlContact}`, () =>
     fetchDataRest(paramApi.method, paramApi.urlContact).then((res: any) =>
@@ -45,8 +45,8 @@ function Contact() {
     )
   );
   useEffect(() => {
-    getListContact;
-    getListBlog;
+    getListContact.mutate();
+    getListBlog.mutate();
   }, []);
 
   const methods = useForm<z.infer<typeof formSchema>>({
@@ -54,9 +54,9 @@ function Contact() {
     defaultValues,
   });
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log("value: ", values);
+    console.log('value: ', values);
   };
-  const { handleSubmit, setError } = methods;
+  const { handleSubmit } = methods;
   return (
     <div className="md:max-w-[83.75rem] py-24 md:py-12 px-[5rem] md:px-0 m-auto">
       <FormProvider {...methods}>
@@ -91,7 +91,7 @@ function Contact() {
         <div
           className="w-full md:w-2/3 contact-page"
           dangerouslySetInnerHTML={{
-            __html: `${dataContact ? dataContact?.content?.rendered : ""}`,
+            __html: `${dataContact ? dataContact?.content?.rendered : ''}`,
           }}
         />
         <div className="w-full md:w-1/3">
@@ -102,6 +102,7 @@ function Contact() {
             <div className="flex flex-wrap">
               {dataBlog?.map((data: BlogItemType, index: number) => (
                 <Link
+                  key={index}
                   href="#"
                   className="text-[4.5rem] md:text-[1.75rem] w-full py-6 md:py-2"
                 >

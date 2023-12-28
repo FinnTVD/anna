@@ -61,7 +61,7 @@ function NavItems() {
             </span>
             <ICLocation fill="#4DC0BD" width="1.25rem" height="1.51338rem" />
           </li>
-          <li className=" grow has-child w-[30.4375rem]">
+          <li className=" grow has-child">
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
                 <div className="relative rounded-[6.25rem] flex items-center">

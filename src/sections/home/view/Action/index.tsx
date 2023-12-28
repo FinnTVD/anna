@@ -13,7 +13,7 @@ interface IPropsAction {
 function ActionHome({ dataTrip }: IPropsAction) {
   return (
     <div
-      className={`p-[6.67rem] sm:p-24 bg-cover`}
+      className="p-[6.67rem] sm:p-24 bg-cover"
       style={{ backgroundImage: `url(${dataTrip?.banner})` }}
     >
       <div className="flex justify-between items-end">
