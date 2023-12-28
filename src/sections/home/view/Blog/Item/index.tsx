@@ -3,20 +3,12 @@ import Image from 'next/image';
 import { formatDate } from '@/ultils/format-date';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import Link from 'next/link';
+import { ItemBlogType } from '@/types/types-general';
 
-interface ItemBlogType {
-  post_id: number | string;
-  title: string;
-  post_date: string;
-  post_slug: string;
-  post_type: string;
-  content: string;
-  thumbnail_url: any;
-}
-interface IpropsBlog {
+interface IPropBlog {
   dataBlog: ItemBlogType;
 }
-function ItemBlog({ dataBlog }: IpropsBlog) {
+function ItemBlog({ dataBlog }: IPropBlog) {
   return (
     <div className={`p-4 mt-[1rem] md:mt-6 h-[90rem] md:h-[597px] `}>
       <div className="pb-16 md:pb-4 bg-white w-full h-full rounded-[6.4rem] md:rounded-3xl border-2 border-gray-200 flex-col justify-between items-start gap-4 inline-flex">

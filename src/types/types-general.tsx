@@ -102,3 +102,13 @@ export interface listInputGlobal {
     label: string;
   }[];
 }
+
+export interface ItemBlogType {
+  post_id: number | string;
+  title: string;
+  post_date: string;
+  post_slug: string;
+  post_type: string;
+  content: string;
+  thumbnail_url: any;
+}

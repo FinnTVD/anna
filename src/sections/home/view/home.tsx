@@ -5,7 +5,7 @@ import FlashSale from '@/sections/home/view/FlashSale';
 import './style.css';
 import AboutHome from '@/sections/home/view/About';
 import Social from '@/sections/home/view/Social';
-import SliceSocial from '@/sections/home/view/Social/Slice';
+import ListSocial from '@/sections/home/view/Social/List';
 import Blog from '@/sections/home/view/Blog';
 import ActionHome from '@/sections/home/view/Action';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
@@ -30,7 +30,7 @@ const Home = async () => {
       <Feature dataFeature={dataHome?.acf?.for_you[0]} />
       <AboutHome dataAbout={dataHome?.acf?.about[0]} />
       <Social />
-      <SliceSocial />
+      <ListSocial />
       <Blog />
       <ActionHome dataTrip={dataHome?.acf?.trip[0]} />
     </div>
