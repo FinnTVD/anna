@@ -32,25 +32,32 @@ function NavItems({ styleNavbar }: IProps) {
         </span>
         <div>
           <span
-            className={`text-white text-[0.875rem] px-3.5 py-1 ${!styleNavbar ? 'navbar-main-home' : 'bg-[#55D5D2]'
-              } font-bold rounded-[6.25rem] `}
+            className={`text-white text-[0.875rem] px-3.5 py-1 ${
+              !styleNavbar ? 'navbar-main-home' : 'bg-[#55D5D2]'
+            } font-bold rounded-[6.25rem] `}
           >
             Chính sách
           </span>
           <span
-            className={`text-white text-[0.875rem] px-3.5 py-1  ml-[0.38rem] ${!styleNavbar ? 'navbar-main-home' : 'bg-[#55D5D2]'
-              } font-bold rounded-[6.25rem]`}
+            className={`text-white text-[0.875rem] px-3.5 py-1  ml-[0.38rem] ${
+              !styleNavbar ? 'navbar-main-home' : 'bg-[#55D5D2]'
+            } font-bold rounded-[6.25rem]`}
           >
             Tra cứu đơn hàng
           </span>
         </div>
       </div>
       <div
-        className={`${!styleNavbar ? 'navbar-main-home' : 'border-2 border-[#55D5D2]'
-          } w-full flex mt-2 px-7 py-[0.625rem] rounded-[6.25rem]`}
+        className={`${
+          !styleNavbar ? 'navbar-main-home' : 'border-2 border-[#55D5D2]'
+        } w-full flex mt-2 px-7 py-[0.625rem] rounded-[6.25rem]`}
       >
         <div className="xl:w-[20px] xl:h-[20px] mr-[1rem]">
-          <ICLogo fill={`${!styleNavbar ? "#fff" : "#4DC0BD"}`} width="2.8125rem" height="2.5rem" />
+          <ICLogo
+            fill={`${!styleNavbar ? '#fff' : '#4DC0BD'}`}
+            width="2.8125rem"
+            height="2.5rem"
+          />
         </div>
         <ul className="grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center">
           <li className="active has-child mx-3.5">
@@ -61,8 +68,9 @@ function NavItems({ styleNavbar }: IProps) {
                   className="px-[6px] py-[4px] flex items-center"
                 >
                   <span
-                    className={`mr-[0.38rem] not-italic font-bold ${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                      } text-[1.125rem] leading-[1.575rem]`}
+                    className={`mr-[0.38rem] not-italic font-bold ${
+                      styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                    } text-[1.125rem] leading-[1.575rem]`}
                   >
                     Sản phẩm
                   </span>
@@ -74,13 +82,13 @@ function NavItems({ styleNavbar }: IProps) {
                 </a>
               </HoverCardTrigger>
               <DropdownProductHeader />
-
             </HoverCard>
           </li>
           <li className="has-child flex items-center mx-3.5">
             <span
-              className={`mr-[0.38rem] not-italic font-bold ${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                } text-[1.125rem] leading-[1.575rem]`}
+              className={`mr-[0.38rem] not-italic font-bold ${
+                styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+              } text-[1.125rem] leading-[1.575rem]`}
             >
               Tìm cửa hàng
             </span>
@@ -91,8 +99,9 @@ function NavItems({ styleNavbar }: IProps) {
               <HoverCardTrigger asChild>
                 <div className="relative rounded-[6.25rem] flex items-center w-full">
                   <Input
-                    className={`${!styleNavbar ? 'search-home-navbar' : ''
-                      } input-search rounded-[6.25rem] placeholder-[#4DC0BD] bg-[#EEFBFB] border-[#EEFBFB]`}
+                    className={`${
+                      !styleNavbar ? 'search-home-navbar' : ''
+                    } input-search rounded-[6.25rem] placeholder-[#4DC0BD] bg-[#EEFBFB] border-[#EEFBFB]`}
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
@@ -112,8 +121,9 @@ function NavItems({ styleNavbar }: IProps) {
                   className="px-[6px] py-[4px] flex items-center"
                 >
                   <span
-                    className={`mr-[0.38rem] not-italic font-bold ${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                      } text-[1.125rem] leading-[1.575rem]`}
+                    className={`mr-[0.38rem] not-italic font-bold ${
+                      styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                    } text-[1.125rem] leading-[1.575rem]`}
                   >
                     Xem Thêm
                   </span>
@@ -129,8 +139,9 @@ function NavItems({ styleNavbar }: IProps) {
           </li>
           <li className="has-child flex items-center mx-3.5">
             <span
-              className={`mr-[0.38rem] not-italic font-bold ${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                } text-[1.125rem] leading-[1.575rem]`}
+              className={`mr-[0.38rem] not-italic font-bold ${
+                styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+              } text-[1.125rem] leading-[1.575rem]`}
             >
               Hành trình tử tế
             </span>
@@ -139,19 +150,24 @@ function NavItems({ styleNavbar }: IProps) {
             <HoverCard openDelay={0}>
               <HoverCardTrigger asChild>
                 <Link href="/cart" className="flex relative">
-            <span
-              className={`mr-[0.38rem] not-italic font-bold ${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                } text-[1.125rem] leading-[1.575rem]`}
-            >
-              Giỏ hàng
-            </span>
-            <div className="relative">
-              <ICCart fill={`${!styleNavbar ? "#fff" : "#4DC0BD"}`} width="1.47381rem" height="1.44581rem" />
-              <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem]">
-                3
-              </div>
-            </div>
-            </Link>
+                  <span
+                    className={`mr-[0.38rem] not-italic font-bold ${
+                      styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                    } text-[1.125rem] leading-[1.575rem]`}
+                  >
+                    Giỏ hàng
+                  </span>
+                  <div className="relative">
+                    <ICCart
+                      fill={`${!styleNavbar ? '#fff' : '#4DC0BD'}`}
+                      width="1.47381rem"
+                      height="1.44581rem"
+                    />
+                    <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem]">
+                      3
+                    </div>
+                  </div>
+                </Link>
               </HoverCardTrigger>
               <DropdownCartHeader />
             </HoverCard>

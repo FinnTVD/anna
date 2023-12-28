@@ -1,4 +1,5 @@
 'use client';
+
 import ICDown from '@/components/Icons/ICDown';
 import ICLine from '@/components/Icons/ICLine';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
@@ -14,7 +15,11 @@ interface IpropFlash {
   smallBanner2: string;
   dataProductSale: IItemProduct[];
 }
-const FlashSale = ({ smallBanner1, smallBanner2, dataProductSale }: IpropFlash) => {
+function FlashSale({
+  smallBanner1,
+  smallBanner2,
+  dataProductSale,
+}: IpropFlash) {
   return (
     <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9]">
       <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-sm:mx-0 max-sm:mb-[3.5rem]">
@@ -28,7 +33,11 @@ const FlashSale = ({ smallBanner1, smallBanner2, dataProductSale }: IpropFlash) 
           </h4>
         </div>
         <div className="flash-sale-home">
-          <SlideProductComponent keySlide="flash-sale" data={dataProductSale} typePagination={'progressbar'}/>
+          <SlideProductComponent
+            keySlide="flash-sale"
+            data={dataProductSale}
+            typePagination="progressbar"
+          />
         </div>
         <div className="pt-6 flex justify-center">
           <ICDown />
@@ -50,8 +59,8 @@ const FlashSale = ({ smallBanner1, smallBanner2, dataProductSale }: IpropFlash) 
           />
         </div>
       </div>
-    </div >
+    </div>
   );
-};
+}
 
 export default FlashSale;
