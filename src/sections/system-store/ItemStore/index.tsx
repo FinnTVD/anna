@@ -15,8 +15,9 @@ function ItemStore({ index, setCheckLocate, checkLocate, link }: IPropsItem) {
   };
   return (
     <div
+      role="button"
       className={`${
-        index === checkLocate?.index ? "bg-[#f5f5f5]" : ""
+        index === checkLocate?.index ? 'bg-[#f5f5f5]' : ''
       } p-12 md:p-4`}
       onClick={handleChangeMap}
     >

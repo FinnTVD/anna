@@ -100,10 +100,10 @@
 
 html {
   font-size: 1vw;
-  font-family: 'SVN-Nexa-Medium' !important;
 }
 
 body {
+  font-family: 'SVN-Nexa-Medium' !important;
   /*background-color: #fafafa;*/
 }
 
