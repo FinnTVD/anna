@@ -8,7 +8,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import '../style.css';
@@ -123,7 +122,7 @@ export function Login() {
             Quên mật khẩu ?
           </Link>
           <div className="bg-[#1877F2] p-3 rounded-3xl md:rounded-xl mt-2">
-            <button className="w-full text-white">
+            <button type="button" className="w-full text-white">
               Đăng nhập bằng
               <b> Facebook</b>
             </button>

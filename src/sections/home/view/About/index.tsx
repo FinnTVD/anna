@@ -86,11 +86,13 @@ function AboutHome({ dataAbout }: IpropAbout) {
     <div className="about">
       <div
         className={`${
+          // eslint-disable-next-line no-restricted-globals
           screen.width > 1024 ? 'pin-card !top-0 !translate-y-9' : ''
         } container`}
       >
         <div
           className={`${
+            // eslint-disable-next-line no-restricted-globals
             screen.width > 1024 ? 'pin-content' : ''
           } py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}
         >
