@@ -2,13 +2,16 @@ import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const ItemBlog = ({dataBlogOther}: any) => {
-
+function ItemBlog({ dataBlogOther }: any) {
   return (
     <div className="w-full px-6 md:px-2 mt-[6rem] md:mt-4">
       <div className="relative">
         <Image
-          src={dataBlogOther?.thumbnail_url ? dataBlogOther?.thumbnail_url : serviceImg}
+          src={
+            dataBlogOther?.thumbnail_url
+              ? dataBlogOther?.thumbnail_url
+              : serviceImg
+          }
           alt=""
           quality={80}
           width={304}

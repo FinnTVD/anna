@@ -38,7 +38,10 @@ function ItemBlog({ dataBlog }: IPropBlog) {
             </span>
           </div>
           <div className="py-[15px] rounded-[50px] justify-center items-center gap-2.5 flex">
-            <Link href={`/blog/${dataBlog?.post_slug}`} className="text-center text-teal-300 text-[4rem] md:text-lg font-bold hover:text-orange-400">
+            <Link
+              href={`/blog/${dataBlog?.post_slug}`}
+              className="text-center text-teal-300 text-[4rem] md:text-lg font-bold hover:text-orange-400"
+            >
               ĐỌC TIẾP
             </Link>
             <ICVectorRight width={20} height={20} />

@@ -34,9 +34,9 @@ const BlogOther = async () => {
           </div>
         </div>
       </div>
-      <SliceBlogOther listBlogOther={listBlogOther}/>
+      <SliceBlogOther listBlogOther={listBlogOther} />
     </div>
   );
-}
+};
 
 export default BlogOther;

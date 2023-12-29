@@ -2,7 +2,7 @@ import { HoverCardContent } from '@/components/ui/hover-card';
 import Image from 'next/image';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Link from 'next/link';
-import "./style.css";
+import './style.css';
 
 interface IProps {
   onMouseLeaveTabMenu?: () => void;

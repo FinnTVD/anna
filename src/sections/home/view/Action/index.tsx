@@ -17,7 +17,6 @@ function ActionHome({ dataTrip }: IPropsAction) {
       style={{ backgroundImage: `url(${dataTrip?.banner})` }}
     >
       <div className="container">
-
         <div className="flex justify-between items-end">
           <Image
             src="/img/home/Logo_HTTT.png"

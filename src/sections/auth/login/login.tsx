@@ -11,7 +11,8 @@ import Link from 'next/link';
 import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import '../style.css'
+import '../style.css';
+
 interface IProps {
   children: ReactNode;
 }
@@ -73,8 +74,12 @@ export function Login() {
       <div className="w-full md:w-1/2 px-6">
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
           <div className="text-center">
-            <span className="text-black text-[4rem] md:text-2xl font-bold">Đăng nhập</span>
-            <p className='text-2xl md:text-base'>Hãy đăng nhập để được hưởng đặc quyền riêng dành cho bạn</p>
+            <span className="text-black text-[4rem] md:text-2xl font-bold">
+              Đăng nhập
+            </span>
+            <p className="text-2xl md:text-base">
+              Hãy đăng nhập để được hưởng đặc quyền riêng dành cho bạn
+            </p>
           </div>
 
           <div className="grid gap-4 py-4">
@@ -117,7 +122,12 @@ export function Login() {
               Đăng nhập
             </button>
           </div>
-          <Link href='#' className="text-[3.25rem] md:text-[1.25rem] hover:text-orange-400">Quên mật khẩu ?</Link>
+          <Link
+            href="#"
+            className="text-[3.25rem] md:text-[1.25rem] hover:text-orange-400"
+          >
+            Quên mật khẩu ?
+          </Link>
           <div className="bg-[#1877F2] p-3 rounded-3xl md:rounded-xl mt-2">
             <button className="w-full text-white">
               Đăng nhập bằng
@@ -133,7 +143,9 @@ export function Login() {
         </FormProvider>
         <p className="text-center mt-6 md:mt-4">Bạn chưa có tài khoản Anna ?</p>
         <div className="text-center mt-6 md:mt-2 text-[#81c8c2]">
-          <Link href='#' className="underline">Đăng ký ngay</Link>
+          <Link href="#" className="underline">
+            Đăng ký ngay
+          </Link>
         </div>
       </div>
     </div>

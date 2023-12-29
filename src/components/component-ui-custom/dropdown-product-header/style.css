@@ -25,7 +25,6 @@
     @apply block;
   }
 
-
   .dropdown-product-header-container .item-sub-category-product svg {
     @apply invisible;
   }

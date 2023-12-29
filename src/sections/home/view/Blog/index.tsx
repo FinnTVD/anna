@@ -14,7 +14,10 @@ const Blog = async () => {
           ANNA BLOG
           <br />& SHARE
         </h4>
-        <Link href='/blog' className="md:w-[252px] md:h-[52px] pl-12 pr-1 py-1 bg-teal-300 rounded-[100px] flex justify-between items-center gap-3">
+        <Link
+          href="/blog"
+          className="md:w-[252px] md:h-[52px] pl-12 pr-1 py-1 bg-teal-300 rounded-[100px] flex justify-between items-center gap-3"
+        >
           <div className="text-white text-[20px] md:text-lg font-black uppercase">
             Xem tất cả
           </div>

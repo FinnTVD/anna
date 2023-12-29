@@ -1,7 +1,7 @@
 import Footer from '@/sections/main/components/footer/footer';
 import Navbar from '@/sections/main/components/navbar/navbar';
 import { postData } from '@/lib/post-data';
-import { fetchDataRest } from "@/lib/fetch-data-rest";
+import { fetchDataRest } from '@/lib/fetch-data-rest';
 
 const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   const bodyGetProductHeader: any = {

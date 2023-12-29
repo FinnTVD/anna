@@ -91,12 +91,17 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
               </div>
             </div>
             <span className="line-through text-[3.73333rem] md:text-[0.875rem]">
-              {dataCollect?.salePrice && formatCurrencyVND(dataCollect?.salePrice.toString())}
+              {dataCollect?.salePrice &&
+                formatCurrencyVND(dataCollect?.salePrice.toString())}
             </span>
           </div>
-          <Link href={`/detail/${dataCollect?.id}`} className="bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
+          <Link
+            href={`/detail/${dataCollect?.id}`}
+            className="bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]"
+          >
             <p className="text-[6.4rem] md:text-[1.5rem] font-[850] text-[#fff]">
-              {dataCollect?.price && formatCurrencyVND(dataCollect?.price.toString())}
+              {dataCollect?.price &&
+                formatCurrencyVND(dataCollect?.price.toString())}
             </p>
             <div className="arrow-peoduct-slide p-[0.5rem] text-[#fff]">
               <ArrowTopRight />

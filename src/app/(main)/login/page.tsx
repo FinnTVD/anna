@@ -1,8 +1,8 @@
-import { Login } from '@/sections/auth/login/login'
-import React from 'react'
+import { Login } from '@/sections/auth/login/login';
+import React from 'react';
 
-const LoginPage = () => {
-  return <Login />
+function LoginPage() {
+  return <Login />;
 }
 
-export default LoginPage
+export default LoginPage;
