@@ -1,5 +1,5 @@
-import { Login } from '@/sections/auth/login/login';
-import React from 'react';
+import { Login } from '@/sections/auth/login'
+import React from 'react'
 
 function LoginPage() {
   return <Login />;
