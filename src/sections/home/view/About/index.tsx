@@ -33,7 +33,7 @@ function AboutHome({ dataAbout }: IpropAbout) {
         start: `-100% top`,
         pin: '.pin',
         end: `+=${window.innerHeight / 1.5}`,
-        // markers: true,
+        markers: true,
       },
       opacity: 1,
       ease: 'none',
@@ -43,7 +43,7 @@ function AboutHome({ dataAbout }: IpropAbout) {
     gsap.to(".pin-content", {
       scrollTrigger: {
         trigger: ".pin-card",
-        start: "-20% top",
+        start: "-15% top",
         end: `+=${window.innerHeight / 1.5}`,
         pin: ".pin-card",
         scrub: 2,
@@ -84,8 +84,8 @@ function AboutHome({ dataAbout }: IpropAbout) {
   };
   return (
     <div className="about">
-      <div className={`${screen.width > 1024 ? "pin-card !top-0 !translate-y-9" : ""}`}>
-        <div className={`${screen.width > 1024 ? "pin-content" : ""} p-[6.67rem] sm:p-24 flex justify-between flex-wrap`}>
+      <div className={`${screen.width > 1024 ? "pin-card !top-0 !translate-y-9" : ""} container`}>
+        <div className={`${screen.width > 1024 ? "pin-content" : ""} py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}>
           <div className="w-full md:w-1/2 px-4 pt-10">
             <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
