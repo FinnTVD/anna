@@ -36,7 +36,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
         </div>
         <div className="flex justify-center flex-wrap p-10 card-item-action mt-10">
           <div className="w-full md:w-1/2 md:h-[30.125rem] flex-col justify-start items-start gap-5 inline-flex">
-            <div className="item-actions self-stretch h-[90rem] md:h-[19.25rem] px-20 md:px-5 py-20 md:py-6 bg-gradient-to-r from-black via-black to-black rounded-tl-[1.75rem] rounded-bl-[1.75rem] border-l border-white flex-col justify-start items-start gap-2 flex">
+            <div className="item-actions self-stretch px-20 md:px-5 py-20 md:py-6 bg-gradient-to-r from-black via-black to-black rounded-tl-[1.75rem] rounded-bl-[1.75rem] border-l border-white flex-col justify-start items-start gap-2 flex">
               <div className="px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-2xl justify-start items-start gap-2.5 inline-flex">
                 <div className="text-center text-white text-[5rem] md:text-[2rem]">
                   ĐÔI MẮT MẶT TRỜI
