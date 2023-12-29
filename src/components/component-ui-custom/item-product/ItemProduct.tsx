@@ -46,9 +46,9 @@ function ItemProduct(props: IProps) {
       <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-md:h-[35.5rem] max-md:-mt-[15.1rem]">
         <div className="flex ml-[1rem] mb-[0.9rem]">
           {/* show in PC */}
-          <div className="max-md:hidden lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center w-[4.875rem] max-md:h-[1.0625rem]  flex justify-center">
+          <div className="max-md:hidden lg:mb-mb-[0.75rem] bg-[#CAF2F1] h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] px-[0.5rem] items-center overflow-hidden w-[5.875rem] max-md:h-[1.0625rem]  flex justify-center">
             {item?.categories && (
-              <p className="text-[0.75rem] text-[#454545] font-bold leading-[0.9rem] text-center">
+              <p className="text-[0.75rem] text-[#454545] font-bold leading-[0.9rem] text-center line-clamp-1">
                 {item?.categories[0] ?? 'null'}
               </p>
             )}

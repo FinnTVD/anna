@@ -73,9 +73,15 @@ export default function AboutUs() {
 
         <div className="w-full flex justify-between mt-[5rem] h-[46rem] items-center max-md:flex-col max-md:h-fit max-md:items-center">
           <div className="w-[39.6875rem]  mr-[2rem] w-[30.6875rem] max-md:w-full max-md:flex max-md:flex-col max-md:items-center">
-            <h2 className="bg-[url('/img/about-us/vecto1.svg')] mb-[2.5rem] mr-[5rem] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
+            <h2 className="mb-[2.5rem] mr-[5rem] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
               VŨ TRỤ TRUYỀN THÔNG
             </h2>
+            <Image
+              src="/img/about-us/vecto1.svg"
+              alt="verto"
+              height={100}
+              width={100}
+            />
             <p className="text-[1rem] not-italic font-normal leading-[1.8rem] max-md:text-[4.26667rem] max-md:leading-[7.68rem]">
               Kính mắt Anna chắc không còn quá xa lạ với giới trẻ nữa. Đây là
               kênh thông tin mua sắm và giải trí dành cho giới trẻ, là “món ăn
@@ -192,9 +198,15 @@ export default function AboutUs() {
             <p className="uppercase max-md:text-[3rem]">
               Tình thương mến thương
             </p>
-            <h2 className="bg-[url('/img/about-us/vecto1.svg')] font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
+            <h2 className="font-semibold text-[2.1875rem] not-italic leading-[7rem] max-md:text-[4.8rem] max-md:leading-[7.2rem]">
               KHÁCH HÀNG THÂN YÊU
             </h2>
+            <Image
+              src="/img/about-us/vecto1.svg"
+              alt="verto"
+              height={100}
+              width={100}
+            />
           </div>
         </div>
         <div className="w-full">
