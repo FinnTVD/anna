@@ -85,14 +85,14 @@ function AboutHome({ dataAbout }: IpropAbout) {
   return (
     <div className="about">
       <div
-        className={`${
-          window.innerWidth > 1024 ? 'pin-card !top-0 !translate-y-9' : ''
-        } container`}
+      // className={`${
+      //   screen.width > 1024 ? 'pin-card !top-0 !translate-y-9' : ''
+      // } container`}
       >
         <div
-          className={`${
-            window.innerWidth > 1024 ? 'pin-content' : ''
-          } py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}
+        // className={`${
+        //   screen.width > 1024 ? 'pin-content' : ''
+        // } py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}
         >
           <div className="w-full md:w-1/2 px-4 pt-10">
             <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
