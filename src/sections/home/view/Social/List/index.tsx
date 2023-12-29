@@ -18,36 +18,32 @@ import IMGTiktok from '@/assets/images/tiktok.png';
 
 function ListSocial() {
   return (
-      <div className='flex flex-wrap'>
-        <ItemSocial
-          img={IMGFacebook}
-          icon={
-            <ICFacebookFooter width={100} height={100} stroke="#55D5D2" />
-          }
-          social="Facebook"
-          infor="@kinhmatanna"
-        />
-        <ItemSocial
-          img={IMGYoutube}
-          icon={<ICYoutube />}
-          social="Youtube"
-          infor="@kinhmatanna"
-        />
-        <ItemSocial
-          img={IMGTiktok}
-          icon={<ICTiktokFooter width={100} height={100} stroke="#55D5D2" />}
-          social="Tiktok"
-          infor="@kinhmatanna"
-        />
-        <ItemSocial
-          img={IMGIg}
-          icon={
-            <ICInstagramFooter width={100} height={100} stroke="#55D5D2" />
-          }
-          social="Instagram"
-          infor="@kinhmatanna"
-        />
-      </div>
+    <div className="flex flex-wrap">
+      <ItemSocial
+        img={IMGFacebook}
+        icon={<ICFacebookFooter width={100} height={100} stroke="#55D5D2" />}
+        social="Facebook"
+        infor="@kinhmatanna"
+      />
+      <ItemSocial
+        img={IMGYoutube}
+        icon={<ICYoutube />}
+        social="Youtube"
+        infor="@kinhmatanna"
+      />
+      <ItemSocial
+        img={IMGTiktok}
+        icon={<ICTiktokFooter width={100} height={100} stroke="#55D5D2" />}
+        social="Tiktok"
+        infor="@kinhmatanna"
+      />
+      <ItemSocial
+        img={IMGIg}
+        icon={<ICInstagramFooter width={100} height={100} stroke="#55D5D2" />}
+        social="Instagram"
+        infor="@kinhmatanna"
+      />
+    </div>
   );
 }
 

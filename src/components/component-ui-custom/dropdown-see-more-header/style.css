@@ -3,17 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-    .dropdown-see-more-header-container .item-cart-seemore:hover div img {
-        @apply scale-125 transition-all duration-200;
-    }
-    .dropdown-see-more-header-container .item-cart-seemore:hover button {
-        @apply bg-[#55D5D2] ;
-    }
-    .dropdown-see-more-header-container .item-cart-seemore:hover svg  {
-        @apply rotate-[40deg] transition-all duration-300;
-    }
-    .dropdown-see-more-header-container .item-cart-seemore:hover svg path {
-        @apply fill-[#55D5D2] transition-all duration-200;
-    }
+  .dropdown-see-more-header-container .item-cart-seemore:hover div img {
+    @apply scale-125 transition-all duration-200;
+  }
+  .dropdown-see-more-header-container .item-cart-seemore:hover button {
+    @apply bg-[#55D5D2];
+  }
+  .dropdown-see-more-header-container .item-cart-seemore:hover svg {
+    @apply rotate-[40deg] transition-all duration-300;
+  }
+  .dropdown-see-more-header-container .item-cart-seemore:hover svg path {
+    @apply fill-[#55D5D2] transition-all duration-200;
+  }
 }
-

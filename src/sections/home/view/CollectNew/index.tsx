@@ -40,7 +40,10 @@ const NewCollection = async () => {
               Kính áp tròng
             </p>
           </div>
-          <Link href='/list-product' className="see-more cursor-pointer flex items-center">
+          <Link
+            href="/list-product"
+            className="see-more cursor-pointer flex items-center"
+          >
             <ArrowRight className="text-stone-300" />
             <p className="text-stone-300 text-[4.8rem] md:text-lg font-black uppercase">
               Xem thêm
@@ -62,7 +65,10 @@ const NewCollection = async () => {
           })}
         </div>
       </div>
-      <Link href='/list-product' className="collect-more w-full mt-11 mb-20 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5 inline-flex">
+      <Link
+        href="/list-product"
+        className="collect-more w-full mt-11 mb-20 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5 inline-flex"
+      >
         <div className="collect-title text-center text-teal-300 text-[4.8rem] md:text-lg font-extrabold leading-normal">
           XEM THÊM GỌNG KÍNH
         </div>

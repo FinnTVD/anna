@@ -39,7 +39,7 @@
 .feature-item:hover .feature-title {
   color: #f58f5d;
 }
-.feature-item:hover svg path{
+.feature-item:hover svg path {
   fill: #f58f5d;
   stroke: #f58f5d;
 }
@@ -51,7 +51,7 @@
 }
 
 .collect-more:hover .collect-title,
-.show-project-home:hover p{
+.show-project-home:hover p {
   color: #fff;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .collect-more:hover rect {
-  fill: #55C3C4;
+  fill: #55c3c4;
 }
 
 .about {
@@ -144,10 +144,12 @@
 }
 
 .item-actions {
-  background: linear-gradient(94deg,
-      rgba(0, 0, 0, 0.4) 3.25%,
-      rgba(0, 0, 0, 0.4) 58.68%,
-      rgba(0, 0, 0, 0.05) 100%);
+  background: linear-gradient(
+    94deg,
+    rgba(0, 0, 0, 0.4) 3.25%,
+    rgba(0, 0, 0, 0.4) 58.68%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
   border-radius: 1.875rem 0rem 0rem 1.875rem;
 
   @media screen and (max-width: 767px) {

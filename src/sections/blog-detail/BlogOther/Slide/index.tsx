@@ -13,7 +13,7 @@ import useSWR from 'swr';
 import { ItemBlogType } from '@/types/types-general';
 
 interface IPropBlogOther {
-  listBlogOther: ItemBlogType[]
+  listBlogOther: ItemBlogType[];
 }
 function SliceBlogOther({ listBlogOther }: IPropBlogOther) {
   return (
@@ -37,10 +37,9 @@ function SliceBlogOther({ listBlogOther }: IPropBlogOther) {
       >
         {listBlogOther?.map((dataBlog: any, index: number) => (
           <SwiperSlide>
-            <ItemBlog dataBlogOther={dataBlog}/>
+            <ItemBlog dataBlogOther={dataBlog} />
           </SwiperSlide>
         ))}
-        
       </Swiper>
     </div>
   );

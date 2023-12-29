@@ -20,7 +20,9 @@ const ListBlog = async () => {
         >
           <div className="relative">
             <Image
-              src={dataBlog?.thumbnail_url ? dataBlog?.thumbnail_url : serviceImg}
+              src={
+                dataBlog?.thumbnail_url ? dataBlog?.thumbnail_url : serviceImg
+              }
               alt=""
               quality={80}
               width={304}
