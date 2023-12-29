@@ -2,8 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 import logoImg from '@/assets/blogImg/kinh-mat-anna.jpg';
 import SliceBlogOther from '@/sections/blog-detail/BlogOther/Slide';
+import { fetchDataRest } from '@/lib/fetch-data-rest';
 
-function BlogOther() {
+const BlogOther = async () => {
+  const listBlogOther = await fetchDataRest('GET', 'post/v1/posts');
+
   return (
     <div className="md:max-w-[57.25rem] px-12 md:px-2 m-auto">
       <div className="flex flex-wrap">
@@ -31,7 +34,7 @@ function BlogOther() {
           </div>
         </div>
       </div>
-      <SliceBlogOther />
+      <SliceBlogOther listBlogOther={listBlogOther}/>
     </div>
   );
 }

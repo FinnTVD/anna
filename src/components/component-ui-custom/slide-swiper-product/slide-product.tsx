@@ -40,7 +40,6 @@ function SlideProductComponent(props: IProps) {
     isShowArrow = true,
     typePagination,
   } = props;
-  console.log('data', data);
   const [resSpaceBetweenSlide, setResSpaceBetweenSlide] = useState<number>(32);
 
   useEffect(() => {

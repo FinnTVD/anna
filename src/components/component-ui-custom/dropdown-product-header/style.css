@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .dropdown-product-header-container .item-category-product span {
+    @apply text-[#C5C5C5];
+  }
+
+  .dropdown-product-header-container .item-category-product svg {
+    @apply hidden;
+  }
+
+  .dropdown-product-header-container .item-category-product:hover span {
+    @apply text-[#55D5D2];
+  }
+  .dropdown-product-header-container .item-category-product:hover svg {
+    @apply block;
+  }
+
+  .dropdown-product-header-container .item-Category-active span {
+    @apply text-[#55D5D2];
+  }
+  .dropdown-product-header-container .item-Category-active svg {
+    @apply block;
+  }
+
+
+  .dropdown-product-header-container .item-sub-category-product svg {
+    @apply invisible;
+  }
+  .dropdown-product-header-container .item-sub-category-product span {
+    @apply text-[#454545];
+  }
+
+  .dropdown-product-header-container .item-sub-category-product:hover svg {
+    @apply visible;
+  }
+  .dropdown-product-header-container .item-sub-category-product:hover span {
+    @apply text-[#F58F5D];
+  }
+}

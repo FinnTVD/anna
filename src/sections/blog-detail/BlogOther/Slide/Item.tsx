@@ -2,12 +2,13 @@ import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function ItemBlog() {
+const ItemBlog = ({dataBlogOther}: any) => {
+
   return (
     <div className="w-full px-6 md:px-2 mt-[6rem] md:mt-4">
       <div className="relative">
         <Image
-          src={serviceImg}
+          src={dataBlogOther?.thumbnail_url ? dataBlogOther?.thumbnail_url : serviceImg}
           alt=""
           quality={80}
           width={304}
@@ -16,10 +17,10 @@ function ItemBlog() {
         />
       </div>
       <Link
-        href="#"
-        className="md:h-[4rem] text-black text-[4.25rem] md:text-lg font-bold my-12 md:my-4 line-clamp-2 border-b border-b-neutral-700 border-opacity-20"
+        href={`/blog/${dataBlogOther?.post_slug}`}
+        className="md:h-[3.7rem] text-black text-[4.25rem] md:text-lg font-bold my-12 md:my-4 line-clamp-2 border-b border-b-neutral-700 border-opacity-20"
       >
-        Có nên đeo kính áp tròng thay kính cận không?
+        {dataBlogOther?.title}
       </Link>
     </div>
   );

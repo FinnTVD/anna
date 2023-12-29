@@ -1,12 +1,15 @@
-'use client';
-
 import { HoverCardContent } from '@/components/ui/hover-card';
 import Image from 'next/image';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Link from 'next/link';
 
-function DropdownCartHeader() {
+interface IProps {
+  onMouseLeaveTabMenu?: () => void;
+}
+
+function DropdownCartHeader(props: IProps) {
+  const { onMouseLeaveTabMenu } = props;
   const listProductCart = [
     {
       image:
@@ -42,7 +45,7 @@ function DropdownCartHeader() {
 
   return (
     <HoverCardContent
-      className="border-none p-0 w-[25.875rem] rounded-[1.5rem] -mr-[1rem]"
+      className="border-none p-0 w-[25.875rem] rounded-[1.5rem] -mr-[1rem] -mt-[0.34rem]"
       side="bottom"
       align="end"
       sideOffset={6}
@@ -59,6 +62,7 @@ function DropdownCartHeader() {
           </div>
           <Link
             href="/cart"
+            onClick={onMouseLeaveTabMenu}
             className="text-[0.75rem] not-italic font-bold leading-[1.125rem] text-[#55D5D2]"
           >
             Xem tất cả
@@ -114,6 +118,7 @@ function DropdownCartHeader() {
         >
           <Link
             href="/payment"
+            onClick={onMouseLeaveTabMenu}
             className="text-[0.8125rem] text-white not-italic font-extrabold leading-[0.975rem] mr-[0.75rem]"
           >
             ĐI ĐẾN THANH TOÁN

@@ -22,7 +22,7 @@ function FlashSale({
 }: IpropFlash) {
   return (
     <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9]">
-      <div className="mx-[6.25rem] mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-sm:mx-0 max-sm:mb-[3.5rem]">
+      <div className="container pb-[5rem] max-lg:px-[3.25rem] pt-[3.75rem] relative max-sm:px-0 max-sm:pb-[3.5rem]">
         <div className="flex flex-wrap items-center max-sm:mb-[1rem] max-sm:px-[0.75rem]">
           <h4 className="text-teal-300 text-[38px] font-black uppercase pr-[1.688rem]">
             Flash Sale

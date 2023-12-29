@@ -40,11 +40,11 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
               className="w-full h-full rounded-2xl"
             />
             <div className="absolute bottom-0 w-full">
-              <div className="p-3 bg-black bg-opacity-30 rounded-[20px] backdrop-blur-[25px] m-3">
-                <h4 className="text-left text-white text-2xl font-black uppercase">
+              <div className="p-8 md:p-3 bg-black bg-opacity-30 rounded-[20px] backdrop-blur-[25px] m-3">
+                <h4 className="text-left text-white text-[3.5rem] md:text-2xl font-black uppercase">
                   {info?.title}
                 </h4>
-                <div className="text-white text-lg font-normal">
+                <div className="text-white text-[2.5rem] md:text-lg font-normal">
                   {info?.location}
                 </div>
               </div>
