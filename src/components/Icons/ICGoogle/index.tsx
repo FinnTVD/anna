@@ -1,7 +1,6 @@
 interface IProps {
   width?: string | number;
   height?: string | number;
-  stroke?: string;
 }
 
 function ICGoogle(props: IProps) {
