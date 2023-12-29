@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -8,8 +8,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import ItemBlog from '@/sections/blog-detail/BlogOther/Slide/Item';
 import { Autoplay } from 'swiper/modules';
+import { baseUrl, fetchDataRest } from '@/lib/fetch-data-rest';
+import useSWR from 'swr';
+import { ItemBlogType } from '@/types/types-general';
 
-function SliceBlogOther() {
+interface IPropBlogOther {
+  listBlogOther: ItemBlogType[]
+}
+function SliceBlogOther({ listBlogOther }: IPropBlogOther) {
   return (
     <div>
       <Swiper
@@ -29,21 +35,12 @@ function SliceBlogOther() {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <ItemBlog />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ItemBlog />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ItemBlog />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ItemBlog />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ItemBlog />
-        </SwiperSlide>
+        {listBlogOther?.map((dataBlog: any, index: number) => (
+          <SwiperSlide>
+            <ItemBlog dataBlogOther={dataBlog}/>
+          </SwiperSlide>
+        ))}
+        
       </Swiper>
     </div>
   );

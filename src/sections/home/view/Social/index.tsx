@@ -2,7 +2,7 @@ import React from 'react';
 
 function Social() {
   return (
-    <div className="px-[6.67rem] sm:px-24 pb-8 pt-24">
+    <div className="px-[6.67rem] sm:px-0 pb-8 pt-24 container">
       <h4 className="text-teal-300 text-[12rem] md:text-[4rem] font-black">
         ANNA ON SOCIAL
       </h4>
