@@ -103,6 +103,7 @@ function NavItems(props: IProps) {
                     paddingRight: 0,
                   }}
                   href="/list-product"
+                  onClick={onMouseLeaveTabMenu}
                   className={`${
                     keyTabMenuActive !== 'product'
                       ? 'tab-menu'

@@ -127,3 +127,19 @@ export interface ItemBlogType {
   content: string;
   thumbnail_url: any;
 }
+
+export interface IItemAttributeProduct {
+  attribute?: string;
+  subAttribute?: {
+    term_id?: number;
+    name?: string;
+    slug?: string;
+    term_group?: number;
+    term_taxonomy_id?: number;
+    taxonomy?: string;
+    description?: string;
+    parent?: number;
+    count?: number;
+    filter?: string;
+  }[];
+}

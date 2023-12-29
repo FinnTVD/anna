@@ -5,9 +5,15 @@ import NavItems from './nav-items/nav-items';
 import NavMobileDetail from './nav-mobile-detail';
 import './nav-items/style.css';
 import { useState } from 'react';
+import { IListProductMenuHeader } from '@/types/types-general';
 
-function NavbarHome() {
-  // const session = await getServerSession(NEXT_AUTH_OPTIONS);
+interface IProps {
+  dataListProductHeader?: IListProductMenuHeader[];
+}
+
+function NavbarHome(props: IProps) {
+  const { dataListProductHeader } = props;
+
   const [styleNavbar, setStyleNavbar] = useState(false);
   if (typeof window !== 'undefined') {
     window?.addEventListener('scroll', function scrolled() {
@@ -29,7 +35,10 @@ function NavbarHome() {
           }`
         )}
       >
-        <NavItems styleNavbar={styleNavbar} />
+        <NavItems
+          styleNavbar={styleNavbar}
+          dataProps={dataListProductHeader ?? []}
+        />
         <div className="mt-5 max-md:mt-1" />
       </div>
       <div className="hidden max-sm:block fixed top-[20px] right-[3.2rem] z-10">
