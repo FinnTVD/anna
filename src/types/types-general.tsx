@@ -103,6 +103,21 @@ export interface listInputGlobal {
   }[];
 }
 
+export interface IItemProductMenuHeader {
+  id?: number;
+  name?: string;
+  slug?: string;
+  link?: string;
+}
+
+export interface IListProductMenuHeader {
+  id?: number;
+  name?: string;
+  slug?: string;
+  link?: string;
+  children?: IItemProductMenuHeader[];
+}
+
 export interface ItemBlogType {
   post_id: number | string;
   title: string;

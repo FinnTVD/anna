@@ -8,7 +8,14 @@ export default function AboutUs() {
   return (
     <div className="about-us-container">
       {/* banner */}
-      <div className="relative bg-banner-about-us bg-[url('/img/about-us/bg-banner-about-us.jpg')] bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
+      <div className="relative bg-banner-about-us bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
+        <Image
+          src="/img/about-us/bg-banner-about-us.jpg"
+          alt="banner-aboutus"
+          height="320"
+          width={1000}
+          className="w-full h-[32.6875rem]"
+        />
         <div className="absolute bottom-20 left-[8rem]">
           <h1 className="text-white text-[3.125rem] leading-[4.6875rem] font-semibold font-sans not-italic max-md:font-bold max-md:text-[4.8rem] max-md:leading-[7.2rem]">
             LỜI CẢM ƠN
