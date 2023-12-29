@@ -93,30 +93,6 @@ function SlideProductComponent(props: IProps) {
               <ItemProduct item={item} heightImage={heightImage} />
             </SwiperSlide>
           ))}
-        {/* <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide>
-        <SwiperSlide className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown">
-          <ItemProduct heightImage={heightImage} />
-        </SwiperSlide> */}
       </Swiper>
       {isShowArrow && (
         <>

@@ -11,9 +11,10 @@ import Link from 'next/link';
 import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import '../style.css'
+import '../style.css';
 import ICFacebook from '@/components/Icons/ICFacebook';
 import ICGoogle from '@/components/Icons/ICGoogle';
+
 interface IProps {
   children: ReactNode;
 }
@@ -75,8 +76,12 @@ export function Login() {
       <div className="w-full md:w-1/2 px-20 md:px-6 md:pr-16">
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
           <div className="text-center">
-            <span className="text-black text-[5.5rem] md:text-2xl font-bold">Đăng nhập</span>
-            <p className='text-[3.5rem] md:text-base'>Hãy đăng nhập để được hưởng đặc quyền riêng dành cho bạn</p>
+            <span className="text-black text-[5.5rem] md:text-2xl font-bold">
+              Đăng nhập
+            </span>
+            <p className="text-[3.5rem] md:text-base">
+              Hãy đăng nhập để được hưởng đặc quyền riêng dành cho bạn
+            </p>
           </div>
 
           <div className="grid gap-12 md:gap-4 py-12 md:py-4">
@@ -120,7 +125,7 @@ export function Login() {
             </button>
           </div>
           <div className="text-[3.5rem] md:text-[1.25rem] hover:text-orange-400 mt-6 md:mt-2">
-            <Link href='#'>Quên mật khẩu ?</Link>
+            <Link href="#">Quên mật khẩu ?</Link>
           </div>
           <div className="bg-[#1877F2] p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-6 md:mt-2">
             <button className="w-full text-white flex items-center">
@@ -141,9 +146,13 @@ export function Login() {
             </button>
           </div>
         </FormProvider>
-        <p className="text-center mt-16 md:mt-4 text-[3.5rem] md:text-base">Bạn chưa có tài khoản Anna ?</p>
+        <p className="text-center mt-16 md:mt-4 text-[3.5rem] md:text-base">
+          Bạn chưa có tài khoản Anna ?
+        </p>
         <div className="text-center mt-6 md:mt-2 text-[#81c8c2] text-[3.5rem] md:text-base">
-          <Link href='/register' className="underline">Đăng ký ngay</Link>
+          <Link href="/register" className="underline">
+            Đăng ký ngay
+          </Link>
         </div>
       </div>
     </div>

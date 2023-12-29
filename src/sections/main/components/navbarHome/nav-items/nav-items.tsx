@@ -19,7 +19,7 @@ import { IListProductMenuHeader } from '@/types/types-general';
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
-  styleNavbar: boolean
+  styleNavbar: boolean;
 }
 function NavItems(props: IProps) {
   const { dataProps, styleNavbar } = props;
@@ -56,22 +56,30 @@ function NavItems(props: IProps) {
       )}
 
       <div
-        className={`${isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
-          } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
+        className={`${
+          isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
+        } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
       >
         <span
-          className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${keyTabMenuActive !== null ? 'text-white' : 'text-[#828282]'
-            } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
+          className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
+            keyTabMenuActive !== null ? 'text-white' : 'text-[#828282]'
+          } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
         >
           giảm ngay 15% cho đơn hàng đầu tiên
         </span>
         <div className="flex items-center">
-          <span className={`${styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
-            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}>
+          <span
+            className={`${
+              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
+            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}
+          >
             Chính sách
           </span>
-          <span className={`${styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
-            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}>
+          <span
+            className={`${
+              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
+            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}
+          >
             Tra cứu đơn hàng
           </span>
           <Link
@@ -82,10 +90,17 @@ function NavItems(props: IProps) {
           </Link>
         </div>
       </div>
-      <div className={`${styleNavbar ? 'bg-white' : 'bg-[#1D1D1D42]'
-        } h-[3.75rem] border-2 border-[#55D5D2] w-full flex items-center rounded-[6.25rem] px-[1.25rem]`}>
+      <div
+        className={`${
+          styleNavbar ? 'bg-white' : 'bg-[#1D1D1D42]'
+        } h-[3.75rem] border-2 border-[#55D5D2] w-full flex items-center rounded-[6.25rem] px-[1.25rem]`}
+      >
         <Link href="/">
-          <ICLogo fill={`${styleNavbar ? "#4DC0BD" : "#fff"}`} width="2.8125rem" height="2.5rem" />
+          <ICLogo
+            fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`}
+            width="2.8125rem"
+            height="2.5rem"
+          />
         </Link>
         <ul className="h-full grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center ml-[2.12rem]">
           <li
@@ -105,15 +120,19 @@ function NavItems(props: IProps) {
                     paddingRight: 0,
                   }}
                   href="/list-product"
-                  className={`${keyTabMenuActive === null ? 'tab-menu' : 'tab-menu-active'
-                    } flex items-center h-full`}
+                  className={`${
+                    keyTabMenuActive === null ? 'tab-menu' : 'tab-menu-active'
+                  } flex items-center h-full`}
                 >
-                  <span className={`mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] ${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                    }`}>
+                  <span
+                    className={`mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] ${
+                      styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                    }`}
+                  >
                     Sản phẩm
                   </span>
                   <ICArrowDown
-                    stroke={`${styleNavbar ? "#454545" : "#fff"}`}
+                    stroke={`${styleNavbar ? '#454545' : '#fff'}`}
                     width="0.7rem"
                     height="0.5rem"
                   />
@@ -128,11 +147,18 @@ function NavItems(props: IProps) {
             </HoverCard>
           </li>
           <li className="has-child tab-menu flex items-center ml-[1.75rem]">
-            <span className={`${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-              } cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}>
+            <span
+              className={`${
+                styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+              } cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+            >
               Tìm cửa hàng
             </span>
-            <ICLocation fill={`${styleNavbar ? "#4DC0BD" : "#fff"}`} width="1.25rem" height="1.51338rem" />
+            <ICLocation
+              fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`}
+              width="1.25rem"
+              height="1.51338rem"
+            />
           </li>
           <li
             onMouseMove={() => onOpenChangeDropdown('search')}
@@ -171,12 +197,15 @@ function NavItems(props: IProps) {
             >
               <HoverCardTrigger asChild>
                 <div className="tab-menu cursor-pointer px-[6px] py-[4px] flex items-center h-full">
-                  <span className={`${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                    } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}>
+                  <span
+                    className={`${
+                      styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                    } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+                  >
                     Xem Thêm
                   </span>
                   <ICArrowDown
-                    stroke={`${styleNavbar ? "#454545" : "#fff"}`}
+                    stroke={`${styleNavbar ? '#454545' : '#fff'}`}
                     width="0.7rem"
                     height="0.5rem"
                   />
@@ -188,8 +217,11 @@ function NavItems(props: IProps) {
             </HoverCard>
           </li>
           <li className="tab-menu cursor-pointer has-child flex items-center mx-[1.75rem]">
-            <span className={`${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-              } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}>
+            <span
+              className={`${
+                styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+              } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+            >
               Hành trình tử tế
             </span>
           </li>
@@ -205,12 +237,15 @@ function NavItems(props: IProps) {
             >
               <HoverCardTrigger asChild>
                 <div className="tab-menu flex items-center relative h-full">
-                  <span className={`${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                    } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}>
+                  <span
+                    className={`${
+                      styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                    } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+                  >
                     Giỏ hàng
                   </span>
                   <ICCart
-                    fill={`${styleNavbar ? "#4DC0BD" : "#fff"}`}
+                    fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`}
                     width="1.47381rem"
                     height="1.44581rem"
                   />
