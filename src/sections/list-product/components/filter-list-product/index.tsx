@@ -53,8 +53,6 @@ export default function FilterListProduct(props: IProps) {
     setParamsFilter(newObject);
   };
 
-  useEffect(() => {}, [paramsFilter]);
-
   return (
     <div className="filter-list-product-container">
       {/* <div className="mb-[2rem] max-md:mt-[6rem] max-md:mb-[5rem]"> */}
