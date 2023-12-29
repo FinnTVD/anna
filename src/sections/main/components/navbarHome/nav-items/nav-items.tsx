@@ -1,11 +1,6 @@
 'use client';
 
-import { HoverCardArrow } from '@radix-ui/react-hover-card';
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardTrigger } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICLocation from '@/components/Icons/ICLocation';
 import ICArrowDown from '@/components/Icons/ICArrowDown';
