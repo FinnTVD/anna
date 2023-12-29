@@ -1,30 +1,36 @@
-'use client';
-
 import { HoverCardContent } from '@/components/ui/hover-card';
 import Image from 'next/image';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
+import Link from 'next/link';
+import "./style.css";
 
-function DropdownSeeMoreHeader() {
-  const color = '#55D5D2';
+interface IProps {
+  onMouseLeaveTabMenu?: () => void;
+}
 
+function DropdownSeeMoreHeader(props: IProps) {
+  const { onMouseLeaveTabMenu } = props;
   const listSeemore = [
     {
       id: 1,
       title: 'Giúp bạn chọn kính',
+      router: '',
     },
     {
       id: 1,
       title: 'Về chúng tôi',
+      router: '/about-us',
     },
     {
       id: 1,
       title: 'blog',
+      router: '/blog',
     },
   ];
 
   return (
     <HoverCardContent
-      className="border-none p-0 w-[87.5rem] -mr-[21rem] rounded-[1.5rem] mt-[1rem]"
+      className="dropdown-see-more-header-container border-none p-0 w-[87.5rem] -mr-[20.5rem] rounded-[1.5rem] -mt-[0.34rem]"
       side="bottom"
       align="end"
       sideOffset={6}
@@ -34,24 +40,28 @@ function DropdownSeeMoreHeader() {
           <ul className="w-full">
             {listSeemore.map((item, index) => (
               <li key={index} className="mb-[3rem]">
-                <span
-                  className={`text-[${color}] text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase`}
+                <Link
+                  href={item.router}
+                  onClick={onMouseLeaveTabMenu ?? undefined}
+                  className="cursor-pointer text-[#C5C5C5] hover:text-[#55D5D2] text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase"
                 >
                   {item.title}
-                </span>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
         <div className="flex grow items-center justify-between p-[2rem]">
-          <div className="w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
-            <Image
-              height={200}
-              width={200}
-              className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem]"
-              src="https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png"
-              alt=""
-            />
+          <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
+            <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
+              <Image
+                height={200}
+                width={200}
+                className="w-full h-full"
+                src="/img/header/image1.png"
+                alt=""
+              />
+            </div>
             <button
               type="button"
               className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#F58F5D] flex justify-between items-center"
@@ -70,14 +80,16 @@ function DropdownSeeMoreHeader() {
               </div>
             </button>
           </div>
-          <div className="w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
-            <Image
-              height={200}
-              width={200}
-              className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem]"
-              src="https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png"
-              alt=""
-            />
+          <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
+            <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
+              <Image
+                height={200}
+                width={200}
+                className="w-full h-full"
+                src="/img/header/image2.png"
+                alt=""
+              />
+            </div>
             <button
               type="button"
               className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#F58F5D] flex justify-between items-center"
@@ -96,14 +108,16 @@ function DropdownSeeMoreHeader() {
               </div>
             </button>
           </div>
-          <div className="w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
-            <Image
-              height={200}
-              width={200}
-              className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem]"
-              src="https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png"
-              alt=""
-            />
+          <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
+            <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
+              <Image
+                height={200}
+                width={200}
+                className="w-full h-full"
+                src="/img/header/image3.png"
+                alt=""
+              />
+            </div>
             <button
               type="button"
               className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#F58F5D] flex justify-between items-center"

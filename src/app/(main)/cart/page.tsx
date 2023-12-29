@@ -3,7 +3,7 @@ import { postData } from '@/lib/post-data';
 
 const CartPage = async () => {
   const bodyGetListProduct: any = {
-    url: `products?per_page=6&page=2`,
+    url: `wp-json/custom/v1/products?per_page=6&page=2`,
     method: 'get',
   };
 

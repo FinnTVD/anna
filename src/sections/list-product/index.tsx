@@ -33,7 +33,7 @@ export default function ListProduct(props: IProps) {
   const [dataInit, setDatainit] = useState<any>();
 
   const bodyGetListProduct: any = {
-    url: `products?per_page=12&page=1`,
+    url: `wp-json/custom/v1/products?per_page=12&page=1`,
     method: 'get',
   };
 

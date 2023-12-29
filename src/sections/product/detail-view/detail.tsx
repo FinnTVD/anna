@@ -21,29 +21,23 @@ interface IProps {
 }
 
 function ProductDetail({ slug }: IProps) {
+  const refHeightProductInfo = useRef<any>();
+  const [isShowItemProduct, setIsShowItemProduct] = useState<boolean>(false);
+
   const [dataInit, setDatainit] = useState();
   const [colorGetDetail, setColorGetDetail] = useState<number | string | null>(
     null
   );
   const [listColorProduct, setListColorProduct] = useState<any>([]);
-  const scrollY = useRef(0);
-
-  // const handleScroll = () => {
-  //   console.log(scrollElement.scrollY);
-  // };
-
-  useEffect(() => {
-    console.log('scrollY.current', scrollY.current);
-  }, [scrollY.current]);
 
   const bodyApi: IPostData = {
-    url: `products-details/${slug}`,
+    url: `wp-json/custom/v1/products-details/${slug}`,
     method: 'get',
   };
   const dataInitDetail = useSWR(bodyApi.url, () => postData(bodyApi));
 
   const bodyApiGetGlasses: IPostData = {
-    url: `related-products/93`,
+    url: `wp-json/custom/v1/related-products/93`,
     method: 'get',
   };
   const dataGlasses = useSWR(bodyApiGetGlasses.url, () =>
@@ -56,12 +50,12 @@ function ProductDetail({ slug }: IProps) {
 
   // GET DETAIL PRODUCT BY COLOR
   const bodyGetProductByColor: any = {
-    url: `products-details/${colorGetDetail}`,
+    url: `wp-json/custom/v1/products-details/${colorGetDetail}`,
     method: 'get',
   };
 
   const getDetailProductByColor = useSWR(
-    `products-details/${colorGetDetail}`,
+    `wp-json/custom/v1/products-details/${colorGetDetail}`,
     () => (colorGetDetail ? postData(bodyGetProductByColor) : undefined)
   );
 
@@ -86,27 +80,6 @@ function ProductDetail({ slug }: IProps) {
     // console.log('datainittess', dataInitDetail?.data?.variant);
   }, [dataInitDetail.data]);
 
-  // document.addEventListener('scroll', function () {
-  //   const getElemetToShow = document.getElementById('check-scroll-to-show');
-  //   const elementTop = getElemetToShow?.offsetTop;
-  //   const getElementFixed = document.getElementById('fixed-product');
-  //   if (window.scrollY < elementTop && window.scrollY - elementTop < 0) {
-  //     getElementFixed.style.bottom = window.scrollY - elementTop + 'px';
-  //   } else if (
-  //     window.scrollY < elementTop &&
-  //     elementTop - window.scrollY < 120
-  //   ) {
-  //     getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
-  //   } else if (
-  //     window.scrollY > elementTop &&
-  //     window.scrollY < elementTop + 120
-  //   ) {
-  //     getElementFixed.style.bottom = elementTop - window.scrollY + 'px';
-  //   } else if (window.scrollY > elementTop + 120) {
-  //     getElementFixed.style.bottom = '0px';
-  //   }
-  // });
-
   // console.log('colorGetDetail', colorGetDetail);
   // console.log('getDetailProductByColor', getDetailProductByColor.data);
   // try {
@@ -117,11 +90,24 @@ function ProductDetail({ slug }: IProps) {
   //   console.log(error);
   // }
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const { scrollY } = window;
+
+      if (scrollY > refHeightProductInfo.current?.clientHeight) {
+        setIsShowItemProduct(true);
+      } else setIsShowItemProduct(false);
+    });
+  }, []);
+
   // const memoizedInforProduct = useMemo(() => {})
   return (
     <div className="pt-[3.41rem]">
       {/* section 1 */}
-      <div className="flex justify-center w-[87.5rem] mx-auto max-md:w-full max-md:px-[3.2rem]">
+      <div
+        ref={refHeightProductInfo}
+        className="flex justify-center w-[87.5rem] mx-auto max-md:w-full max-md:px-[3.2rem]"
+      >
         <div className="w-full flex max-md:flex-col mb-[5rem] max-md:mb-[0]">
           <ImageProduct dataInit={dataInit} />
           {/* right */}
@@ -287,9 +273,11 @@ function ProductDetail({ slug }: IProps) {
       {/* section 4 */}
       <RecommendProduct />
       {/* section fix */}
+
       <div
-        id="fixed-product"
-        className="px-[6.25rem] fixed h-[7.5rem] w-[100%] bg-[#fff] bottom-[-7.5rem] z-50 border-t-[1px] border-[#ECECEC] max-sm:hidden items-center"
+        className={`h-[7.5rem] ${
+          isShowItemProduct ? '-bottom-[0rem]' : '-bottom-[7.5rem]'
+        }  fixed transition-all duration-150  z-50 bg-[#FAFAFA] w-full px-[6.25rem] border-t-[1px] border-t-[#ECECEC]`}
       >
         <Fixed dataInit={dataInit} listColorProduct={listColorProduct} />
       </div>

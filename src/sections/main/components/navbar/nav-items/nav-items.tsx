@@ -13,64 +13,142 @@ import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 import Link from 'next/link';
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
+import { useEffect, useState } from 'react';
+import ICUser from '@/components/Icons/ICUser';
+import { IListProductMenuHeader } from '@/types/types-general';
 
-function NavItems() {
+interface IProps {
+  dataProps: IListProductMenuHeader[] | [];
+}
+function NavItems(props: IProps) {
+  const { dataProps } = props;
+
+  const [currentPositionScrollY, setCurrentPositionScrollY] =
+    useState<number>(0);
+  const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
+  const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
+
+  const onOpenChangeDropdown = (
+    tab: 'product' | 'see-more' | 'cart' | 'search'
+  ) => {
+    setKeyTabMenuActive(tab);
+  };
+
+  const onMouseLeaveTabMenu = (): void => {
+    setKeyTabMenuActive(null);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const { scrollY } = window;
+      setCurrentPositionScrollY(scrollY);
+
+      if (scrollY > currentPositionScrollY) {
+        setIsShowTopNav(false);
+      } else setIsShowTopNav(true);
+    });
+  }, [currentPositionScrollY]);
   return (
     <nav className="navbar-container w-[87.5rem] mx-auto">
-      <div className="top-nav flex items-center justify-between ">
-        <span className="font-bold text-[0.875rem]  leading-5 uppercase text-[#828282]">
+      {keyTabMenuActive !== null && (
+        <div className=" fixed top-0 left-0 h-[100vh] w-full bg-[#ABABAB] -z-10 opacity-80" />
+      )}
+
+      <div
+        className={`${
+          isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
+        } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
+      >
+        <span
+          className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
+            keyTabMenuActive !== null ? 'text-white' : 'text-[#828282]'
+          } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
+        >
           giảm ngay 15% cho đơn hàng đầu tiên
         </span>
-        <div>
-          <span className="text-white text-[0.875rem] px-3.5 py-1 bg-[#55D5D2] font-bold rounded-[6.25rem] ">
+        <div className="flex items-center">
+          <span className="text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] bg-[#55D5D2] font-bold rounded-[6.25rem] ">
             Chính sách
           </span>
-          <span className="text-white text-[0.875rem] px-3.5 py-1  ml-[0.38rem] bg-[#55D5D2] font-bold rounded-[6.25rem]">
+          <span className="text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  ml-[0.38rem] bg-[#55D5D2] font-bold rounded-[6.25rem]">
             Tra cứu đơn hàng
           </span>
+          <Link
+            href="/list-product-dashboard"
+            className="h-full w-auto p-[0.25rem] ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#ACACAC]"
+          >
+            <ICUser width="1rem" height="1rem" />
+          </Link>
         </div>
       </div>
-      <div className="navbar-main border-2 border-[#55D5D2] w-full flex mt-2 px-7 py-[0.625rem] rounded-[6.25rem]">
-        <div className="xl:w-[20px] xl:h-[20px] mr-[1rem]">
+      <div className="h-[3.75rem] border-2 border-[#55D5D2] bg-white w-full flex items-center rounded-[6.25rem] px-[1.25rem]">
+        <Link href="/">
           <ICLogo fill="#4DC0BD" width="2.8125rem" height="2.5rem" />
-        </div>
-        <ul className="grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center">
-          <li className="active has-child mx-3.5">
-            <HoverCard openDelay={0}>
+        </Link>
+        <ul className="h-full grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center ml-[2.12rem]">
+          <li
+            onMouseMove={() => onOpenChangeDropdown('product')}
+            onMouseLeave={() => setKeyTabMenuActive(null)}
+            className="active has-child h-full"
+          >
+            <HoverCard
+              open={keyTabMenuActive === 'product'}
+              openDelay={0}
+              closeDelay={0}
+            >
               <HoverCardTrigger asChild>
                 <Link
+                  style={{
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                  }}
                   href="/list-product"
-                  className="px-[6px] py-[4px] flex items-center"
+                  className={`${
+                    keyTabMenuActive === null ? 'tab-menu' : 'tab-menu-active'
+                  } flex items-center h-full`}
                 >
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Sản phẩm
                   </span>
                   <ICArrowDown
                     stroke="#454545"
-                    width="0.5625rem"
-                    height="0.3125rem"
+                    width="0.7rem"
+                    height="0.5rem"
                   />
                 </Link>
               </HoverCardTrigger>
-              <DropdownProductHeader />
+              <div>
+                <DropdownProductHeader
+                  listProduct={dataProps}
+                  onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+                />
+              </div>
             </HoverCard>
           </li>
-          <li className="has-child flex items-center mx-3.5">
-            <span className="cursor-pointer mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
+          <li className="has-child tab-menu flex items-center ml-[1.75rem]">
+            <span className="cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
               Tìm cửa hàng
             </span>
             <ICLocation fill="#4DC0BD" width="1.25rem" height="1.51338rem" />
           </li>
-          <li className=" grow has-child">
-            <HoverCard openDelay={0}>
+          <li
+            onMouseMove={() => onOpenChangeDropdown('search')}
+            onMouseLeave={() => setKeyTabMenuActive(null)}
+            className="grow has-child mx-[2.31rem] w-[29rem] h-full"
+          >
+            <HoverCard
+              open={keyTabMenuActive === 'search'}
+              openDelay={0}
+              closeDelay={0}
+            >
               <HoverCardTrigger asChild>
-                <div className="relative rounded-[6.25rem] flex items-center">
+                <div className="relative rounded-[1.25rem] flex items-center h-full">
                   <Input
-                    className="input-search rounded-[6.25rem] placeholder-[#4DC0BD] bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0"
+                    className="input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:italic placeholder-[#4DC0BD] bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0"
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
-                  <div className="absolute top-[50%] -translate-y-1/2 right-[1rem]">
+                  <div className="absolute top-[50%] -translate-y-1/2 right-[1.5rem]">
                     <ICSearch fill="#4DC0BD" width="1.00006rem" height="1rem" />
                   </div>
                 </div>
@@ -78,35 +156,50 @@ function NavItems() {
               <DropdownSearchHeader />
             </HoverCard>
           </li>
-          <li className="active has-child mx-3.5">
-            <HoverCard openDelay={0}>
+          <li
+            onMouseMove={() => onOpenChangeDropdown('see-more')}
+            onMouseLeave={() => setKeyTabMenuActive(null)}
+            className="active has-child h-full"
+          >
+            <HoverCard
+              open={keyTabMenuActive === 'see-more'}
+              openDelay={0}
+              closeDelay={0}
+            >
               <HoverCardTrigger asChild>
-                <a
-                  href="#"
-                  className="cursor-pointer px-[6px] py-[4px] flex items-center"
-                >
+                <div className="tab-menu cursor-pointer px-[6px] py-[4px] flex items-center h-full">
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Xem Thêm
                   </span>
                   <ICArrowDown
                     stroke="#454545"
-                    width="0.5625rem"
-                    height="0.3125rem"
+                    width="0.7rem"
+                    height="0.5rem"
                   />
-                </a>
+                </div>
               </HoverCardTrigger>
-              <DropdownSeeMoreHeader />
+              <DropdownSeeMoreHeader
+                onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+              />
             </HoverCard>
           </li>
-          <li className="cursor-pointer has-child flex items-center mx-3.5">
+          <li className="tab-menu cursor-pointer has-child flex items-center mx-[1.75rem]">
             <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
               Hành trình tử tế
             </span>
           </li>
-          <li className="cursor-pointer has-child flex items-center mx-3.5">
-            <HoverCard openDelay={0}>
+          <li
+            onMouseMove={() => onOpenChangeDropdown('cart')}
+            onMouseLeave={() => setKeyTabMenuActive(null)}
+            className="cursor-pointer has-child flex items-center h-full"
+          >
+            <HoverCard
+              open={keyTabMenuActive === 'cart'}
+              openDelay={0}
+              closeDelay={0}
+            >
               <HoverCardTrigger asChild>
-                <Link href="/cart" className="flex relative">
+                <div className="tab-menu flex items-center relative h-full">
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Giỏ hàng
                   </span>
@@ -115,12 +208,12 @@ function NavItems() {
                     width="1.47381rem"
                     height="1.44581rem"
                   />
-                  <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem]">
+                  <div className="flex items-center justify-center absolute bottom-2.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem] leading-[1.125rem]">
                     3
                   </div>
-                </Link>
+                </div>
               </HoverCardTrigger>
-              <DropdownCartHeader />
+              <DropdownCartHeader onMouseLeaveTabMenu={onMouseLeaveTabMenu} />
             </HoverCard>
           </li>
         </ul>
