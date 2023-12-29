@@ -8,16 +8,19 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
     url: `custom/v1/categories`,
     method: 'get',
   };
-  const dataListProductHeader = await fetchDataRest(bodyGetProductHeader?.method, bodyGetProductHeader?.url);
+  const dataListProductHeader = await fetchDataRest(
+    bodyGetProductHeader?.method,
+    bodyGetProductHeader?.url
+  );
   return (
     <div>
-      <NavbarHome dataListProductHeader={dataListProductHeader}/>
+      <NavbarHome dataListProductHeader={dataListProductHeader} />
       <main className=" max-md:mt-0">
         <div>{children}</div>
       </main>
       <Footer />
     </div>
   );
-}
+};
 
 export default MainLayout;

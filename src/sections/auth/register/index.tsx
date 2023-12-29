@@ -9,10 +9,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import '../style.css'
+import '../style.css';
 import ICFacebook from '@/components/Icons/ICFacebook';
 import ICGoogle from '@/components/Icons/ICGoogle';
-
 
 const defaultValues = {
   email: '',
@@ -26,10 +25,9 @@ const formSchema = z.object({
       required_error: 'Email is required',
     })
     .email('Email invalid!'),
-  username: z
-    .string({
-      required_error: 'User Name is required',
-    }),
+  username: z.string({
+    required_error: 'User Name is required',
+  }),
   password: z.string({
     required_error: 'Password is required',
   }),
@@ -55,7 +53,6 @@ export function Register() {
     //   });
     // }
     console.log(values);
-
   };
 
   return (
@@ -73,8 +70,12 @@ export function Register() {
       <div className="w-full md:w-1/2 px-20 md:px-6 md:pr-24">
         <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
           <div className="text-center">
-            <span className="text-black text-[5.5rem] md:text-2xl font-bold">Đăng ký email</span>
-            <p className='text-[3.5rem] md:text-base'>Hãy đăng ký để được hưởng nhiều đặc quyền riêng dành cho bạn</p>
+            <span className="text-black text-[5.5rem] md:text-2xl font-bold">
+              Đăng ký email
+            </span>
+            <p className="text-[3.5rem] md:text-base">
+              Hãy đăng ký để được hưởng nhiều đặc quyền riêng dành cho bạn
+            </p>
           </div>
           <div className="grid gap-12 md:gap-4 py-12 md:py-4">
             <div className="flex flex-col gap-2">
@@ -111,7 +112,15 @@ export function Register() {
                 className="w-full border border-[#55D5D2] p-8 md:p-3 text-[4rem] md:text-base rounded-3xl md:rounded-xl"
               />
             </div>
-            <div className="text-[3.5rem] md:text-base">Thông tin của bạn sẽ được bảo mật theo <span><Link href='#' className='text-amber-700'>chính sách riêng tư</Link></span> của chúng tôi</div>
+            <div className="text-[3.5rem] md:text-base">
+              Thông tin của bạn sẽ được bảo mật theo{' '}
+              <span>
+                <Link href="#" className="text-amber-700">
+                  chính sách riêng tư
+                </Link>
+              </span>{' '}
+              của chúng tôi
+            </div>
           </div>
           <div className="bg-[#55D5D2] hover:bg-[#f58f5d] p-12 md:p-3 text-[3.5rem] md:text-lg rounded-3xl md:rounded-xl">
             <button type="submit" className="w-full text-white font-bold">
@@ -140,9 +149,13 @@ export function Register() {
             </button>
           </div>
         </FormProvider>
-        <p className="text-center mt-16 md:mt-4 text-[3.5rem] md:text-base">Bạn chưa có tài khoản Anna ?</p>
+        <p className="text-center mt-16 md:mt-4 text-[3.5rem] md:text-base">
+          Bạn chưa có tài khoản Anna ?
+        </p>
         <div className="text-center mt-6 md:mt-2 text-[#81c8c2] text-[3.5rem] md:text-base">
-          <Link href='/login' className="underline">Đăng nhập ngay</Link>
+          <Link href="/login" className="underline">
+            Đăng nhập ngay
+          </Link>
         </div>
       </div>
     </div>

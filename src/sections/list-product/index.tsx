@@ -1,5 +1,3 @@
-'use client';
-
 import './style.css';
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
@@ -8,48 +6,33 @@ import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { postData } from '@/lib/post-data';
+import { IItemAttributeProduct } from '@/types/types-general';
 
 interface IProps {
   slug?: any;
+  dataListAttribute: IItemAttributeProduct[];
+  dataListProductInit: any;
 }
 
-// interface IParamsSearch {
-//   per_page: number;
-//   page: number;
-// }
+interface IParamsFilter {
+  category: number;
+  page: number;
+}
 
 export default function ListProduct(props: IProps) {
-  const { slug } = props;
-  console.log('slug', slug);
-  // const [paramsSearch, setParamsSearch] = useQueryState<IParamsSearch>({
-  //   per_page: 12,
-  //   page: 1,
-  // });
-  // const [paramsSearch, setParamsSearch] = useState<IParamsSearch>({
-  //   per_page: 12,
-  //   page: 1,
-  // });
+  const { slug, dataListAttribute, dataListProductInit } = props;
 
-  const [dataInit, setDatainit] = useState<any>();
-
-  const bodyGetListProduct: any = {
-    url: `wp-json/custom/v1/products?per_page=12&page=1`,
-    method: 'get',
-  };
-
-  const getlistProduct = useSWR(bodyGetListProduct.url, () =>
-    postData(bodyGetListProduct)
-  );
-
-  useEffect(() => {
-    setDatainit(getlistProduct.data);
-  }, [getlistProduct]);
-
-  // console.log('dataInit', dataInit);
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
-      <div className="relative bg-banner-about-us bg-[url('/img/about-us/bg-banner-about-us.jpg')] bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
+      <div className="relative bg-banner-about-us bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
+        <Image
+          src="/img/about-us/bg-banner-about-us.jpg"
+          width={100}
+          height={32}
+          alt="banner cart"
+          className="w-full h-full"
+        />
         <div className="absolute bottom-20 left-[8rem]">
           <h1 className="text-white text-[3.125rem] leading-[4.6875rem] font-semibold font-sans not-italic max-md:font-bold max-md:text-[4.8rem] max-md:leading-[7.2rem]">
             LỜI CẢM ƠN
@@ -68,7 +51,10 @@ export default function ListProduct(props: IProps) {
 
       {/* content */}
       <div className="w-[87.5rem] mx-auto mt-[2.5rem] max-md:w-full max-md:px-[3.2rem] max-md:mt-[3.2rem]">
-        <FilterListProduct data={dataInit} />
+        <FilterListProduct
+          data={dataListProductInit}
+          listAttribute={dataListAttribute}
+        />
         <div className="mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
           <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
             <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
@@ -89,7 +75,7 @@ export default function ListProduct(props: IProps) {
             <SlideProductComponent
               keySlide="out-standing-product"
               breakPoint={{ PerView767: 2 }}
-              data={dataInit}
+              data={dataListProductInit}
             />
           </div>
           {/* <div className="hidden max-md:block px-[3.2rem]">
@@ -141,7 +127,7 @@ export default function ListProduct(props: IProps) {
                 breakPoint={{
                   PerView1280: 3,
                 }}
-                data={dataInit}
+                data={dataListProductInit}
               />
             </div>
           </div>

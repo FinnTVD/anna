@@ -35,7 +35,10 @@ function NavbarHome(props: IProps) {
           }`
         )}
       >
-        <NavItems styleNavbar={styleNavbar} dataProps={dataListProductHeader ?? []}/>
+        <NavItems
+          styleNavbar={styleNavbar}
+          dataProps={dataListProductHeader ?? []}
+        />
         <div className="mt-5 max-md:mt-1" />
       </div>
       <div className="hidden max-sm:block fixed top-[20px] right-[3.2rem] z-10">
