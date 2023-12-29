@@ -24,9 +24,9 @@ function Feature({ dataFeature }: IpropFeature) {
           className="w-full pr-5 sm:pr-[5.688rem]"
         />
       </div>
-      <div className="w-full md:w-2/3 pr-0 sm:pr-32  p-[6.67rem] md:p-[0]">
+      <div className="w-full md:w-2/3 sm:pr-32  p-[6.67rem] md:p-[0]">
         <div className="md:h-[47px] px-5 py-2.5 bg-teal-100 rounded-tl-[20px] rounded-tr-[20px] rounded-br-[20px] justify-center items-center gap-2.5 inline-flex">
-          <div className="text-neutral-800 text-lg font-extrabold uppercase">
+          <div className="text-neutral-800 text-[4.8rem] md:text-lg font-extrabold uppercase">
             Chọn kính phù hợp với bạn
           </div>
         </div>
