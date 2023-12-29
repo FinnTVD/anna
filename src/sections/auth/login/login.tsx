@@ -13,10 +13,6 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import '../style.css';
 
-interface IProps {
-  children: ReactNode;
-}
-
 const defaultValues = {
   email: '',
   password: '',
@@ -34,8 +30,6 @@ const formSchema = z.object({
 });
 
 export function Login() {
-  const [checkRemember, setCheckRemember] = useState(false);
-
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -56,7 +50,7 @@ export function Login() {
     }
   };
   const handleCheckRemember = (value: boolean) => {
-    setCheckRemember(value);
+    console.log(value);
   };
 
   return (
@@ -135,7 +129,7 @@ export function Login() {
             </button>
           </div>
           <div className="p-3 rounded-3xl md:rounded-xl mt-3 btn-login-gg">
-            <button className="w-full">
+            <button type="button" className="w-full">
               Đăng nhập bằng
               <b> Google</b>
             </button>
