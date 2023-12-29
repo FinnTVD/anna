@@ -8,14 +8,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactNode, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import '../style.css';
-
-interface IProps {
-  children: ReactNode;
-}
 
 const defaultValues = {
   email: '',
@@ -34,8 +29,6 @@ const formSchema = z.object({
 });
 
 export function Login() {
-  const [checkRemember, setCheckRemember] = useState(false);
-
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -56,7 +49,7 @@ export function Login() {
     }
   };
   const handleCheckRemember = (value: boolean) => {
-    setCheckRemember(value);
+    console.log(value);
   };
 
   return (
@@ -129,13 +122,13 @@ export function Login() {
             Quên mật khẩu ?
           </Link>
           <div className="bg-[#1877F2] p-3 rounded-3xl md:rounded-xl mt-2">
-            <button className="w-full text-white">
+            <button type="button" className="w-full text-white">
               Đăng nhập bằng
               <b> Facebook</b>
             </button>
           </div>
           <div className="p-3 rounded-3xl md:rounded-xl mt-3 btn-login-gg">
-            <button className="w-full">
+            <button type="button" className="w-full">
               Đăng nhập bằng
               <b> Google</b>
             </button>

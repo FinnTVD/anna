@@ -4,8 +4,6 @@ import { HoverCardContent } from '@/components/ui/hover-card';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 
 function DropdownSearchHeader() {
-  const color = '#55D5D2';
-
   const listTextOutstanding = [
     {
       id: 1,

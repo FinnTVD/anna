@@ -17,6 +17,10 @@ interface IpropAbout {
 function AboutHome({ dataAbout }: IpropAbout) {
   const refs = useRef([]);
   const body = useRef(null);
+  let widthScreen;
+  if (typeof window !== 'undefined') {
+    widthScreen = window.innerWidth;
+  }
 
   const container = useRef(null);
 
@@ -86,12 +90,14 @@ function AboutHome({ dataAbout }: IpropAbout) {
     <div className="about">
       <div
         className={`${
-          screen.width > 1024 ? 'pin-card !top-0 !translate-y-9' : ''
+          widthScreen && widthScreen > 1024
+            ? 'pin-card !top-0 !translate-y-9'
+            : ''
         } container`}
       >
         <div
           className={`${
-            screen.width > 1024 ? 'pin-content' : ''
+            widthScreen && widthScreen > 1024 ? 'pin-content' : ''
           } py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}
         >
           <div className="w-full md:w-1/2 px-4 pt-10">

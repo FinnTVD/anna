@@ -104,7 +104,9 @@ function NavItems(props: IProps) {
                   }}
                   href="/list-product"
                   className={`${
-                    keyTabMenuActive === null ? 'tab-menu' : 'tab-menu-active'
+                    keyTabMenuActive !== 'product'
+                      ? 'tab-menu'
+                      : 'tab-menu-active'
                   } flex items-center h-full`}
                 >
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
@@ -167,7 +169,13 @@ function NavItems(props: IProps) {
               closeDelay={0}
             >
               <HoverCardTrigger asChild>
-                <div className="tab-menu cursor-pointer px-[6px] py-[4px] flex items-center h-full">
+                <div
+                  className={`${
+                    keyTabMenuActive !== 'see-more'
+                      ? 'tab-menu'
+                      : 'tab-menu-active'
+                  }  cursor-pointer px-[6px] py-[4px] flex items-center h-full`}
+                >
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Xem Thêm
                   </span>
@@ -199,7 +207,11 @@ function NavItems(props: IProps) {
               closeDelay={0}
             >
               <HoverCardTrigger asChild>
-                <div className="tab-menu flex items-center relative h-full">
+                <div
+                  className={`${
+                    keyTabMenuActive !== 'cart' ? 'tab-menu' : 'tab-menu-active'
+                  } flex items-center relative h-full`}
+                >
                   <span className="mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]">
                     Giỏ hàng
                   </span>
