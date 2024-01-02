@@ -48,7 +48,10 @@ function PaginationLink({
 }: PaginationLinkProps) {
   return (
     <PaginationItem>
+      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
       <a
+        aria-label="Go to home page"
+        href="#"
         aria-current={isActive ? 'page' : undefined}
         className={cn(
           buttonVariants({

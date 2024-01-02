@@ -13,11 +13,13 @@ const ListProductPage = async () => {
   // format list attribute
   const arrayListAttributeProuct: IItemAttributeProduct[] = [];
   for (const key in dataListAttribute) {
-    const newItem: IItemAttributeProduct = {
-      attribute: key,
-      subAttribute: dataListAttribute[key],
-    };
-    arrayListAttributeProuct.push(newItem);
+    if (dataListAttribute.hasOwnProperty(key)) {
+      const newItem: IItemAttributeProduct = {
+        attribute: key,
+        subAttribute: dataListAttribute[key],
+      };
+      arrayListAttributeProuct.push(newItem);
+    }
   }
   // end format
   // END GET LIST ATTRIBUTE PRODUCT

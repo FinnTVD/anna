@@ -49,6 +49,7 @@ const Blog = async () => {
         </div>
       </div>
       <div className="block md:hidden">
+        {/* eslint-disable-next-line array-callback-return,consistent-return */}
         {listBlog?.map((blog: any, index: number) => {
           if (index <= 3) {
             return (
