@@ -14,6 +14,7 @@ interface IProps {
 }
 function PaginationGlobal(props: IProps) {
   const { justify } = props;
+  console.log('justify', justify);
   return (
     <Pagination>
       <PaginationContent>

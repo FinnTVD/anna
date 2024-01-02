@@ -27,7 +27,7 @@ function FlashSale({
           <h4 className="text-teal-300 text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]">
             Flash Sale
           </h4>
-          <ICLine height={30}/>
+          <ICLine height={30} />
           <h4 className=" text-[4.3rem] md:text-[2rem] uppercase leading-[56px] pl-0 md:pl-[1.688rem]">
             bán chạy nhất
           </h4>

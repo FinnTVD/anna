@@ -3,7 +3,6 @@
 import loginImg from '@/assets/images/img-register.jpg';
 import { RHFInput } from '@/components/hook-form';
 import FormProvider from '@/components/hook-form/form-provider';
-import { Checkbox } from '@/components/ui/checkbox';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,7 +38,7 @@ export function Register() {
     defaultValues,
   });
 
-  const { handleSubmit, setError } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     // try {
