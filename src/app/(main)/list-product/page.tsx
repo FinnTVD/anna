@@ -12,7 +12,6 @@ const ListProductPage = async () => {
 
   // format list attribute
   const arrayListAttributeProuct: IItemAttributeProduct[] = [];
-  // eslint-disable-next-line guard-for-in
   for (const key in dataListAttribute) {
     const newItem: IItemAttributeProduct = {
       attribute: key,

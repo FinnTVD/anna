@@ -2,9 +2,7 @@ export interface IDetailProductRes {
   id?: number;
   name?: string;
   slug?: string;
-  category?: {
-    name?: string;
-  }[];
+  categories?: string[];
   featuredImage?: string;
   stoc_quantity?: number;
   galleryImgs?: string[];

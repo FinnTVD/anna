@@ -1,6 +1,7 @@
 interface IProps {
   width?: string | number;
   height?: string | number;
+  stroke?: string;
 }
 
 function ICFacebook(props: IProps) {

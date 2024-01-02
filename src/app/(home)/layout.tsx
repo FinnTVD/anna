@@ -1,4 +1,5 @@
 import { fetchDataRest } from '@/lib/fetch-data-rest';
+import { postData } from '@/lib/post-data';
 import Footer from '@/sections/main/components/footer/footer';
 import NavbarHome from '@/sections/main/components/navbarHome/navbar';
 
