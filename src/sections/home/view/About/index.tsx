@@ -11,16 +11,12 @@ interface AboutHomeType {
   description: string;
   info: { image: string; title: string; location: string }[];
 }
-interface IpropAbout {
+interface IPropAbout {
   dataAbout: AboutHomeType;
 }
-function AboutHome({ dataAbout }: IpropAbout) {
+function AboutHome({ dataAbout }: IPropAbout) {
   const refs = useRef([]);
   const body = useRef(null);
-  let widthScreen;
-  if (typeof window !== 'undefined') {
-    widthScreen = window.innerWidth;
-  }
 
   const container = useRef(null);
 
@@ -43,18 +39,19 @@ function AboutHome({ dataAbout }: IpropAbout) {
       ease: 'none',
       stagger: 0.1,
     });
-
-    gsap.to('.pin-content', {
-      scrollTrigger: {
-        trigger: '.pin-card',
-        start: '-15% top',
-        end: `+=${window.innerHeight / 1.5}`,
-        pin: '.pin-card',
-        scrub: 2,
-      },
-      opacity: 1,
-      y: 50,
-    });
+    if (window.innerWidth > 1024) {
+      gsap.to('.pin-content', {
+        scrollTrigger: {
+          trigger: '.pin-card',
+          start: '-15% top',
+          end: `+=${window.innerHeight / 1.5}`,
+          pin: '.pin-card',
+          scrub: 2,
+        },
+        opacity: 1,
+        y: 50,
+      });
+    }
   };
 
   const splitWords = (phrase: string) => {
@@ -88,18 +85,8 @@ function AboutHome({ dataAbout }: IpropAbout) {
   };
   return (
     <div className="about">
-      <div
-        className={`${
-          widthScreen && widthScreen > 1024
-            ? 'pin-card !top-0 !translate-y-9'
-            : ''
-        } container`}
-      >
-        <div
-          className={`${
-            widthScreen && widthScreen > 1024 ? 'pin-content' : ''
-          } py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}
-        >
+      <div className="pin-card !top-0 !translate-y-9 container">
+        <div className="pin-content py-[6.67rem] sm:py-24 flex justify-between flex-wrap">
           <div className="w-full md:w-1/2 px-4 pt-10">
             <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
@@ -110,7 +97,7 @@ function AboutHome({ dataAbout }: IpropAbout) {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/2 px-4 pt-10">
+          <div className="hidden md:block w-full md:w-1/2 px-4 pt-10">
             <SliceAbout dataInfo={dataAbout?.info} />
             <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
               <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white">
@@ -120,6 +107,18 @@ function AboutHome({ dataAbout }: IpropAbout) {
                 <ICArrowTopRightActive width={30} height={30} />
               </div>
             </div>
+          </div>
+
+          <div className="w-full block md:hidden pt-10 relative max-sm:pt-[16rem]">
+            <div className="absolute w-full top-[4rem] pt-[2rem] pb-[6rem] search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-16 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-t-[4rem] border-[1px] border-[#55D5D2]">
+              <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white">
+                TÌM KIẾM CỬA HÀNG GẦN BẠN
+              </p>
+              <div className="arrow-about-slide p-[0.5rem] bg-white rounded-[50px] justify-start items-center gap-2.5 inline-flex">
+                <ICArrowTopRightActive width={30} height={30} />
+              </div>
+            </div>
+            <SliceAbout dataInfo={dataAbout?.info} />
           </div>
         </div>
       </div>

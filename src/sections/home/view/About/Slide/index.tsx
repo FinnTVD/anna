@@ -28,16 +28,19 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper-about"
+        className="mySwiper-about "
       >
         {dataInfo?.map((info: ItemSlice, index: number) => (
-          <SwiperSlide className="relative rounded-2xl" key={index}>
+          <SwiperSlide
+            className="relative rounded-[4rem] md:rounded-2xl"
+            key={index}
+          >
             <Image
               src={info?.image}
               alt=""
               width={612}
               height={488}
-              className="w-full h-full rounded-2xl"
+              className="w-full h-full rounded-[4rem] md:rounded-2xl"
             />
             <div className="absolute bottom-0 w-full">
               <div className="p-8 md:p-3 bg-black bg-opacity-30 rounded-[20px] backdrop-blur-[25px] m-3">

@@ -7,7 +7,7 @@ import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
 import { IItemAttributeProduct, IItemProduct } from '@/types/types-general';
 import useSWR from 'swr';
 import { postData } from '@/lib/post-data';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface IProps {
   data: IItemProduct[];
