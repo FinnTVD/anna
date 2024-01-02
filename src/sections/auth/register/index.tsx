@@ -129,28 +129,25 @@ export function Register() {
           <div className="text-[3.5rem] md:text-[1.25rem] text-center py-12 md:py-4">
             Hoặc
           </div>
-          <div className="bg-[#1877F2] p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-6 md:mt-2">
-            <button
-              type="button"
-              className="w-full text-white flex items-center"
-            >
-              <ICFacebook width={35} height={35} />
-              <p className="text-center w-full">
-                Đăng nhập bằng
-                <b> Facebook</b>
-              </p>
-            </button>
-          </div>
-          <div className="p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-12 md:mt-3 btn-login-gg">
-            <button type="button" className="w-full flex items-center">
-              <ICGoogle width={35} height={35} />
-              <p className="text-center w-full">
-                Đăng nhập bằng
-                <b> Google</b>
-              </p>
-            </button>
-          </div>
         </FormProvider>
+        <div className="bg-[#1877F2] p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-6 md:mt-2">
+          <button className="w-full text-white flex items-center">
+            <ICFacebook width={35} height={35} />
+            <p className="text-center w-full">
+              Đăng nhập bằng
+              <b> Facebook</b>
+            </p>
+          </button>
+        </div>
+        <div className="p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-12 md:mt-3 btn-login-gg">
+          <button className="w-full flex items-center">
+            <ICGoogle width={35} height={35} />
+            <p className="text-center w-full">
+              Đăng nhập bằng
+              <b> Google</b>
+            </p>
+          </button>
+        </div>
         <p className="text-center mt-16 md:mt-4 text-[3.5rem] md:text-base">
           Bạn chưa có tài khoản Anna ?
         </p>

@@ -40,7 +40,7 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
               alt=""
               width={612}
               height={488}
-              className="w-full h-full rounded-[4rem] md:rounded-2xl"
+              className="w-full h-full rounded-[4rem] md:rounded-2xl object-cover"
             />
             <div className="absolute bottom-0 w-full">
               <div className="p-8 md:p-3 bg-black bg-opacity-30 rounded-[20px] backdrop-blur-[25px] m-3">
