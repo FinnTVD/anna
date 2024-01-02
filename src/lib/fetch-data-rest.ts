@@ -27,21 +27,3 @@ export const fetchDataRest = async (
   }
   return res.json();
 };
-
-export const fetchDataAcf = async (method: string, url: string) => {
-  const res = await fetch(`${baseUrlAcf}/${url}`, {
-    method: method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    next: { revalidate },
-    // cache: 'no-store'
-  });
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-};

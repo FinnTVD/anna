@@ -66,7 +66,7 @@ const NewCollection = async () => {
           {collectNewData?.map((dataCollect: any, index: number) => {
             if (index <= 7) {
               return (
-                <div key={index} className="px-8">
+                <div key={index} className="px-8 md:px-4">
                   <ItemCollect dataCollect={dataCollect} key={index} />
                 </div>
               );
@@ -76,7 +76,7 @@ const NewCollection = async () => {
       </div>
       <Link
         href="/list-product"
-        className="hidden md:block collect-more w-full mt-11 mb-20 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5 inline-flex"
+        className="hidden md:inline-flex collect-more w-full mt-11 mb-20 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5"
       >
         <div className="collect-title text-center text-teal-300 text-[4.8rem] md:text-lg font-extrabold leading-normal">
           XEM THÊM GỌNG KÍNH
@@ -87,7 +87,7 @@ const NewCollection = async () => {
       </Link>
       <Link
         href="/list-product"
-        className="block md:hidden w-full justify-center items-center gap-2.5 inline-flex"
+        className="inline-flex md:hidden w-full justify-center items-center gap-2.5"
       >
         <div className="w-[6.4rem] md:w-6 h-[6.4rem] md:h-6 justify-center items-center flex">
           <ArrowRight className="text-orange-400" />
