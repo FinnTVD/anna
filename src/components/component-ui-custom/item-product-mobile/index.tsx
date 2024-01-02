@@ -26,20 +26,20 @@ function ItemMobile(props: IProps) {
       </div>
       <div className="absolute z-99 bottom-[0rem] w-full md:h-[8.5rem] box-slide">
         <div className="ml-[2.13rem] bg-[#CAF2F1] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center mb-[1.62rem] flex justify-center w-fit">
-          {itemProduct.categories && (
+          {itemProduct?.categories && (
             <p className="text-[2.66667rem] text-[#454545] font-bold py-[0.2rem] px-[1.6rem] text-center items-center">
-              {itemProduct.categories[0]}
+              {itemProduct?.categories[0]}
             </p>
           )}
         </div>
         <div className="p-[2.13rem] rounded-[3.2rem] bg-[#FFF] box-slide max-md:h-[24rem] max-md:flex max-md:flex-col max-md:justify-between">
           <span className="text-[1rem] text-[#454545] font-[850] leading-[1.2rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
-            {itemProduct.sku}
+            {itemProduct?.sku}
           </span>
           {/* list color */}
           <div className="flex justify-between mb-[1.6rem]">
             <span className="line-through text-[2.66667rem] font-bold leading-[3.73333rem] text-[#6A6A6A]">
-              {itemProduct.regular_price}
+              {itemProduct?.regular_price}
             </span>
             {itemProduct?.variations?.length > 0 && (
               <div className="flex">
