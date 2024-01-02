@@ -3,7 +3,6 @@
 import loginImg from '@/assets/images/img-register.jpg';
 import { RHFInput } from '@/components/hook-form';
 import FormProvider from '@/components/hook-form/form-provider';
-import { Checkbox } from '@/components/ui/checkbox';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,7 +38,7 @@ export function Register() {
     defaultValues,
   });
 
-  const { handleSubmit, setError } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     // try {
@@ -131,7 +130,10 @@ export function Register() {
             Hoặc
           </div>
           <div className="bg-[#1877F2] p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-6 md:mt-2">
-            <button className="w-full text-white flex items-center">
+            <button
+              type="button"
+              className="w-full text-white flex items-center"
+            >
               <ICFacebook width={35} height={35} />
               <p className="text-center w-full">
                 Đăng nhập bằng
@@ -140,7 +142,7 @@ export function Register() {
             </button>
           </div>
           <div className="p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-12 md:mt-3 btn-login-gg">
-            <button className="w-full flex items-center">
+            <button type="button" className="w-full flex items-center">
               <ICGoogle width={35} height={35} />
               <p className="text-center w-full">
                 Đăng nhập bằng
