@@ -113,11 +113,11 @@ function ActionHome({ dataTrip }: IPropsAction) {
           </div>
         </div>
         <div className="inline-flex md:hidden w-full h-[50px] pl-5 pr-1 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-center items-center gap-3">
-            <div className="text-right text-white text-[4rem] md:text-base font-extrabold">
-              Cộng đồng sống tử tế
-            </div>
-            <ICArrowTopRightActive height={25} width={25} stroke='#fff'/>
+          <div className="text-right text-white text-[4rem] md:text-base font-extrabold">
+            Cộng đồng sống tử tế
           </div>
+          <ICArrowTopRightActive height={25} width={25} stroke="#fff" />
+        </div>
       </div>
     </div>
   );

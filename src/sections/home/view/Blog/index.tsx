@@ -16,7 +16,7 @@ const Blog = async () => {
       <div className="w-full md:w-1/3 pt-20 sm:pt-48">
         <h4 className="text-teal-300 text-[5.33333rem] text-center md:text-start md:text-[4.25rem] font-black uppercase">
           ANNA BLOG
-          <br className='hidden md:block' /> & SHARE
+          <br className="hidden md:block" /> & SHARE
         </h4>
         <Link
           href="/blog"
@@ -51,25 +51,30 @@ const Blog = async () => {
       <div className="block md:hidden">
         {listBlog?.map((blog: any, index: number) => {
           if (index <= 3) {
-            return <Link href={`/blog/${blog?.post_slug}`} className="flex md:hidden rounded-[3.2rem] bg-white  mb-8">
-              <div className="w-2/5  rounded-[3.2rem]">
-                <Image
-                  alt=""
-                  height={102}
-                  width={135}
-                  className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-fill bg-slate-500 "
-                  src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
-                />
-              </div>
-              <div className="p-[2.3rem] w-3/5">
-                <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12">
-                  {blog?.title}
-                </p>
-                <span className="text-[2.66667rem] text-neutral-400 font-bold">
-                  {formatDate(blog?.post_date)}
-                </span>
-              </div>
-            </Link>
+            return (
+              <Link
+                href={`/blog/${blog?.post_slug}`}
+                className="flex md:hidden rounded-[3.2rem] bg-white  mb-8"
+              >
+                <div className="w-2/5  rounded-[3.2rem]">
+                  <Image
+                    alt=""
+                    height={102}
+                    width={135}
+                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-fill bg-slate-500 "
+                    src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
+                  />
+                </div>
+                <div className="p-[2.3rem] w-3/5">
+                  <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12">
+                    {blog?.title}
+                  </p>
+                  <span className="text-[2.66667rem] text-neutral-400 font-bold">
+                    {formatDate(blog?.post_date)}
+                  </span>
+                </div>
+              </Link>
+            );
           }
         })}
       </div>

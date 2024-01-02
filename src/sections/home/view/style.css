@@ -68,7 +68,7 @@
   fill: #55c3c4;
 }
 
-.arrow-product-slide svg path{
+.arrow-product-slide svg path {
   @media screen and (max-width: 767px) {
     stroke: #55c3c4;
   }

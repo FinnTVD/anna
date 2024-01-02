@@ -4,7 +4,7 @@ import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive'
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface AboutHomeType {
   title: string;
@@ -85,12 +85,8 @@ function AboutHome({ dataAbout }: IPropAbout) {
   };
   return (
     <div className="about">
-      <div
-        className={`pin-card !top-0 !translate-y-9 container`}
-      >
-        <div
-          className={`pin-content py-[6.67rem] sm:py-24 flex justify-between flex-wrap`}
-        >
+      <div className="pin-card !top-0 !translate-y-9 container">
+        <div className="pin-content py-[6.67rem] sm:py-24 flex justify-between flex-wrap">
           <div className="w-full md:w-1/2 px-4 pt-10">
             <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
@@ -124,7 +120,6 @@ function AboutHome({ dataAbout }: IPropAbout) {
             </div>
             <SliceAbout dataInfo={dataAbout?.info} />
           </div>
-
         </div>
       </div>
     </div>

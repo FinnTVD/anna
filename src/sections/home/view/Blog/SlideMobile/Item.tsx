@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ItemMobileBlogHome = () => {
-  return (
-    <div>ItemMobileBlogHome</div>
-  )
-}
+  return <div>ItemMobileBlogHome</div>;
+};
 
-export default ItemMobileBlogHome
+export default ItemMobileBlogHome;

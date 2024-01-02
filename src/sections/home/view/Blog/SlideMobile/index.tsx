@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const SliderMobileBlogHome = () => {
-  return (
-    <div>SliderMobileBlogHome</div>
-  )
-}
+  return <div>SliderMobileBlogHome</div>;
+};
 
-export default SliderMobileBlogHome
+export default SliderMobileBlogHome;

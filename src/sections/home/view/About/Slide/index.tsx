@@ -31,7 +31,10 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
         className="mySwiper-about "
       >
         {dataInfo?.map((info: ItemSlice, index: number) => (
-          <SwiperSlide className="relative rounded-[4rem] md:rounded-2xl" key={index}>
+          <SwiperSlide
+            className="relative rounded-[4rem] md:rounded-2xl"
+            key={index}
+          >
             <Image
               src={info?.image}
               alt=""
