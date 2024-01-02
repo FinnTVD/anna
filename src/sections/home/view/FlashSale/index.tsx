@@ -23,12 +23,12 @@ function FlashSale({
   return (
     <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9]">
       <div className="container pb-[5rem] max-lg:px-[3.25rem] pt-[3.75rem] relative max-sm:px-0 max-sm:pb-[3.5rem]">
-        <div className="flex flex-wrap items-center max-sm:mb-[1rem] max-sm:px-[0.75rem]">
-          <h4 className="text-teal-300 text-[38px] font-black uppercase pr-[1.688rem]">
+        <div className="flex flex-wrap items-center max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[0.75rem]">
+          <h4 className="text-teal-300 text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]">
             Flash Sale
           </h4>
-          <ICLine />
-          <h4 className="text-[32px] uppercase leading-[56px] pl-0 md:pl-[1.688rem]">
+          <ICLine height={30}/>
+          <h4 className=" text-[4.3rem] md:text-[2rem] uppercase leading-[56px] pl-0 md:pl-[1.688rem]">
             bán chạy nhất
           </h4>
         </div>
