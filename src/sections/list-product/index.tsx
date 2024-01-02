@@ -1,6 +1,4 @@
 import './style.css';
-import { useEffect, useState } from 'react';
-import useSWR from 'swr';
 import FilterListProduct from './components/filter-list-product';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
