@@ -26,12 +26,16 @@ const Home = async () => {
         dataProductSale={dataProductSale}
       />
       <NewCollection />
-      <SectionHome />
+      <div className="hidden md:block">
+        <SectionHome />
+      </div>
       <Feature dataFeature={dataHome?.acf?.for_you[0]} />
       <AboutHome dataAbout={dataHome?.acf?.about[0]} />
       <Social />
       <ListSocial />
-      <Blog />
+      <div className="max-sm:bg-[#F8F8F8]">
+        <Blog />
+      </div>
       <ActionHome dataTrip={dataHome?.acf?.trip[0]} />
     </div>
   );

@@ -18,7 +18,7 @@
 
 .item-collect {
   @media screen and (max-width: 767px) {
-    width: 50%;
+    width: 25%;
   }
 }
 
@@ -66,6 +66,12 @@
 
 .collect-more:hover rect {
   fill: #55c3c4;
+}
+
+.arrow-product-slide svg path{
+  @media screen and (max-width: 767px) {
+    stroke: #55c3c4;
+  }
 }
 
 .about {
@@ -161,6 +167,9 @@
   border-radius: 2.5rem;
   border: 10px solid rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(2px);
+  @media screen and (max-width: 767px) {
+    border: none;
+  }
 }
 
 .mySwiper-action .swiper-slide {

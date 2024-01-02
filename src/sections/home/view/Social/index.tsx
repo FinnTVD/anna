@@ -8,9 +8,9 @@ function Social() {
       </h4>
       <div className="flex flex-wrap justify-between">
         <div className="w-[508px] text-zinc-700 text-[6.4rem] md:text-2xl uppercase">
-          Hãy follow để theo dõi chúng mình ngay từ hôm nay nha...
+          Hãy follow để theo dõi chúng mình ngay từ hôm nay nha
         </div>
-        <div className="text-[10rem] md:text-7xl font-black uppercase text-follow-shadow">
+        <div className="hidden md:block text-[10rem] md:text-7xl font-black uppercase text-follow-shadow">
           Follow us
         </div>
       </div>
