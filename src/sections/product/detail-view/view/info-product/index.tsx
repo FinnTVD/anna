@@ -406,7 +406,7 @@ function InfoProduct(props: IProps) {
               {apiReturnProduct?.data && (
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: `${apiReturnProduct?.data[0].content.rendered}`,
+                    __html: `${apiReturnProduct?.data[0]?.content.rendered}`,
                   }}
                   className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch  max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]"
                 />
