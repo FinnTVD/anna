@@ -9,11 +9,11 @@ const postData = async ({ url, method = 'post', body, token }: IPostData) => {
     headers.append('Authorization', `Bearer ${token}`);
   }
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_REST_API}/${url}`, {
+  const res = await fetch(`https://woo-api.okhub.tech/${url}`, {
     body: body,
     method: method,
     mode: 'cors',
-    headers: headers,
+    // headers: headers,
   });
 
   if (res.ok) {

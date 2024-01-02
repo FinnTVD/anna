@@ -15,38 +15,39 @@ import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import ItemMobile from '../../../components/component-ui-custom/item-product-mobile';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { Fixed } from '@/sections/product/detail-view/view/Fixed';
+import './style.css';
 
 interface IProps {
   slug: string;
+  dataInitDetail: any;
+  dataGlasses: any;
+  dataListSimilarGlasses: any;
 }
 
-function ProductDetail({ slug }: IProps) {
+function ProductDetail({
+  slug,
+  dataInitDetail,
+  dataGlasses,
+  dataListSimilarGlasses,
+}: IProps) {
   const refHeightProductInfo = useRef<any>();
   const [isShowItemProduct, setIsShowItemProduct] = useState<boolean>(false);
 
-  const [dataInit, setDatainit] = useState();
+  const [dataInit, setDatainit] = useState(dataInitDetail);
   const [colorGetDetail, setColorGetDetail] = useState<number | string | null>(
     null
   );
-  const [listColorProduct, setListColorProduct] = useState<any>([]);
-
-  const bodyApi: IPostData = {
-    url: `wp-json/custom/v1/products-details/${slug}`,
-    method: 'get',
-  };
-  const dataInitDetail = useSWR(bodyApi.url, () => postData(bodyApi));
-
-  const bodyApiGetGlasses: IPostData = {
-    url: `wp-json/custom/v1/related-products/93`,
-    method: 'get',
-  };
-  const dataGlasses = useSWR(bodyApiGetGlasses.url, () =>
-    postData(bodyApiGetGlasses)
+  const [listColorProduct, setListColorProduct] = useState<any>(
+    dataInitDetail?.data?.variant ?? []
   );
 
-  if (dataGlasses?.data) {
-    console.log('dataGlasses', dataGlasses?.data[0]?.product_variant);
-  }
+  // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
+
+  const bodyApi: IPostData = {
+    url: `wp-json/custom/v1/products-by-sku/${slug}`,
+    method: 'get',
+  };
+  const dataDetailProduct = useSWR(bodyApi.url, () => postData(bodyApi));
 
   // GET DETAIL PRODUCT BY COLOR
   const bodyGetProductByColor: any = {
@@ -59,10 +60,10 @@ function ProductDetail({ slug }: IProps) {
     () => (colorGetDetail ? postData(bodyGetProductByColor) : undefined)
   );
 
+  console.log('dataGlasses', dataGlasses);
+
   const handleChangeColorGetApi = (value: string | number | null): void => {
     setColorGetDetail(value);
-    // setName(value);
-    // console.log('value', value);
   };
 
   useEffect(() => {
@@ -70,25 +71,14 @@ function ProductDetail({ slug }: IProps) {
     setDatainit(
       colorGetDetail !== 'null'
         ? getDetailProductByColor.data
-        : dataInitDetail.data
+        : dataDetailProduct.data
     );
   }, [colorGetDetail, getDetailProductByColor.data]);
 
   useEffect(() => {
-    setDatainit(dataInitDetail.data);
-    setListColorProduct(dataInitDetail?.data?.variant ?? []);
-    // console.log('datainittess', dataInitDetail?.data?.variant);
-  }, [dataInitDetail.data]);
-
-  // console.log('colorGetDetail', colorGetDetail);
-  // console.log('getDetailProductByColor', getDetailProductByColor.data);
-  // try {
-  //   await postData(bodyApi).then((res) => {
-  //     dataInit = res;
-  //   });
-  // } catch (error: any) {
-  //   console.log(error);
-  // }
+    setDatainit(dataDetailProduct.data);
+    setListColorProduct(dataDetailProduct?.data?.variant ?? []);
+  }, [dataDetailProduct.data]);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -100,9 +90,8 @@ function ProductDetail({ slug }: IProps) {
     });
   }, []);
 
-  // const memoizedInforProduct = useMemo(() => {})
   return (
-    <div className="pt-[3.41rem]">
+    <div className="pt-[3.41rem] detail-product-container">
       {/* section 1 */}
       <div
         ref={refHeightProductInfo}
@@ -124,7 +113,7 @@ function ProductDetail({ slug }: IProps) {
         className="px-[6.25rem] border-t border-b border-teal-300 max-md:mt-[5.6rem] max-md:py-[4.27rem] max-md:px-[5.33rem] max-md:bg-[#EEFBFB]"
       >
         <div className="w-[87.5rem] mx-auto max-lg:mx-[0.75rem] flex justify-between text-[#454545] max-md:flex-wrap max-md:bg-[#EEFBFB] py-[1.875rem] max-md:py-[0rem]">
-          <div className="flex  justify-center cursor-pointer max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-md:mr-[0.5rem] max-md:rounded-none max-sm:border-none max-sm:justify-start">
+          <div className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2">
             <div className="max-md:hidden">
               <ICProtected height="1.5rem" />
             </div>
@@ -135,7 +124,7 @@ function ProductDetail({ slug }: IProps) {
               Bảo hành trọn đời
             </p>
           </div>
-          <div className="flex justify-center cursor-pointer max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start max-sm:mr-0">
+          <div className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2">
             <div className="max-md:hidden">
               <ICFree height="1.5rem" width="1.5rem" />
             </div>
@@ -146,7 +135,7 @@ function ProductDetail({ slug }: IProps) {
               Đo mắt miễn phí
             </p>
           </div>
-          <div className="flex justify-center cursor-pointer max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)]  max-sm:mb-[1rem] max-sm:mr-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start">
+          <div className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2 max-md:mt-[4.27rem]">
             <div className="max-md:hidden">
               <ICChange height="1.5rem" width="1.5rem" />
             </div>
@@ -157,7 +146,7 @@ function ProductDetail({ slug }: IProps) {
               Thu cũ đổi mới
             </p>
           </div>
-          <div className="flex justify-center cursor-pointer max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-sm:mb-[1rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start">
+          <div className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2 max-md:mt-[4.27rem]">
             <div className="max-md:hidden">
               <ICClean height="1.5rem" width="1.5rem" />
             </div>
@@ -176,9 +165,9 @@ function ProductDetail({ slug }: IProps) {
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH BỔ TRỢ
           </h4>
-          <div className="flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
+          <div className="hover-see-more flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
             <ICArrowRight2 fill="#F58F5D" />
-            <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
+            <p className="text-[1.125rem] text-[#A9A9A9] hover:text-[#F58F5D] ml-[0.62rem] text-right max-md:hidden">
               Xem thêm
             </p>
             <p className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]">
@@ -187,31 +176,36 @@ function ProductDetail({ slug }: IProps) {
           </div>
         </div>
         <div className="max-md:hidden">
-          <SlideProductComponent
-            keySlide="support-lenses"
-            data={dataGlasses?.data}
-          />
+          <SlideProductComponent keySlide="support-lenses" data={dataGlasses} />
         </div>
         <div className="hidden max-md:block px-[3.2rem]">
           <div className="flex justify-between">
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
+            {dataGlasses[0] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataGlasses[0]} />
+              </div>
+            )}
+            {dataGlasses[1] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataGlasses[1]} />
+              </div>
+            )}
           </div>
           <div className="flex justify-between">
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
+            {dataGlasses[2] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataGlasses[2]} />
+              </div>
+            )}
+            {dataGlasses[3] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataGlasses[3]} />
+              </div>
+            )}
           </div>
         </div>
         <div className="hidden max-md:flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer">
-          <ICArrowRight2 fill="#F58F5D" />
+          <ICArrowRight2 fill="#A9A9A9" />
           <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
             Xem thêm
           </p>
@@ -225,8 +219,8 @@ function ProductDetail({ slug }: IProps) {
           <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH TƯƠNG TỰ
           </h4>
-          <div className="flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
-            <ICArrowRight2 fill="#F58F5D" />
+          <div className="hover-see-more flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
+            <ICArrowRight2 fill="#A9A9A9" />
             <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
               Xem thêm
             </p>
@@ -238,25 +232,33 @@ function ProductDetail({ slug }: IProps) {
         <div className="max-md:hidden">
           <SlideProductComponent
             keySlide="same-glasses"
-            data={dataGlasses?.data}
+            data={dataListSimilarGlasses}
           />
         </div>
         <div className="hidden max-md:block px-[3.2rem]">
           <div className="flex justify-between">
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
+            {dataListSimilarGlasses[0] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataListSimilarGlasses[0]} />
+              </div>
+            )}
+            {dataListSimilarGlasses[1] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataListSimilarGlasses[1]} />
+              </div>
+            )}
           </div>
           <div className="flex justify-between">
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
-            <div className="relative mb-[4.27rem]">
-              <ItemMobile />
-            </div>
+            {dataListSimilarGlasses[2] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataListSimilarGlasses[2]} />
+              </div>
+            )}
+            {dataListSimilarGlasses[3] && (
+              <div className="relative mb-[4.27rem]">
+                <ItemMobile itemProduct={dataListSimilarGlasses[3]} />
+              </div>
+            )}
           </div>
         </div>
         <div className="hidden max-md:flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer">
@@ -277,7 +279,7 @@ function ProductDetail({ slug }: IProps) {
       <div
         className={`h-[7.5rem] ${
           isShowItemProduct ? '-bottom-[0rem]' : '-bottom-[7.5rem]'
-        }  fixed transition-all duration-150  z-50 bg-[#FAFAFA] w-full px-[6.25rem] border-t-[1px] border-t-[#ECECEC]`}
+        }  fixed transition-all duration-150  z-50 bg-[#FAFAFA] w-full px-[6.25rem] border-t-[1px] border-t-[#ECECEC] max-md:hidden`}
       >
         <Fixed dataInit={dataInit} listColorProduct={listColorProduct} />
       </div>

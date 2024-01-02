@@ -15,41 +15,47 @@ interface IProps {
   dataInit?: IDetailProductRes;
 }
 
-function SlideProductMobile() {
+function SlideProductMobile(props: any) {
+  const { listImageProduct } = props;
+
   return (
-    <>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={0}
-        pagination={{
-          el: '.swiper-pagination',
-          clickable: true,
-        }}
-        loop
-        modules={[Pagination, Navigation]}
-        className="mySwiper h-full rounded-[1rem] overflow-hidden"
-      >
-        <SwiperSlide className="w-full">
-          <Image
-            width={93}
-            height={91}
-            className="h-full w-full object-cover  max-md:min-w-full"
-            src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide className="">
-          <Image
-            width={93}
-            height={91}
-            className="h-full w-full object-cover  max-md:min-w-full"
-            src="https://images.unsplash.com/photo-1519638399535-1b036603ac77?q=80&w=3131&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-          />
-        </SwiperSlide>
-      </Swiper>
+    <div>
+      {typeof listImageProduct === 'string' ? (
+        <Image
+          width={93}
+          height={91}
+          className="h-full w-full object-cover  max-md:min-w-full"
+          src={listImageProduct ?? '/img/no_image.jpg'}
+          alt=""
+        />
+      ) : (
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={0}
+          pagination={{
+            el: '.swiper-pagination',
+            clickable: true,
+          }}
+          loop
+          modules={[Pagination, Navigation]}
+          className="mySwiper h-full rounded-[1rem] overflow-hidden"
+        >
+          {listImageProduct &&
+            listImageProduct.map((item: string, index: number) => (
+              <SwiperSlide key={index} className="w-full">
+                <Image
+                  width={93}
+                  height={91}
+                  className="h-full w-full object-cover  max-md:min-w-full"
+                  src={item ?? '/img/no_image.jpg'}
+                  alt=""
+                />
+              </SwiperSlide>
+            ))}
+        </Swiper>
+      )}
       <div className="swiper-pagination" />
-    </>
+    </div>
   );
 }
 
@@ -77,7 +83,9 @@ function ImageProduct(props: IProps) {
           />
         </div>
         <div className="hidden max-md:block h-full w-full">
-          <SlideProductMobile />
+          <SlideProductMobile
+            listImageProduct={dataInit?.galleryImgs ?? dataInit?.featuredImage}
+          />
         </div>
       </div>
       <div className="flex min-w-full max-lg:h-[7.5rem] mt-[1rem] justify-between h-[12.15rem] max-md:hidden">
