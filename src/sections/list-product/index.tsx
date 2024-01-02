@@ -3,7 +3,6 @@ import FilterListProduct from './components/filter-list-product';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
-import { postData } from '@/lib/post-data';
 import { IItemAttributeProduct } from '@/types/types-general';
 
 interface IProps {

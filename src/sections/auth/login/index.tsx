@@ -7,16 +7,16 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import '../style.css';
 import ICFacebook from '@/components/Icons/ICFacebook';
 import ICGoogle from '@/components/Icons/ICGoogle';
 
-interface IProps {
-  children: ReactNode;
-}
+// interface IProps {
+//   children: ReactNode;
+// }
 
 const defaultValues = {
   username: '',
@@ -36,7 +36,7 @@ const formSchema = z.object({
 
 export function Login() {
   const [checkRemember, setCheckRemember] = useState(false);
-
+  console.log('checkRemember', checkRemember);
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -127,7 +127,10 @@ export function Login() {
             <Link href="#">Quên mật khẩu ?</Link>
           </div>
           <div className="bg-[#1877F2] p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-6 md:mt-2">
-            <button className="w-full text-white flex items-center">
+            <button
+              type="button"
+              className="w-full text-white flex items-center"
+            >
               <ICFacebook width={35} height={35} />
               <p className="text-center w-full">
                 Đăng nhập bằng
@@ -136,7 +139,7 @@ export function Login() {
             </button>
           </div>
           <div className="p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-12 md:mt-3 btn-login-gg">
-            <button className="w-full flex items-center">
+            <button type="button" className="w-full flex items-center">
               <ICGoogle width={35} height={35} />
               <p className="text-center w-full">
                 Đăng nhập bằng
