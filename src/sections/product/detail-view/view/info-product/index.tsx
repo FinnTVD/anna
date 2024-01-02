@@ -6,7 +6,7 @@ import ICArrowRight from '@/components/Icons/ICArrowRight';
 import ICBag from '@/components/Icons/ICBag';
 import { IDetailProductRes } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
 
 import './style.css';
@@ -25,6 +25,10 @@ interface IDataProduct {
 
 function InfoProduct(props: IProps) {
   const { dataInit, handleChangeColorGetApi, listColorProduct } = props;
+
+  const refInfo = useRef<any>(null);
+  const refTranform = useRef<any>(null);
+  const refReturnInfo = useRef<any>(null);
 
   const [numberInfor, setNumberInfor] = useState<number | undefined>(undefined);
   const [priceProduct, setPriceProduct] = useState<number>(0);
@@ -71,8 +75,6 @@ function InfoProduct(props: IProps) {
   };
 
   const handleOnchangeQuantity = (value: any): void => {
-    console.log('valueeee', value.target.value.length);
-
     const valueConvert = parseInt(
       value.target.value.replace(/[^0-9]/g, ''),
       10
@@ -117,18 +119,16 @@ function InfoProduct(props: IProps) {
   }, [dataProductSubmit.idColor]);
 
   return (
-    <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[0rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
-      <div>
-        {dataInit?.category && dataInit?.category[0]?.name && (
-          <div className="flex items-center justify-center h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] h-fit w-fit bg-[#CAF2F1] max-md:h-fit max-md:py-[3.46667rem] max-md:w-[20.8rem] max-md:px-[2.66667rem] max-md:rounded-[10.66667rem]">
-            <span className="leading-[0.9rem] text-[0.75rem] not-italic font-bold max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
-              {dataInit?.category[0]?.name}
-            </span>
-          </div>
-        )}
-      </div>
+    <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[2rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
+      {dataInit?.categories && dataInit?.categories[0] && (
+        <div className="flex items-center justify-center h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] w-fit bg-[#CAF2F1] max-md:py-[3.46667rem] max-md:h-[6.13333rem] max-md:px-[2.66667rem] max-md:rounded-[10.66667rem]">
+          <span className="leading-[0.9rem] text-[#454545] text-[0.75rem] not-italic font-bold max-md:text-[2.66667rem] max-md:leading-[3.46667rem] overflow-hidden">
+            {dataInit?.categories[0]}
+          </span>
+        </div>
+      )}
       {dataInit?.name && (
-        <p className="text-[1.75rem] font-[850] text-[#454545] leading-[2.1rem] my-[0.75rem] max-md:text-[6.4rem] max-md:mt-[2.13rem] max-md:leading-[8.32rem] max-sm:mb-[0.75rem]">
+        <p className="text-[1.75rem] font-black text-[#454545] leading-[2.1rem] my-[0.75rem] max-md:text-[6.4rem] max-md:mt-[2.13rem] max-md:leading-[8.32rem] max-sm:mb-[0.75rem]">
           {dataInit?.name}
         </p>
       )}
@@ -175,17 +175,11 @@ function InfoProduct(props: IProps) {
       </ul>
       {/* support */}
       <p className="w-full max-lg:text-[0.95rem] not-italic max-lg:mb-[2.5rem] w-[31.625rem] text-[1rem] text-[#3F3F3F] font-bold leading-[1.5rem] mb-[3.7rem] max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]">
-        short description: {dataInit?.short_description}
-        <br />
-        Hướng dẫn sử dụng:
-        <br /> + Tháo kính bằng 2 tay hoặc những nơi có nhiệt độ cao làm biến
-        dạng kính.
-        <br /> + Không bỏ kính vào cốp xe hoặc những nơi có nhiệt độ cao làm
-        biến dạng kính.
+        {dataInit?.short_description}
       </p>
       {/* button */}
-      <div className="max-lg:px-[0.5rem]  max-lg:py-[0.5rem] px-[1rem] py-[1.06rem] bg-[#CAF2F1]  rounded-[5rem] mb-[2.6rem] max-sm:p-0 ">
-        <div className="flex justify-between items-center  h-[3.375rem] max-md:h-[11.73333rem]">
+      <div className="max-lg:px-[0.5rem] max-lg:py-[0.5rem] px-[1rem] py-[1.06rem] bg-[#CAF2F1]  rounded-[5rem] mb-[2.6rem] max-sm:p-0  max-md:mt-[4rem]">
+        <div className="flex justify-between items-center  h-[3.375rem] max-md:h-[11.73333rem] max-md:w-full">
           <div className="w-[12.3125rem] h-full mr-[1.5rem] text-[#44AAA8] flex justify-between items-center rounded-[2.3125rem] bg-white border-[#4DC0BD] border-[1px] max-sm:hidden ">
             <div
               onClick={
@@ -227,14 +221,16 @@ function InfoProduct(props: IProps) {
               +
             </div>
           </div>
-          <div className="flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] max-lg:ml-[0.5rem] text-white text-[1rem] font-extrabold leading-[1.4rem] items-center px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between">
-            <div className="hidden max-md:block mr-[2.67rem] ml-[5.33rem]">
-              <ICBag />
+          <div className="flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] text-white text-[1rem] font-extrabold leading-[1.4rem] px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between max-lg:ml-[0.5rem]">
+            <div className="flex items-center">
+              <div className="hidden max-md:block mr-[2.67rem] ml-[5.33rem]">
+                <ICBag />
+              </div>
+              <p className="max-lg:mr-[0.49rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:w-[48rem]">
+                Thêm vào giỏ
+              </p>
             </div>
-            <p className="max-lg:mr-[0.49rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:w-[48rem]">
-              Thêm vào giỏ
-            </p>
-            <div className="mx-[0.62rem] max-md:mx-[2.67rem]">
+            <div className=" flex items-center ml-[0.62rem] max-md:ml-[2.67rem]">
               <svg
                 className="max-md:hidden"
                 xmlns="http://www.w3.org/2000/svg"
@@ -255,20 +251,20 @@ function InfoProduct(props: IProps) {
               >
                 <circle cx="2" cy="2" r="2" fill="#CAF2F1" />
               </svg>
+              <p className="title-add-cart ml-[0.62rem] max-md:ml-[2.67rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:font-extrabold max-md:mr-[5.33rem]">
+                {priceProduct * dataProductSubmit.quantityProduct}
+              </p>
             </div>
-            <p className="title-add-cart grow max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:font-extrabold">
-              {priceProduct * dataProductSubmit.quantityProduct}
-            </p>
           </div>
         </div>
       </div>
       {/* adddress */}
-      <div className="flex items-center border-t border-b border-[#55D5D2] mb-[1rem] max-sm:absolute max-sm:top-0 max-sm:right-0 max-sm:border-none ">
+      <div className="flex items-center border-t py-[0.94rem] px-[1.5rem] border-b border-[#55D5D2] mb-[1rem] max-md:absolute max-md:top-0 max-md:right-0 max-md:border-none max-md:py-[0rem]">
         <svg
           className="jumping-map max-md:hidden"
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="25"
+          width="1.5rem"
+          height="1.5rem"
           viewBox="0 0 24 25"
           fill="none"
         >
@@ -280,14 +276,22 @@ function InfoProduct(props: IProps) {
         <div className="hidden max-md:flex max-md:bg-[#55D5D2] rounded-[50%] w-[6.4rem] h-[6.4rem] justify-center items-center">
           <MapMobile />
         </div>
-        <p className="max-lg:text-[1rem]  max-lg:leading-[1.5rem] text-[1.5rem] font-[850] leading-[1.95rem] ml-[0.62rem] text-[#55D5D2] mx-[1.5rem] my-[0.94rem] max-md:text-[2.66667rem] max-md:font-bold max-md:leading-[1.5rem] max-md:my-[0px]">
+        <p className=" text-[1.5rem] leading-[1.95rem] text-[#55D5D2] ml-[0.62rem] not-italic font-bold max-md:leading-[3.46667rem] max-md:text-[2.6667rem] max-md:ml-[1.06667rem]">
           Tìm cửa hàng
         </p>
       </div>
       {/* infor */}
       <div className="all-infor-detail">
         <div>
-          <div>
+          <div
+            style={{
+              paddingBottom:
+                numberInfor !== 1
+                  ? 0
+                  : refInfo?.current?.getBoundingClientRect().height,
+            }}
+            className="relative transition-all overflow-hidden duration-300"
+          >
             <div
               role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
@@ -314,14 +318,20 @@ function InfoProduct(props: IProps) {
               </div>
             </div>
             <p
-              className={` left-0 max-lg:text-[0.9rem] max-lg:w-full ${
-                numberInfor !== 1 ? 'h-0' : 'h-fit'
-              } overflow-hidden transition-all delay-300 infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
+              className={` left-0 max-lg:text-[0.9rem] max-lg:w-full  absolute infor-detail infor-detail-1 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
             >
               {dataInit?.description}
             </p>
           </div>
-          <div>
+          <div
+            style={{
+              paddingBottom:
+                numberInfor !== 2
+                  ? 0
+                  : refTranform?.current?.getBoundingClientRect().height,
+            }}
+            className="relative transition-all overflow-hidden duration-300"
+          >
             <div
               role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
@@ -347,18 +357,26 @@ function InfoProduct(props: IProps) {
                 )}
               </div>
             </div>
-            {apiTransport?.data && (
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: `${apiTransport?.data[0].content.rendered}`,
-                }}
-                className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
-                  numberInfor !== 2 ? 'h-0' : 'h-fit'
-                } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
-              />
-            )}
+            <div ref={refTranform} className="absolute left-0">
+              {apiTransport?.data && (
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: `${apiTransport?.data[0].content.rendered}`,
+                  }}
+                  className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch  overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]"
+                />
+              )}
+            </div>
           </div>
-          <div>
+          <div
+            style={{
+              paddingBottom:
+                numberInfor !== 3
+                  ? 0
+                  : refReturnInfo?.current?.getBoundingClientRect().height,
+            }}
+            className="relative transition-all overflow-hidden duration-300"
+          >
             <div
               role="button"
               className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
@@ -384,15 +402,13 @@ function InfoProduct(props: IProps) {
                 )}
               </div>
             </div>
-            <div>
+            <div ref={refReturnInfo} className="absolute left-0">
               {apiReturnProduct?.data && (
                 <p
                   dangerouslySetInnerHTML={{
                     __html: `${apiReturnProduct?.data[0].content.rendered}`,
                   }}
-                  className={`max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch ${
-                    numberInfor !== 3 ? 'h-0' : 'h-fit'
-                  } overflow-hidden max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]`}
+                  className="max-lg:text-[0.9rem] max-lg:w-full infor-detail infor-detail-2 w-[32.375rem] text-[1rem] font-bold leading-[1.5rem] text-[#3F3F3F] self-stretch  max-md:text-[3.73333rem] max-md:leading-[5.6rem] max-md:w-[100%]"
                 />
               )}
             </div>

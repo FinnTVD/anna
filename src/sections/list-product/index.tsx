@@ -3,6 +3,7 @@ import FilterListProduct from './components/filter-list-product';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
+import { postData } from '@/lib/post-data';
 import { IItemAttributeProduct } from '@/types/types-general';
 
 interface IProps {
@@ -11,15 +12,14 @@ interface IProps {
   dataListProductInit: any;
 }
 
-// interface IParamsFilter {
-//   category: number;
-//   page: number;
-// }
+interface IParamsFilter {
+  category: number;
+  page: number;
+}
 
 export default function ListProduct(props: IProps) {
   const { slug, dataListAttribute, dataListProductInit } = props;
 
-  console.log('slug', slug);
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
