@@ -41,6 +41,7 @@ function ProductDetail({
     dataInitDetail?.data?.variant ?? []
   );
 
+  console.log('dataInitDetail', dataInitDetail);
   // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
 
   const bodyApi: IPostData = {

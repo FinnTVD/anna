@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SliderMobileBlogHome = () => {
+function SliderMobileBlogHome() {
   return <div>SliderMobileBlogHome</div>;
-};
+}
 
 export default SliderMobileBlogHome;

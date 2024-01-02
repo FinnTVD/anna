@@ -11,14 +11,14 @@ interface IProps {
   dataListProductInit: any;
 }
 
-interface IParamsFilter {
-  category: number;
-  page: number;
-}
+// interface IParamsFilter {
+//   category: number;
+//   page: number;
+// }
 
 export default function ListProduct(props: IProps) {
   const { slug, dataListAttribute, dataListProductInit } = props;
-
+  console.log("slug", slug);
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}

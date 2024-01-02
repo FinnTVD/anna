@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ItemMobileBlogHome = () => {
+function ItemMobileBlogHome() {
   return <div>ItemMobileBlogHome</div>;
-};
+}
 
 export default ItemMobileBlogHome;

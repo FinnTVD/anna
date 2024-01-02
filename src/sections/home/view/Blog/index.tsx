@@ -53,6 +53,7 @@ const Blog = async () => {
           if (index <= 3) {
             return (
               <Link
+                key={index}
                 href={`/blog/${blog?.post_slug}`}
                 className="flex md:hidden rounded-[3.2rem] bg-white  mb-8"
               >

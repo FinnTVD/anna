@@ -21,8 +21,6 @@ function ItemProduct(props: IProps) {
     } else setHeightSlider(heightImage ?? 20.375);
   }, []);
 
-  console.log('item', item);
-
   return (
     <div className="item-slider-product rounded-2xl overflow-hidden  cursor-pointer relative max-md:mb-[2rem]">
       <div
