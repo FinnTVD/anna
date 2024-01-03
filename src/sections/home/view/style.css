@@ -182,22 +182,22 @@
 .blog-item-home .image-item-blog {
   transition: all 0.3s;
 }
-.blog-item-home:hover .item-title-blog{
+.blog-item-home:hover .item-title-blog {
   color: #55d5d2;
   text-decoration: underline;
-  transition: color 0.3s
+  transition: color 0.3s;
 }
 .item-btn-blog:hover {
   background: #f58f5d;
 }
-.item-btn-blog:hover .btn-blog-title{
+.item-btn-blog:hover .btn-blog-title {
   color: #fff;
 }
-.item-date-blog{
+.item-date-blog {
   transform: translateX(1rem);
   transition: transform 0.2s ease-out;
 }
-.item-btn-blog:hover + .item-date-blog{
+.item-btn-blog:hover + .item-date-blog {
   transform: translateX(0);
   transition: transform 0.2s ease-out;
   color: #f58f5d;
