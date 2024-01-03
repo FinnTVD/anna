@@ -4,6 +4,7 @@ import { formatDate } from '@/ultils/format-date';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import Link from 'next/link';
 import { ItemBlogType } from '@/types/types-general';
+import ICMore from '@/components/Icons/ICMore';
 
 interface IPropBlog {
   dataBlog: ItemBlogType;
@@ -36,7 +37,12 @@ function ItemBlog({ dataBlog }: IPropBlog) {
             <div className="btn-blog-title text-center text-teal-300 text-[4rem] md:text-lg font-bold">
               ĐỌC TIẾP
             </div>
-            <ICVectorRight width={20} height={20} />
+            <div className='line--more'>
+              <ICVectorRight width={20} height={20} />
+            </div>
+            <div className="w-[6.4rem] md:w-6 h-[6.4rem] md:h-6 hidden see--more">
+              <ICMore />
+            </div>
           </Link>
           <div className="item-date-blog grow shrink basis-0">
             <span className="text-zinc-500 text-[4rem] md:text-lg font-bold">
