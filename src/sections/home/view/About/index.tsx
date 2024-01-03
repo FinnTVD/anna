@@ -43,7 +43,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
         scrollTrigger: {
           trigger: '.pin-card',
           start: '-15% top',
-          end: `+=${window.innerHeight / 1.5}`,
+          end: `+=${window.innerHeight / 1.55}`,
           pin: '.pin-card',
           scrub: 2,
         },
@@ -83,10 +83,10 @@ function AboutHome({ dataAbout }: IPropAbout) {
     return letters;
   };
   return (
-    <div className="about">
+    <div className="about rounded-t-[2.25rem] -mt-[2rem]">
       <div className="pin-card !top-0 !translate-y-9 container">
         <div className="pin-content py-[6.67rem] sm:py-24 flex justify-between flex-wrap">
-          <div className="w-full md:w-1/2 px-4 pt-10">
+          <div className="w-full md:w-1/2 px-4 md:px-0 pt-10">
             <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
             </h4>
@@ -103,7 +103,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
                 TÌM KIẾM CỬA HÀNG GẦN BẠN
               </p>
               <div className="arrow-about-slide p-[0.5rem] bg-white rounded-[50px] justify-start items-center gap-2.5 inline-flex">
-                <ICArrowTopRightActive width={30} height={30} />
+                <ICArrowTopRightActive width={30} height={30} stroke='#F58F5D' fill='#F58F5D'/>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
                 TÌM KIẾM CỬA HÀNG GẦN BẠN
               </p>
               <div className="arrow-about-slide p-[0.5rem] bg-white rounded-[50px] justify-start items-center gap-2.5 inline-flex">
-                <ICArrowTopRightActive width={30} height={30} />
+                <ICArrowTopRightActive width={30} height={30} stroke='#fff'/>
               </div>
             </div>
             <SliceAbout dataInfo={dataAbout?.info} />

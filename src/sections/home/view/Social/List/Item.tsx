@@ -33,7 +33,7 @@ function ItemSocial(props: IProps) {
               KHÁM PHÁ
             </div>
             <div className="h-[10.5rem] md:h-10 w-[10.5rem] md:w-10 bg-white rounded-[100px] justify-center items-center flex">
-              <ICArrowTopRightActive width={24} height={24} />
+              <ICArrowTopRightActive width={24} height={24} stroke='#F58F5D' fill='#F58F5D'/>
             </div>
           </div>
         </div>
