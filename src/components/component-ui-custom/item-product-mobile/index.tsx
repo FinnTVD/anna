@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowTopRightActive } from '@/app/icons';
 import './style.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface IProps {
   itemProduct?: any;
@@ -66,14 +67,17 @@ function ItemMobile(props: IProps) {
             )}
           </div>
           {/* button */}
-          <div className="price-product-slide flex justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] border-[1px] border-[#55D5D2]">
+          <Link
+            href={`/detail/${itemProduct?.sku}`}
+            className="price-product-slide flex justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] border-[1px] border-[#55D5D2]"
+          >
             <p className="text-[3.73333rem] font-[850] leading-[4.85333rem] text-[#55D5D2]">
               {itemProduct?.price ?? ' '}
             </p>
             <div className="arrow-peoduct-slide p-[0.5rem]">
               <ArrowTopRightActive />
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
