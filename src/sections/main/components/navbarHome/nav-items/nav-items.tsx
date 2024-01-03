@@ -62,7 +62,9 @@ function NavItems(props: IProps) {
       >
         <span
           className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
-            keyTabMenuActive !== null || !styleNavbar ? 'text-white' : 'text-[#828282]'
+            keyTabMenuActive !== null || !styleNavbar
+              ? 'text-white'
+              : 'text-[#828282]'
           } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
         >
           giảm ngay 15% cho đơn hàng đầu tiên

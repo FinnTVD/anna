@@ -15,7 +15,9 @@ function ItemBlog({ dataBlog }: IPropBlog) {
         <div className="pb-6 w-full flex-col justify-start gap-5 flex">
           <div className="overflow-hidden rounded-[6.4rem] md:rounded-3xl">
             <Image
-              src={dataBlog?.thumbnail_url ? dataBlog?.thumbnail_url : serviceImg}
+              src={
+                dataBlog?.thumbnail_url ? dataBlog?.thumbnail_url : serviceImg
+              }
               width={445}
               height={304}
               alt=""
@@ -28,7 +30,9 @@ function ItemBlog({ dataBlog }: IPropBlog) {
         </div>
         <div className="self-stretch px-20 md:px-6 justify-between items-center flex flex-row-reverse">
           <Link
-            href={`/blog/${dataBlog?.post_slug}`} className="item-btn-blog p-[1rem] rounded-[50px] justify-center items-center gap-2.5 flex">
+            href={`/blog/${dataBlog?.post_slug}`}
+            className="item-btn-blog p-[1rem] rounded-[50px] justify-center items-center gap-2.5 flex"
+          >
             <div className="btn-blog-title text-center text-teal-300 text-[4rem] md:text-lg font-bold">
               ĐỌC TIẾP
             </div>
