@@ -21,7 +21,7 @@ function FlashSale({
   dataProductSale,
 }: IpropFlash) {
   return (
-    <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9]">
+    <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9] md:relative md:mb-[13rem] md:pb-[10rem]">
       <div className="container pb-[5rem] max-lg:px-[3.25rem] pt-[3.75rem] relative max-sm:px-0 max-sm:pb-[3.5rem]">
         <div className="flex flex-wrap items-center max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[0.75rem]">
           <h4 className="text-teal-300 text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]">
@@ -42,20 +42,20 @@ function FlashSale({
         <div className="pt-6 flex justify-center">
           <ICDown />
         </div>
-        <div className="pt-12 flex justify-center flex-wrap">
+        <div className="pt-12 flex justify-center flex-wrap md:absolute">
           <Image
             src={smallBanner1}
             alt=""
             width={850}
             height={345}
-            className="w-full md:w-1/2 pr-0 md:pr-3 md:h-[21.313rem]"
+            className="w-full md:w-1/2 pr-0 md:pr-3 md:h-[21.313rem] rounded-[4rem] md:rounded-[1rem]"
           />
           <Image
             src={smallBanner2}
             alt=""
             width={850}
             height={345}
-            className="w-full md:w-1/2 pl-0 md:pl-3 md:h-[21.313rem] mt-8 md:mt-0"
+            className="w-full md:w-1/2 pl-0 md:pl-3 md:h-[21.313rem] rounded-[4rem] md:rounded-[1rem] mt-8 md:mt-0"
           />
         </div>
       </div>

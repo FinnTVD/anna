@@ -62,7 +62,7 @@ function NavItems(props: IProps) {
       >
         <span
           className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
-            keyTabMenuActive !== null ? 'text-white' : 'text-[#828282]'
+            keyTabMenuActive !== null || !styleNavbar ? 'text-white' : 'text-[#828282]'
           } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
         >
           giảm ngay 15% cho đơn hàng đầu tiên
@@ -92,8 +92,8 @@ function NavItems(props: IProps) {
       </div>
       <div
         className={`${
-          styleNavbar ? 'bg-white' : 'bg-[#1D1D1D42]'
-        } h-[3.75rem] border-2 border-[#55D5D2] w-full flex items-center rounded-[6.25rem] px-[1.25rem]`}
+          styleNavbar ? 'bg-white border-2 border-[#55D5D2]' : 'bg-[#1D1D1D42]'
+        } h-[3.75rem] w-full flex items-center rounded-[6.25rem] px-[1.25rem]`}
       >
         <Link href="/">
           <ICLogo

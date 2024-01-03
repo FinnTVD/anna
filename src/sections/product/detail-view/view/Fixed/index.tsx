@@ -6,10 +6,11 @@ import { formatCurrencyVND } from '@/ultils/format-price';
 interface IProps {
   dataInit?: IDetailProductRes;
   listColorProduct?: any;
+  handleAddToCart: (data: any, quantity: any) => void;
 }
 
 export function Fixed(props: IProps) {
-  const { dataInit, listColorProduct } = props;
+  const { dataInit, listColorProduct, handleAddToCart } = props;
   return (
     <div
       className="flex justify-between items-center
@@ -67,11 +68,15 @@ export function Fixed(props: IProps) {
         <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] mr-[3.25rem]">
           {dataInit?.price && formatCurrencyVND(dataInit?.price.toString())}
         </p>
-        <div className="py-[0.94rem] px-[1.88rem] bg-[#55D5D2] rounded-[3.125rem]">
+        <button
+          type="button"
+          onClick={() => handleAddToCart(dataInit, 1)}
+          className="py-[0.94rem] px-[1.88rem] bg-[#55D5D2] rounded-[3.125rem]"
+        >
           <span className="text-[1rem] leading-[1.5rem] font-[800] text-white">
             Thêm vào giỏ hàng
           </span>
-        </div>
+        </button>
       </div>
     </div>
   );
