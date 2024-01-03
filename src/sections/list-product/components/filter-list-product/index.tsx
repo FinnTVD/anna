@@ -5,8 +5,6 @@ import './style.css';
 import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
 import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
 import { IItemAttributeProduct, IItemProduct } from '@/types/types-general';
-import useSWR from 'swr';
-import { postData } from '@/lib/post-data';
 import { useState } from 'react';
 
 interface IProps {
@@ -16,41 +14,78 @@ interface IProps {
 
 interface IParamsFilter {
   atttribute: string;
-  subAtttribute: string;
+  subAtttribute: string[];
 }
 export default function FilterListProduct(props: IProps) {
   const { data, listAttribute } = props;
 
-  const [paramsFilter, setParamsFilter] = useState({
-    atttribute: '',
-    subAtttribute: '',
-  });
+  const [paramsFilter, setParamsFilter] = useState<IParamsFilter[]>([
+    {
+      atttribute: '1',
+      subAtttribute: [],
+    },
+  ]);
 
-  const bodyGetListProduct: any = {
-    url: `wp-json/product/v1/products/attributes?${paramsFilter.atttribute}=${paramsFilter.subAtttribute}`,
-    method: 'get',
-  };
-
-  const getlistProduct = useSWR(bodyGetListProduct.url, () =>
-    paramsFilter ? postData(bodyGetListProduct) : undefined
-  );
+  // const bodyGetListProduct: any = {
+  //   url: `wp-json/product/v1/products/attributes?${paramsFilter.atttribute}=${paramsFilter.subAtttribute}`,
+  //   method: 'get',
+  // };
+  //
+  // const getlistProduct = useSWR(bodyGetListProduct.url, () =>
+  //   paramsFilter ? postData(bodyGetListProduct) : undefined
+  // );
 
   console.log('paramsFilter', paramsFilter);
-  console.log('getlistProduct.data', getlistProduct.data);
+  // console.log('getlistProduct.data', getlistProduct.data);
 
-  const onChange = (
-    checked: boolean,
-    atttribute?: string,
-    slugSubAttribute?: string
-  ): void => {
-    // console.log("check", checked);
-    // console.log("atttribute", atttribute);
-    // console.log("slugSubAttribute", slugSubAttribute);
-    const newObject: IParamsFilter = {
-      atttribute: atttribute ?? '',
-      subAtttribute: slugSubAttribute ?? '',
-    };
-    setParamsFilter(newObject);
+  const onChange = (atttribute?: string, slugSubAttribute?: string): void => {
+    const findItemAdded = paramsFilter.filter(
+      (item) => item.atttribute === atttribute
+    );
+
+    if (findItemAdded.length === 0) {
+      const newObject: IParamsFilter = {
+        atttribute: atttribute ?? '',
+        subAtttribute: [slugSubAttribute ?? ''],
+      };
+
+      setParamsFilter([...paramsFilter, newObject]);
+    } else {
+      // if add new subAttribute in attribute
+      const newArrayChangeFilter: any = [];
+
+      // eslint-disable-next-line array-callback-return
+      paramsFilter.map((item) => {
+        if (item.atttribute !== atttribute) {
+          newArrayChangeFilter.push(item);
+        } else {
+          let arrayItemSubAttributeReset: any = [];
+
+          const fintSubAttributeAvailable = item.subAtttribute.filter(
+            (item) => item === slugSubAttribute
+          );
+
+          if (fintSubAttributeAvailable.length === 0) {
+            arrayItemSubAttributeReset = item.subAtttribute;
+            arrayItemSubAttributeReset.push(slugSubAttribute);
+          } else {
+            // eslint-disable-next-line array-callback-return
+            item.subAtttribute.map((item: any): void => {
+              if (item !== slugSubAttribute) {
+                arrayItemSubAttributeReset.push(item);
+              }
+            });
+          }
+          const objectPushNewArray = {
+            atttribute: item.atttribute,
+            subAtttribute: arrayItemSubAttributeReset,
+          };
+
+          newArrayChangeFilter.push(objectPushNewArray);
+        }
+        setParamsFilter(newArrayChangeFilter);
+      });
+    }
   };
 
   return (
@@ -79,7 +114,7 @@ export default function FilterListProduct(props: IProps) {
                   >
                     <Checkbox
                       onCheckedChange={(value: boolean) =>
-                        onChange(value, item.attribute, itemSubAttribute.slug)
+                        onChange(item.attribute, itemSubAttribute.slug)
                       }
                       id="1"
                       className="border-[#ccc] border-[1px]"
