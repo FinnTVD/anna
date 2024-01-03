@@ -1,17 +1,19 @@
 import { IPostData } from '@/types/next-auth';
 
 const postData = async ({ url, method = 'post', body, token }: IPostData) => {
-  const headers = new Headers({
-    'Content-Type': 'application/json',
-  });
+  // const headers = new Headers({
+  //   'Content-Type': 'application/json',
+  // });
 
-  if (token) {
-    headers.append('Authorization', `Bearer ${token}`);
-  }
+  console.log('token', token);
+
+  // if (token?.length > 0) {
+  //   headers.append('Authorization', `Bearer ${token}`);
+  // }
 
   const res = await fetch(`https://woo-api.okhub.tech/${url}`, {
-    body: body,
     method: method,
+    body: body,
     mode: 'cors',
     // headers: headers,
   });

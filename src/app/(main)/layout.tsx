@@ -1,6 +1,7 @@
 import Footer from '@/sections/main/components/footer/footer';
 import Navbar from '@/sections/main/components/navbar/navbar';
 import { postData } from '@/lib/post-data';
+import { Toaster } from '@/components/ui/sonner';
 
 const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   const bodyGetProductHeader: any = {
@@ -14,6 +15,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
       <main className="mt-[9rem] max-md:mt-0">
         <Navbar dataListProductHeader={dataListProductHeader} />
         <div>{children}</div>
+        <Toaster />
         <Footer />
       </main>
     </div>

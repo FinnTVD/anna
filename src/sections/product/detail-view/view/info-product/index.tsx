@@ -10,11 +10,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
 
 import './style.css';
+import Link from 'next/link';
 
 interface IProps {
   dataInit?: IDetailProductRes;
   handleChangeColorGetApi: (value: string | number | null) => void;
   listColorProduct: any;
+  handleAddToCart: (data: any, quantity: any) => void;
 }
 
 interface IDataProduct {
@@ -24,7 +26,12 @@ interface IDataProduct {
 }
 
 function InfoProduct(props: IProps) {
-  const { dataInit, handleChangeColorGetApi, listColorProduct } = props;
+  const {
+    dataInit,
+    handleChangeColorGetApi,
+    listColorProduct,
+    handleAddToCart,
+  } = props;
 
   const refInfo = useRef<any>(null);
   const refTranform = useRef<any>(null);
@@ -37,6 +44,8 @@ function InfoProduct(props: IProps) {
     idColor: null,
     quantityProduct: 1,
   });
+
+  // console.log('dataInit', dataInit);
 
   // GET transport
   const apiTransport = useSWR(
@@ -60,6 +69,20 @@ function InfoProduct(props: IProps) {
       }).then((response) => response.json()) // Parse JSON response
   );
   // END
+
+  // const bodyAddToCart: any = {
+  //   url: `wp-json/woocart/v1/cart`,
+  //   method: 'post',
+  //   body: {
+  //     product_id: 304,
+  //     quantity: 1,
+  //     variation_id: 324,
+  //   },
+  // };
+
+  // const getDetailProductByColor = useSWR(`wp-json/woocart/v1/cart`, () =>
+  //   postData(bodyAddToCart)
+  // );
 
   const handleChangeColor = (value: any) => {
     setDataProductSubmit({
@@ -127,6 +150,7 @@ function InfoProduct(props: IProps) {
           </span>
         </div>
       )}
+
       {dataInit?.name && (
         <p className="text-[1.75rem] font-black text-[#454545] leading-[2.1rem] my-[0.75rem] max-md:text-[6.4rem] max-md:mt-[2.13rem] max-md:leading-[8.32rem] max-sm:mb-[0.75rem]">
           {dataInit?.name}
@@ -211,7 +235,7 @@ function InfoProduct(props: IProps) {
             <div
               role="button"
               onClick={
-                dataProductSubmit.quantityProduct <= dataInit?.stock_quantity
+                dataProductSubmit.quantityProduct < dataInit?.stock_quantity
                   ? addQuantityProduct
                   : undefined
               }
@@ -221,12 +245,18 @@ function InfoProduct(props: IProps) {
               +
             </div>
           </div>
-          <div className="flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] text-white text-[1rem] font-extrabold leading-[1.4rem] px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between max-lg:ml-[0.5rem]">
-            <div className="flex items-center">
+          <button
+            onClick={() =>
+              handleAddToCart(dataInit, dataProductSubmit.quantityProduct)
+            }
+            type="button"
+            className="cursor-pointer flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] text-white text-[1rem] font-extrabold leading-[1.4rem] px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between max-lg:ml-[0.5rem]"
+          >
+            <div className="flex justify-between items-center">
               <div className="hidden max-md:block mr-[2.67rem] ml-[5.33rem]">
                 <ICBag />
               </div>
-              <p className="max-lg:mr-[0.49rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:w-[48rem]">
+              <p className="max-lg:mr-[0.49rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] pb-[0rem] mb-[0rem]">
                 Thêm vào giỏ
               </p>
             </div>
@@ -255,7 +285,7 @@ function InfoProduct(props: IProps) {
                 {priceProduct * dataProductSubmit.quantityProduct}
               </p>
             </div>
-          </div>
+          </button>
         </div>
       </div>
       {/* adddress */}
@@ -276,9 +306,12 @@ function InfoProduct(props: IProps) {
         <div className="hidden max-md:flex max-md:bg-[#55D5D2] rounded-[50%] w-[6.4rem] h-[6.4rem] justify-center items-center">
           <MapMobile />
         </div>
-        <p className=" text-[1.5rem] leading-[1.95rem] text-[#55D5D2] ml-[0.62rem] not-italic font-bold max-md:leading-[3.46667rem] max-md:text-[2.6667rem] max-md:ml-[1.06667rem]">
+        <Link
+          href="/system-store"
+          className="cursor-pointer text-[1.5rem] leading-[1.95rem] text-[#55D5D2] ml-[0.62rem] not-italic font-bold max-md:leading-[3.46667rem] max-md:text-[2.6667rem] max-md:ml-[1.06667rem]"
+        >
           Tìm cửa hàng
-        </p>
+        </Link>
       </div>
       {/* infor */}
       <div className="all-infor-detail">

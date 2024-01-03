@@ -51,7 +51,7 @@ function NavItems(props: IProps) {
   return (
     <nav className="navbar-container w-[87.5rem] mx-auto">
       {keyTabMenuActive !== null && (
-        <div className=" fixed top-0 left-0 h-[100vh] w-full bg-[#ABABAB] -z-10 opacity-80" />
+        <div className=" fixed top-0 left-0 h-[100vh] w-full bg-[#0000004d] -z-10 backdrop-opacity-[5px]" />
       )}
 
       <div

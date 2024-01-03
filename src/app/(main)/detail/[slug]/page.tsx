@@ -25,12 +25,34 @@ const DetaiPage = async ({ params: { slug } }: any) => {
   };
   const dataListSimilarGlasses = await postData(bodyApiGetSimilarGlasses);
 
+  // GET PRODUCT BY CATEGORY
+  const getProductGlasses: IPostData = {
+    url: `wp-json/custom/v1/categories/gong-kinh`,
+    method: 'get',
+  };
+  const dataProductGlasses = await postData(getProductGlasses);
+
+  const getLenses: IPostData = {
+    url: `wp-json/custom/v1/categories/trong-kinh`,
+    method: 'get',
+  };
+  const dataDataLenses = await postData(getLenses);
+
+  const getProductByAnyCategory: IPostData = {
+    url: `wp-json/custom/v1/categories/clothing`,
+    method: 'get',
+  };
+  const dataProductByAnyCategory = await postData(getProductByAnyCategory);
+
   return (
     <ProductDetail
       slug={slug}
       dataInitDetail={dataDetailProduct}
       dataGlasses={dataGlasses}
       dataListSimilarGlasses={dataListSimilarGlasses}
+      dataProductGlasses={dataProductGlasses}
+      dataDataLenses={dataDataLenses}
+      dataProductByAnyCategory={dataProductByAnyCategory}
     />
   );
 };

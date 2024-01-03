@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Link from 'next/link';
+import './style.css';
 
 interface IProps {
   onMouseLeaveTabMenu?: () => void;
@@ -10,42 +11,16 @@ interface IProps {
 
 function DropdownCartHeader(props: IProps) {
   const { onMouseLeaveTabMenu } = props;
-  const listProductCart = [
-    {
-      image:
-        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
-      category: 'Gọng kính',
-      name: 'GK – 380CK081',
-      material: 'Kim loại titan',
-      color: 'Đen vàng',
-      price: 495000,
-      salePrice: 440000,
-    },
-    {
-      image:
-        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
-      category: 'Gọng kính',
-      name: 'GK – 380CK081',
-      material: 'Kim loại titan',
-      color: 'Đen vàng',
-      price: 495000,
-      salePrice: 440000,
-    },
-    {
-      image:
-        'https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png',
-      category: 'Gọng kính',
-      name: 'GK – 380CK081',
-      material: 'Kim loại titan',
-      color: 'Đen vàng',
-      price: 495000,
-      salePrice: 440000,
-    },
-  ];
+  let listProductInCart;
+
+  if (localStorage.getItem('listMyCart') !== null) {
+    const storedData = localStorage.getItem('listMyCart') as string;
+    listProductInCart = JSON.parse(storedData);
+  }
 
   return (
     <HoverCardContent
-      className="border-none p-0 w-[25.875rem] rounded-[1.5rem] -mr-[1rem] -mt-[0.34rem]"
+      className="dropdown-cart-header border-none p-0 w-[25.875rem] rounded-[1.5rem] -mr-[1rem] -mt-[0.34rem]"
       side="bottom"
       align="end"
       sideOffset={6}
@@ -69,7 +44,7 @@ function DropdownCartHeader(props: IProps) {
           </Link>
         </div>
         <div>
-          {listProductCart.map((item, index) => (
+          {listProductInCart.map((item: any, index: number) => (
             <div
               key={index}
               className="flex pb-[1.25rem] border-b-2 border-[#8258282] mb-[1.25rem]"
@@ -78,7 +53,7 @@ function DropdownCartHeader(props: IProps) {
                 height={80}
                 width={80}
                 className="w-[8.125rem] h-[8.125rem] rounded-[0.5rem] mr-[1rem]"
-                src={item.image ?? ''}
+                src={item?.imageProduct ?? '/img/no_image.jpg'}
                 alt=""
               />
               <div className="grow">
@@ -86,18 +61,18 @@ function DropdownCartHeader(props: IProps) {
                   {item.category}
                 </div>
                 <h3 className="mt-[0.5rem] text-[1rem] not-italic font-extrabold leading-[1.2rem]">
-                  {item.name}
+                  {item.nameProduct}
                 </h3>
                 <div className="flex items-center mt-[0.5rem]">
                   <div className="w-[0.375rem] h-[0.375rem] bg-[#55D5D2] rounded-full mr-[0.38rem]" />
                   <span className="text-[0.75rem] text-[#828282] not-italic font-bold leading-[0.9rem]">
-                    Chất liệu: {item.material}
+                    Chất liệu: nhựa
                   </span>
                 </div>
                 <div className="flex items-center mt-[0.5rem] mb-[0.75rem]">
                   <div className="w-[0.375rem] h-[0.375rem] bg-[#55D5D2] rounded-full mr-[0.38rem]" />
                   <span className="text-[0.75rem] text-[#828282] not-italic font-bold leading-[0.9rem]">
-                    Màu sắc: {item.color}
+                    Màu sắc: trắng
                   </span>
                 </div>
                 <div className="flex items-center">
@@ -105,30 +80,27 @@ function DropdownCartHeader(props: IProps) {
                     {formatCurrencyVND(item.price.toString())}
                   </span>
                   <span className="text-[0.875rem] not-italic font-normal leading-[1.05rem] line-through">
-                    {formatCurrencyVND(item.salePrice.toString())}
+                    {/* {formatCurrencyVND(item.salePrice.toString())} */}
                   </span>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <button
-          type="button"
-          className="rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#55D5D2] flex justify-between items-center"
+        <Link
+          href="/payment"
+          onClick={onMouseLeaveTabMenu}
+          className="button-link-payment w-fit rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem]  flex justify-between items-center"
         >
-          <Link
-            href="/payment"
-            onClick={onMouseLeaveTabMenu}
-            className="text-[0.8125rem] text-white not-italic font-extrabold leading-[0.975rem] mr-[0.75rem]"
-          >
+          <p className="text-[0.8125rem] text-white not-italic font-extrabold leading-[0.975rem] mr-[0.75rem]">
             ĐI ĐẾN THANH TOÁN
-          </Link>
-          <div className="bg-white rounded-full p-[0.8125rem] h-fit w-fit flex justify-center items-center">
-            <div className="rotate-[321deg] ">
+          </p>
+          <div className=" bg-white rounded-full p-[0.8125rem] h-fit w-fit flex justify-center items-center">
+            <div className="icon-arrow-cart  ">
               <ICArrowRight2 fill="#55D5D2" width="1.1rem" height="1.1rem" />
             </div>
           </div>
-        </button>
+        </Link>
       </div>
     </HoverCardContent>
   );
