@@ -1,6 +1,7 @@
 'use client';
 
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
+import ICLocation from '@/components/Icons/ICLocation2';
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -102,19 +103,22 @@ function AboutHome({ dataAbout }: IPropAbout) {
               <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white">
                 TÌM KIẾM CỬA HÀNG GẦN BẠN
               </p>
-              <div className="arrow-about-slide p-[0.5rem] bg-white rounded-[50px] justify-start items-center gap-2.5 inline-flex">
-                <ICArrowTopRightActive width={30} height={30} stroke='#F58F5D' fill='#F58F5D'/>
+              <div className="arrow-about-slide p-[0.5rem] bg-white rounded-full justify-start items-center gap-2.5 inline-flex">
+                <ICArrowTopRightActive width={30} height={30} stroke='#F58F5D' fill='#F58F5D' />
               </div>
             </div>
           </div>
 
           <div className="w-full block md:hidden pt-10 relative max-sm:pt-[16rem]">
-            <div className="absolute w-full top-[4rem] pt-[2rem] pb-[6rem] search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-16 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-t-[4rem] border-[1px] border-[#55D5D2]">
-              <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white">
-                TÌM KIẾM CỬA HÀNG GẦN BẠN
+            <div className="absolute w-full top-[4rem] pt-[2rem] pb-[6rem] search-about-slide flex justify-between items-center pl-16 md:pl-[2.75rem] pr-16 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-t-[4rem] border-[1px] border-[#55D5D2]">
+              <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white flex items-center">
+                <div className="mr-12 p-[0.5rem] bg-white rounded-full">
+                  <ICLocation stroke='#F58F5D'/>
+                </div>
+                <span>Tìm cửa hàng</span>
               </p>
-              <div className="arrow-about-slide p-[0.5rem] bg-white rounded-[50px] justify-start items-center gap-2.5 inline-flex">
-                <ICArrowTopRightActive width={30} height={30} stroke='#fff'/>
+              <div className="rotate-45">
+                <ICArrowTopRightActive width={30} height={30} stroke='#fff' fill='#fff' />
               </div>
             </div>
             <SliceAbout dataInfo={dataAbout?.info} />

@@ -10,6 +10,10 @@
   width: 225px;
   height: 5px;
   background-color: #55d5d2;
+
+  @media screen and (max-width: 767px) {
+    width: 165px;
+  }
 }
 
 .flash-sale-home .swiper-pagination span {
@@ -45,6 +49,7 @@
   color: #f58f5d;
   transition: transform 0.2s ease-in;
 }
+
 .feature-item svg {
   transition: transform 0.2s ease-out;
   transform: translateX(-20px);
@@ -163,6 +168,7 @@
 
   @media screen and (max-width: 767px) {
     height: 350px;
+    border: none;
   }
 }
 
@@ -197,10 +203,12 @@
   transform: translateY(-6px);
   background: #f58f5d;
   transition: transform 0.2s ease-out;
+
   @media screen and (max-width: 767px) {
     color: #fff;
   }
 }
+
 .item-product-home:hover .price-product-slide p,
 .item-product-home:hover .arrow-product-slide svg path {
   color: #fff;
@@ -210,6 +218,7 @@
 .blog-item-home .image-item-blog {
   transition: all 0.3s;
 }
+
 .blog-item-home:hover .item-title-blog {
   color: #55d5d2;
   text-decoration: underline;
@@ -228,7 +237,8 @@
   transform: translateX(1rem);
   transition: transform 0.2s ease-out;
 }
-.item-btn-blog:hover + .item-date-blog {
+
+.item-btn-blog:hover+.item-date-blog {
   transform: translateX(0);
   transition: transform 0.2s ease-out;
   color: #f58f5d;
@@ -295,4 +305,104 @@
 .text-follow-shadow {
   color: white;
   text-shadow: -1px 0 #55d5d2, 0 1px #55d5d2, 1px 0 #55d5d2, 0 -1px #55d5d2;
+}
+
+.line-container {
+  position: relative;
+  height: 2px;
+  width: 25%;
+  /* Chiều cao của đường line */
+  background-color: #fff;
+  /* Màu của đường line khi không chạy animation */
+
+  opacity: 0.3;
+  transition: ease-in-out 2s;
+}
+
+.story-1 {
+  animation: colorChange1 5s linear forwards;
+  animation-delay: 1s;
+}
+
+.story-2 {
+  animation: colorChange2 5s linear forwards;
+  animation-delay: 5s;
+}
+
+.story-3 {
+  animation: colorChange3 5s linear forwards;
+  animation-delay: 10s;
+}
+
+.story-4 {
+  animation: colorChange4 5s linear forwards;
+  animation-delay: 15s;
+}
+
+@keyframes colorChange1 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
+}
+
+@keyframes colorChange2 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
+}
+
+@keyframes colorChange3 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
+}
+
+@keyframes colorChange4 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
 }
