@@ -61,7 +61,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
               </div>
             </div>
             <div className="item-actions self-stretch bg-gradient-to-r from-black via-black to-black rounded-3xl justify-start items-start gap-3 inline-flex">
-              <div className="flex flex-col-reverse justify-end h-full w-1/3 md:h-[154px] px-[2rem] md:px-3 py-12 md:py-2.5 rounded-[5.8rem] md:rounded-[1.375rem] border-l border-white sm:max-backdrop-blur-sm justify-start items-center gap-2.5 flex">
+              <div className="flex flex-col-reverse justify-end h-full w-1/3 px-[2rem] md:px-3 py-12 md:py-2.5 rounded-[5.8rem] md:rounded-[1.375rem] border-l border-white sm:max-backdrop-blur-sm justify-start items-center gap-2.5 flex">
                 <div className="">
                   <span className="text-white text-[5rem] md:text-[2rem] font-black">
                     07
@@ -76,7 +76,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col-reverse justify-end h-full w-1/3 md:h-[154px] px-0 md:px-3 py-12 md:py-2.5 rounded-[5.8rem] md:rounded-[1.375rem] border-white sm:max-backdrop-blur-sm justify-center items-center gap-2.5 flex">
+              <div className="flex flex-col-reverse justify-end h-full w-1/3 px-0 md:px-3 py-12 md:py-2.5 rounded-[5.8rem] md:rounded-[1.375rem] border-white sm:max-backdrop-blur-sm justify-center items-center gap-2.5 flex">
                 <div className="grow shrink basis-0">
                   <span className="text-white text-[5rem] md:text-[2rem] font-black">
                     30
@@ -91,7 +91,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col-reverse justify-end h-full w-1/3 md:h-[154px] px-[2rem] md:px-3 py-12 md:py-2.5 rounded-[5.8rem] md:rounded-[1.375rem] border-white sm:max-backdrop-blur-sm justify-center items-center gap-2.5 flex">
+              <div className="flex flex-col-reverse justify-end h-full w-1/3 px-[2rem] md:px-3 py-12 md:py-2.5 rounded-[5.8rem] md:rounded-[1.375rem] border-white sm:max-backdrop-blur-sm justify-center items-center gap-2.5 flex">
                 <div className="grow shrink basis-0">
                   <span className="text-white text-[5rem] md:text-[2rem] font-black">
                     500.000

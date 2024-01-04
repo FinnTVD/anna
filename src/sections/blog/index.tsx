@@ -9,7 +9,7 @@ function Blog() {
     <div>
       <BannerBlog />
       <ServiceBlog />
-      <ListBlog />
+      {/* <ListBlog /> */}
       <SectionHome />
     </div>
   );

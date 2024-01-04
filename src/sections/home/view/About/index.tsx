@@ -31,7 +31,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
       scrollTrigger: {
         trigger: container.current,
         scrub: true,
-        start: `-100% top`,
+        start: `${window.innerWidth > 1024 ? '-100% top':'-300% top'}`,
         pin: '.pin',
         end: `+=${window.innerHeight / 1.5}`,
       },
@@ -86,8 +86,8 @@ function AboutHome({ dataAbout }: IPropAbout) {
   return (
     <div className="about rounded-t-[2.25rem] -mt-[2rem]">
       <div className="pin-card !top-0 !translate-y-9 container">
-        <div className="pin-content py-[6.67rem] sm:py-24 flex justify-between flex-wrap">
-          <div className="w-full md:w-1/2 px-4 md:px-0 pt-10">
+        <div className="pin-content py-[6.67rem] md:py-24 flex justify-between flex-wrap">
+          <div className="w-full lg:w-1/2 px-4 md:px-0 pt-10">
             <h4 className="text-white text-[12rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
             </h4>
@@ -97,7 +97,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
               </div>
             </div>
           </div>
-          <div className="hidden md:block w-full md:w-1/2 px-4 pt-10">
+          <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10">
             <SliceAbout dataInfo={dataAbout?.info} />
             <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
               <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white">

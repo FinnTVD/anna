@@ -20,6 +20,11 @@
   background: #f58f5d;
 }
 
+.flash-product button {
+  background-color: #EEF9F9 !important;
+  box-shadow: none !important;
+}
+
 .myTextEvent .swiper-wrapper {
   transition-timing-function: linear;
 }
@@ -111,7 +116,7 @@
   background-size: cover;
   min-height: 1300px;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
     min-height: 1080px;
   }
 }
@@ -127,7 +132,7 @@
   justify-content: center;
   color: rgb(211, 211, 211);
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 1024px) {
     min-height: initial;
   }
 }
@@ -305,7 +310,7 @@
 }
 
 .text-follow-shadow {
-  color: white;
+  color: #EEF9F9;
   text-shadow: -1px 0 #55d5d2, 0 1px #55d5d2, 1px 0 #55d5d2, 0 -1px #55d5d2;
 }
 
