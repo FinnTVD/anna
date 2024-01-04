@@ -12,11 +12,11 @@ const NewCollection = async () => {
   return (
     <div className="container px-[5rem] pb-[5rem] max-lg:px-[3.25rem] mt-[3.75rem] relative max-sm:px-0 max-sm:pb-[3.5rem] p-[6.67rem] md:p-[0]">
       <div className="flex mb-[2.62rem] mx-4 items-center max-sm:mb-[1rem] max-sm:px-[0.75rem] justify-between flex-wrap">
-        <h4 className="text-zinc-800 md:text-zinc-700 text-[5.3333rem] md:text-[2.375rem] max-sm:pb-8 max-sm:w-full flex justify-between font-black uppercase">
+        <h4 className="max-lg:w-full text-zinc-800 md:text-zinc-700 text-[5.3333rem] md:text-[2.375rem] max-sm:pb-8 max-sm:w-full flex justify-between font-black uppercase">
           bộ sưu tập mới nhất
           <Link
             href="/list-product"
-            className="see-more cursor-pointer flex md:hidden items-center"
+            className="see-more cursor-pointer flex lg:hidden items-center"
           >
             <ArrowRight className="text-stone-300" />
             <p className="text-stone-300 text-[3.2rem] md:text-lg font-black lowercase">
@@ -25,7 +25,7 @@ const NewCollection = async () => {
           </Link>
         </h4>
         <div className="flex flex-wrap w-full md:w-fit max-sm:pb-8">
-          <div className="item-collect px-6 cursor-pointer relative z-10 flex items-center">
+          <div className="item-collect pl-0 lg:px-6 cursor-pointer relative z-10 flex items-center">
             <ArrowRight className="icon-arrow-right absolute top-1 z-1 invisible" />
             <p className="category-collect text-zinc-700 text-[3.2rem] md:text-lg font-black md:uppercase">
               Gọng kính
@@ -51,7 +51,7 @@ const NewCollection = async () => {
           </div>
           <Link
             href="/list-product"
-            className="see-more cursor-pointer hidden md:flex items-center"
+            className="see-more cursor-pointer hidden lg:flex items-center"
           >
             <ArrowRight className="text-stone-300" />
             <p className="text-stone-300 text-[3.2rem] md:text-lg font-black uppercase">
