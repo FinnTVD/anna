@@ -40,7 +40,7 @@ const Home = async () => {
         <SlideMobileSocial />
       </div>
 
-      <div className="max-sm:bg-[#F8F8F8]">
+      <div className="max-sm:bg-[#F8F8F8] md:py-[7.5rem]">
         <Blog />
       </div>
       <ActionHome dataTrip={dataHome?.acf?.trip[0]} />

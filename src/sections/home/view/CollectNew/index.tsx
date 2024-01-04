@@ -25,25 +25,25 @@ const NewCollection = async () => {
           </Link>
         </h4>
         <div className="flex flex-wrap w-full md:w-fit max-sm:pb-8">
-          <div className="item-collect px-6 cursor-pointer relative z-10">
+          <div className="item-collect px-6 cursor-pointer relative z-10 flex items-center">
             <ArrowRight className="icon-arrow-right absolute top-1 z-1 invisible" />
             <p className="category-collect text-zinc-700 text-[3.2rem] md:text-lg font-black md:uppercase">
               Gọng kính
             </p>
           </div>
-          <div className="item-collect px-6 cursor-pointer relative z-10">
+          <div className="item-collect px-6 cursor-pointer relative z-10 flex items-center">
             <ArrowRight className="icon-arrow-right absolute top-1 z-1 invisible" />
             <p className="category-collect text-zinc-700 text-[3.2rem] md:text-lg font-black md:uppercase">
               Tròng Kính
             </p>
           </div>
-          <div className="item-collect px-6 cursor-pointer relative z-10">
+          <div className="item-collect px-6 cursor-pointer relative z-10 flex items-center">
             <ArrowRight className="icon-arrow-right absolute top-1 z-1 invisible" />
             <p className="category-collect text-zinc-700 text-[3.2rem] md:text-lg font-black md:uppercase">
               Kính râm
             </p>
           </div>
-          <div className="item-collect px-6 cursor-pointer relative z-10">
+          <div className="item-collect px-6 cursor-pointer relative z-10 flex items-center">
             <ArrowRight className="icon-arrow-right absolute top-1 z-1 invisible" />
             <p className="category-collect text-zinc-700 text-[3.2rem] md:text-lg font-black md:uppercase">
               Kính áp tròng
