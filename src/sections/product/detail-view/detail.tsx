@@ -101,7 +101,11 @@ function ProductDetail({
   console.log('dataInit', dataInit);
 
   const handleAddToCart = (data: any, quantityProduct: any): void => {
-    const getListProductInCart = localStorage.getItem('listMyCart');
+    let getListProductInCart;
+
+    if (typeof window !== 'undefined') {
+      getListProductInCart = localStorage.getItem('listMyCart');
+    }
 
     if (getListProductInCart === null) {
       const newArray = [];
@@ -128,6 +132,8 @@ function ProductDetail({
         },
       });
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const initCurrentCart = JSON.parse(getListProductInCart);
 
       const newList = initCurrentCart.map((item: any) => {

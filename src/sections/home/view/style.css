@@ -10,10 +10,18 @@
   width: 225px;
   height: 5px;
   background-color: #55d5d2;
+
+  @media screen and (max-width: 767px) {
+    width: 165px;
+  }
 }
 
 .flash-sale-home .swiper-pagination span {
   background: #f58f5d;
+}
+
+.myTextEvent .swiper-wrapper {
+  transition-timing-function: linear;
 }
 
 .item-collect {
@@ -26,6 +34,7 @@
   transform: translateX(-30px);
   visibility: visible !important;
   transition: ease-in-out;
+  top: 0;
   color: #f58f5d;
   transition: all 0.4s ease;
 }
@@ -40,18 +49,28 @@
   color: #f58f5d;
   transition: transform 0.2s ease-in;
 }
+
 .feature-item svg {
   transition: transform 0.2s ease-out;
   transform: translateX(-20px);
+
+  @media screen and (max-width: 767px) {
+    transform: translateX(0);
+    width: 6.5rem;
+    height: 6.5rem;
+  }
 }
+
 .feature-item:hover {
   border-top: 1px solid #f58f5d;
   transition: transform 0.2s ease-in;
 }
+
 .feature-item:hover svg path {
   fill: #f58f5d;
   stroke: #f58f5d;
 }
+
 .feature-item:hover svg {
   transform: translateX(0px);
   transition: transform 0.2s ease-in;
@@ -90,7 +109,11 @@
 .about {
   background-image: url('../../../../public/img/home/about_bg.jpg');
   background-size: cover;
-  min-height: 1058px;
+  min-height: 1300px;
+
+  @media screen and (max-width: 767px) {
+    min-height: 1080px;
+  }
 }
 
 .about .pin-spacer {
@@ -141,9 +164,11 @@
 
 .mySwiper-about .swiper-slide {
   height: 580px;
+  border: 6px solid #e6f9f8;
 
   @media screen and (max-width: 767px) {
     height: 350px;
+    border: none;
   }
 }
 
@@ -163,6 +188,7 @@
   margin: 0px 4px 30px 0px;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.05);
 }
+
 .item-product-home .arrow-product-slide,
 .item-product-home .price-product-slide {
   transition: transform 0.2s ease-out;
@@ -177,30 +203,53 @@
   transform: translateY(-6px);
   background: #f58f5d;
   transition: transform 0.2s ease-out;
+
+  @media screen and (max-width: 767px) {
+    color: #fff;
+  }
+}
+
+.item-product-home:hover .price-product-slide p,
+.item-product-home:hover .arrow-product-slide svg path {
+  color: #fff;
+  stroke: #fff;
 }
 
 .blog-item-home .image-item-blog {
   transition: all 0.3s;
 }
+
 .blog-item-home:hover .item-title-blog {
   color: #55d5d2;
   text-decoration: underline;
   transition: color 0.3s;
 }
+
 .item-btn-blog:hover {
   background: #f58f5d;
 }
+
 .item-btn-blog:hover .btn-blog-title {
   color: #fff;
 }
+
 .item-date-blog {
   transform: translateX(1rem);
   transition: transform 0.2s ease-out;
 }
+
 .item-btn-blog:hover + .item-date-blog {
   transform: translateX(0);
   transition: transform 0.2s ease-out;
   color: #f58f5d;
+}
+
+.item-btn-blog:hover .line--more {
+  display: none;
+}
+
+.item-btn-blog:hover .see--more {
+  display: block;
 }
 
 .action-home {
@@ -226,6 +275,7 @@
   border-radius: 2.5rem;
   border: 10px solid rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(2px);
+
   @media screen and (max-width: 767px) {
     border: none;
   }
@@ -239,7 +289,122 @@
   }
 }
 
+.mySwiper-action .swiper-pagination-bullet {
+  background: #fff;
+  width: 12px;
+  height: 4px;
+  opacity: 1;
+  border-radius: initial;
+}
+
+.mySwiper-action .swiper-pagination-bullet-active {
+  background: #f58f5d;
+  width: 35px;
+  border-radius: inherit;
+  height: 4px;
+}
+
 .text-follow-shadow {
   color: white;
   text-shadow: -1px 0 #55d5d2, 0 1px #55d5d2, 1px 0 #55d5d2, 0 -1px #55d5d2;
+}
+
+.line-container {
+  position: relative;
+  height: 2px;
+  width: 25%;
+  /* Chiều cao của đường line */
+  background-color: #fff;
+  /* Màu của đường line khi không chạy animation */
+
+  opacity: 0.3;
+  transition: ease-in-out 2s;
+}
+
+.story-1 {
+  animation: colorChange1 5s linear forwards;
+  animation-delay: 1s;
+}
+
+.story-2 {
+  animation: colorChange2 5s linear forwards;
+  animation-delay: 5s;
+}
+
+.story-3 {
+  animation: colorChange3 5s linear forwards;
+  animation-delay: 10s;
+}
+
+.story-4 {
+  animation: colorChange4 5s linear forwards;
+  animation-delay: 15s;
+}
+
+@keyframes colorChange1 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
+}
+
+@keyframes colorChange2 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
+}
+
+@keyframes colorChange3 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
+}
+
+@keyframes colorChange4 {
+  0% {
+    width: 0;
+    /* Bắt đầu từ chiều rộng là 0 */
+    transition: ease-in-out 2s;
+  }
+
+  100% {
+    transition: ease-in-out 2s;
+    width: 100%;
+    /* Kết thúc với chiều rộng là 100% */
+    opacity: 1;
+    background-color: #fff;
+    /* Màu của đường line khi chạy đến cuối */
+  }
 }

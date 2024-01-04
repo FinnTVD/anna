@@ -5,9 +5,11 @@ import './style.css';
 import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
 import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
 import { IItemAttributeProduct, IItemProduct } from '@/types/types-general';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import { postData } from '@/lib/post-data';
-import { useState } from 'react';
+import SkeletonItemProduct from '@/sections/list-product/components/skeleton-item-product';
+import Image from 'next/image';
 
 interface IProps {
   data: IItemProduct[];
@@ -16,42 +18,108 @@ interface IProps {
 
 interface IParamsFilter {
   atttribute: string;
-  subAtttribute: string;
+  subAtttribute: string[];
 }
 export default function FilterListProduct(props: IProps) {
   const { data, listAttribute } = props;
 
-  const [paramsFilter, setParamsFilter] = useState({
-    atttribute: '',
-    subAtttribute: '',
-  });
+  const [paramsFilter, setParamsFilter] = useState<IParamsFilter[]>([]);
+  const [paramRouterGetApi, setParamRouterGetApi] = useState<any>();
+  const [dataInit, setDataInit] = useState<any>([]);
 
   const bodyGetListProduct: any = {
-    url: `wp-json/product/v1/products/attributes?${paramsFilter.atttribute}=${paramsFilter.subAtttribute}`,
+    url: `wp-json/product/v1/filter-products?${paramRouterGetApi}`,
     method: 'get',
   };
 
+  console.log('paramsFilter', paramsFilter);
+
   const getlistProduct = useSWR(bodyGetListProduct.url, () =>
-    paramsFilter ? postData(bodyGetListProduct) : undefined
+    paramsFilter[0].subAtttribute.length > 0
+      ? postData(bodyGetListProduct)
+      : undefined
   );
 
-  console.log('paramsFilter', paramsFilter);
+  console.log('data', data);
+  console.log('dataInit', dataInit);
+
   console.log('getlistProduct.data', getlistProduct.data);
 
-  const onChange = (
-    checked: boolean,
-    atttribute?: string,
-    slugSubAttribute?: string
-  ): void => {
-    // console.log("check", checked);
-    // console.log("atttribute", atttribute);
-    // console.log("slugSubAttribute", slugSubAttribute);
-    const newObject: IParamsFilter = {
-      atttribute: atttribute ?? '',
-      subAtttribute: slugSubAttribute ?? '',
-    };
-    setParamsFilter(newObject);
+  const onChange = (atttribute?: string, slugSubAttribute?: string): void => {
+    const findItemAdded = paramsFilter.filter(
+      (item) => item.atttribute === atttribute
+    );
+
+    if (findItemAdded.length === 0) {
+      const newObject: IParamsFilter = {
+        atttribute: atttribute ?? '',
+        subAtttribute: [slugSubAttribute ?? ''],
+      };
+
+      setParamsFilter([...paramsFilter, newObject]);
+    } else {
+      // if add new subAttribute in attribute
+      const newArrayChangeFilter: any = [];
+
+      // eslint-disable-next-line array-callback-return
+      paramsFilter.map((item) => {
+        if (item.atttribute !== atttribute) {
+          newArrayChangeFilter.push(item);
+        } else {
+          let arrayItemSubAttributeReset: any = [];
+
+          const fintSubAttributeAvailable = item.subAtttribute.filter(
+            (item) => item === slugSubAttribute
+          );
+
+          if (fintSubAttributeAvailable.length === 0) {
+            arrayItemSubAttributeReset = item.subAtttribute;
+            arrayItemSubAttributeReset.push(slugSubAttribute);
+          } else {
+            // eslint-disable-next-line array-callback-return
+            item.subAtttribute.map((item: any): void => {
+              if (item !== slugSubAttribute) {
+                arrayItemSubAttributeReset.push(item);
+              }
+            });
+          }
+          const objectPushNewArray = {
+            atttribute: item.atttribute,
+            subAtttribute: arrayItemSubAttributeReset,
+          };
+
+          newArrayChangeFilter.push(objectPushNewArray);
+        }
+        setParamsFilter(newArrayChangeFilter);
+      });
+    }
   };
+
+  useEffect(() => {
+    if (dataInit.length === 0) {
+      setDataInit(data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    let paramTmp = '';
+
+    // eslint-disable-next-line array-callback-return
+    paramsFilter.map((itemParams) => {
+      paramTmp = `${paramTmp}&attribute=${itemParams.atttribute}`;
+
+      // eslint-disable-next-line array-callback-return
+      itemParams.subAtttribute.map((itemSubcate) => {
+        paramTmp = `${paramTmp}&terms[]=${itemSubcate}`;
+      });
+    });
+    setParamRouterGetApi(paramTmp.replace(paramTmp[0], ''));
+    getlistProduct.mutate();
+  }, [paramsFilter]);
+
+  useEffect(() => {
+    setDataInit(getlistProduct.data ?? data);
+  }, [getlistProduct.data]);
 
   return (
     <div className="filter-list-product-container">
@@ -79,7 +147,7 @@ export default function FilterListProduct(props: IProps) {
                   >
                     <Checkbox
                       onCheckedChange={(value: boolean) =>
-                        onChange(value, item.attribute, itemSubAttribute.slug)
+                        onChange(item.attribute, itemSubAttribute.slug)
                       }
                       id="1"
                       className="border-[#ccc] border-[1px]"
@@ -92,15 +160,33 @@ export default function FilterListProduct(props: IProps) {
             </div>
           ))}
         </div>
-        <div className="w-full grow grid grid-cols-4 gap-4">
-          {data &&
-            data.map((item, index) => (
-              <div className="rounded-[1rem]" key={index}>
-                <ItemProduct heightImage={17} item={item} />
-              </div>
-            ))}
+        <div className="grow">
+          {dataInit.length === 0 && (
+            <div className="flex justify-center">
+              <Image
+                src="/img/no-data.avif"
+                alt="banner-aboutus"
+                height={300}
+                width={300}
+              />
+            </div>
+          )}
+          {dataInit.length > 0 && getlistProduct.isLoading ? (
+            <SkeletonItemProduct />
+          ) : (
+            <div className="grid grid-cols-4 gap-4">
+              {dataInit &&
+                dataInit.map((item: any, index: number) => (
+                  <div className="rounded-[1rem]" key={index}>
+                    <ItemProduct heightImage={17} item={item} />
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </div>
+      {/* <PaginationGlobal /> */}
+
       <div className="hidden max-md:block">
         <div className="grid grid-cols-2">
           <div className="relative mb-[4.27rem]">

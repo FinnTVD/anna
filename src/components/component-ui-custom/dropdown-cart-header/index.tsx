@@ -11,9 +11,12 @@ interface IProps {
 
 function DropdownCartHeader(props: IProps) {
   const { onMouseLeaveTabMenu } = props;
-  let listProductInCart;
+  let listProductInCart = [];
 
-  if (localStorage.getItem('listMyCart') !== null) {
+  if (
+    typeof window !== 'undefined' &&
+    localStorage.getItem('listMyCart') !== null
+  ) {
     const storedData = localStorage.getItem('listMyCart') as string;
     listProductInCart = JSON.parse(storedData);
   }
@@ -44,7 +47,7 @@ function DropdownCartHeader(props: IProps) {
           </Link>
         </div>
         <div>
-          {listProductInCart.map((item: any, index: number) => (
+          {listProductInCart?.map((item: any, index: number) => (
             <div
               key={index}
               className="flex pb-[1.25rem] border-b-2 border-[#8258282] mb-[1.25rem]"

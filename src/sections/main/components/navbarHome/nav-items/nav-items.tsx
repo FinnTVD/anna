@@ -148,19 +148,24 @@ function NavItems(props: IProps) {
               </div>
             </HoverCard>
           </li>
-          <li className="has-child tab-menu flex items-center ml-[1.75rem]">
-            <span
-              className={`${
-                styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-              } cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+          <li className="has-child">
+            <Link
+              href="/system-store"
+              className="tab-menu flex items-center ml-[1.75rem]"
             >
-              Tìm cửa hàng
-            </span>
-            <ICLocation
-              fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`}
-              width="1.25rem"
-              height="1.51338rem"
-            />
+              <span
+                className={`${
+                  styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
+                } cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+              >
+                Tìm cửa hàng
+              </span>
+              <ICLocation
+                fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`}
+                width="1.25rem"
+                height="1.51338rem"
+              />
+            </Link>
           </li>
           <li
             onMouseMove={() => onOpenChangeDropdown('search')}
