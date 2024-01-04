@@ -4,7 +4,7 @@ import './style.css';
 
 export function BottomTabCart(): React.JSX.Element {
   return (
-    <div className="bottom-tab-cart hidden max-md:flex fixed bottom-0 right-0 z-50  items-center justify-between h-[18rem] w-full bg-white">
+    <div className="bottom-tab-cart hidden max-md:flex fixed bottom-0 right-0 z-20  items-center justify-between h-[18rem] w-full bg-white">
       <div className="flex items-center pl-[3rem]">
         <Checkbox
           className="checked-fontsize border-2 border-[#C4C4C4] max-md:w-[5rem] max-md:h-[5rem] checked:text-[4rem]"
