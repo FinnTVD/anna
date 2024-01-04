@@ -44,7 +44,7 @@ function DropdownCartHeader(props: IProps) {
           </Link>
         </div>
         <div>
-          {listProductInCart.map((item: any, index: number) => (
+          {listProductInCart?.map((item: any, index: number) => (
             <div
               key={index}
               className="flex pb-[1.25rem] border-b-2 border-[#8258282] mb-[1.25rem]"

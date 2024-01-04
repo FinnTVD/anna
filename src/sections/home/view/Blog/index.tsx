@@ -63,7 +63,7 @@ const Blog = async () => {
                     alt=""
                     height={102}
                     width={135}
-                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-fill bg-slate-500 "
+                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-cover bg-slate-500 "
                     src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
                   />
                 </div>
