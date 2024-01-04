@@ -27,6 +27,17 @@ export default function FilterListProduct(props: IProps) {
   const [paramRouterGetApi, setParamRouterGetApi] = useState<any>();
   const [dataInit, setDataInit] = useState<any>([]);
 
+  // const [coordinates, setCoordinates] = useQueryStates(
+  //   {
+  //     lat: parseAsFloat.withDefault(45.18),
+  //     lng: parseAsFloat.withDefault(5.72),
+  //   },
+  //   {
+  //     history: "push",
+  //   }
+  // );
+  // const [name1111, setName1111] = useQueryState('name1234433');
+
   const bodyGetListProduct: any = {
     url: `wp-json/product/v1/filter-products?${paramRouterGetApi}`,
     method: 'get',
@@ -123,6 +134,17 @@ export default function FilterListProduct(props: IProps) {
 
   return (
     <div className="filter-list-product-container">
+      {/* <h1>Hello, {name || 'anonymous visitor'}!</h1> */}
+      {/* <input */}
+      {/*  value={name || ""} */}
+      {/*  onChange={(e) => { */}
+      {/*    setCoordinates({ */}
+      {/*      lat: [1, 2, 3], */}
+      {/*      lng: 2, */}
+      {/*    }); */}
+      {/*  }} */}
+      {/* /> */}
+
       {/* <div className="mb-[2rem] max-md:mt-[6rem] max-md:mb-[5rem]"> */}
       {/*  <h2 className="font-semibold text-[2.188rem] uppercase max-md:text-[4.8rem]"> */}
       {/*    GỌNG KÍNH */}
