@@ -64,24 +64,16 @@ function FlashSale({
           modules={[Navigation, Autoplay]}
           className="myTextEvent pl-[0rem] mx-[1rem]"
         >
-          <SwiperSlide
-            className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase"
-          >
+          <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
             Supper event 2023
           </SwiperSlide>
-          <SwiperSlide
-            className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase"
-          >
+          <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
             birthday 9th anna
           </SwiperSlide>
-          <SwiperSlide
-            className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase"
-          >
+          <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
             Supper event 2023
           </SwiperSlide>
-          <SwiperSlide
-            className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase"
-          >
+          <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
             birthday 9th anna
           </SwiperSlide>
         </Swiper>
@@ -120,9 +112,7 @@ function FlashSale({
           modules={[Navigation, Autoplay]}
           className="pl-[0rem] mx-[1rem]"
         >
-          <SwiperSlide
-            className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase"
-          >
+          <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
             <Image
               src={smallBanner1}
               alt=""
@@ -131,9 +121,7 @@ function FlashSale({
               className="w-full md:w-1/2 pr-0 md:pr-3 md:h-[21.313rem] object-cover rounded-[4rem] md:rounded-[1rem]"
             />
           </SwiperSlide>
-          <SwiperSlide
-            className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase"
-          >
+          <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
             <Image
               src={smallBanner2}
               alt=""

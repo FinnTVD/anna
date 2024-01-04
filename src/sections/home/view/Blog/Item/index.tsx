@@ -37,7 +37,7 @@ function ItemBlog({ dataBlog }: IPropBlog) {
             <div className="btn-blog-title text-center text-teal-300 text-[4rem] md:text-lg font-bold">
               ĐỌC TIẾP
             </div>
-            <div className='line--more'>
+            <div className="line--more">
               <ICVectorRight width={20} height={20} />
             </div>
             <div className="w-[6.4rem] md:w-6 h-[6.4rem] md:h-6 hidden see--more">

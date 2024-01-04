@@ -8,6 +8,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
     url: `wp-json/custom/v1/categories`,
     method: 'get',
   };
+
   // const dataHome = await fetchDataRest('GET', 'custom/v1/categories');
   const dataListProductHeader = await postData(bodyGetProductHeader);
   return (
