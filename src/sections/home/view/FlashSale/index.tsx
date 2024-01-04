@@ -12,6 +12,8 @@ import 'swiper/css/pagination';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Progress } from '@/components/ui/progress';
+import { useEffect, useState } from 'react';
 
 interface IpropFlash {
   smallBanner1: string;
@@ -23,6 +25,15 @@ function FlashSale({
   smallBanner2,
   dataProductSale,
 }: IpropFlash) {
+  const [progress, setProgress] = useState(13)
+ 
+  // useEffect(() => {
+  //  setInterval(() => {
+  //   if(progress < 100) setProgress(progress + 26)
+  //   else setProgress(0)
+  //  }, 2500)
+  // }, [progress])
+
   return (
     <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9] md:relative md:mb-[13rem] md:pb-[13rem]">
       <div className="container pb-[5rem] max-lg:px-[3.25rem] pt-[3.75rem] max-sm:px-0 max-sm:pb-[3.5rem]">
@@ -30,27 +41,32 @@ function FlashSale({
           defaultValue="purchased-product"
           className="w-full h-full scroll-smooth"
         >
-          <TabsList className="flash-product h-auto flex flex-wrap items-center justify-start max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[0.75rem]">
-            <TabsTrigger
-              value="purchased-product"
-              className="text-[#55D5D2] text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]"
-            >
-              Flash Sale
-            </TabsTrigger>
+          <TabsList className="flash-product bg-[#EEF9F9] h-auto flex flex-wrap items-center justify-start max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[0.75rem]">
+            <div>
+              <TabsTrigger
+                value="purchased-product"
+                className="text-[#55D5D2] text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]"
+              >
+                Flash Sale
+              </TabsTrigger>
+              <Progress value={progress} className="h-[0.8rem] md:h-[0.1875rem] w-[65.06667rem] md:w-[15.25rem] bg-[#55D5D2]" />
+            </div>
             <ICLine height={30} />
-            <TabsTrigger
-              value="favorite-product"
-              className="text-[#55D5D2] text-[4.3rem] md:text-[2rem] uppercase pl-0 font-black md:pl-[1.688rem]"
-            >
-              bán chạy nhất
-            </TabsTrigger>
+            <div>
+              <TabsTrigger
+                value="favorite-product"
+                className="text-[#55D5D2] text-[4.3rem] md:text-[2rem] uppercase pl-0 font-black md:pl-[1.688rem]"
+              >
+                bán chạy nhất
+              </TabsTrigger>
+            </div>
           </TabsList>
           <TabsContent value="purchased-product">
             <div className="flash-sale-home">
               <SlideProductComponent
                 keySlide="flash-sale"
                 data={dataProductSale}
-                typePagination="progressbar"
+                // typePagination="progressbar"
               />
             </div>
           </TabsContent>
@@ -59,7 +75,7 @@ function FlashSale({
               <SlideProductComponent
                 keySlide="flash-sale"
                 data={dataProductSale}
-                typePagination="progressbar"
+                // typePagination="progressbar"
               />
             </div>
           </TabsContent>
