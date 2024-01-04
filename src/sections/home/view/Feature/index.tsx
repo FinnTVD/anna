@@ -44,10 +44,10 @@ function Feature({ dataFeature }: IpropFeature) {
               }`}
             >
               <div>
-                <div className="feature-content text-teal-300 text-[4.8rem] md:text-[2.75rem] font-black uppercase">
+                <div className="feature-content text-teal-300 text-[4.8rem] md:text-[2.625rem] font-black uppercase">
                   {value?.title}
                 </div>
-                <div className="feature-content w-full md:w-[424px] text-zinc-700 text-[3.73rem] md:text-lg font-extrabold">
+                <div className="feature-content w-full md:w-[26.5rem] text-[#454545] text-[3.73333rem] md:text-[1.125rem] font-extrabold">
                   {value?.description}
                 </div>
               </div>

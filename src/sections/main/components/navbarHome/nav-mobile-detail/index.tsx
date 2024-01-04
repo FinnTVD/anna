@@ -19,9 +19,6 @@ function NavMobileDetail() {
           3
         </div>
       </div>
-      <div>
-        <ICSearch fill="white" width="6.4rem" height="6.4rem" />
-      </div>
     </div>
   );
 }

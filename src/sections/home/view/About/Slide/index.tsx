@@ -37,19 +37,19 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
             key={index}
           >
             <Image
-              src={info?.image}
+              src={'/img/home/q12.jpg'}
               alt=""
               width={612}
               height={488}
-              className="w-full h-full object-cover max-sm:rounded-[4rem]"
+              className=" w-full h-full object-fill max-sm:rounded-[4rem] lg:rounded-[1.25rem] border-[6px] border-solid border-[#E6F9F8]"
             />
-            <div className="absolute bottom-0 w-full">
-              <div className="p-8 md:p-3 bg-black bg-opacity-30 rounded-[20px] backdrop-blur-[25px] m-3">
-                <h4 className="text-left text-white text-[3.73333rem] md:text-2xl font-black uppercase">
+            <div className="absolute bottom-0 w-full p-[6px]">
+              <div className="p-8 md:p-3 bg-black/30 rounded-[1rem] backdrop-blur-[12.5px] lg:py-[1.13rem] lg:pl-[1.31rem] lg:pr-[1.94rem]">
+                <h4 className="text-left text-white text-[3.73333rem] md:text-2xl lg:text-[1.5rem] font-black uppercase leading-[1.2]">
                   {info?.title}
                 </h4>
-                <div className="text-white flex justify-between text-[3.2rem] md:text-lg font-normal">
-                  {info?.location}
+                <div className="text-white flex justify-between lg:mt-[0.12rem]">
+                  <p className='text-[3.2rem] md:text-[2.5rem] md:text-lg lg:text-[1.125rem] leading-[1.4] font-normal lg:w-[23.5625rem]'>{info?.location}</p>
                   <div className="hidden md:block">
                     <ICArrowTopRightActive
                       width={30}
