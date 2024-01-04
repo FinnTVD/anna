@@ -31,7 +31,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
       scrollTrigger: {
         trigger: container.current,
         scrub: true,
-        start: `${window.innerWidth > 1024 ? '-100% top':'-300% top'}`,
+        start: `${window.innerWidth > 1024 ? '-100% top' : '-300% top'}`,
         pin: '.pin',
         end: `+=${window.innerHeight / 1.5}`,
       },

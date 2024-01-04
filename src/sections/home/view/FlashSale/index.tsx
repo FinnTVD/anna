@@ -26,7 +26,6 @@ function FlashSale({
   return (
     <div className="p-[6.67rem] md:p-[0] bg-[#EEF9F9] md:relative md:mb-[13rem] md:pb-[13rem]">
       <div className="container pb-[5rem] max-lg:px-[3.25rem] pt-[3.75rem] max-sm:px-0 max-sm:pb-[3.5rem]">
-
         <Tabs
           defaultValue="purchased-product"
           className="w-full h-full scroll-smooth"
@@ -34,15 +33,16 @@ function FlashSale({
           <TabsList className="flash-product h-auto flex flex-wrap items-center justify-start max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[0.75rem]">
             <TabsTrigger
               value="purchased-product"
-              className="text-[#55D5D2] text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]">
-                Flash Sale
+              className="text-[#55D5D2] text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]"
+            >
+              Flash Sale
             </TabsTrigger>
             <ICLine height={30} />
             <TabsTrigger
               value="favorite-product"
               className="text-[#55D5D2] text-[4.3rem] md:text-[2rem] uppercase pl-0 font-black md:pl-[1.688rem]"
             >
-                bán chạy nhất
+              bán chạy nhất
             </TabsTrigger>
           </TabsList>
           <TabsContent value="purchased-product">
@@ -64,7 +64,6 @@ function FlashSale({
             </div>
           </TabsContent>
         </Tabs>
-
 
         {/* <div className="flex flex-wrap items-center max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[0.75rem]">
           <h4 className="text-teal-300 text-[4.8rem] md:text-[2.375rem] font-black uppercase pr-[1.688rem]">
