@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 // import required modules
 import Image from 'next/image';
 import { Pagination } from 'swiper/modules';
-import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import ICButton from '@/components/Icons/ICButton';
 
 interface IPropItem {

@@ -38,7 +38,9 @@ function Feature({ dataFeature }: IpropFeature) {
             <div
               key={index}
               className={`feature-item cursor-pointer py-11 flex items-start md:items-center w-full justify-between md:max-w-[63rem] ${
-                index > 0 ? 'border-t-2 border-[#55D5D2]' : 'border-t-2 border-[#55D5D2] md:border-[#fff]'
+                index > 0
+                  ? 'border-t-2 border-[#55D5D2]'
+                  : 'border-t-2 border-[#55D5D2] md:border-[#fff]'
               }`}
             >
               <div>

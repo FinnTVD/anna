@@ -32,7 +32,8 @@ function NavbarHome(props: IProps) {
       {/* <Logo /> */}
       <div
         className={cn(
-          `flex justify-between w-full py-[6px] px-20 py-6 fixed top-[0px] z-50 max-md:hidden navbar-home ${styleNavbar ? 'bg-white' : ''
+          `flex justify-between w-full py-[6px] px-20 py-6 fixed top-[0px] z-50 max-md:hidden navbar-home ${
+            styleNavbar ? 'bg-white' : ''
           }`
         )}
       >
@@ -51,7 +52,6 @@ function NavbarHome(props: IProps) {
           type="text"
           placeholder="Tìm sản phẩm"
         />
-
       </div>
       <div className="hidden max-sm:block fixed top-[20px] right-[3.2rem] z-10">
         <NavMobileDetail />

@@ -11,9 +11,12 @@ interface IProps {
 
 function DropdownCartHeader(props: IProps) {
   const { onMouseLeaveTabMenu } = props;
-  let listProductInCart;
+  let listProductInCart = [];
 
-  if (localStorage.getItem('listMyCart') !== null) {
+  if (
+    typeof window !== 'undefined' &&
+    localStorage.getItem('listMyCart') !== null
+  ) {
     const storedData = localStorage.getItem('listMyCart') as string;
     listProductInCart = JSON.parse(storedData);
   }

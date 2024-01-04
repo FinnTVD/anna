@@ -75,17 +75,17 @@ const NewCollection = async () => {
         </div>
       </div>
       <div className="px-4">
-      <Link
-        href="/list-product"
-        className="hidden md:inline-flex collect-more w-full mt-11 mb-20 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5"
-      >
-        <div className="collect-title text-center text-teal-300 text-[4.8rem] md:text-lg font-extrabold leading-normal">
-          XEM THÊM GỌNG KÍNH
-        </div>
-        <div className="w-[6.4rem] md:w-6 h-[6.4rem] md:h-6 justify-center items-center flex">
-          <ICMore />
-        </div>
-      </Link>
+        <Link
+          href="/list-product"
+          className="hidden md:inline-flex collect-more w-full mt-11 mb-20 h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5"
+        >
+          <div className="collect-title text-center text-teal-300 text-[4.8rem] md:text-lg font-extrabold leading-normal">
+            XEM THÊM GỌNG KÍNH
+          </div>
+          <div className="w-[6.4rem] md:w-6 h-[6.4rem] md:h-6 justify-center items-center flex">
+            <ICMore />
+          </div>
+        </Link>
       </div>
       <Link
         href="/list-product"

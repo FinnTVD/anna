@@ -51,10 +51,20 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
                 <div className="text-white flex justify-between text-[3.2rem] md:text-[2.5rem] md:text-lg font-normal">
                   {info?.location}
                   <div className="hidden md:block">
-                    <ICArrowTopRightActive width={30} height={30} stroke='#fff' fill='#fff' />
+                    <ICArrowTopRightActive
+                      width={30}
+                      height={30}
+                      stroke="#fff"
+                      fill="#fff"
+                    />
                   </div>
                   <div className="block md:hidden p-[1.5rem] bg-white rounded-full rotate-45">
-                    <ICArrowTopRightActive width={30} height={30} stroke='#F58F5D' fill='#F58F5D'/>
+                    <ICArrowTopRightActive
+                      width={30}
+                      height={30}
+                      stroke="#F58F5D"
+                      fill="#F58F5D"
+                    />
                   </div>
                 </div>
               </div>

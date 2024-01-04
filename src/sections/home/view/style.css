@@ -164,7 +164,7 @@
 
 .mySwiper-about .swiper-slide {
   height: 580px;
-  border: 6px solid #E6F9F8;
+  border: 6px solid #e6f9f8;
 
   @media screen and (max-width: 767px) {
     height: 350px;
@@ -238,7 +238,7 @@
   transition: transform 0.2s ease-out;
 }
 
-.item-btn-blog:hover+.item-date-blog {
+.item-btn-blog:hover + .item-date-blog {
   transform: translateX(0);
   transition: transform 0.2s ease-out;
   color: #f58f5d;
@@ -258,10 +258,12 @@
 }
 
 .item-actions {
-  background: linear-gradient(94deg,
-      rgba(0, 0, 0, 0.4) 3.25%,
-      rgba(0, 0, 0, 0.4) 58.68%,
-      rgba(0, 0, 0, 0.05) 100%);
+  background: linear-gradient(
+    94deg,
+    rgba(0, 0, 0, 0.4) 3.25%,
+    rgba(0, 0, 0, 0.4) 58.68%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
   border-radius: 1.875rem 0rem 0rem 1.875rem;
 
   @media screen and (max-width: 767px) {
@@ -296,7 +298,7 @@
 }
 
 .mySwiper-action .swiper-pagination-bullet-active {
-  background: #F58F5D;
+  background: #f58f5d;
   width: 35px;
   border-radius: inherit;
   height: 4px;

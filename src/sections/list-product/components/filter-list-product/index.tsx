@@ -5,7 +5,11 @@ import './style.css';
 import ItemProduct from '@/components/component-ui-custom/item-product/ItemProduct';
 import ItemMobile from '@/components/component-ui-custom/item-product-mobile';
 import { IItemAttributeProduct, IItemProduct } from '@/types/types-general';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useSWR from 'swr';
+import { postData } from '@/lib/post-data';
+import SkeletonItemProduct from '@/sections/list-product/components/skeleton-item-product';
+import Image from 'next/image';
 
 interface IProps {
   data: IItemProduct[];
@@ -19,24 +23,27 @@ interface IParamsFilter {
 export default function FilterListProduct(props: IProps) {
   const { data, listAttribute } = props;
 
-  const [paramsFilter, setParamsFilter] = useState<IParamsFilter[]>([
-    {
-      atttribute: '1',
-      subAtttribute: [],
-    },
-  ]);
+  const [paramsFilter, setParamsFilter] = useState<IParamsFilter[]>([]);
+  const [paramRouterGetApi, setParamRouterGetApi] = useState<any>();
+  const [dataInit, setDataInit] = useState<any>([]);
 
-  // const bodyGetListProduct: any = {
-  //   url: `wp-json/product/v1/products/attributes?${paramsFilter.atttribute}=${paramsFilter.subAtttribute}`,
-  //   method: 'get',
-  // };
-  //
-  // const getlistProduct = useSWR(bodyGetListProduct.url, () =>
-  //   paramsFilter ? postData(bodyGetListProduct) : undefined
-  // );
+  const bodyGetListProduct: any = {
+    url: `wp-json/product/v1/filter-products?${paramRouterGetApi}`,
+    method: 'get',
+  };
 
   console.log('paramsFilter', paramsFilter);
-  // console.log('getlistProduct.data', getlistProduct.data);
+
+  const getlistProduct = useSWR(bodyGetListProduct.url, () =>
+    paramsFilter[0].subAtttribute.length > 0
+      ? postData(bodyGetListProduct)
+      : undefined
+  );
+
+  console.log('data', data);
+  console.log('dataInit', dataInit);
+
+  console.log('getlistProduct.data', getlistProduct.data);
 
   const onChange = (atttribute?: string, slugSubAttribute?: string): void => {
     const findItemAdded = paramsFilter.filter(
@@ -88,6 +95,32 @@ export default function FilterListProduct(props: IProps) {
     }
   };
 
+  useEffect(() => {
+    if (dataInit.length === 0) {
+      setDataInit(data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    let paramTmp = '';
+
+    // eslint-disable-next-line array-callback-return
+    paramsFilter.map((itemParams) => {
+      paramTmp = `${paramTmp}&attribute=${itemParams.atttribute}`;
+
+      // eslint-disable-next-line array-callback-return
+      itemParams.subAtttribute.map((itemSubcate) => {
+        paramTmp = `${paramTmp}&terms[]=${itemSubcate}`;
+      });
+    });
+    setParamRouterGetApi(paramTmp.replace(paramTmp[0], ''));
+    getlistProduct.mutate();
+  }, [paramsFilter]);
+
+  useEffect(() => {
+    setDataInit(getlistProduct.data ?? data);
+  }, [getlistProduct.data]);
+
   return (
     <div className="filter-list-product-container">
       {/* <div className="mb-[2rem] max-md:mt-[6rem] max-md:mb-[5rem]"> */}
@@ -127,15 +160,33 @@ export default function FilterListProduct(props: IProps) {
             </div>
           ))}
         </div>
-        <div className="w-full grow grid grid-cols-4 gap-4">
-          {data &&
-            data.map((item, index) => (
-              <div className="rounded-[1rem]" key={index}>
-                <ItemProduct heightImage={17} item={item} />
-              </div>
-            ))}
+        <div className="grow">
+          {dataInit.length === 0 && (
+            <div className="flex justify-center">
+              <Image
+                src="/img/no-data.avif"
+                alt="banner-aboutus"
+                height={300}
+                width={300}
+              />
+            </div>
+          )}
+          {dataInit.length > 0 && getlistProduct.isLoading ? (
+            <SkeletonItemProduct />
+          ) : (
+            <div className="grid grid-cols-4 gap-4">
+              {dataInit &&
+                dataInit.map((item: any, index: number) => (
+                  <div className="rounded-[1rem]" key={index}>
+                    <ItemProduct heightImage={17} item={item} />
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
       </div>
+      {/* <PaginationGlobal /> */}
+
       <div className="hidden max-md:block">
         <div className="grid grid-cols-2">
           <div className="relative mb-[4.27rem]">
