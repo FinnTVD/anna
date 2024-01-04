@@ -9,6 +9,7 @@ import ICLogo from '@/components/Icons/ICLogo';
 import ICEmail from '@/components/Icons/ICEmail';
 import ICPhone from '@/components/Icons/ICPhone';
 import Image from 'next/image';
+import Notice from '@/assets/images/notice.png';
 
 function Footer() {
   const listIcon = [
@@ -185,15 +186,15 @@ function Footer() {
                 MST: 0108195925
               </h2>
               <Image
-                width={1}
-                height={1}
+                width={196}
+                height={74}
                 className="my-[0.75rem] w-[12.29306rem] h-[4.6505rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
-                src="/img/footer/logoSaleNoti.png"
+                src={Notice}
                 alt=""
               />
               <Image
-                width={80}
-                height={10}
+                width={132}
+                height={26}
                 className="w-[8.2715rem] h-[1.64063rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
                 src="/img/footer/protected.png"
                 alt=""
