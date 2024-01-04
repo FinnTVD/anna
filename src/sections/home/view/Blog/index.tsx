@@ -12,7 +12,7 @@ const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
 
   return (
-    <div className="px-[3.2rem] sm:p-0 flex flex-wrap container max-md:pb-6">
+    <div className="px-[3.2rem] sm:p-3 flex flex-wrap container max-md:pb-6">
       <div className="w-full md:w-1/3 pt-20 sm:pt-48">
         <h4 className="text-teal-300 text-[5.33333rem] text-center md:text-start md:text-[4.25rem] max-sm:pb-8 font-black uppercase">
           ANNA BLOG
@@ -63,7 +63,7 @@ const Blog = async () => {
                     alt=""
                     height={102}
                     width={135}
-                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-fill bg-slate-500 "
+                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-cover bg-slate-500 "
                     src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
                   />
                 </div>

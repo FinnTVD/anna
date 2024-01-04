@@ -152,7 +152,7 @@ function InfoProduct(props: IProps) {
       )}
 
       {dataInit?.name && (
-        <p className="text-[1.75rem] font-black text-[#454545] leading-[2.1rem] my-[0.75rem] max-md:text-[6.4rem] max-md:mt-[2.13rem] max-md:leading-[8.32rem] max-sm:mb-[0.75rem]">
+        <p className="text-[1.75rem] not-italic font-extrabold text-[#454545] leading-[2.1rem] my-[0.75rem] max-md:text-[6.4rem] max-md:mt-[2.13rem] max-md:leading-[8.32rem] max-sm:mb-[0.75rem]">
           {dataInit?.name}
         </p>
       )}
