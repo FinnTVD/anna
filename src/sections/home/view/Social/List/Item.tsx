@@ -11,7 +11,7 @@ interface IProps {
 
 function ItemSocial(props: IProps) {
   return (
-    <div className="w-full md:w-1/4 relative h-[133.26667rem] md:h-[29.188rem] item-social overflow-hidden">
+    <div className="w-full md:w-1/4 relative h-[133.26667rem] md:h-[29.188rem] item-social overflow-hidden max-md:hidden">
       <Image
         src={props?.img}
         alt=""

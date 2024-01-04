@@ -27,6 +27,7 @@ export interface IProps {
   heightImage?: number;
   isShowArrow?: boolean;
   typePagination?: 'custom' | 'bullets' | 'fraction' | 'progressbar';
+  setProgress?: any; 
 }
 
 function SlideProductComponent(props: IProps) {
@@ -39,6 +40,7 @@ function SlideProductComponent(props: IProps) {
     heightImage,
     isShowArrow = true,
     typePagination,
+    setProgress
   } = props;
   const [resSpaceBetweenSlide, setResSpaceBetweenSlide] = useState<number>(32);
 
@@ -48,6 +50,9 @@ function SlideProductComponent(props: IProps) {
     } else setResSpaceBetweenSlide(spaceBetween ?? 32);
   }, []);
 
+  const handleSlideChange = (swiper:any) => {
+    setProgress(swiper.realIndex)
+  }
   return (
     <div className="swiper-detail-product h-full relative w-full">
       <Swiper
@@ -60,6 +65,7 @@ function SlideProductComponent(props: IProps) {
         pagination={{
           type: typePagination || 'custom',
         }}
+        onSlideChange={handleSlideChange}
         breakpoints={{
           0: {
             slidesPerView: 2,
