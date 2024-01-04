@@ -48,7 +48,7 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
                 <h4 className="text-left text-white text-[3.73333rem] md:text-2xl font-black uppercase">
                   {info?.title}
                 </h4>
-                <div className="text-white flex justify-between text-[3.2rem] md:text-[2.5rem] md:text-lg font-normal">
+                <div className="text-white flex justify-between text-[3.2rem] md:text-lg font-normal">
                   {info?.location}
                   <div className="hidden md:block">
                     <ICArrowTopRightActive
