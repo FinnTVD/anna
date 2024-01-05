@@ -7,7 +7,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '*',
-      }
+      },
     ],
   },
   staticPageGenerationTimeout: 1000,
