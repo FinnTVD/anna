@@ -68,7 +68,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
           </div>
         </div>
         <div className="p-[2.5rem] md:p-[1rem] rounded-[4.26667rem] md:rounded-[1rem] bg-[#FFF] box-slide">
-          <span className="text-[3.7rem] md:text-base line-clamp-1 mb-[0.25rem] text-[#454545] font-[850]">
+          <span className="text-[3.7rem] md:text-base line-clamp-1 mb-[0.25rem] text-[#454545] font-extrabold">
             {dataCollect?.name}
           </span>
           <div className="flex max-md:flex-row-reverse justify-between items-center mt-[2.5rem] md:mt-[0.25rem] mb-[2.8rem] md:mb-[0.75rem]">
@@ -99,7 +99,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
             href={`/detail/${dataCollect?.id}`}
             className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]"
           >
-            <p className="text-[4.8rem] md:text-[1.5rem] font-[850] text-[#55D5D2] md:text-[#fff]">
+            <p className="text-[4.8rem] md:text-[1.5rem] font-extrabold text-[#55D5D2] md:text-[#fff]">
               {dataCollect?.price &&
                 formatCurrencyVND(dataCollect?.price.toString())}
             </p>

@@ -34,7 +34,7 @@ function ItemMobile(props: IProps) {
           )}
         </div>
         <div className="p-[2.13rem] rounded-[3.2rem] bg-[#FFF] box-slide max-md:h-[24rem] max-md:flex max-md:flex-col max-md:justify-between">
-          <span className="text-[1rem] text-[#454545] font-[850] leading-[1.2rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
+          <span className="text-[1rem] text-[#454545] font-extrabold leading-[1.2rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
             {itemProduct?.sku}
           </span>
           {/* list color */}
@@ -71,7 +71,7 @@ function ItemMobile(props: IProps) {
             href={`/san-pham/${itemProduct?.slug}`}
             className="price-product-slide flex justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] border-[1px] border-[#55D5D2]"
           >
-            <p className="text-[3.73333rem] font-[850] leading-[4.85333rem] text-[#55D5D2]">
+            <p className="text-[3.73333rem] font-extrabold leading-[4.85333rem] text-[#55D5D2]">
               {itemProduct?.price ?? ' '}
             </p>
             <div className="arrow-peoduct-slide p-[0.5rem]">

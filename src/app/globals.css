@@ -103,7 +103,7 @@ html {
 }
 
 body {
-  font-family: 'SVN-Nexa-Medium' !important;
+  font-family: var(--font-Nexa) !important;
   /*background-color: #fafafa;*/
 }
 
