@@ -14,13 +14,13 @@ const Blog = async () => {
   return (
     <div className="px-[3.2rem] sm:p-3 flex flex-wrap container max-lg:pb-6">
       <div className="w-full lg:w-1/3 pt-20 sm:pt-48">
-        <h4 className="text-teal-300 text-[5.33333rem] text-center lg:text-start lg:text-[4.25rem] max-sm:pb-8 font-black uppercase">
+        <h4 className="text-[#55D5D2] text-[5.33333rem] text-center lg:text-start lg:text-[4rem] max-sm:pb-8 font-black uppercase">
           ANNA BLOG
           <br className="hidden lg:block" /> & SHARE
         </h4>
         <Link
           href="/blog"
-          className="lg:w-[252px] hidden lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-teal-300 rounded-[100px] flex justify-between items-center gap-3"
+          className="lg:w-[252px] hidden lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
         >
           <div className="text-white text-[20px] lg:text-lg font-black uppercase">
             Xem tất cả

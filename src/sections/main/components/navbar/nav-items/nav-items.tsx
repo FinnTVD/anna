@@ -102,7 +102,7 @@ function NavItems(props: IProps) {
                     paddingLeft: 0,
                     paddingRight: 0,
                   }}
-                  href="/list-product"
+                  href="/cua-hang"
                   onClick={onMouseLeaveTabMenu}
                   className={`${
                     keyTabMenuActive !== 'product'
