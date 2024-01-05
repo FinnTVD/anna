@@ -12,7 +12,6 @@ import { fetchDataRest } from '@/lib/fetch-data-rest';
 import BannerHome from '@/sections/home/view/Banner';
 import SlideMobileSocial from './Social/SlideMobile';
 
-
 const Home = async () => {
   const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
   const dataProductSale = await fetchDataRest('GET', 'custom/v1/product-sales');
@@ -34,7 +33,7 @@ const Home = async () => {
       <Feature dataFeature={dataHome?.acf?.for_you[0]} />
       <AboutHome dataAbout={dataHome?.acf?.about[0]} />
       <Social />
-      <SlideMobileSocial/>
+      <SlideMobileSocial />
       <div className="hidden md:block">
         <ListSocial />
       </div>

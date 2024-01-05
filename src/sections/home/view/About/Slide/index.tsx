@@ -37,7 +37,7 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
             key={index}
           >
             <Image
-              src={'/img/home/q12.jpg'}
+              src="/img/home/q12.jpg"
               alt=""
               width={612}
               height={488}
@@ -49,7 +49,9 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
                   {info?.title}
                 </h4>
                 <div className="text-white flex justify-between lg:mt-[0.12rem]">
-                  <p className='text-[3.2rem] md:text-[2.5rem] md:text-lg lg:text-[1.125rem] leading-[1.4] font-normal lg:w-[23.5625rem]'>{info?.location}</p>
+                  <p className="text-[3.2rem] md:text-[2.5rem] md:text-lg lg:text-[1.125rem] leading-[1.4] font-normal lg:w-[23.5625rem]">
+                    {info?.location}
+                  </p>
                   <div className="hidden md:block">
                     <ICArrowTopRightActive
                       width={30}

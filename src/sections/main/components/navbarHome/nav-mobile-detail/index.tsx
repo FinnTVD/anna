@@ -1,7 +1,6 @@
 'use client';
 
 import ICCart from '@/components/Icons/ICCart';
-import ICSearch from '@/components/Icons/ICSearch';
 import ICTabMenu from '@/components/Icons/ICTabMenu';
 
 function NavMobileDetail() {

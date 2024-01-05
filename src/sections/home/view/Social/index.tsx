@@ -1,4 +1,3 @@
-
 function Social() {
   return (
     <div className="bg-[#EEF9F9] mt-[8rem]">
