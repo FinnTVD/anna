@@ -43,18 +43,11 @@ export default function FilterListProduct(props: IProps) {
     method: 'get',
   };
 
-  console.log('paramsFilter', paramsFilter);
-
   const getlistProduct = useSWR(bodyGetListProduct.url, () =>
     paramsFilter[0].subAtttribute.length > 0
       ? postData(bodyGetListProduct)
       : undefined
   );
-
-  console.log('data', data);
-  console.log('dataInit', dataInit);
-
-  console.log('getlistProduct.data', getlistProduct.data);
 
   const onChange = (atttribute?: string, slugSubAttribute?: string): void => {
     const findItemAdded = paramsFilter.filter(
