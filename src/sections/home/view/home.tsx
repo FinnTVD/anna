@@ -3,7 +3,7 @@ import NewCollection from '@/sections/home/view/CollectNew';
 import Feature from '@/sections/home/view/Feature';
 import FlashSale from '@/sections/home/view/FlashSale';
 import './style.css';
-import AboutHome from '@/sections/home/view/About';
+// import AboutHome from '@/sections/home/view/About';
 import Social from '@/sections/home/view/Social';
 import ListSocial from '@/sections/home/view/Social/List';
 import Blog from '@/sections/home/view/Blog';
@@ -11,6 +11,7 @@ import ActionHome from '@/sections/home/view/Action';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import BannerHome from '@/sections/home/view/Banner';
 import SlideMobileSocial from './Social/SlideMobile';
+import AboutHomeV2 from './About/AboutHomeV2';
 
 const Home = async () => {
   const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
@@ -31,7 +32,7 @@ const Home = async () => {
         <SectionHome />
       </div>
       <Feature dataFeature={dataHome?.acf?.for_you[0]} />
-      <AboutHome dataAbout={dataHome?.acf?.about[0]} />
+      <AboutHomeV2 dataAbout={dataHome?.acf?.about[0]} />
       <Social />
       <SlideMobileSocial />
       <div className="hidden md:block">

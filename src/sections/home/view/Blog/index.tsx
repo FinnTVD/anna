@@ -7,7 +7,6 @@ import React from 'react';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import { formatDate } from '@/ultils/format-date';
 import { ArrowRight } from 'lucide-react';
-import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
 
 const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
