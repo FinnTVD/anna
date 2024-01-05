@@ -1,13 +1,9 @@
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import ItemBlog from '@/sections/home/view/Blog/Item';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import serviceImg from '@/assets/blogImg/Rectangle719.png';
-import { formatDate } from '@/ultils/format-date';
+import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
 import { ArrowRight } from 'lucide-react';
-import ICLine from '@/components/Icons/ICLine';
+import Link from 'next/link';
 
 const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
@@ -21,7 +17,7 @@ const Blog = async () => {
         </h4>
         <Link
           href="/blog"
-          className="lg:w-[252px] hidden lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
+          className="lg:w-[252px] lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
         >
           <div className="text-white text-[20px] lg:text-lg font-black uppercase">
             Xem tất cả
@@ -54,46 +50,13 @@ const Blog = async () => {
         </div>
       </div>
       <div className="block lg:hidden">
-        {/* <SliderMobileBlogHome dataSliderBlog={listBlog}/> */}
         {/* eslint-disable-next-line array-callback-return,consistent-return */}
-        {listBlog?.map((blog: any, index: number) => {
-          if (index <= 3) {
-            return (
-              <Link
-                key={index}
-                href={`/blog/${blog?.post_slug}`}
-                className="flex lg:hidden rounded-[3.2rem] bg-white  mb-8"
-              >
-                <div className="w-2/5  rounded-[3.2rem]">
-                  <Image
-                    alt=""
-                    height={102}
-                    width={135}
-                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-cover bg-slate-500 "
-                    src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
-                  />
-                </div>
-                <div className="p-[2.3rem] w-3/5 grid grid-flow-col">
-                  <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12 text-[#454545]">
-                    {blog?.title}
-                  </p>
-                  <div className="text-[2.66667rem] text-[#828282] font-bold flex items-center">
-                    <span className="pr-2">Blog</span>
-                    <ICLine height={10} />
-                    <span className="pl-2">
-                      {blog && formatDate(blog.post_date)}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            );
-          }
-        })}
+        <SliderMobileBlogHome dataSliderBlog={listBlog} />
       </div>
       <div className="block lg:hidden text-end w-full">
         <Link
           href="/blog"
-          className="flex w-full justify-end items-center gap-2.5 inline-flex"
+          className="flex w-full justify-end items-center gap-2.5"
         >
           <div className="w-[4.2666rem] lg:w-6 h-[4.2666rem] lg:h-6 justify-center items-center flex">
             <ArrowRight className="text-[F58F5D#]" />
