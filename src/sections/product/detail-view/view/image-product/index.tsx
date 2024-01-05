@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import ICArrowRight from '@/components/Icons/ICArrowRight';
 import ICArrowLeft from '@/components/Icons/ICArrowLeft';
+import ZoomScaleImage from "@/components/component-ui-custom/zoom-scale-image";
 
 interface IProps {
   dataInit?: IDetailProductRes;
@@ -73,15 +74,11 @@ function ImageProduct(props: IProps) {
   return (
     <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[91.73333rem] flex-col justify-center max-md:block max-md:w-full max-md:h-[21.5rem] max-md:mb-[1.5rem]">
       <div className="max-sm:h-full">
-        <div className="w-full  h-[38.8125rem] relative max-md:hidden">
-          <Image
-            fill
-            objectFit="cover"
-            className="image-current w-full h-full object-cover "
-            src={itemImagePreview ?? '/img/no_image.jpg'}
-            alt=""
-          />
-        </div>
+        <ZoomScaleImage
+          width="47rem"
+          height="38.8125rem"
+          image={itemImagePreview}
+        />
         <div className="hidden max-md:block h-full w-full">
           <SlideProductMobile
             listImageProduct={dataInit?.galleryImgs ?? dataInit?.featuredImage}
