@@ -47,7 +47,7 @@ function Feature({ dataFeature }: IpropFeature) {
                 <div className="feature-content text-[#55D5D2] text-[4.8rem] md:text-[2.625rem] font-extrabold md:font-black uppercase">
                   {value?.title}
                 </div>
-                <div className="feature-content w-full md:w-[26.5rem] text-[#454545] text-[3.73333rem] font-bold md:font-extrabold md:text-[1.125rem] leading-[7.2rem] md:leading-[1.6875rem] font-extrabold">
+                <div className="feature-content w-full md:w-[26.5rem] text-[#454545] text-[3.73333rem] md:font-extrabold md:text-[1.125rem] leading-[7.2rem] md:leading-[1.6875rem] font-extrabold">
                   {value?.description}
                 </div>
               </div>
