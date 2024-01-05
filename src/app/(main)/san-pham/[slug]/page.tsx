@@ -5,7 +5,7 @@ import { IPostData } from '@/types/next-auth';
 const DetaiPage = async ({ params: { slug } }: any) => {
   // GET DETAIL PRODUCT
   const bodyGetDetailProduct: any = {
-    url: `wp-json/custom/v1/products-by-sku/${slug}`,
+    url: `wp-json/custom/v1/products-by-slug/${slug}`,
     method: 'get',
   };
   const dataDetailProduct = await postData(bodyGetDetailProduct);
@@ -20,7 +20,7 @@ const DetaiPage = async ({ params: { slug } }: any) => {
 
   // GET THE similar GLASSES
   const bodyApiGetSimilarGlasses: IPostData = {
-    url: `wp-json/custom/v1/related-products/${slug}`,
+    url: `wp-json/custom/v1/related-products-slug/${slug}`,
     method: 'get',
   };
   const dataListSimilarGlasses = await postData(bodyApiGetSimilarGlasses);
