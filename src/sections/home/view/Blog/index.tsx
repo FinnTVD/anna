@@ -1,14 +1,9 @@
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import ItemBlog from '@/sections/home/view/Blog/Item';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import serviceImg from '@/assets/blogImg/Rectangle719.png';
-import { formatDate } from '@/ultils/format-date';
-import { ArrowRight } from 'lucide-react';
-import ICLine from '@/components/Icons/ICLine';
 import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
@@ -22,7 +17,7 @@ const Blog = async () => {
         </h4>
         <Link
           href="/blog"
-          className="lg:w-[252px] hidden lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
+          className="lg:w-[252px] lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
         >
           <div className="text-white text-[20px] lg:text-lg font-black uppercase">
             Xem tất cả
@@ -56,12 +51,12 @@ const Blog = async () => {
       </div>
       <div className="block lg:hidden">
         {/* eslint-disable-next-line array-callback-return,consistent-return */}
-        <SliderMobileBlogHome dataSliderBlog={listBlog}/>
+        <SliderMobileBlogHome dataSliderBlog={listBlog} />
       </div>
       <div className="block lg:hidden text-end w-full">
         <Link
           href="/blog"
-          className="flex w-full justify-end items-center gap-2.5 inline-flex"
+          className="flex w-full justify-end items-center gap-2.5"
         >
           <div className="w-[4.2666rem] lg:w-6 h-[4.2666rem] lg:h-6 justify-center items-center flex">
             <ArrowRight className="text-[F58F5D#]" />

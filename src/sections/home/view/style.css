@@ -138,7 +138,7 @@
 .about-card-content {
   display: flex;
   min-height: 500px;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   color: rgb(211, 211, 211);
 
