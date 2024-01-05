@@ -26,7 +26,7 @@
   color: #454545;
   padding: 0;
 }
-.flash-product svg{
+.flash-product svg {
   margin: 1rem;
 }
 .flash-sale-tab .data-\[state\=active\]\:text-foreground[data-state='active'] {
@@ -174,7 +174,6 @@
 
 .mySwiper-about .swiper-slide {
   height: 580px;
-  border: 6px solid #e6f9f8;
 
   @media screen and (max-width: 767px) {
     height: 350px;

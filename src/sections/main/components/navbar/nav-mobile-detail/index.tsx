@@ -30,12 +30,12 @@ function NavMobileDetail(props: IProps) {
       <button type="button" onClick={handleTogleMenu} className="pb-[2.67rem]">
         <ICTabMenu />
       </button>
-      <Link href="">
+      <Link href="/he-thong-cua-hang" onClick={handleTogleMenu}>
         <div className="mb-[2.67rem]">
           <ICLocation2 stroke="white" width="6.4rem" height="6.4rem" />
         </div>
       </Link>
-      <Link href="/">
+      <Link href="/gio-hang" onClick={handleTogleMenu}>
         <div className="mb-[2.67rem] relative w-[6.4rem] h-[6.4rem] ml-[0.8rem]">
           <ICCart fill="white" width="5rem" height="5rem" />
           <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[3.46667rem] h-[3.46667rem] font-bold not-italic text-[2.13333rem]">
@@ -64,7 +64,8 @@ function NavMobileDetail(props: IProps) {
           </div>
           <div className="mt-[6rem] flex justify-between mb-[7.09rem]">
             <Link
-              href="/"
+              href="/gio-hang"
+              onClick={handleTogleMenu}
               className="flex justify-start items-center bg-white h-[12rem] w-[46.13333rem] rounded-[12rem] py-[2.6667rem] px-[6.4rem]"
             >
               <div className="relative w-[5.83333rem] h-[5.83333rem] mr-[3.2rem]">
@@ -78,7 +79,8 @@ function NavMobileDetail(props: IProps) {
               </span>
             </Link>
             <Link
-              href="/"
+              href="/he-thong-cua-hang"
+              onClick={handleTogleMenu}
               className="flex justify-start items-center bg-white h-[12rem] w-[46.13333rem] rounded-[12rem] py-[2.6667rem] px-[6.4rem]"
             >
               <ICLocation2
@@ -106,17 +108,17 @@ function NavMobileDetail(props: IProps) {
               ))}
           </ul>
           <hr className="bg-white mt-[2.13rem] mb-[6.93rem]" />
-          <Link href="/">
+          <Link href="/ve-anna" onClick={handleTogleMenu}>
             <h3 className="text-[5.33333rem] text-white not-italic font-extrabold leading-[7.46667rem] ">
               Về ANNA
             </h3>
           </Link>
-          <Link href="/">
+          <Link href="/" onClick={handleTogleMenu}>
             <h3 className="text-[5.33333rem] text-white not-italic font-extrabold leading-[7.46667rem] my-[3.2rem]">
               Tra cứu đơn hàng
             </h3>
           </Link>
-          <Link href="/">
+          <Link href="/blog" onClick={handleTogleMenu}>
             <h3 className="text-[5.33333rem] text-white not-italic font-extrabold leading-[7.46667rem] ">
               Blog
             </h3>
