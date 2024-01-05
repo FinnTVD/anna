@@ -2,6 +2,7 @@
 
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import ICLocation from '@/components/Icons/ICLocation2';
+import ICLocation3 from '@/components/Icons/ICLocation3';
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -118,7 +119,8 @@ function AboutHome({ dataAbout }: IPropAbout) {
             <div className="absolute w-full top-[4rem] pt-[2rem] pb-[6rem] search-about-slide flex justify-between items-center pl-16 md:pl-[2.75rem] pr-16 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-t-[4rem] border-[1px] border-[#55D5D2]">
               <p className="text-[4rem] md:text-[1.5rem] font-extrabold text-white flex items-center">
                 <div className="mr-12 p-[0.5rem] bg-white rounded-full">
-                  <ICLocation stroke="#F58F5D" />
+                  {/* <ICLocation stroke="#F58F5D" /> */}
+                  <ICLocation3 height={26} width={26}/>
                 </div>
                 <span>Tìm cửa hàng</span>
               </p>

@@ -9,10 +9,11 @@ interface IProps {
   item?: IItemProduct;
   heightImage?: number;
   heightImageMobile?: number;
+  keySlide? : string
 }
 
 function ItemProduct(props: IProps) {
-  const { item, heightImage, heightImageMobile } = props;
+  const { item, heightImage, heightImageMobile, keySlide } = props;
   const [heightSlider, setHeightSlider] = useState<number>(20.375);
 
   useEffect(() => {
@@ -55,7 +56,7 @@ function ItemProduct(props: IProps) {
           </div>
 
           {/* Show in Mobile */}
-          <div className="hidden max-md:block bg-[#CAF2F1] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center mb-[0.62rem] flex justify-center w-fit">
+          <div className="hidden max-md:block bg-[#CAF2F1] border-[#C5C5C5] border-[0.5px] rounded-[2.5rem] items-center mb-[0.62rem] flex justify-center w-fit">
             {item?.categories && (
               <p className="text-[2.66667rem] text-[#454545] font-bold py-[0.2rem] px-[1.6rem] text-center items-center">
                 {item?.categories ?? 'null'}
@@ -64,8 +65,8 @@ function ItemProduct(props: IProps) {
           </div>
 
           {/* hide in mobile */}
-          <div className="lg:mb-mb-[0.75rem] bg-[#F58F5D] h-[1.25rem] flex items-center justify-center border-[#C5C5C5] border-[1px] rounded-[2.5rem] w-[6.375rem] ml-[0.25rem] max-md:hidden">
-            <p className="text-[0.75rem] text-white font-bold leading-[0.9rem] text-center mb-0">
+          <div className="lg:mb-mb-[0.75rem] bg-[#F58F5D] h-[1.25rem] flex items-center justify-center border-[0.5px] border-[#C5C5C5] rounded-[2.5rem] ml-[0.25rem] max-md:hidden">
+            <p className="text-[0.75rem] text-white font-bold leading-[0.9rem] text-center mb-0 md:px-[0.62rem] md:py-[0.5rem]">
               Siêu Sale 10.10
             </p>
           </div>
@@ -121,8 +122,8 @@ function ItemProduct(props: IProps) {
           {/* button show in mobile */}
 
           <Link href={`/san-pham/${item?.slug?.trim()}`}>
-            <div className=" hidden max-md:flex price-product-slide justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] mt-[2rem] border-[1px] border-[#55D5D2]">
-              <p className="text-[3.73333rem] font-extrabold leading-[4.85333rem] text-[#55D5D2]">
+            <div className={`hidden max-md:flex price-product-slide justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] mt-[2rem] ${keySlide === 'flash-sale' ? 'bg-[#55D5D2]' : 'border-[1px] border-[#55D5D2]'}`}>
+              <p className={`text-[3.73333rem] font-extrabold leading-[4.85333rem] ${keySlide === 'flash-sale' ? 'text-[#fff]' : 'text-[#55D5D2]'}`}>
                 {item?.price && formatCurrencyVND(item?.price.toString())}
               </p>
               <div className="arrow-peoduct-slide p-[0.5rem]">
