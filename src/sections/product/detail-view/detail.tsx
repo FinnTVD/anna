@@ -54,7 +54,7 @@ function ProductDetail({
   // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
 
   const bodyApi: IPostData = {
-    url: `wp-json/custom/v1/products-by-sku/${slug}`,
+    url: `wp-json/custom/v1/products-by-slug/${slug}`,
     method: 'get',
   };
   const dataDetailProduct = useSWR(bodyApi.url, () => postData(bodyApi));
