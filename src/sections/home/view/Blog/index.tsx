@@ -13,7 +13,7 @@ const Blog = async () => {
 
   return (
     <div className="px-[3.2rem] sm:p-3 flex flex-wrap container max-lg:pb-6">
-      <div className="w-full lg:w-1/3 pt-20 sm:pt-48">
+      <div className="w-full lg:w-1/3 pt-20 sm:pt-[18rem]">
         <h4 className="text-[#55D5D2] text-[5.33333rem] text-center lg:text-start lg:text-[4rem] max-sm:pb-8 font-black uppercase">
           ANNA BLOG
           <br className="hidden lg:block" /> & SHARE
