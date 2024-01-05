@@ -3,6 +3,7 @@ import { ArrowTopRightActive } from '@/app/icons';
 import './style.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { formatCurrencyVND } from '@/ultils/format-price';
 
 interface IProps {
   itemProduct?: any;
@@ -11,12 +12,12 @@ function ItemMobile(props: IProps) {
   const { itemProduct } = props;
 
   return (
-    <div className="item-product-mobile relative max-md:h-[50rem] max-md:w-[45.2rem] rounded-[3.2rem]">
-      <div className="overflow-hidden rounded-[1rem] ">
+    <div className="item-product-mobile relative max-md:h-[57rem] max-md:w-[45.2rem] rounded-[3.2rem]">
+      <div className="overflow-hidden rounded-[1rem] w-full ">
         <Image
           width={200}
           height={200}
-          className=" object-cover h-[40rem] rounded-3xl"
+          className=" object-cover h-[40rem] w-full rounded-3xl"
           src={
             itemProduct?.featuredImage !== false
               ? itemProduct?.featuredImage
@@ -71,8 +72,8 @@ function ItemMobile(props: IProps) {
             href={`/san-pham/${itemProduct?.slug}`}
             className="price-product-slide flex justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] border-[1px] border-[#55D5D2]"
           >
-            <p className="text-[3.73333rem] font-extrabold leading-[4.85333rem] text-[#55D5D2]">
-              {itemProduct?.price ?? ' '}
+            <p className="text-[3.73333rem] font-extrabold leading-[4.85333rem] h-[4.85333rem] text-[#55D5D2]">
+              {itemProduct?.price ? formatCurrencyVND(itemProduct?.price) : ' '}
             </p>
             <div className="arrow-peoduct-slide p-[0.5rem]">
               <ArrowTopRightActive />

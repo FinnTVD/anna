@@ -142,9 +142,9 @@ function InfoProduct(props: IProps) {
   }, [dataProductSubmit.idColor]);
 
   return (
-    <div className="info-detail-product right-detail grow max-lg:w-[25rem] max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[2rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
+    <div className="info-detail-product right-detail grow max-lg:ml-[1.76rem]  ml-[3.76rem] max-md:mt-[2rem] max-md:ml-[0rem] max-md:relative max-md:w-full">
       {dataInit?.categories && dataInit?.categories[0] && (
-        <div className="flex items-center justify-center h-[1.4375rem] py-[0.8125rem] px-[0.625rem] rounded-[2.5rem] w-fit bg-[#CAF2F1] max-md:py-[3.46667rem] max-md:h-[6.13333rem] max-md:px-[2.66667rem] max-md:rounded-[10.66667rem]">
+        <div className="flex items-center justify-center h-[1.4375rem] py-[0.8125rem] border-[0.5px] border-[#C5C5C5] px-[0.625rem] rounded-[2.5rem] w-fit bg-[#CAF2F1] max-md:py-[3.46667rem] max-md:h-[6.13333rem] max-md:px-[2.66667rem] max-md:rounded-[10.66667rem]">
           <span className="leading-[0.9rem] text-[#454545] text-[0.75rem] not-italic font-bold max-md:text-[2.66667rem] max-md:leading-[3.46667rem] overflow-hidden">
             {dataInit?.categories[0]}
           </span>
@@ -204,7 +204,7 @@ function InfoProduct(props: IProps) {
       {/* button */}
       <div className="max-lg:px-[0.5rem] max-lg:py-[0.5rem] px-[1rem] py-[1.06rem] bg-[#CAF2F1]  rounded-[5rem] mb-[2.6rem] max-sm:p-0  max-md:mt-[4rem]">
         <div className="flex justify-between items-center  h-[3.375rem] max-md:h-[11.73333rem] max-md:w-full">
-          <div className="w-[12.3125rem] h-full mr-[1.5rem] text-[#44AAA8] flex justify-between items-center rounded-[2.3125rem] bg-white border-[#4DC0BD] border-[1px] max-sm:hidden ">
+          <div className="box-shadow-button w-[12.3125rem] h-full mr-[1.5rem] text-[#44AAA8] flex justify-between items-center rounded-[2.3125rem] bg-white border-[#4DC0BD] border-[1px] max-sm:hidden ">
             <div
               onClick={
                 dataProductSubmit.quantityProduct > 1
@@ -225,7 +225,7 @@ function InfoProduct(props: IProps) {
               <input
                 type="text"
                 // pattern="[0-9]/g*"
-                className="w-full focus:outline-none text-center"
+                className="w-full focus:outline-none text-center placeholder:text-[1rem] "
                 defaultValue={dataProductSubmit.quantityProduct}
                 value={dataProductSubmit.quantityProduct}
                 onChange={(value) => handleOnchangeQuantity(value)}
@@ -250,13 +250,13 @@ function InfoProduct(props: IProps) {
               handleAddToCart(dataInit, dataProductSubmit.quantityProduct)
             }
             type="button"
-            className="cursor-pointer flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] text-white text-[1rem] font-extrabold leading-[1.4rem] px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between max-lg:ml-[0.5rem]"
+            className="box-shadow-button cursor-pointer flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] text-white text-[1rem] font-extrabold leading-[1.4rem] px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between max-lg:ml-[0.5rem]"
           >
             <div className="flex justify-between items-center">
               <div className="hidden max-md:block mr-[2.67rem] ml-[5.33rem]">
                 <ICBag />
               </div>
-              <p className="max-lg:mr-[0.49rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] pb-[0rem] mb-[0rem]">
+              <p className="max-lg:mr-[0.49rem] text-[1rem] not-italic font-extrabold leading-[1.4rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] pb-[0rem] mb-[0rem]">
                 Thêm vào giỏ
               </p>
             </div>
@@ -281,7 +281,7 @@ function InfoProduct(props: IProps) {
               >
                 <circle cx="2" cy="2" r="2" fill="#CAF2F1" />
               </svg>
-              <p className="title-add-cart ml-[0.62rem] max-md:ml-[2.67rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:font-extrabold max-md:mr-[5.33rem]">
+              <p className="title-add-cart text-[1rem] not-italic font-extrabold leading-[1.4rem] ml-[0.62rem] max-md:ml-[2.67rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:font-extrabold max-md:mr-[5.33rem]">
                 {priceProduct * dataProductSubmit.quantityProduct}
               </p>
             </div>
@@ -308,7 +308,7 @@ function InfoProduct(props: IProps) {
         </div>
         <Link
           href="/he-thong-cua-hang"
-          className="cursor-pointer text-[1.5rem] leading-[1.95rem] text-[#55D5D2] ml-[0.62rem] not-italic font-bold max-md:leading-[3.46667rem] max-md:text-[2.6667rem] max-md:ml-[1.06667rem]"
+          className="cursor-pointer text-[1.5rem] leading-[1.95rem] text-[#55D5D2] ml-[0.62rem] not-italic font-extrabold max-md:leading-[3.46667rem] max-md:text-[2.6667rem] max-md:ml-[1.06667rem]"
         >
           Tìm cửa hàng
         </Link>

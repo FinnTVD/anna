@@ -80,7 +80,7 @@ function DropdownCartHeader(props: IProps) {
                 </div>
                 <div className="flex items-center">
                   <span className="mr-[0.62rem] text-[1.125rem] text-[#55D5D2] not-italic font-extrabold leading-[1.35rem]">
-                    {formatCurrencyVND(item.price.toString())}
+                    {item?.price && formatCurrencyVND(item.price.toString())}
                   </span>
                   <span className="text-[0.875rem] not-italic font-normal leading-[1.05rem] line-through">
                     {/* {formatCurrencyVND(item.salePrice.toString())} */}

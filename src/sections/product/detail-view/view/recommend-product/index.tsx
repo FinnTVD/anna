@@ -17,42 +17,42 @@ function RecommendProduct(props: IProps) {
         <h4 className="pt-[2.06rem] text-[2rem] font-extrabold text-[#4DC0BD] max-md:text-[5.33333rem] max-md:text-[#313131] text-left ">
           GỢI Ý CHO BẠN
         </h4>
-        <div className="flex w-full justify-between mt-[2.12rem]">
-          <div className="w-[27.5rem]">
+        <div className="flex w-full justify-between mt-[2.12rem] overflow-hidden overflow-x-auto">
+          <div className="w-[27.5rem] max-md:min-w-[54.43307rem]">
             <Image
               width={100}
               height={100}
-              className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
+              className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem] max-md:h-[48rem]"
               src={
                 (dataProductGlasses && dataProductGlasses[0]?.featuredImage) ??
                 '/img/no_image.jpg'
               }
               alt=""
             />
-            <p className="text-[2rem] font-extrabold text-center not-italic leading-[2.4rem]">
+            <p className="text-[2rem] font-extrabold text-center not-italic leading-[2.4rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
               {dataProductGlasses && dataProductGlasses[0]?.categories[0]}
             </p>
           </div>
-          <div className="w-[27.5rem]">
+          <div className="w-[27.5rem] max-md:min-w-[54.43307rem] max-md:mx-[2.13rem]">
             <Image
               width={100}
               height={100}
-              className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
+              className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem] max-md:h-[48rem]"
               src={
                 (dataDataLenses && dataDataLenses[0]?.featuredImage) ??
                 '/img/no_image.jpg'
               }
               alt=""
             />
-            <p className="text-[2rem] font-extrabold text-center not-italic leading-[2.4rem]">
+            <p className="text-[2rem] font-extrabold text-center not-italic leading-[2.4rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
               {dataDataLenses && dataDataLenses[0]?.categories[0]}
             </p>
           </div>
-          <div className="w-[27.5rem]">
+          <div className="w-[27.5rem] max-md:min-w-[54.43307rem]">
             <Image
               width={100}
               height={100}
-              className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
+              className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem] max-md:h-[48rem]"
               src={
                 (dataProductByAnyCategory &&
                   dataProductByAnyCategory[0]?.featuredImage) ??
@@ -60,7 +60,7 @@ function RecommendProduct(props: IProps) {
               }
               alt="image"
             />
-            <p className="text-[2rem] font-extrabold text-center not-italic leading-[2.4rem]">
+            <p className="text-[2rem] font-extrabold text-center not-italic leading-[2.4rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
               {dataProductByAnyCategory &&
                 dataProductByAnyCategory[0]?.categories[0]}
             </p>
