@@ -37,8 +37,8 @@ function ActionHome({ dataTrip }: IPropsAction) {
         <div className="flex justify-center flex-wrap md:p-10 card-item-action mt-10">
           <div className="w-full md:w-1/2 md:h-[30.125rem] flex-col justify-start items-start gap-5 inline-flex">
             <div className="item-actions self-stretch px-[3.2rem] md:px-5 py-20 md:py-6 bg-gradient-to-r from-black via-black to-black rounded-tl-[1.75rem] rounded-bl-[1.75rem] border-l border-white flex-col justify-start items-start gap-2 flex">
-              <div className="max-md:w-full px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-2xl justify-start items-start gap-2.5 inline-flex">
-                <div className="text-center w-full text-white text-[3.733rem] md:text-[2rem] max-md:p-[1.5rem]">
+              <div className="max-md:w-full px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-[1rem] justify-start items-start gap-2.5 inline-flex">
+                <div className="text-center w-full text-white text-[3.733rem] font-extrabold md:text-[2rem] max-md:p-[1.5rem]">
                   ĐÔI MẮT MẶT TRỜI
                 </div>
               </div>
@@ -48,8 +48,8 @@ function ActionHome({ dataTrip }: IPropsAction) {
                   cảnh khó khăn.
                 </div>
               </div>
-              <div className="max-md:w-full px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-2xl justify-start items-start gap-2.5 inline-flex">
-                <div className="text-center w-full text-white text-[3.733rem] md:text-[2rem] max-md:p-[1.5rem]">
+              <div className="max-md:w-full px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-[1rem] justify-start items-start gap-2.5 inline-flex">
+                <div className="text-center w-full text-white text-[3.733rem] font-extrabold md:text-[2rem] max-md:p-[1.5rem]">
                   TÚI TỬ TẾ
                 </div>
               </div>
@@ -67,7 +67,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
                     07
                     <br />
                   </span>
-                  <span className="text-white text-[3rem] md:text-sm">
+                  <span className="text-white text-[3rem] md:text-sm font-black">
                     TỈNH THÀNH
                     <br />
                   </span>
@@ -82,7 +82,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
                     30
                     <br />
                   </span>
-                  <span className="text-white text-[3rem] md:text-sm">
+                  <span className="text-white text-[3rem] md:text-sm font-black">
                     EM NHỎ
                     <br />
                   </span>
@@ -97,7 +97,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
                     500.000
                     <br />
                   </span>
-                  <span className="text-white text-[3rem] md:text-sm">
+                  <span className="text-white text-[3rem] md:text-sm font-black">
                     TÚI TỬ TẾ
                     <br />
                   </span>
