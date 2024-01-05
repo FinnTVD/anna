@@ -90,7 +90,8 @@ function DropdownSeeMoreHeader(props: IProps) {
                 alt=""
               />
             </div>
-            <button
+            <Link
+              href="/blog/goc-tu-van-chon-kinh-dep"
               type="button"
               className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#55D5D2] flex justify-between items-center"
             >
@@ -106,7 +107,7 @@ function DropdownSeeMoreHeader(props: IProps) {
                   />
                 </div>
               </div>
-            </button>
+            </Link>
           </div>
           <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
             <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
@@ -118,7 +119,8 @@ function DropdownSeeMoreHeader(props: IProps) {
                 alt=""
               />
             </div>
-            <button
+            <Link
+              href="/blog/goc-tu-van-chon-kinh-dep"
               type="button"
               className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#55D5D2] flex justify-between items-center"
             >
@@ -134,7 +136,7 @@ function DropdownSeeMoreHeader(props: IProps) {
                   />
                 </div>
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

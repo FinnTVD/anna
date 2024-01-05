@@ -180,7 +180,11 @@ function NavItems(props: IProps) {
               <HoverCardTrigger asChild>
                 <div className="relative rounded-[1.25rem] flex items-center h-full">
                   <Input
-                    className={`${styleNavbar ? 'placeholder-[#4DC0BD]' : 'opacity-25	placeholder-[#fff]'}input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
+                    className={`${
+                      styleNavbar
+                        ? 'placeholder-[#4DC0BD]'
+                        : 'opacity-25	placeholder-[#fff]'
+                    }input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
