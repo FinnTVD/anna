@@ -5,6 +5,7 @@ import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { CartComponent } from '@/sections/cart/CartComponent';
+import './style.css';
 
 interface IProps {
   dataListProductNew?: any;
@@ -60,9 +61,9 @@ export default function Cart(props: IProps) {
           <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[4.8rem] max-md:leading-[7.2rem] max-md:w-[64.26667rem] max-md:h-[12rem] max-md:mb-[4rem] max-md:text-start">
             SẢN PHẨM CÓ THỂ BẠN QUAN TÂM
           </h4>
-          <div className="flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
+          <div className="button-see-more-cart flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
             <ICArrowRight2 fill="#F58F5D" />
-            <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
+            <p className="text-[1.125rem] leading-[1.4625rem] font-bold ml-[0.62rem] text-right max-md:hidden">
               Xem thêm
             </p>
             <p className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]">
@@ -99,6 +100,7 @@ export default function Cart(props: IProps) {
                   PerView1280: 3,
                 }}
                 data={dataInit}
+                left
               />
             </div>
           </div>

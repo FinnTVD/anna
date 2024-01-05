@@ -127,17 +127,6 @@ export default function FilterListProduct(props: IProps) {
 
   return (
     <div className="filter-list-product-container">
-      {/* <h1>Hello, {name || 'anonymous visitor'}!</h1> */}
-      {/* <input */}
-      {/*  value={name || ""} */}
-      {/*  onChange={(e) => { */}
-      {/*    setCoordinates({ */}
-      {/*      lat: [1, 2, 3], */}
-      {/*      lng: 2, */}
-      {/*    }); */}
-      {/*  }} */}
-      {/* /> */}
-
       {/* <div className="mb-[2rem] max-md:mt-[6rem] max-md:mb-[5rem]"> */}
       {/*  <h2 className="font-semibold text-[2.188rem] uppercase max-md:text-[4.8rem]"> */}
       {/*    GỌNG KÍNH */}
@@ -158,7 +147,7 @@ export default function FilterListProduct(props: IProps) {
                 item.subAttribute.map((itemSubAttribute, index) => (
                   <div
                     key={index}
-                    className="flex items-center w-full overflow-hidden"
+                    className="flex items-center w-full overflow-hidden mb-[0.5rem]"
                   >
                     <Checkbox
                       onCheckedChange={(value: boolean) =>
@@ -167,7 +156,7 @@ export default function FilterListProduct(props: IProps) {
                       id="1"
                       className="border-[#ccc] border-[1px]"
                     />
-                    <span className="value-item-checkbox line-clamp-1 text-nowrap">
+                    <span className="font-medium line-clamp-1 text-nowrap ml-[0.7rem]">
                       {itemSubAttribute.name}
                     </span>
                   </div>

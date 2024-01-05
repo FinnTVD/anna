@@ -4,14 +4,14 @@
 
 @layer components {
   .list-product-container .title-filter {
-    @apply text-[1.5rem] font-bold leading-[2.25rem] not-italic;
+    @apply text-[1.5rem] font-extrabold not-italic leading-[1.25rem];
   }
 
   .list-product-container .title-filter:not(:nth-child(1)) {
-    @apply mt-[1.25rem];
+    @apply mt-[1.25rem]  leading-[1.2rem] text-[1rem];
   }
 
   .list-product-container .value-item-checkbox {
-    @apply text-[1rem] not-italic leading-[2.25rem] font-light ml-[0.938rem];
+    @apply text-[1rem] not-italic leading-[2.25rem] font-bold ml-[0.938rem];
   }
 }
