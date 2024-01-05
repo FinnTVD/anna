@@ -56,12 +56,12 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
       </div>
       <div className="relative z-2 -mt-[14rem] md:-mt-[3.5rem] z-9 left-0 right-0 w-full box-slide ">
         <div className="flex ml-[1.25rem] md:ml-[1rem] mb-[3rem] md:mb-[0.9rem]">
-          <div className="p-8 md:p-2 bg-[#CAF2F1] h-[5.33333rem] md:h-[1.25rem] border-[#C5C5C5] border-[1px] rounded-[2.5rem] items-center flex justify-center">
+          <div className="p-8 md:p-2 bg-[#CAF2F1] h-[5.33333rem] md:h-[1.25rem] border-[#C5C5C5] border-[0.5px] rounded-[2.5rem] items-center flex justify-center">
             <p className="text-[2.666rem] md:text-[0.75rem] text-[#454545] font-bold text-center">
               Gọng kính
             </p>
           </div>
-          <div className="p-2 bg-[#F58F5D] h-[5.33333rem] md:h-[1.25rem] flex items-center justify-center border-[#C5C5C5] border-[1px] rounded-[2.5rem] ml-[0.25rem]">
+          <div className="p-8 md:p-2 bg-[#F58F5D] h-[5.33333rem] md:h-[1.25rem] flex items-center justify-center border-[#C5C5C5] border-[0.5px] rounded-[2.5rem] ml-[0.25rem]">
             <p className="text-[2.666rem] md:text-[0.75rem] text-white font-bold text-center mb-0">
               Siêu Sale 10.10
             </p>
@@ -85,7 +85,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
               )}
               <div
                 style={{ background: '#A9A9A9' }}
-                className="h-[3.2rem] md:h-[1.5rem] w-[3.2rem] md:w-[1.5rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[2.66667rem] md:text-[0.625rem] leading-[0.75rem] font-bold not-italic "
+                className="h-[3.2rem] md:h-[1.5rem] p-[0.25rem] text-white w-[3.2rem] md:w-[1.5rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[2.66667rem] md:text-[0.625rem] leading-[0.75rem] font-bold not-italic "
               >
                 +{listColor.length - 4}
               </div>
@@ -96,7 +96,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
             </div>
           </div>
           <Link
-            href={`/detail/${dataCollect?.id}`}
+            href={`/san-pham/${dataCollect?.slug}`}
             className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]"
           >
             <p className="text-[4.8rem] md:text-[1.5rem] font-extrabold text-[#55D5D2] md:text-[#fff]">
