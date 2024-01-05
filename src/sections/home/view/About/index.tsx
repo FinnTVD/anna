@@ -1,7 +1,6 @@
 'use client';
 
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
-import ICLocation from '@/components/Icons/ICLocation2';
 import ICLocation3 from '@/components/Icons/ICLocation3';
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
@@ -120,7 +119,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
               <p className="text-[4rem] md:text-[1.5rem] font-extrabold text-white flex items-center">
                 <div className="mr-12 p-[0.5rem] bg-white rounded-full">
                   {/* <ICLocation stroke="#F58F5D" /> */}
-                  <ICLocation3 height={26} width={26}/>
+                  <ICLocation3 height={26} width={26} />
                 </div>
                 <span>Tìm cửa hàng</span>
               </p>

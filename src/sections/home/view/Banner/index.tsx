@@ -31,28 +31,29 @@ function BannerHome({ dataBanner }: IpropBanner) {
         </Swiper>
       </div>
       <div className="block sm:hidden">
-      <Swiper
-        watchSlidesProgress
-        slidesPerView={1}
-        loop
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="sm:h-fit mySwiper-action">
-        {dataBanner?.map((valueBanner: any, index: number) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={valueBanner?.url}
-              alt=""
-              quality={80}
-              width={1920}
-              height={848}
-              className="w-full object-cover h-[65rem] md:h-[53rem]"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <Swiper
+          watchSlidesProgress
+          slidesPerView={1}
+          loop
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="sm:h-fit mySwiper-action"
+        >
+          {dataBanner?.map((valueBanner: any, index: number) => (
+            <SwiperSlide key={index}>
+              <Image
+                src={valueBanner?.url}
+                alt=""
+                quality={80}
+                width={1920}
+                height={848}
+                className="w-full object-cover h-[65rem] md:h-[53rem]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

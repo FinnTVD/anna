@@ -26,6 +26,7 @@ function SliderMobileBlogHome({ dataSliderBlog }: IPropItem) {
         className=" max-w-[93.6rem]"
       >
         <SwiperSlide className="myBlog">
+          {/* eslint-disable-next-line array-callback-return,consistent-return */}
           {dataSliderBlog?.map((blogData: string, index: number) => {
             if (index <= 3) {
               return (

@@ -34,11 +34,11 @@ function NavMobileDetail({ dataListProductHeader }: IProps) {
           </div>
         </div>
       </Link>
-      <MenuPopupMobile 
-      isShowMenu={isShowMenu}
-      handleTogleMenu={handleTogleMenu}
-      dataListProductHeader={dataListProductHeader}
-      />     
+      <MenuPopupMobile
+        isShowMenu={isShowMenu}
+        handleTogleMenu={handleTogleMenu}
+        dataListProductHeader={dataListProductHeader}
+      />
     </div>
   );
 }

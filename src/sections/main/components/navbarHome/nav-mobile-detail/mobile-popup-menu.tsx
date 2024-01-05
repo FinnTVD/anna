@@ -1,13 +1,11 @@
 'use client';
 
 import ICCart from '@/components/Icons/ICCart';
-import ICSearch from '@/components/Icons/ICSearch';
-import ICTabMenu from '@/components/Icons/ICTabMenu';
 import ICLocation2 from '@/components/Icons/ICLocation2';
 import { ICClean } from '@/components/Icons/ICClose';
 import ICLogo from '@/components/Icons/ICLogo';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import ICFacebookFooter from '@/components/Icons/ICFacebookFooter';
 import ICInstagramFooter from '@/components/Icons/ICInstagramFooter';
 import ICTiktokFooter from '@/components/Icons/ICTiktokFooter';
@@ -19,12 +17,16 @@ interface IPropsMenuMobile {
   handleTogleMenu: any;
   dataListProductHeader: any;
 }
-const MenuPopupMobile = ({ isShowMenu, handleTogleMenu, dataListProductHeader }: IPropsMenuMobile) => {
-
+function MenuPopupMobile({
+  isShowMenu,
+  handleTogleMenu,
+  dataListProductHeader,
+}: IPropsMenuMobile) {
   return (
     <div
-      className={`${isShowMenu ? 'block' : 'hidden'
-        } h-screen w-full fixed top-0 left-0 z-50 bg-[#55D5D2] pt-[9.6rem] overflow-y-auto`}
+      className={`${
+        isShowMenu ? 'block' : 'hidden'
+      } h-screen w-full fixed top-0 left-0 z-50 bg-[#55D5D2] pt-[9.6rem] overflow-y-auto`}
     >
       <div className="px-[3.2rem]">
         <div className="flex justify-between">
@@ -160,7 +162,7 @@ const MenuPopupMobile = ({ isShowMenu, handleTogleMenu, dataListProductHeader }:
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default MenuPopupMobile
+export default MenuPopupMobile;

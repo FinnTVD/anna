@@ -47,7 +47,7 @@ function FlashSale({
                 Flash Sale
               </TabsTrigger>
               <div className="">
-                {!isTab ?
+                {!isTab ? (
                   <Progress
                     value={
                       (progress + 1) *
@@ -55,10 +55,9 @@ function FlashSale({
                     }
                     className="h-[0.8rem] md:h-[0.1875rem] w-full bg-[#55D5D2]"
                   />
-                  :
-                  <div
-                    className="h-[0.8rem] md:h-[0.1875rem] w-full invisible"
-                  />}
+                ) : (
+                  <div className="h-[0.8rem] md:h-[0.1875rem] w-full invisible" />
+                )}
               </div>
             </div>
             <ICLine height={30} />
@@ -74,17 +73,17 @@ function FlashSale({
                 bán chạy nhất
               </TabsTrigger>
               <div className="">
-                {isTab ? <Progress
-                  value={
-                    (progress + 1) *
-                    (100 / (dataSellingProduct?.length ?? 0 + 1))
-                  }
-                  className="h-[0.8rem] md:h-[0.1875rem] w-full bg-[#55D5D2]"
-                />
-                  :
-                  <div
-                    className="h-[0.8rem] md:h-[0.1875rem] w-full invisible"
-                  />}
+                {isTab ? (
+                  <Progress
+                    value={
+                      (progress + 1) *
+                      (100 / (dataSellingProduct?.length ?? 0 + 1))
+                    }
+                    className="h-[0.8rem] md:h-[0.1875rem] w-full bg-[#55D5D2]"
+                  />
+                ) : (
+                  <div className="h-[0.8rem] md:h-[0.1875rem] w-full invisible" />
+                )}
               </div>
             </div>
           </TabsList>

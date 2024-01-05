@@ -7,7 +7,6 @@ import React from 'react';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import { formatDate } from '@/ultils/format-date';
 import { ArrowRight } from 'lucide-react';
-import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
 import ICLine from '@/components/Icons/ICLine';
 
 const Blog = async () => {
@@ -28,7 +27,11 @@ const Blog = async () => {
             Xem tất cả
           </div>
           <div className="p-1.5 bg-white rounded-[50px] justify-start items-center gap-2.5 flex">
-            <ICArrowTopRightActive width={31.997} height={32} stroke="#55D5D2" />
+            <ICArrowTopRightActive
+              width={31.997}
+              height={32}
+              stroke="#55D5D2"
+            />
           </div>
         </Link>
       </div>
@@ -51,8 +54,8 @@ const Blog = async () => {
         </div>
       </div>
       <div className="block lg:hidden">
-        {/* eslint-disable-next-line array-callback-return,consistent-return */}
         {/* <SliderMobileBlogHome dataSliderBlog={listBlog}/> */}
+        {/* eslint-disable-next-line array-callback-return,consistent-return */}
         {listBlog?.map((blog: any, index: number) => {
           if (index <= 3) {
             return (
@@ -77,7 +80,9 @@ const Blog = async () => {
                   <div className="text-[2.66667rem] text-[#828282] font-bold flex items-center">
                     <span className="pr-2">Blog</span>
                     <ICLine height={10} />
-                    <span className="pl-2">{blog && formatDate(blog.post_date)}</span>
+                    <span className="pl-2">
+                      {blog && formatDate(blog.post_date)}
+                    </span>
                   </div>
                 </div>
               </Link>

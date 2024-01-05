@@ -55,7 +55,7 @@ function NavbarHome(props: IProps) {
         />
       </div>
       <div className="hidden max-sm:block fixed top-[20px] right-[3.2rem] z-10">
-        <NavMobileDetail dataListProductHeader={dataListProductHeader}/>
+        <NavMobileDetail dataListProductHeader={dataListProductHeader} />
       </div>
     </div>
   );

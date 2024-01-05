@@ -1,6 +1,6 @@
 interface IProps {
-  width?: string | number;
-  height?: string | number;
+  width: string | number;
+  height: string | number;
   fill?: string;
 }
 

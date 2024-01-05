@@ -1,5 +1,6 @@
-'use client'
-import React from 'react'
+'use client';
+
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -9,55 +10,64 @@ import 'swiper/css/pagination';
 
 import { FreeMode } from 'swiper/modules';
 import ICVectorRight from '@/components/Icons/ICVectorRight';
-const SlideSelect = () => {
+
+function SlideSelect() {
   return (
     <div className="max-sm:py-[4.7rem]">
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
-        freeMode={true}
+        freeMode
         pagination={{
           clickable: true,
         }}
         modules={[FreeMode]}
         className="mySwiper"
       >
-        <SwiperSlide><div className="item-collect-slide pl-0 lg:px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-          {/* <ArrowRight className="icon-arrow-right hidden" /> */}
-          <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
-            <ICVectorRight width={16} height={16} />
+        <SwiperSlide>
+          <div className="item-collect-slide pl-0 lg:px-[1.25rem] cursor-pointer relative z-10 flex items-center">
+            {/* <ArrowRight className="icon-arrow-right hidden" /> */}
+            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+              <ICVectorRight width={16} height={16} />
+            </div>
+            <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
+              Gọng kính
+            </p>
           </div>
-          <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
-            Gọng kính
-          </p>
-        </div></SwiperSlide>
-        <SwiperSlide><div className="item-collect-slide px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-          <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
-            <ICVectorRight width={16} height={16} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="item-collect-slide px-[1.25rem] cursor-pointer relative z-10 flex items-center">
+            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+              <ICVectorRight width={16} height={16} />
+            </div>
+            <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
+              Tròng Kính
+            </p>
           </div>
-          <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
-            Tròng Kính
-          </p>
-        </div></SwiperSlide>
-        <SwiperSlide><div className="item-collect-slide px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-          <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
-            <ICVectorRight width={16} height={16} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="item-collect-slide px-[1.25rem] cursor-pointer relative z-10 flex items-center">
+            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+              <ICVectorRight width={16} height={16} />
+            </div>
+            <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
+              Kính râm
+            </p>
           </div>
-          <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
-            Kính râm
-          </p>
-        </div></SwiperSlide>
-        <SwiperSlide><div className="item-collect-slide px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-          <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
-            <ICVectorRight width={16} height={16} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="item-collect-slide px-[1.25rem] cursor-pointer relative z-10 flex items-center">
+            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+              <ICVectorRight width={16} height={16} />
+            </div>
+            <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
+              Kính áp tròng
+            </p>
           </div>
-          <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
-            Kính áp tròng
-          </p>
-        </div></SwiperSlide>
+        </SwiperSlide>
       </Swiper>
     </div>
-  )
+  );
 }
 
-export default SlideSelect
+export default SlideSelect;
