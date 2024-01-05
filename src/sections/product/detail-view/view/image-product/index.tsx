@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
@@ -74,11 +74,13 @@ function ImageProduct(props: IProps) {
   return (
     <div className="left-detail w-[47rem] max-lg:w-[40rem]  max-md:w-[52rem] max-md:h-[91.73333rem] flex-col justify-center max-md:block max-md:w-full max-md:h-[21.5rem] max-md:mb-[1.5rem]">
       <div className="max-sm:h-full">
-        <ZoomScaleImage
-          width="47rem"
-          height="38.8125rem"
-          image={itemImagePreview}
-        />
+        <div className="max-md:hidden">
+          <ZoomScaleImage
+            width="47rem"
+            height="38.8125rem"
+            image={itemImagePreview}
+          />
+        </div>
         <div className="hidden max-md:block h-full w-full">
           <SlideProductMobile
             listImageProduct={dataInit?.galleryImgs ?? dataInit?.featuredImage}
