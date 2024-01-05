@@ -8,6 +8,7 @@ import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import { formatDate } from '@/ultils/format-date';
 import { ArrowRight } from 'lucide-react';
 import ICLine from '@/components/Icons/ICLine';
+import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
 
 const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
@@ -54,41 +55,8 @@ const Blog = async () => {
         </div>
       </div>
       <div className="block lg:hidden">
-        {/* <SliderMobileBlogHome dataSliderBlog={listBlog}/> */}
         {/* eslint-disable-next-line array-callback-return,consistent-return */}
-        {listBlog?.map((blog: any, index: number) => {
-          if (index <= 3) {
-            return (
-              <Link
-                key={index}
-                href={`/blog/${blog?.post_slug}`}
-                className="flex lg:hidden rounded-[3.2rem] bg-white  mb-8"
-              >
-                <div className="w-2/5  rounded-[3.2rem]">
-                  <Image
-                    alt=""
-                    height={102}
-                    width={135}
-                    className="image-item-slide ease-out duration-300  rounded-[3.2rem] h-full w-full object-cover bg-slate-500 "
-                    src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
-                  />
-                </div>
-                <div className="p-[2.3rem] w-3/5 grid grid-flow-col">
-                  <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12 text-[#454545]">
-                    {blog?.title}
-                  </p>
-                  <div className="text-[2.66667rem] text-[#828282] font-bold flex items-center">
-                    <span className="pr-2">Blog</span>
-                    <ICLine height={10} />
-                    <span className="pl-2">
-                      {blog && formatDate(blog.post_date)}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            );
-          }
-        })}
+        <SliderMobileBlogHome dataSliderBlog={listBlog}/>
       </div>
       <div className="block lg:hidden text-end w-full">
         <Link
