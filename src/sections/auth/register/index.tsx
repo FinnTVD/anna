@@ -152,7 +152,7 @@ export function Register() {
           Bạn chưa có tài khoản Anna ?
         </p>
         <div className="text-center mt-6 md:mt-2 text-[#81c8c2] text-[3.5rem] md:text-base">
-          <Link href="/login" className="underline">
+          <Link href="/tai-khoan" className="underline">
             Đăng nhập ngay
           </Link>
         </div>

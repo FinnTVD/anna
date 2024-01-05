@@ -51,7 +51,9 @@ function SlideProductComponent(props: IProps) {
   }, []);
 
   const handleSlideChange = (swiper: any) => {
-    setProgress(swiper.realIndex);
+    if (setProgress !== undefined) {
+      setProgress(swiper.realIndex);
+    }
   };
   return (
     <div className="swiper-detail-product h-full relative w-full">

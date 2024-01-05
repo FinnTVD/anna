@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { IListProductMenuHeader } from '@/types/types-general';
 import './style.css';
 import { useState } from 'react';
+import Link from 'next/link';
 
 interface IProps {
   listProduct?: IListProductMenuHeader[] | [];
@@ -50,16 +51,21 @@ function DropdownProductHeader(props: IProps) {
                   }}
                   className={`${
                     keyCategoryMenu === item.name ? 'item-Category-active' : ''
-                  } item-category-product cursor-pointer flex justify-between items-center mb-[3rem]`}
+                  } item-category-product cursor-pointer  mb-[3rem]`}
                 >
-                  <span className="text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase">
-                    {item.name}
-                  </span>
-                  <ICArrowRight2
-                    fill="#55D5D2"
-                    width="1.375rem"
-                    height="1.375rem"
-                  />
+                  <Link
+                    href={`/danh-muc-san-pham/${item.slug}`}
+                    className="flex justify-between items-center"
+                  >
+                    <span className="text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase">
+                      {item.name}
+                    </span>
+                    <ICArrowRight2
+                      fill="#55D5D2"
+                      width="1.375rem"
+                      height="1.375rem"
+                    />
+                  </Link>
                 </li>
               ))}
           </ul>

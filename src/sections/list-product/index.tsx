@@ -57,8 +57,8 @@ export default function ListProduct(props: IProps) {
             <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
               SẢN PHẨM NỔI BẬT
             </h4>
-            <div className="flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
-              <ICArrowRight2 fill="#F58F5D" />
+            <div className="button-see-more flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
+              <ICArrowRight2 fill="#A9A9A9" />
               <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
                 Xem thêm
               </p>
