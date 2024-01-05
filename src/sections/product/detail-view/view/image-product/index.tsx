@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import ICArrowRight from '@/components/Icons/ICArrowRight';
 import ICArrowLeft from '@/components/Icons/ICArrowLeft';
-import ZoomScaleImage from "@/components/component-ui-custom/zoom-scale-image";
+import ZoomScaleImage from '@/components/component-ui-custom/zoom-scale-image';
 
 interface IProps {
   dataInit?: IDetailProductRes;
