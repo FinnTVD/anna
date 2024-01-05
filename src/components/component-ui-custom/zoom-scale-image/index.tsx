@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Image from "next/image";
+import Image from 'next/image';
 
 interface IProps {
   height: string | number;
@@ -43,18 +43,18 @@ function ZoomScaleImage(props: IProps) {
   return (
     <div
       ref={imageRef}
-      className={`h-[${height ?? 200}] w-[${height ?? 200}] overflow-hidden`}
+      className={`h-[${height ?? 200}] w-[${width ?? 200}] overflow-hidden`}
     >
       <Image
         objectFit="cover"
         width={400}
         height={400}
         className={`w-full h-full object-cover hover:scale-[${scale ?? 1.5}]`}
-        src={image ?? "/img/no_image.jpg"}
+        src={image ?? '/img/no_image.jpg'}
         style={{
           transformOrigin: `${scaleImage.width}% ${scaleImage.height}%`,
         }}
-        alt=""
+        alt={alt ?? ''}
       />
     </div>
   );

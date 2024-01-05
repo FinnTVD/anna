@@ -108,14 +108,14 @@ function SlideProductComponent(props: IProps) {
         <>
           <div
             className={`prev-${keySlide} ${
-              left ? "left-0" : 'left-[-5.5%]'
+              left ? 'left-0' : 'left-[-5.5%]'
             } max-lg:z-[2] top-[36%] absolute z-20 w-[4.5rem] h-[4.5rem] cursor-pointer max-md:opacity-90 max-md:h-[8rem] max-md:w-[8rem] max-md:left-[-4.5rem]`}
           >
             <ArrowSlideLeft />
           </div>
           <div
             className={`next-${keySlide} ${
-              left ? "right-0" : 'right-[-5.5%]'
+              left ? 'right-0' : 'right-[-5.5%]'
             } max-lg:z-[2]  top-[36%] absolute z-20 w-[4.5rem] h-[4.5rem] cursor-pointer max-md:opacity-90 max-md:h-[8rem] max-md:w-[8rem] max-md:right-[-4.5rem]`}
           >
             <ArrowSlideRight />
