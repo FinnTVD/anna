@@ -13,7 +13,7 @@ function RecommendProduct(props: IProps) {
 
   return (
     <div className="w-[87.5rem] mx-auto max-lg:mx-[3.25rem] max-md-w-full max-md:mx-0 mb-[10rem] max-md:w-full max-md:px-[2.67rem] max-md:bg-[#EEFBFB] max-md:pb-[3.27rem]">
-      <h4 className="pt-[2.06rem] text-[2rem] font-[850] text-[#4DC0BD] max-md:text-[5.33333rem] max-md:text-[#313131] text-left ">
+      <h4 className="pt-[2.06rem] text-[2rem] font-extrabold text-[#4DC0BD] max-md:text-[5.33333rem] max-md:text-[#313131] text-left ">
         GỢI Ý CHO BẠN
       </h4>
       <div className="flex w-full justify-between mt-[2.12rem]">

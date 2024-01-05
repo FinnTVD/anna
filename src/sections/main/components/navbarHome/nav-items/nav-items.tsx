@@ -121,7 +121,7 @@ function NavItems(props: IProps) {
                     paddingLeft: 0,
                     paddingRight: 0,
                   }}
-                  href="/list-product"
+                  href="/cua-hang"
                   className={`${
                     keyTabMenuActive === null ? 'tab-menu' : 'tab-menu-active'
                   } flex items-center h-full`}

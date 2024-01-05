@@ -17,12 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'Nexa-Normal': ['SVN-Nexa-Regular'],
-        'Nexa-Medium': ['SVN-Nexa-Medium'],
-        'Nexa-Semibold': ['SVN-Nexa-Semi-Bold'],
-        'Nexa-Bold': ['SVN-Nexa-Bold'],
-        'Nexa-Extrabold': ['SVN-Nexa-Bold'],
-        'Nexa-Black': ['SVN-Nexa-Bold'],
+        fontNexa: 'var(--font-Nexa)',
       },
       colors: {
         border: 'hsl(var(--border))',

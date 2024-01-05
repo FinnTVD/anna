@@ -54,7 +54,7 @@ function ProductDetail({
   // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
 
   const bodyApi: IPostData = {
-    url: `wp-json/custom/v1/products-by-sku/${slug}`,
+    url: `wp-json/custom/v1/products-by-slug/${slug}`,
     method: 'get',
   };
   const dataDetailProduct = useSWR(bodyApi.url, () => postData(bodyApi));
@@ -272,19 +272,19 @@ function ProductDetail({
       {/* section 3 */}
       <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:w-full max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
         <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
-          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
+          <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH BỔ TRỢ
           </h4>
           <div className="hover-see-more flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
             <ICArrowRight2 fill="#F58F5D" />
             <Link
-              href="/list-product"
+              href="/cua-hang"
               className="text-[1.125rem]  ml-[0.62rem] text-right max-md:hidden"
             >
               Xem thêm
             </Link>
             <Link
-              href="/list-product"
+              href="/cua-hang"
               className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]"
             >
               Xem tất cả
@@ -332,19 +332,19 @@ function ProductDetail({
       </div>
       <div className="w-[87.5rem] mx-auto mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:w-full max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
         <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
-          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
+          <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
             TRÒNG KÍNH TƯƠNG TỰ
           </h4>
           <div className="hover-see-more flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
             <ICArrowRight2 fill="#A9A9A9" />
             <Link
-              href="/list-product"
+              href="/cua-hang"
               className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden"
             >
               Xem thêm
             </Link>
             <Link
-              href="/list-product"
+              href="/cua-hang"
               className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]"
             >
               Xem tất cả

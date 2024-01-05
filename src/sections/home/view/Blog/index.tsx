@@ -72,7 +72,7 @@ const Blog = async () => {
                     {blog?.title}
                   </p>
                   <span className="text-[2.66667rem] text-neutral-400 font-bold">
-                    {formatDate(blog?.post_date)}
+                    {blog && formatDate(blog.post_date)}
                   </span>
                 </div>
               </Link>

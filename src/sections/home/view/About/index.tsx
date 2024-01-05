@@ -100,7 +100,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
           <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10">
             <SliceAbout dataInfo={dataAbout?.info} />
             <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
-              <p className="text-[4.48179rem] md:text-[1rem] font-[850] text-white">
+              <p className="text-[4.48179rem] md:text-[1rem] font-extrabold text-white">
                 TÌM KIẾM CỬA HÀNG GẦN BẠN
               </p>
               <div className="arrow-about-slide p-[0.5rem] bg-white rounded-full justify-start items-center gap-2.5 inline-flex">
@@ -116,7 +116,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
 
           <div className="w-full block md:hidden pt-10 relative max-sm:pt-[16rem]">
             <div className="absolute w-full top-[4rem] pt-[2rem] pb-[6rem] search-about-slide flex justify-between items-center pl-16 md:pl-[2.75rem] pr-16 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-t-[4rem] border-[1px] border-[#55D5D2]">
-              <p className="text-[4rem] md:text-[1.5rem] font-[850] text-white flex items-center">
+              <p className="text-[4rem] md:text-[1.5rem] font-extrabold text-white flex items-center">
                 <div className="mr-12 p-[0.5rem] bg-white rounded-full">
                   <ICLocation stroke="#F58F5D" />
                 </div>
