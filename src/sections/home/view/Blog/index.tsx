@@ -7,6 +7,8 @@ import React from 'react';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import { formatDate } from '@/ultils/format-date';
 import { ArrowRight } from 'lucide-react';
+import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
+import ICLine from '@/components/Icons/ICLine';
 
 const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
@@ -26,7 +28,7 @@ const Blog = async () => {
             Xem tất cả
           </div>
           <div className="p-1.5 bg-white rounded-[50px] justify-start items-center gap-2.5 flex">
-            <ICArrowTopRightActive width={35} height={35} stroke="#55D5D2" />
+            <ICArrowTopRightActive width={31.997} height={32} stroke="#55D5D2" />
           </div>
         </Link>
       </div>
@@ -68,13 +70,15 @@ const Blog = async () => {
                     src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
                   />
                 </div>
-                <div className="p-[2.3rem] w-3/5">
-                  <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12">
+                <div className="p-[2.3rem] w-3/5 grid grid-flow-col">
+                  <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12 text-[#454545]">
                     {blog?.title}
                   </p>
-                  <span className="text-[2.66667rem] text-neutral-400 font-bold">
-                    {blog && formatDate(blog.post_date)}
-                  </span>
+                  <div className="text-[2.66667rem] text-[#828282] font-bold flex items-center">
+                    <span className="pr-2">Blog</span>
+                    <ICLine height={10} />
+                    <span className="pl-2">{blog && formatDate(blog.post_date)}</span>
+                  </div>
                 </div>
               </Link>
             );

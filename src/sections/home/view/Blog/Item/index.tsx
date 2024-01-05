@@ -25,7 +25,7 @@ function ItemBlog({ dataBlog }: IPropBlog) {
               className="image-item-blog w-full h-[55rem] md:h-[23.75rem] rounded-[6.4rem] md:rounded-3xl object-cover"
             />
           </div>
-          <div className="item-title-blog transition-opacity px-16 md:px-4 text-zinc-700 text-[6rem] md:text-2xl font-extrabold line-clamp-2">
+          <div className="item-title-blog transition-opacity px-16 md:px-4 text-[#454545] text-[6rem] md:text-2xl font-extrabold line-clamp-2">
             {dataBlog?.title}
           </div>
         </div>
@@ -34,7 +34,7 @@ function ItemBlog({ dataBlog }: IPropBlog) {
             href={`/blog/${dataBlog?.post_slug}`}
             className="item-btn-blog p-[1rem] rounded-[50px] justify-center items-center gap-2.5 flex"
           >
-            <div className="btn-blog-title text-center text-teal-300 text-[4rem] md:text-lg font-bold">
+            <div className="btn-blog-title text-center text-[#55D5D2] text-[4rem] md:text-lg font-bold">
               ĐỌC TIẾP
             </div>
             <div className="line--more">

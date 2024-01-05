@@ -19,21 +19,16 @@ interface IpropFlash {
   smallBanner1: string;
   smallBanner2: string;
   dataProductSale: IItemProduct[];
+  dataSellingProduct: IItemProduct[];
 }
 function FlashSale({
   smallBanner1,
   smallBanner2,
   dataProductSale,
+  dataSellingProduct,
 }: IpropFlash) {
   const [progress, setProgress] = useState(13);
   const [isTab, setIsTab] = useState(false);
-
-  // useEffect(() => {
-  //  setInterval(() => {
-  //   if(progress < 100) setProgress(progress + 26)
-  //   else setProgress(0)
-  //  }, 2500)
-  // }, [progress])
 
   return (
     <div className="bg-[#EEF9F9] md:relative md:mb-[13rem] md:pb-[13rem]">
@@ -52,7 +47,7 @@ function FlashSale({
                 Flash Sale
               </TabsTrigger>
               <div className="">
-                {!isTab && (
+                {!isTab ?
                   <Progress
                     value={
                       (progress + 1) *
@@ -60,7 +55,10 @@ function FlashSale({
                     }
                     className="h-[0.8rem] md:h-[0.1875rem] w-full bg-[#55D5D2]"
                   />
-                )}
+                  :
+                  <div
+                    className="h-[0.8rem] md:h-[0.1875rem] w-full invisible"
+                  />}
               </div>
             </div>
             <ICLine height={30} />
@@ -76,15 +74,17 @@ function FlashSale({
                 bán chạy nhất
               </TabsTrigger>
               <div className="">
-                {isTab && (
-                  <Progress
-                    value={
-                      (progress + 1) *
-                      (100 / (dataProductSale?.length ?? 0 + 1))
-                    }
-                    className="h-[0.8rem] md:h-[0.1875rem] w-full bg-[#55D5D2]"
-                  />
-                )}
+                {isTab ? <Progress
+                  value={
+                    (progress + 1) *
+                    (100 / (dataSellingProduct?.length ?? 0 + 1))
+                  }
+                  className="h-[0.8rem] md:h-[0.1875rem] w-full bg-[#55D5D2]"
+                />
+                  :
+                  <div
+                    className="h-[0.8rem] md:h-[0.1875rem] w-full invisible"
+                  />}
               </div>
             </div>
           </TabsList>
@@ -101,7 +101,7 @@ function FlashSale({
             <div className="flash-sale-home">
               <SlideProductComponent
                 keySlide="flash-sale"
-                data={dataProductSale}
+                data={dataSellingProduct}
                 setProgress={setProgress}
               />
             </div>
