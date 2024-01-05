@@ -32,7 +32,7 @@ function SidebarDashboardUser() {
     {
       icon: <ICLogout width="1.25rem" height="1.25rem" stroke="#414141" />,
       title: 'Đăng xuất',
-      route: '#',
+      route: '/tai-khoan',
     },
   ];
   return (

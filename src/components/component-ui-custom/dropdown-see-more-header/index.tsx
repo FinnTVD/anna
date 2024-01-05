@@ -19,7 +19,7 @@ function DropdownSeeMoreHeader(props: IProps) {
     {
       id: 1,
       title: 'Về chúng tôi',
-      router: '/about-us',
+      router: '/ve-anna',
     },
     {
       id: 1,
@@ -64,7 +64,7 @@ function DropdownSeeMoreHeader(props: IProps) {
             </div>
             <button
               type="button"
-              className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#F58F5D] flex justify-between items-center"
+              className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#55D5D2] flex justify-between items-center"
             >
               <span className="text-[0.8125rem] text-white not-italic font-extrabold leading-[0.975rem] mr-[0.75rem]">
                 CHỌN KÍNH THEO KHUÔN MẶT
@@ -72,7 +72,7 @@ function DropdownSeeMoreHeader(props: IProps) {
               <div className="bg-white rounded-full p-[0.8125rem] h-fit w-fit flex justify-center items-center">
                 <div className="rotate-[321deg] ">
                   <ICArrowRight2
-                    fill="#F58F5D"
+                    fill="#55D5D2"
                     width="1.1rem"
                     height="1.1rem"
                   />
@@ -92,15 +92,15 @@ function DropdownSeeMoreHeader(props: IProps) {
             </div>
             <button
               type="button"
-              className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#F58F5D] flex justify-between items-center"
+              className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#55D5D2] flex justify-between items-center"
             >
               <span className="text-[0.8125rem] text-white not-italic font-extrabold leading-[0.975rem] mr-[0.75rem]">
-                CHỌN KÍNH THEO KHUÔN MẶT
+                CÁCH ĐO KHUNG KÍNH
               </span>
               <div className="bg-white rounded-full p-[0.8125rem] h-fit w-fit flex justify-center items-center">
                 <div className="rotate-[321deg] ">
                   <ICArrowRight2
-                    fill="#F58F5D"
+                    fill="#55D5D2"
                     width="1.1rem"
                     height="1.1rem"
                   />
@@ -120,15 +120,15 @@ function DropdownSeeMoreHeader(props: IProps) {
             </div>
             <button
               type="button"
-              className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#F58F5D] flex justify-between items-center"
+              className="absolute bottom-2 rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem] bg-[#55D5D2] flex justify-between items-center"
             >
               <span className="text-[0.8125rem] text-white not-italic font-extrabold leading-[0.975rem] mr-[0.75rem]">
-                CHỌN KÍNH THEO KHUÔN MẶT
+                CÁCH ĐO ỐNG KÍNH
               </span>
               <div className="bg-white rounded-full p-[0.8125rem] h-fit w-fit flex justify-center items-center">
                 <div className="rotate-[321deg] ">
                   <ICArrowRight2
-                    fill="#F58F5D"
+                    fill="#55D5D2"
                     width="1.1rem"
                     height="1.1rem"
                   />

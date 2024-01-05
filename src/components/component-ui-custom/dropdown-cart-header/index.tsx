@@ -39,7 +39,7 @@ function DropdownCartHeader(props: IProps) {
             </div>
           </div>
           <Link
-            href="/cart"
+            href="/gio-hang"
             onClick={onMouseLeaveTabMenu}
             className="text-[0.75rem] not-italic font-bold leading-[1.125rem] text-[#55D5D2]"
           >
@@ -91,7 +91,7 @@ function DropdownCartHeader(props: IProps) {
           ))}
         </div>
         <Link
-          href="/payment"
+          href="/thanh-toan"
           onClick={onMouseLeaveTabMenu}
           className="button-link-payment w-fit rounded-[6.25rem] pl-[1.25rem] pt-[0.25rem] pr-[0.25rem] pb-[0.25rem]  flex justify-between items-center"
         >
