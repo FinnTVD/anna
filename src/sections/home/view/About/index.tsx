@@ -5,6 +5,7 @@ import ICLocation3 from '@/components/Icons/ICLocation3';
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 interface AboutHomeType {
@@ -15,44 +16,43 @@ interface AboutHomeType {
 interface IPropAbout {
   dataAbout: AboutHomeType;
 }
+gsap.registerPlugin(ScrollTrigger);
+
 function AboutHome({ dataAbout }: IPropAbout) {
   const refs = useRef([]);
-  const body = useRef(null);
+  const box = useRef(null);
 
   const container = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    createAnimation();
-  }, []);
-
-  const createAnimation = () => {
-    gsap.to(refs.current, {
-      scrollTrigger: {
-        trigger: container.current,
-        scrub: true,
-        start: `${window.innerWidth > 1024 ? '-100% top' : '-300% top'}`,
-        pin: '.pin',
-        end: `+=${window.innerHeight / 1.5}`,
-      },
-      opacity: 1,
-      ease: 'none',
-      stagger: 0.1,
-    });
-    if (window.innerWidth > 1024) {
-      gsap.to('.pin-content', {
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: box.current,
+        start: 'top',
+        end: '+=1000',
+        pin: true,
+        // scrub: true,
+        pinSpacing: true,
+        anticipatePin: 1,
+        // once: true,
+      });
+      gsap.to(refs.current, {
         scrollTrigger: {
-          trigger: '.pin-card',
-          start: '-15% top',
-          end: `+=${window.innerHeight / 1.55}`,
-          pin: '.pin-card',
-          scrub: 2,
+          trigger: refs.current,
+          scrub: true,
+          start: `top 20%`,
+          // pin: '.pin',
+          end: `+=1000`,
         },
         opacity: 1,
-        y: 50,
+        ease: 'none',
+        stagger: 0.1,
       });
-    }
-  };
+    }, box);
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   const splitWords = (phrase: string) => {
     const content: any = [];
@@ -84,15 +84,22 @@ function AboutHome({ dataAbout }: IPropAbout) {
     return letters;
   };
   return (
-    <div className="about rounded-t-[2.25rem] -mt-[2rem]">
-      <div className="pin-card !top-0 !translate-y-9 container">
-        <div className="pin-content py-[6.67rem] md:py-24 flex justify-between flex-wrap">
-          <div className="w-full lg:w-1/2 px-4 md:px-[2rem] pt-10">
+    <div ref={box} className="rounded-t-[2.25rem] -mt-[2rem] relative">
+      <Image
+        src="/img/home/about_bg.jpg"
+        width={1600}
+        height={1000}
+        alt="background"
+        className="w-full h-full z-[1] object-fill absolute top-0 left-0"
+      />
+      <div className="container relative z-10">
+        <div className="py-[6.67rem] md:py-24 flex justify-between flex-wrap">
+          <div className="w-full lg:w-1/2 px-4 md:px-[2rem] pt-10 about_paragraph">
             <h4 className="text-white text-[8.53333rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
             </h4>
             <div ref={container} className="about-card-content">
-              <div ref={body} className="about-content">
+              <div className="about-content hidden md:block">
                 {splitWords(dataAbout?.description)}
               </div>
             </div>
