@@ -25,7 +25,7 @@ function RecommendProduct(props: IProps) {
               className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
               src={
                 (dataProductGlasses && dataProductGlasses[0]?.featuredImage) ??
-                "/img/no_image.jpg"
+                '/img/no_image.jpg'
               }
               alt=""
             />
@@ -40,7 +40,7 @@ function RecommendProduct(props: IProps) {
               className="w-full object-cover rounded-[1rem] mb-[1.5rem] h-[24.25rem]"
               src={
                 (dataDataLenses && dataDataLenses[0]?.featuredImage) ??
-                "/img/no_image.jpg"
+                '/img/no_image.jpg'
               }
               alt=""
             />
@@ -56,7 +56,7 @@ function RecommendProduct(props: IProps) {
               src={
                 (dataProductByAnyCategory &&
                   dataProductByAnyCategory[0]?.featuredImage) ??
-                "/img/no_image.jpg"
+                '/img/no_image.jpg'
               }
               alt="image"
             />
