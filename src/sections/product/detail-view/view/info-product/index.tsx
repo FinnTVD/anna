@@ -449,10 +449,7 @@ function InfoProduct(props: IProps) {
           <div>
             <div
               role="button"
-              className={`flex justify-between items-center py-[0.9375rem] max-md:py-[4rem] ${
-                numberInfor !== 1 ? 'border-b-[1px]' : 'border-b-[0px]'
-              } border-[#ECECEC]`}
-              onClick={() => handleHiddenInfor('show', 1)}
+              className="flex justify-between items-center py-[0.9375rem] max-md:py-[4rem]  border-[#ECECEC]"
             >
               <span className="max-lg:text-[1rem] not-italic max-lg:leading-[1.5rem] text-[1.5rem] font-extrabold leading-[1.95rem] text-[#454545] max-md:text-[5.33333rem] max-md:leading-[7.46667rem]">
                 Chọn kính theo gương mặt
