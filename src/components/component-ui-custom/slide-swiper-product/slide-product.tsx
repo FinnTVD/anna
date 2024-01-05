@@ -92,7 +92,7 @@ function SlideProductComponent(props: IProps) {
           nextEl: `.next-${keySlide}`,
         }}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper pl-[0rem] mx-[1rem] "
+        className="mySwiper pl-[0rem] mx-[1rem] max-md:!h-[66.7rem]"
       >
         {data &&
           data.map((item: any, index: number) => (

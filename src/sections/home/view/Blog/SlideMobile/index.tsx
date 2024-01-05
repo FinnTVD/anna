@@ -40,30 +40,34 @@ function SliderMobileBlogHome({ dataSliderBlog }: IPropItem) {
             }
           })}
         </SwiperSlide>
-        {dataSliderBlog?.length >= 5 && 
-        <SwiperSlide className="myBlog">
-        {dataSliderBlog?.map((blogData: string, index: number) => {
-          if (index > 3 && index <= 7) {
-            return (
-              <div key={index} className="w-full">
-                <ItemMobileBlogHome blog={blogData} index={index} />
-              </div>
-            );
-          }
-        })}
-      </SwiperSlide>}
-      {dataSliderBlog?.length > 8 && 
-        <SwiperSlide className="myBlog">
-          {dataSliderBlog?.map((blogData: string, index: number) => {
-            if (index > 7 && index <= 11) {
-              return (
-                <div key={index} className="w-full">
-                  <ItemMobileBlogHome blog={blogData} index={index} />
-                </div>
-              );
-            }
-          })}
-        </SwiperSlide>}
+        {dataSliderBlog?.length >= 5 && (
+          <SwiperSlide className="myBlog">
+            {dataSliderBlog?.map((blogData: string, index: number) => {
+              if (index > 3 && index <= 7) {
+                return (
+                  <div key={index} className="w-full">
+                    <ItemMobileBlogHome blog={blogData} index={index} />
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </SwiperSlide>
+        )}
+        {dataSliderBlog?.length > 8 && (
+          <SwiperSlide className="myBlog">
+            {dataSliderBlog?.map((blogData: string, index: number) => {
+              if (index > 7 && index <= 11) {
+                return (
+                  <div key={index} className="w-full">
+                    <ItemMobileBlogHome blog={blogData} index={index} />
+                  </div>
+                );
+              }
+              return null;
+            })}
+          </SwiperSlide>
+        )}
       </Swiper>
     </div>
   );

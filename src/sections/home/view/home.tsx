@@ -11,7 +11,7 @@ import ActionHome from '@/sections/home/view/Action';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import BannerHome from '@/sections/home/view/Banner';
 import SlideMobileSocial from './Social/SlideMobile';
-import AboutHomeV2 from './About/AboutHomeV2';
+import AboutHomeV2 from './About';
 
 const Home = async () => {
   const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
