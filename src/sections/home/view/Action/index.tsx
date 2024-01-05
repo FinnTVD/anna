@@ -13,7 +13,7 @@ interface IPropsAction {
 function ActionHome({ dataTrip }: IPropsAction) {
   return (
     <div
-      className="py-[6.4rem] sm-px-0 sm:py-24 bg-cover"
+      className="py-[6.4rem] md:!pt-[2.19rem] sm-px-0 sm:py-[7.19rem]  bg-cover"
       style={{ backgroundImage: `url(${dataTrip?.banner})` }}
     >
       <div className="container">
