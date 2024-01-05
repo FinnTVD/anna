@@ -44,7 +44,10 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
     },
   ];
   return (
-    <div className="item-product-home !mr-0 cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl">
+    <Link
+      href={`/san-pham/${dataCollect?.slug}`}
+      className="item-product-home !mr-0 cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl"
+    >
       <div className="h-[40rem] md:h-[20.375rem] w-full overflow-hidden rounded-[4.26667rem] md:rounded-2xl">
         <Image
           alt=""
@@ -95,10 +98,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
                 formatCurrencyVND(dataCollect?.price.toString())}
             </div>
           </div>
-          <Link
-            href={`/san-pham/${dataCollect?.slug}`}
-            className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]"
-          >
+          <div className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
             <p className="text-[4.8rem] md:text-[1.5rem] font-extrabold text-[#55D5D2] md:text-[#fff]">
               {dataCollect?.price &&
                 formatCurrencyVND(dataCollect?.price.toString())}
@@ -106,10 +106,10 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
             <div className="arrow-product-slide p-[0.5rem] text-[#fff]">
               <ArrowTopRight />
             </div>
-          </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
