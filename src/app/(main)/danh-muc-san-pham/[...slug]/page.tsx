@@ -34,7 +34,6 @@ const ListProductPage = async ({ params: { slug } }: any) => {
   const dataListProductInit = await postData(bodyGetListProductByCate);
   // END GET LIST PRODUCT INIT
 
-  console.log('dataListProductInit', dataListProductInit);
   return (
     <ListProduct
       slug={slug}

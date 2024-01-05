@@ -50,7 +50,6 @@ function ProductDetail({
     dataInitDetail?.data?.variant ?? []
   );
 
-  console.log('dataInitDetail', dataInitDetail);
   // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
 
   const bodyApi: IPostData = {
@@ -97,8 +96,6 @@ function ProductDetail({
       } else setIsShowItemProduct(false);
     });
   }, []);
-
-  console.log('dataInit', dataInit);
 
   const handleAddToCart = (data: any, quantityProduct: any): void => {
     let getListProductInCart;

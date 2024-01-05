@@ -307,7 +307,7 @@ function InfoProduct(props: IProps) {
           <MapMobile />
         </div>
         <Link
-          href="/system-store"
+          href="/he-thong-cua-hang"
           className="cursor-pointer text-[1.5rem] leading-[1.95rem] text-[#55D5D2] ml-[0.62rem] not-italic font-bold max-md:leading-[3.46667rem] max-md:text-[2.6667rem] max-md:ml-[1.06667rem]"
         >
           Tìm cửa hàng

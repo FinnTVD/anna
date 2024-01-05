@@ -21,10 +21,10 @@ function ItemSocial(props: IProps) {
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer">
         <div className="flex justify-center">{props?.icon}</div>
-        <h4 className="text-center text-teal-300 text-[54px]">
+        <h4 className="text-center text-[#55D5D2] text-[3.375rem] font-[850]">
           {props?.social}
         </h4>
-        <div className="text-center text-teal-300 text-lg font-bold">
+        <div className="text-center text-[#55D5D2] text-lg font-bold">
           {props?.infor}
         </div>
         <div className="flex justify-center pt-3">

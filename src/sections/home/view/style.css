@@ -24,6 +24,10 @@
   background-color: #eef9f9 !important;
   box-shadow: none !important;
   color: #454545;
+  padding: 0;
+}
+.flash-product svg{
+  margin: 1rem;
 }
 .flash-sale-tab .data-\[state\=active\]\:text-foreground[data-state='active'] {
   color: #55d5d2 !important;
