@@ -25,7 +25,7 @@ function ItemMobileBlogHome({ blog, index }: IPropItem) {
         />
       </div>
       <div className="p-[2.3rem] w-3/5">
-        <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12">
+        <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12 text-[#454545]">
           {blog?.title}
         </p>
         <span className="text-[2.66667rem] text-neutral-400 font-bold">

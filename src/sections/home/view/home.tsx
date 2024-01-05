@@ -16,7 +16,10 @@ import AboutHomeV2 from './About/AboutHomeV2';
 const Home = async () => {
   const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
   const dataProductSale = await fetchDataRest('GET', 'custom/v1/product-sales');
-
+  const dataSellingProduct = await fetchDataRest(
+    'GET',
+    'custom/v1/best-selling-products?order=asc&limit=6'
+  );
   return (
     <div className="min-h-full flex flex-col">
       <div className="banner">
@@ -24,8 +27,9 @@ const Home = async () => {
       </div>
       <FlashSale
         smallBanner1={dataHome?.acf?.small_banner_1}
-        smallBanner2={dataHome?.acf?.small_banner_1}
+        smallBanner2={dataHome?.acf?.small_banner_2}
         dataProductSale={dataProductSale}
+        dataSellingProduct={dataSellingProduct}
       />
       <NewCollection />
       <div className="hidden md:block">

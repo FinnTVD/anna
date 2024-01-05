@@ -9,10 +9,10 @@ function SectionHome() {
       <div className="container mx-auto max-lg:mx-[0.75rem] grid gap-4 grid-cols-4 max-md:flex-wrap text-[#454545] max-md:bg-[#EEFBFB] py-[1.875rem] max-md:py-[0rem]">
         <div className="flex  justify-center max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-md:mr-[0.5rem] max-md:rounded-none max-sm:border-none max-sm:justify-start">
           <div className="max-md:hidden">
-            <ICProtected height="1.5rem" />
+            <ICProtected height={48} />
           </div>
           <div className="hidden max-md:block">
-            <ICProtected height="6.4rem" />
+            <ICProtected height={48} />
           </div>
           <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[3rem] max-md:leading-[3.46667rem]">
             Bảo hành trọn đời
@@ -20,7 +20,7 @@ function SectionHome() {
         </div>
         <div className="flex justify-center max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-md:mb-[4.26667rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start max-sm:mr-0">
           <div className="max-md:hidden">
-            <ICFree height="1.5rem" width="1.5rem" />
+            <ICFree height={48} width={48} />
           </div>
           <div className="hidden max-md:block">
             <ICFree height="6.4rem" width="6.4rem" />
@@ -31,7 +31,7 @@ function SectionHome() {
         </div>
         <div className="flex justify-center max-lg:mr-[0.9rem]  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)]  max-sm:mb-[1rem] max-sm:mr-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start">
           <div className="max-md:hidden">
-            <ICChange height="1.5rem" width="1.5rem" />
+            <ICChange height={48} width={48} />
           </div>
           <div className="hidden max-md:block">
             <ICChange height="6.4rem" width="6.4rem" />
@@ -45,7 +45,7 @@ function SectionHome() {
           className="flex justify-center  max-lg:p-[0.5rem] items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-sm:w-[calc(50%_-_0.5rem)] max-sm:mb-[1rem] max-sm:ml-[0.5rem] max-sm:rounded-none max-sm:border-none  max-sm:justify-start"
         >
           <div className="max-md:hidden">
-            <ICClean height="1.5rem" width="1.5rem" />
+            <ICClean height={48} width={48} />
           </div>
           <div className="hidden max-md:block">
             <ICClean height="6.4rem" width="6.4rem" />
