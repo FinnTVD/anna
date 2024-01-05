@@ -12,14 +12,14 @@ const NewCollection = async () => {
   return (
     <div className="container px-[5rem] pb-[5rem] max-lg:px-[3.25rem] mt-[3.75rem] relative max-sm:px-0 max-sm:pb-[3.5rem] p-[6.67rem] md:p-[0]">
       <div className="flex mb-[2.5rem] mx-4 items-center max-sm:mb-[1rem] max-sm:px-[0.75rem] justify-between flex-wrap">
-        <h4 className="max-lg:w-full text-[#454545] text-[5.3333rem] md:text-[2.375rem] max-sm:pb-8 max-sm:w-full flex justify-between font-black uppercase">
+        <h4 className="max-lg:w-full text-[#454545] text-[5.3333rem] md:text-[2.375rem] max-sm:pb-8 max-sm:w-full flex justify-between font-black max-sm:px-[2rem] uppercase">
           bộ sưu tập mới nhất
           <Link
             href="/danh-muc-san-pham"
             className="see-more cursor-pointer flex lg:hidden items-center"
           >
             <ArrowRight className="text-stone-300" />
-            <p className="text-stone-300 text-[3.2rem] md:text-lg font-black lowercase">
+            <p className="text-stone-300 text-[3.2rem] md:text-lg font-black">
               Xem tất cả
             </p>
           </Link>

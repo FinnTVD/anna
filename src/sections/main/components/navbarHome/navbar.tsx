@@ -48,7 +48,7 @@ function NavbarHome(props: IProps) {
           <ICSearch fill="#fff" width="5.333rem" height="5.333rem" />
         </div>
         <Input
-          className="text-[3.73333rem] px-[12rem] py-[5rem] rounded-[13.33333rem] placeholder:italic placeholder-[#fff] bg-[#7F7F7F4D] focus-visible:outline-0"
+          className="text-[3.73333rem] px-[12rem] py-[5rem] rounded-[13.33333rem] border border-[#C5C5C5] placeholder-[#fff] bg-[#7F7F7F4D] focus-visible:outline-0"
           type="text"
           placeholder="Tìm sản phẩm"
         />
