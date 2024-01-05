@@ -49,9 +49,9 @@ function InfoProduct(props: IProps) {
 
   // GET transport
   const apiTransport = useSWR(
-    'https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=van-chuyen',
+    'https://anna.okhub-tech.com/wp-json/wp/v2/pages?slug=van-chuyen',
     () =>
-      fetch('https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=van-chuyen', {
+      fetch('https://anna.okhub-tech.com/wp-json/wp/v2/pages?slug=van-chuyen', {
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
@@ -60,9 +60,9 @@ function InfoProduct(props: IProps) {
 
   // GET Return product
   const apiReturnProduct = useSWR(
-    'https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=doi-tra',
+    'https://anna.okhub-tech.com/wp-json/wp/v2/pages?slug=doi-tra',
     () =>
-      fetch('https://woo-api.okhub.tech/wp-json/wp/v2/pages?slug=doi-tra', {
+      fetch('https://anna.okhub-tech.com/wp-json/wp/v2/pages?slug=doi-tra', {
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
