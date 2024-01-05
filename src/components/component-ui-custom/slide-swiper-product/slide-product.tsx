@@ -67,6 +67,7 @@ function SlideProductComponent(props: IProps) {
         pagination={{
           type: typePagination || 'custom',
         }}
+        onSlideChange={handleSlideChange}
         breakpoints={{
           0: {
             slidesPerView: 2,
