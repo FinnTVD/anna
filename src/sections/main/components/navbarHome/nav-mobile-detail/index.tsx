@@ -1,7 +1,6 @@
 'use client';
 
 import ICCart from '@/components/Icons/ICCart';
-import ICSearch from '@/components/Icons/ICSearch';
 import ICTabMenu from '@/components/Icons/ICTabMenu';
 
 function NavMobileDetail() {
@@ -18,9 +17,6 @@ function NavMobileDetail() {
         <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[3.46667rem] h-[3.46667rem] font-bold not-italic text-[2.13333rem]">
           3
         </div>
-      </div>
-      <div>
-        <ICSearch fill="white" width="6.4rem" height="6.4rem" />
       </div>
     </div>
   );

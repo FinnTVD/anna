@@ -32,7 +32,7 @@ function NavbarHome(props: IProps) {
       {/* <Logo /> */}
       <div
         className={cn(
-          `flex justify-between w-full py-[6px] px-20 py-6 fixed top-[0px] z-50 max-md:hidden navbar-home ${
+          `flex justify-between w-full py-[6px] py-6 fixed top-[0px] z-50 max-md:hidden navbar-home ${
             styleNavbar ? 'bg-white' : ''
           }`
         )}

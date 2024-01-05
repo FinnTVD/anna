@@ -50,7 +50,7 @@ function NavItems(props: IProps) {
     });
   }, [currentPositionScrollY]);
   return (
-    <nav className="navbar-container w-[87.5rem] mx-auto">
+    <nav className="container">
       {keyTabMenuActive !== null && (
         <div className=" fixed top-0 left-0 h-[100vh] w-full bg-[#ABABAB] -z-10 opacity-80" />
       )}
