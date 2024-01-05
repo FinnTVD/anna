@@ -72,7 +72,7 @@ function ItemProduct(props: IProps) {
         </div>
         <div className="relative p-[1rem] rounded-2xl bg-[#FFF] box-slide max-md:p-[2.13rem] max-md:rounded-[3.2rem]">
           <div className="h-[2.4rem] max-md:h-[10.45334rem] mb-[0.5rem]">
-            <span className="text-[1rem] mb-[0.25rem] text-[#454545] font-[850] text-truncate line-clamp-2 leading-[1.2rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
+            <span className="text-[1rem] mb-[0.25rem] text-[#454545] font-extrabold text-truncate line-clamp-2 leading-[1.2rem] max-md:text-[3.73333rem] max-md:leading-[5.22667rem]">
               {item?.name}
             </span>
           </div>
@@ -109,7 +109,7 @@ function ItemProduct(props: IProps) {
           {/* button show in PC */}
           <Link href={`/san-pham/${item?.slug?.trim()}`}>
             <div className="max-md:hidden bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[3.125rem] ">
-              <p className="text-[1.5rem] font-[850] text-[#fff] leading-[1.8rem] ">
+              <p className="text-[1.5rem] font-extrabold text-[#fff] leading-[1.8rem] ">
                 {item?.price && formatCurrencyVND(item?.price.toString())}
               </p>
               <div className="arrow-peoduct-slide pl-[0.5rem] text-[#fff]">
@@ -122,7 +122,7 @@ function ItemProduct(props: IProps) {
 
           <Link href={`/san-pham/${item?.slug?.trim()}`}>
             <div className=" hidden max-md:flex price-product-slide justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] mt-[2rem] border-[1px] border-[#55D5D2]">
-              <p className="text-[3.73333rem] font-[850] leading-[4.85333rem] text-[#55D5D2]">
+              <p className="text-[3.73333rem] font-extrabold leading-[4.85333rem] text-[#55D5D2]">
                 {item?.price && formatCurrencyVND(item?.price.toString())}
               </p>
               <div className="arrow-peoduct-slide p-[0.5rem]">

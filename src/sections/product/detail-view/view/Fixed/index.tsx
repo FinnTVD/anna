@@ -65,7 +65,7 @@ export function Fixed(props: IProps) {
         </div>
       </div>
       <div className="right flex items-center">
-        <p className="text-[1.875rem] font-[850] leading-[2.25rem] text-[#55D5D2] mr-[3.25rem]">
+        <p className="text-[1.875rem] font-extrabold leading-[2.25rem] text-[#55D5D2] mr-[3.25rem]">
           {dataInit?.price && formatCurrencyVND(dataInit?.price.toString())}
         </p>
         <button

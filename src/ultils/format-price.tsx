@@ -1,10 +1,8 @@
 const formatCurrencyVND = (amount: string) => {
-  const formatter = new Intl.NumberFormat('vi-VN', {
-    style: 'currency',
-    currency: 'VND',
-  });
+  const formatter = new Intl.NumberFormat('vi-VN');
 
-  return formatter.format(parseInt(amount ?? 10, 10));
+  const result = formatter.format(parseInt(amount ?? 10, 10)).toString();
+  return `${result}đ`;
 };
 
 export { formatCurrencyVND };

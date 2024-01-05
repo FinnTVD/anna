@@ -53,7 +53,7 @@ function ItemBlog({ dataBlog }: IPropBlog) {
             </span>
             <span className="text-zinc-500 text-[4rem] md:text-lg font-bold">
               {' '}
-              Ngày {formatDate(dataBlog?.post_date)}
+              Ngày {dataBlog && formatDate(dataBlog?.post_date)}
             </span>
           </div>
         </div>

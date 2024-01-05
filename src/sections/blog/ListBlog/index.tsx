@@ -32,7 +32,7 @@ const ListBlog = async () => {
             <div className="w-[45rem] md:w-[8rem] h-[10rem] md:h-10 flex bg-[#81C8C2] items-center p-6 md:p-2 absolute top-12 md:top-4 left-12 md:left-4">
               <ICSchedule />
               <div className=" text-white text-[3.25rem] md:text-sm font-normal pl-6 md:pl-2">
-                {formatDate(dataBlog?.post_date)}
+                {dataBlog && formatDate(dataBlog.post_date)}
               </div>
             </div>
           </div>

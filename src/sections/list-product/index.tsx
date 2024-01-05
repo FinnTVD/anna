@@ -54,7 +54,7 @@ export default function ListProduct(props: IProps) {
         />
         <div className="mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
           <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">
-            <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
+            <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[5.33333rem]">
               SẢN PHẨM NỔI BẬT
             </h4>
             <div className="button-see-more flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer max-md:hidden">
@@ -105,7 +105,7 @@ export default function ListProduct(props: IProps) {
         </div>
         {/* newest product */}
         <div>
-          <h4 className="text-[2rem] not-italic font-[850] text-[#313131] leading-[2.4rem] h-[2.4rem] max-md:text-[5.33333rem] mb-[3rem]">
+          <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] max-md:text-[5.33333rem] mb-[3rem]">
             SẢN PHẨM MỚI NHẤT
           </h4>
           <div className="flex w-full max-md:flex-col">
