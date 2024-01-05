@@ -19,7 +19,6 @@ interface IProps {
 }
 function NavMobileDetail(props: IProps) {
   const { dataListProductHeader } = props;
-  console.log('dataListProductHeader', dataListProductHeader);
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
 
   const handleTogleMenu = (): void => {

@@ -68,7 +68,7 @@ function ItemMobile(props: IProps) {
           </div>
           {/* button */}
           <Link
-            href={`/detail/${itemProduct?.sku}`}
+            href={`/san-pham/${itemProduct?.slug}`}
             className="price-product-slide flex justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] border-[1px] border-[#55D5D2]"
           >
             <p className="text-[3.73333rem] font-[850] leading-[4.85333rem] text-[#55D5D2]">

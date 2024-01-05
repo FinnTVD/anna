@@ -107,7 +107,7 @@ function ItemProduct(props: IProps) {
           </div>
 
           {/* button show in PC */}
-          <Link href={`/detail/${item?.sku?.trim()}`}>
+          <Link href={`/san-pham/${item?.slug?.trim()}`}>
             <div className="max-md:hidden bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[3.125rem] ">
               <p className="text-[1.5rem] font-[850] text-[#fff] leading-[1.8rem] ">
                 {item?.price && formatCurrencyVND(item?.price.toString())}
@@ -120,7 +120,7 @@ function ItemProduct(props: IProps) {
 
           {/* button show in mobile */}
 
-          <Link href={`/detail/${item?.sku?.trim()}`}>
+          <Link href={`/san-pham/${item?.slug?.trim()}`}>
             <div className=" hidden max-md:flex price-product-slide justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] mt-[2rem] border-[1px] border-[#55D5D2]">
               <p className="text-[3.73333rem] font-[850] leading-[4.85333rem] text-[#55D5D2]">
                 {item?.price && formatCurrencyVND(item?.price.toString())}
