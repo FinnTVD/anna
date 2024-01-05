@@ -100,15 +100,19 @@ function SlideProductComponent(props: IProps) {
               key={index}
               className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
             >
-              <ItemProduct item={item} heightImage={heightImage} />
+              <ItemProduct
+                item={item}
+                heightImage={heightImage}
+                keySlide={keySlide}
+              />
             </SwiperSlide>
           ))}
       </Swiper>
       {isShowArrow && (
         <>
           <div
-            className={`prev-${keySlide} ${
-              left ? 'left-0' : 'left-[-5.5%]'
+            className={`prev-${keySlide} ${left ? 'left-0' : 'left-[-5.5%]'} ${
+              keySlide === 'flash-sale' ? 'max-md:hidden' : ''
             } max-lg:z-[2] top-[36%] absolute z-20 w-[4.5rem] h-[4.5rem] cursor-pointer max-md:opacity-90 max-md:h-[8rem] max-md:w-[8rem] max-md:left-[-4.5rem]`}
           >
             <ArrowSlideLeft />
@@ -116,6 +120,8 @@ function SlideProductComponent(props: IProps) {
           <div
             className={`next-${keySlide} ${
               left ? 'right-0' : 'right-[-5.5%]'
+            } ${
+              keySlide === 'flash-sale' ? 'max-md:hidden' : ''
             } max-lg:z-[2]  top-[36%] absolute z-20 w-[4.5rem] h-[4.5rem] cursor-pointer max-md:opacity-90 max-md:h-[8rem] max-md:w-[8rem] max-md:right-[-4.5rem]`}
           >
             <ArrowSlideRight />

@@ -32,7 +32,7 @@ function FlashSale({
 
   return (
     <div className="bg-[#EEF9F9] md:relative md:mb-[13rem] md:pb-[13rem]">
-      <div className="container pb-[1rem] max-lg:px-[3.25rem] pt-[7.5rem] max-sm:pb-[3.5rem]">
+      <div className="container pb-[1rem] max-lg:px-[3.25rem] pt-[7.5rem] max-sm:pb-[6.4rem]">
         <Tabs defaultValue="flash-sale" className="w-full h-full scroll-smooth">
           <TabsList className="flash-product bg-[#EEF9F9] h-auto flex flex-wrap items-center justify-start max-sm:justify-between max-sm:mb-[1rem] max-sm:px-[4.27rem]">
             <div
@@ -106,11 +106,11 @@ function FlashSale({
             </div>
           </TabsContent>
         </Tabs>
-        <div className="pt-10 flex justify-center">
-          <ICDown />
-        </div>
       </div>
-      <div>
+      <div className="pt-[6.4rem] pb-[1.17rem] md:pt-10 flex justify-center max-sm:bg-white">
+        <ICDown />
+      </div>
+      <div className="max-sm:bg-white">
         <Swiper
           autoplay={{
             delay: 0,
@@ -163,7 +163,7 @@ function FlashSale({
           />
         </div>
       </div>
-      <div className="block p-[3.2rem] md:p-[0] md:hidden">
+      <div className="block p-[3.2rem] md:p-[0] md:hidden max-sm:bg-white">
         <Swiper
           autoplay={{
             delay: 3000,
