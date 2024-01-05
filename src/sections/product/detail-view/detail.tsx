@@ -119,13 +119,26 @@ function ProductDetail({
       newArray.push(ItemAddToCard);
 
       localStorage.setItem('listMyCart', JSON.stringify(newArray));
-      toast('Thành công!', {
+      // toast("Event has been created", {
+      //   description: "Sunday, December 03, 2023 at 9:00 AM",
+      //   action: {
+      //     label: "Undo",
+      //     onClick: () => console.log("Undo"),
+      //   },
+      // });
+
+      toast('Thành công !', {
+        duration: 200,
         description: 'Thêm giỏ hàng thành công',
         position: 'top-right',
         style: {
           color: '#14ae5c',
           fontWeight: '800',
           fontSize: '1.1rem',
+        },
+        action: {
+          label: 'Undo',
+          onClick: () => console.log('Undo'),
         },
       });
     } else {
@@ -143,8 +156,8 @@ function ProductDetail({
           salePrice: item.salePrice,
           quantity:
             item.id === data?.id
-              ? item.quantity + quantityProduct > data.stock_quantity
-                ? data.stock_quantity
+              ? item.quantity + quantityProduct > data?.stock_quantity
+                ? data?.stock_quantity
                 : item.quantity + quantityProduct
               : item.quantity,
         };
@@ -213,7 +226,7 @@ function ProductDetail({
             className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2"
           >
             <div className="max-md:hidden">
-              <ICProtected height="1.5rem" />
+              <ICProtected height="3rem" />
             </div>
             <div className="hidden max-md:block">
               <ICProtected height="6.4rem" />
@@ -227,12 +240,12 @@ function ProductDetail({
             className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2"
           >
             <div className="max-md:hidden">
-              <ICFree height="1.5rem" width="1.5rem" />
+              <ICFree height="3rem" width="3rem" />
             </div>
             <div className="hidden max-md:block">
               <ICFree height="6.4rem" width="6.4rem" />
             </div>
-            <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
+            <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] not-italic leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[2.66667rem] max-md:leading-[3.46667rem]">
               Đo mắt miễn phí
             </p>
           </Link>
@@ -241,7 +254,7 @@ function ProductDetail({
             className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2 max-md:mt-[4.27rem]"
           >
             <div className="max-md:hidden">
-              <ICChange height="1.5rem" width="1.5rem" />
+              <ICChange height="3rem" width="3rem" />
             </div>
             <div className="hidden max-md:block">
               <ICChange height="6.4rem" width="6.4rem" />
@@ -255,7 +268,7 @@ function ProductDetail({
             className="w-[20rem] flex justify-center cursor-pointer  items-center p-[1.25rem] rounded-[3.125rem] border-[1px] border-[#CAF2F1] max-md:rounded-none max-md:border-none  max-md:justify-start max-md:w-1/2 max-md:mt-[4.27rem]"
           >
             <div className="max-md:hidden">
-              <ICClean height="1.5rem" width="1.5rem" />
+              <ICClean height="3rem" width="3rem" />
             </div>
             <div className="hidden max-md:block">
               <ICClean height="6.4rem" width="6.4rem" />
@@ -318,11 +331,8 @@ function ProductDetail({
           </div>
         </div>
         <div className="hidden max-md:flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer">
-          <ICArrowRight2 fill="#A9A9A9" />
-          <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
-            Xem thêm
-          </p>
-          <p className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]">
+          <ICArrowRight2 fill="#F58F5D" />
+          <p className="text-[#F58F5D] text-[3.2rem] ml-[1.07rem] not-italic font-extrabold leading-[4.48rem] text-right pt-[0.8rem]">
             Xem tất cả
           </p>
         </div>
@@ -382,10 +392,7 @@ function ProductDetail({
         </div>
         <div className="hidden max-md:flex items-center justify-center h-full  py-[1.6rem] hover:text-[#f58f5d] cursor-pointer">
           <ICArrowRight2 fill="#F58F5D" />
-          <p className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden">
-            Xem thêm
-          </p>
-          <p className="hidden text-[0.75rem] ml-[0.25rem] leading-[1.05rem] text-right max-md:flex max-md:text-[3.2rem] max-md:text-[#F58F5D]">
+          <p className="text-[#F58F5D] text-[3.2rem] ml-[1.07rem] not-italic font-extrabold leading-[4.48rem] text-right pt-[0.8rem]">
             Xem tất cả
           </p>
         </div>
