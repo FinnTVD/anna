@@ -11,7 +11,7 @@ interface IPropBlog {
 }
 function ItemBlog({ dataBlog }: IPropBlog) {
   return (
-    <div className="blog-item-home p-4 mt-[1rem] md:mt-6">
+    <div className="blog-item-home p-4 mt-[1rem] md:mt-0">
       <div className="pb-16 md:pb-4 bg-white w-full h-full rounded-[6.4rem] md:rounded-3xl border-2 border-gray-200 flex-col justify-between items-start gap-4 inline-flex">
         <div className="pb-6 w-full flex-col justify-start gap-5 flex">
           <div className="overflow-hidden rounded-[6.4rem] md:rounded-3xl">

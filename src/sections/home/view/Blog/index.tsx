@@ -7,13 +7,14 @@ import React from 'react';
 import serviceImg from '@/assets/blogImg/Rectangle719.png';
 import { formatDate } from '@/ultils/format-date';
 import { ArrowRight } from 'lucide-react';
+import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
 
 const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
 
   return (
     <div className="px-[3.2rem] sm:p-3 flex flex-wrap container max-lg:pb-6">
-      <div className="w-full lg:w-1/3 pt-20 sm:pt-48">
+      <div className="w-full lg:w-1/3 pt-[6.4rem] sm:pt-[18rem]">
         <h4 className="text-[#55D5D2] text-[5.33333rem] text-center lg:text-start lg:text-[4rem] max-sm:pb-8 font-black uppercase">
           ANNA BLOG
           <br className="hidden lg:block" /> & SHARE
@@ -50,6 +51,7 @@ const Blog = async () => {
       </div>
       <div className="block lg:hidden">
         {/* eslint-disable-next-line array-callback-return,consistent-return */}
+        {/* <SliderMobileBlogHome dataSliderBlog={listBlog}/> */}
         {listBlog?.map((blog: any, index: number) => {
           if (index <= 3) {
             return (
@@ -86,9 +88,9 @@ const Blog = async () => {
           className="flex w-full justify-end items-center gap-2.5 inline-flex"
         >
           <div className="w-[4.2666rem] lg:w-6 h-[4.2666rem] lg:h-6 justify-center items-center flex">
-            <ArrowRight className="text-orange-400" />
+            <ArrowRight className="text-[F58F5D#]" />
           </div>
-          <div className="collect-title text-center text-orange-400 text-[3.2rem] lg:text-lg font-bold leading-normal">
+          <div className="collect-title text-center text-[#F58F5D] text-[3.2rem] lg:text-lg font-bold leading-normal">
             Xem tất cả
           </div>
         </Link>

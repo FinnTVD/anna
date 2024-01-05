@@ -29,6 +29,7 @@ export default function ListProduct(props: IProps) {
           height={32}
           alt="banner cart"
           className="w-full h-full"
+          quality={100}
         />
         <div className="absolute bottom-20 left-[8rem]">
           <h1 className="text-white text-[3.125rem] leading-[4.6875rem] font-semibold font-sans not-italic max-md:font-bold max-md:text-[4.8rem] max-md:leading-[7.2rem]">

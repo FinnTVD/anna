@@ -37,7 +37,7 @@ const Home = async () => {
       <div className="hidden md:block">
         <ListSocial />
       </div>
-      <div className="max-sm:bg-[#F8F8F8] md:py-[7.5rem]">
+      <div className="max-sm:bg-[#F8F8F8] md:py-[5.75rem]">
         <Blog />
       </div>
       <ActionHome dataTrip={dataHome?.acf?.trip[0]} />
