@@ -98,27 +98,34 @@ function DropdownProductHeader(props: IProps) {
           ))}
         </div>
         <div className="flex grow items-center justify-center py-[1.5rem] rounded-[1rem]">
-          {listProduct && listProduct?.length > 0 ? (
-            <Image
-              height={200}
-              width={200}
-              className="w-[23.3125rem] h-full "
-              src={
-                listProduct && listProduct[1]?.link
-                  ? listProduct[1].link
-                  : '/img/no_image.jpg'
-              }
-              alt=""
-            />
-          ) : (
-            <Image
-              height={200}
-              width={200}
-              className="w-[23.3125rem] h-full "
-              src="/img/no_image.jpg"
-              alt="no-image"
-            />
-          )}
+          {/* {listProduct && listProduct?.length > 0 ? ( */}
+          {/*  <Image */}
+          {/*    height={200} */}
+          {/*    width={200} */}
+          {/*    className="w-[23.3125rem] h-full " */}
+          {/*    src={ */}
+          {/*      listProduct && listProduct[1]?.link */}
+          {/*        ? listProduct[1].link */}
+          {/*        : '/img/no_image.jpg' */}
+          {/*    } */}
+          {/*    alt="" */}
+          {/*  /> */}
+          {/* ) : ( */}
+          {/*  <Image */}
+          {/*    height={200} */}
+          {/*    width={200} */}
+          {/*    className="w-[23.3125rem] h-full " */}
+          {/*    src="/img/no_image.jpg" */}
+          {/*    alt="no-image" */}
+          {/*  /> */}
+          {/* )} */}
+          <Image
+            height={200}
+            width={200}
+            className="w-[23.3125rem] h-[25.6875rem] object-cover"
+            src="/img/about-us/content2.jpg"
+            alt="no-image"
+          />
         </div>
       </div>
     </HoverCardContent>
