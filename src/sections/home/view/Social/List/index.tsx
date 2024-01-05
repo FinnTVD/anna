@@ -25,12 +25,6 @@ function ListSocial() {
         infor="@kinhmatanna"
       />
       <ItemSocial
-        img={IMGYoutube}
-        icon={<ICYoutube />}
-        social="Youtube"
-        infor="@kinhmatanna"
-      />
-      <ItemSocial
         img={IMGTiktok}
         icon={<ICTiktokFooter width={100} height={100} stroke="#55D5D2" />}
         social="Tiktok"
@@ -40,6 +34,12 @@ function ListSocial() {
         img={IMGIg}
         icon={<ICInstagramFooter width={100} height={100} stroke="#55D5D2" />}
         social="Instagram"
+        infor="@kinhmatanna"
+      />
+      <ItemSocial
+        img={IMGYoutube}
+        icon={<ICYoutube />}
+        social="Youtube"
         infor="@kinhmatanna"
       />
     </div>
