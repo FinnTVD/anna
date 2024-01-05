@@ -174,7 +174,6 @@
 
 .mySwiper-about .swiper-slide {
   height: 580px;
-  border: 6px solid #e6f9f8;
 
   @media screen and (max-width: 767px) {
     height: 350px;
