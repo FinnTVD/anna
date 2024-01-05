@@ -276,7 +276,7 @@ function ProductDetail({
             <ICArrowRight2 fill="#F58F5D" />
             <Link
               href="/cua-hang"
-              className="text-[1.125rem]  ml-[0.62rem] text-right max-md:hidden"
+              className="text-[1.125rem] leading-[1.4625rem] font-bold ml-[0.62rem] text-right max-md:hidden"
             >
               Xem thêm
             </Link>
@@ -336,7 +336,7 @@ function ProductDetail({
             <ICArrowRight2 fill="#A9A9A9" />
             <Link
               href="/cua-hang"
-              className="text-[1.125rem] ml-[0.62rem] text-right max-md:hidden"
+              className="text-[1.125rem] leading-[1.4625rem] font-bold ml-[0.62rem] text-right max-md:hidden"
             >
               Xem thêm
             </Link>

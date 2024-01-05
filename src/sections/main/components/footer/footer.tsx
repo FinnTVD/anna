@@ -79,11 +79,11 @@ function Footer() {
     },
   ];
   const listContactMobile = [
-    {
-      icon: <ICEmail />,
-      title: 'marketing@kinhmatanna.com',
-      toHref: 'mailto:marketing@kinhmatanna.com',
-    },
+    // {
+    //   icon: <ICEmail />,
+    //   title: 'marketing@kinhmatanna.com',
+    //   toHref: 'mailto:marketing@kinhmatanna.com',
+    // },
     {
       icon: <ICPhone />,
       title: '1900 0359',
@@ -110,145 +110,159 @@ function Footer() {
   ];
   return (
     <div className="footer-layout-main">
-      <div className="footer-layout">
-        <div className="footer-left">
-          <h3 className="title-anna">ANNA</h3>
-          <h4 className="description-anna">
-            THƯƠNG HIỆU KÍNH MẮT CỦA SỰ TỬ TẾ
-          </h4>
-          <p>Đăng kí để nhận tin mới nhất</p>
-          <div className="relative input-search">
-            <Input
-              className="input-email"
-              type="text"
-              placeholder="Để lại email của bạn"
-            />
-            <div className="icon-arrow-input">
-              <ICArrowTopLeft height="2rem" width="1.99981rem" />
-            </div>
-            <div className="icon-arrow-input-mobile">
-              <ICArrowTopLeft height="3.73333rem" width="3.73333rem" />
-            </div>
-          </div>
-          <div className="list-icon-footer-left">
-            {listIcon.map((item, index) => (
-              <div key={index} className="mr-[2rem]">
-                {item.icon}
+      <div className="footer-layout-container">
+        <div className="footer-layout">
+          <div className="footer-left">
+            <h3 className="title-anna">ANNA</h3>
+            <h4 className="description-anna">
+              THƯƠNG HIỆU KÍNH MẮT CỦA SỰ TỬ TẾ
+            </h4>
+            <p>Đăng kí để nhận tin mới nhất</p>
+            <div className="relative input-search">
+              <Input
+                className="input-email"
+                type="text"
+                placeholder="Để lại email của bạn"
+              />
+              <div className="icon-arrow-input">
+                <ICArrowTopLeft height="2rem" width="1.99981rem" />
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="footer-right">
-          <div className="footer-info-row">
-            <div className="footer-info-row-left">
-              <p className="title">SẢN PHẨM</p>
-              <ul>
-                {listProduct.map((item: any, index) => (
-                  <li
-                    key={index}
-                    className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
-                  >
-                    {item.title}
-                  </li>
-                ))}
-              </ul>
+              <div className="icon-arrow-input-mobile">
+                <ICArrowTopLeft height="4.73333rem" width="4.73333rem" />
+              </div>
             </div>
-            <div className="footer-info-row-right">
-              <p className="title">THÔNG TIN LIÊN HỆ</p>
-              <ul>
-                {listContact.map((item: any, index) => (
-                  <li
-                    key={index}
-                    className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
-                  >
-                    {item.title}
-                  </li>
-                ))}
-              </ul>
+            <div className="list-icon-footer-left">
+              {listIcon.map((item, index) => (
+                <div key={index} className="mr-[2rem]">
+                  {item.icon}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="footer-info-row mt-[2.62rem]">
-            <div className="footer-info-row-left">
-              <p className="title">CHÍNH SÁCH MUA HÀNG</p>
-              <ul>
-                {listPolicy.map((item: any, index) => (
-                  <li
-                    key={index}
-                    className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
-                  >
-                    {item.title}
-                  </li>
-                ))}
-              </ul>
+          <div className="footer-right">
+            <div className="footer-info-row">
+              <div className="footer-info-row-left">
+                <p className="title">SẢN PHẨM</p>
+                <ul>
+                  {listProduct.map((item: any, index) => (
+                    <li
+                      key={index}
+                      className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                    >
+                      {item.title}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="footer-info-row-right">
+                <p className="title">THÔNG TIN LIÊN HỆ</p>
+                <ul>
+                  {listContact.map((item: any, index) => (
+                    <li
+                      key={index}
+                      className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                    >
+                      {item.title}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className="footer-info-row-right">
-              <h2 className="font-extrabold not-italic leading-4 text-[#CAF2F1] text-[1.125rem]">
-                MST: 0108195925
-              </h2>
-              <Image
-                width={196}
-                height={74}
-                className="my-[0.75rem] w-[12.29306rem] h-[4.6505rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
-                src={Notice}
-                alt=""
-              />
-              <Image
-                width={132}
-                height={26}
-                className="w-[8.2715rem] h-[1.64063rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
-                src="/img/footer/protected.png"
-                alt=""
-              />
+            <div className="footer-info-row mt-[2.62rem]">
+              <div className="footer-info-row-left">
+                <p className="title">CHÍNH SÁCH MUA HÀNG</p>
+                <ul>
+                  {listPolicy.map((item: any, index) => (
+                    <li
+                      key={index}
+                      className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                    >
+                      {item.title}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="footer-info-row-right">
+                <h2 className="font-extrabold not-italic leading-4 text-[#CAF2F1] text-[1.125rem]">
+                  MST: 0108195925
+                </h2>
+                <Image
+                  width={196}
+                  height={74}
+                  className="my-[0.75rem] w-[12.29306rem] h-[4.6505rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
+                  src={Notice}
+                  alt=""
+                />
+                <Image
+                  width={132}
+                  height={26}
+                  className="w-[8.2715rem] h-[1.64063rem] max-md:w-[52.4504rem] max-md:h-[19.84213rem]"
+                  src="/img/footer/protected.png"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="list-product-mobile">
-          <h3>SẢN PHẨM</h3>
-          <ul>
-            {listProduct.map((item: any, index: number) => (
-              <li key={index}>{item.title}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="list-policy-mobile">
-          <div className="item-left">
-            <h3>CHÍNH SÁCH MUA HÀNG</h3>
+          <div className="list-product-mobile">
+            <h3>SẢN PHẨM</h3>
             <ul>
-              {listPolicyMobile.map((item: any, index: number) => (
+              {listProduct.map((item: any, index: number) => (
                 <li key={index}>{item.title}</li>
               ))}
             </ul>
           </div>
-          <div className="logo-mobile">
-            <ICLogo width="23.46667rem" height="21.33333rem" />
+          <div className="list-policy-mobile">
+            <div className="item-left">
+              <h3>CHÍNH SÁCH MUA HÀNG</h3>
+              <ul>
+                {listPolicyMobile.map((item: any, index: number) => (
+                  <li key={index}>{item.title}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="logo-mobile">
+              <ICLogo width="23.46667rem" height="21.33333rem" />
+            </div>
+          </div>
+
+          <div className="hidden max-md:flex text-white text-[1.125rem] font-extrabold not-italic leading-6 items-center mt-[2rem]">
+            <div className="mr-[2rem]">
+              <ICEmail />
+            </div>
+            <a
+              href="mailto:marketing@kinhmatanna.com"
+              className="text-[3.2rem] not-italic font-bold leading-[4.16rem] "
+            >
+              marketing@kinhmatanna.com
+            </a>
+          </div>
+          <div className="last-row-mobile">
+            <ul>
+              {listContactMobile.map((item: any, index) => (
+                <li
+                  key={index}
+                  className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                >
+                  {item.icon && <div className="mr-[2rem]">{item.icon}</div>}
+
+                  <a href={item.toHref}>{item.title}</a>
+                </li>
+              ))}
+            </ul>
+            <div>
+              {listIconMobile.map((item, index) => (
+                <div key={index} className="mr-[2rem]">
+                  {item.icon}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="last-row-mobile">
-          <ul>
-            {listContactMobile.map((item: any, index) => (
-              <li
-                key={index}
-                className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
-              >
-                {item.icon && <div className="mr-[2rem]">{item.icon}</div>}
-
-                <a href={item.toHref}>{item.title}</a>
-              </li>
-            ))}
-          </ul>
-          <div>
-            {listIconMobile.map((item, index) => (
-              <div key={index} className="mr-[2rem]">
-                {item.icon}
-              </div>
-            ))}
-          </div>
+        <hr className="mt-[2.5rem]" />
+        <div className="text-author">
+          <span>Anna © 2018 - 2023. Design by OKHUB Viet Nam</span>
         </div>
       </div>
-      <hr className="mt-[2.5rem]" />
-      <span className="text-author">
-        Anna © 2018 - 2023. Design by OKHUB Viet Nam
-      </span>
     </div>
   );
 }
