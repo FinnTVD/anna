@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react';
 import ICUser from '@/components/Icons/ICUser';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { delayMenu } from '@/config/config';
 
 interface IProps {
@@ -34,6 +35,7 @@ function NavItems(props: IProps) {
     useState<number>(0);
   const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
+  const [showSearch, setShowSearch] = useState(false);
   const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
@@ -196,18 +198,38 @@ function NavItems(props: IProps) {
           <li
             onMouseMove={() => onOpenChangeDropdown('search')}
             onMouseLeave={() => setKeyTabMenuActive(null)}
-            className="grow has-child mx-[2.31rem] w-[30.4375rem] h-full"
+            className="grow has-child mx-[2.31rem] w-[29rem] h-full"
           >
-            <HoverCard
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <div className="relative rounded-[1.25rem] flex items-center h-full" onClick={() => setShowSearch(true)}>
+                  <Input
+                    className={`${styleNavbar
+                      ? 'placeholder-[#4DC0BD]'
+                      : 'opacity-25	placeholder-[#fff]'
+                      }input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
+                    type="text"
+                    placeholder="Tìm kiếm sản phẩm"
+                  />
+                  <div className="absolute top-[50%] -translate-y-1/2 right-[1.5rem]">
+                    <ICSearch fill="#4DC0BD" width="1.00006rem" height="1rem" />
+                  </div>
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[29rem] rounded-[1.25rem]">
+                <DropdownMenuItem>
+                  <DropdownSearchHeader />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            {/* <HoverCard
               // open={keyTabMenuActive === 'search'}
               // openDelay={0}
               // closeDelay={0}
-              // open
-              openDelay={delayMenu.openDelay}
-              closeDelay={delayMenu.closeDelay}
+              open={showSearch}
             >
-              <HoverCardTrigger asChild={false}>
-                <div className="relative rounded-[1.25rem] flex items-center h-full">
+              <HoverCardTrigger asChild>
+                <div className="relative rounded-[1.25rem] flex items-center h-full" onClick={() => setShowSearch(true)}>
                   <Input
                     className={`${
                       styleNavbar
@@ -230,7 +252,7 @@ function NavItems(props: IProps) {
               >
                 <DropdownSearchHeader />
               </HoverCardContent>
-            </HoverCard>
+            </HoverCard> */}
           </li>
           <li
             onMouseMove={() => onOpenChangeDropdown('see-more')}

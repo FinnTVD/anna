@@ -9,7 +9,7 @@ function Social() {
           <div className="w-full md:w-[31.75rem] text-[#454545] text-[4.26667rem] font-extrabold leading-[6.4rem] md:leading-normal md:text-[1.5rem] md:uppercase">
             Hãy follow để theo dõi chúng mình ngay từ hôm nay nha...
           </div>
-          <div className="hidden md:block text-[10rem] md:text-7xl font-black uppercase text-follow-shadow">
+          <div className="hidden md:block text-[10rem] md:text-7xl font-black uppercase text-follow-shadow leading-[4.6875rem]">
             Follow us
           </div>
         </div>
