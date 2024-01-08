@@ -96,7 +96,7 @@ function NavItems(props: IProps) {
       <div className="navbar-container w-[87.5rem] mx-auto">
         <div
           className={cn(
-            ' fixed top-0 left-0 h-[100vh] transition-all duration-300 w-full bg-[#0000004d] -z-10 backdrop-opacity-[5px]',
+            ' fixed top-0 left-0 h-[100vh] transition-all duration-300 w-full bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
             keyTabMenuActive !== null ? 'visible' : 'invisible'
           )}
         />
