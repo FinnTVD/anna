@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 import { ArrowTopRight } from '@/app/icons';
@@ -14,16 +14,16 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
   const [changeInfo, setChangeInfo] = useState({
     img: null,
     price: '',
-    regular_price: ''
-  })
+    regular_price: '',
+  });
   const handleChangeInfoProduct = (item: any) => {
     setChangeInfo({
       img: item?.image?.url,
       price: item?.display_price || 0,
-      regular_price: item?.display_regular_price || 0
-    })
-  } 
-  
+      regular_price: item?.display_regular_price || 0,
+    });
+  };
+
   return (
     <div className="item-product-home !mr-0 cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl">
       <div className="h-[40rem] md:h-[20.375rem] w-full overflow-hidden rounded-[4.26667rem] md:rounded-2xl">
@@ -67,21 +67,21 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
                     />
                   )
               )}
-              {dataCollect?.variations?.length > 4 ?
+              {dataCollect?.variations?.length > 4 ? (
                 <div
                   style={{ background: '#A9A9A9' }}
                   className="h-[3.2rem] md:h-[1.5rem] p-[0.25rem] text-white w-[3.2rem] md:w-[1.5rem] rounded-full mr-[0.31rem] flex justify-center items-center text-[2.66667rem] md:text-[0.625rem] leading-[0.75rem] font-bold not-italic "
                 >
                   +{dataCollect?.variations?.length - 4}
-                </div> :
-                <div
-                  className="h-[3.2rem] md:h-[1.5rem] "
-                >
-                  
-                </div>}
+                </div>
+              ) : (
+                <div className="h-[3.2rem] md:h-[1.5rem] "></div>
+              )}
             </div>
             <div className="line-through text-[3.73333rem] md:text-[0.875rem]">
-              {changeInfo?.regular_price !== '' ? formatCurrencyVND(changeInfo?.regular_price.toString()) : formatCurrencyVND(dataCollect?.regular_price.toString() || 0)}
+              {changeInfo?.regular_price !== ''
+                ? formatCurrencyVND(changeInfo?.regular_price.toString())
+                : formatCurrencyVND(dataCollect?.regular_price.toString() || 0)}
             </div>
           </div>
           <Link
@@ -89,7 +89,9 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
             className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]"
           >
             <p className="text-[4.8rem] md:text-[1.5rem] font-extrabold text-[#55D5D2] md:text-[#fff]">
-            {changeInfo?.price !== '' ? formatCurrencyVND(changeInfo?.price.toString()) : formatCurrencyVND(dataCollect?.price.toString() || 0)}
+              {changeInfo?.price !== ''
+                ? formatCurrencyVND(changeInfo?.price.toString())
+                : formatCurrencyVND(dataCollect?.price.toString() || 0)}
             </p>
             <div className="arrow-product-slide p-[0.5rem] text-[#fff]">
               <ArrowTopRight />
