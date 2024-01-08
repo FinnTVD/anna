@@ -34,30 +34,22 @@ function NavItems(props: IProps) {
   const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
   const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
-  // const [isShowBlur, setIsShowBlur] = useState<boolean>(false);
   const [startTime, setStartTime] = useState<any>();
 
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
-    // console.log('startTime', startTime);
-    // console.log('Date.now()', Date.now());
-    // console.log('move');
     setTimeout(() => {
       if (keyTabMenuActive === null) {
         setKeyTabMenuActive(tab);
-        console.log('keyTabMenuActive', keyTabMenuActive);
-        // setStartTime(Date.now());
       }
     }, delayMenu.openDelay);
   };
 
-  // console.log('keyTabMenuActive', keyTabMenuActive);
-
   const onMouseLeaveTabMenu = async () => {
     setStartTime(Date.now());
-    console.log('keyTabMenuActive', keyTabMenuActive);
-    // await Promise.resolve();
+
+    await Promise.resolve();
 
     if (keyTabMenuActive !== null) {
       setKeyTabMenuActive(null);
@@ -71,18 +63,22 @@ function NavItems(props: IProps) {
     }
   };
 
-  const onLeave = async () => {
-    setKeyTabMenuActive(null);
-    console.log('keyTabMenuActive', keyTabMenuActive);
-  };
-
   useEffect(() => {
-    refBlur?.current.addEventListener('mouseover', () => {
-      setKeyTabMenuActive(null);
+    refBlur?.current?.addEventListener('mouseover', () => {
+      setTimeout(() => {
+        if (keyTabMenuActive === null) {
+          setKeyTabMenuActive(null);
+          // setStartTime(Date.now());
+        }
+      }, delayMenu.closeDelay);
     });
 
-    refBlur.current.addEventListener('mouseout', () => {
-      setKeyTabMenuActive(null);
+    refBlur?.current?.addEventListener('mouseout', () => {
+      setTimeout(() => {
+        if (keyTabMenuActive === null) {
+          setKeyTabMenuActive(null);
+        }
+      }, delayMenu.closeDelay);
     });
   }, []);
 
@@ -203,7 +199,7 @@ function NavItems(props: IProps) {
                   side="bottom"
                   align="start"
                   // sideOffset={6}
-                  onMouseLeave={() => onLeave()}
+                  // onMouseLeave={() => onLeave()}
                   onMouseMove={() => onMove('product')}
                   className="w-[87.5rem] -ml-[6rem] rounded-[1.5rem]"
                 >
@@ -255,8 +251,8 @@ function NavItems(props: IProps) {
                   align="start"
                   asChild={false}
                   // sideOffset={6}
-                  onMouseLeave={() => onLeave()}
-                  onMouseMove={() => onMove('search')}
+                  // onMouseLeave={() => onLeave()}
+                  // onMouseMove={() => onMove('search')}
                   className="w-[30.4375rem] rounded-[1.5rem]"
                 >
                   <DropdownSearchHeader />
@@ -295,8 +291,8 @@ function NavItems(props: IProps) {
                 <HoverCardContent
                   side="bottom"
                   align="end"
-                  onMouseLeave={() => onLeave()}
-                  onMouseMove={() => onMove('see-more')}
+                  // onMouseLeave={() => onLeave()}
+                  // onMouseMove={() => onMove('see-more')}
                   className="w-[87.5rem] -mr-[21rem] rounded-[1.5rem] relative mt-[12px]"
                 >
                   <DropdownSeeMoreHeader
@@ -349,8 +345,8 @@ function NavItems(props: IProps) {
                   side="bottom"
                   align="end"
                   // sideOffset={6}
-                  onMouseLeave={() => onLeave()}
-                  onMouseMove={() => onMove('cart')}
+                  // onMouseLeave={() => onLeave()}
+                  // onMouseMove={() => onMove('cart')}
                   className="w-[25.875rem] -mr-[1.5rem] relative rounded-[1.5rem]"
                 >
                   <DropdownCartHeader

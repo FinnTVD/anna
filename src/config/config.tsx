@@ -1,4 +1,4 @@
 export const delayMenu = {
   openDelay: 700,
-  closeDelay: 500,
+  closeDelay: 200,
 };
