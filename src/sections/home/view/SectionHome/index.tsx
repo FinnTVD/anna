@@ -12,7 +12,7 @@ function SectionHome() {
             <ICProtected height={48} />
           </div>
           <div className="hidden max-md:block">
-            <ICProtected height={48} />
+            <ICProtected height="6.4rem" />
           </div>
           <p className="max-lg:text-[0.9rem] max-lg:ml-[0.25rem]-[0.9rem] text-[1.125rem] leading-[1.575rem] font-bold ml-[0.75rem] max-md:text-[3rem] max-md:leading-[3.46667rem]">
             Bảo hành trọn đời

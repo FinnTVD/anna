@@ -11,7 +11,7 @@ import ICInstagramFooter from '@/components/Icons/ICInstagramFooter';
 import ICTiktokFooter from '@/components/Icons/ICTiktokFooter';
 import ICShopeeFooter from '@/components/Icons/ICShoppeeFooter';
 import Link from 'next/link';
-
+import map from 'lodash.map';
 interface IPropsMenuMobile {
   isShowMenu: boolean;
   handleTogleMenu: any;
@@ -68,8 +68,7 @@ function MenuPopupMobile({
           Sản phẩm
         </span>
         <ul className="mt-[2rem] list-disc list-inside grid grid-cols-2">
-          {dataListProductHeader &&
-            dataListProductHeader.map((item: any, index: number) => (
+          {map(dataListProductHeader,(item: any, index: number) => (
               <li
                 key={index}
                 className="text-[3.73333rem] text-white not-italic font-extrabold leading-[4.85333rem] uppercase py-[2.27rem] mb-[0.93rem]"

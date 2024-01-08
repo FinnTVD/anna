@@ -11,6 +11,9 @@ import * as z from 'zod';
 import '../style.css';
 import ICFacebook from '@/components/Icons/ICFacebook';
 import ICGoogle from '@/components/Icons/ICGoogle';
+import { postDataBase } from '@/lib/fetch-data-rest';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const defaultValues = {
   email: '',
@@ -33,24 +36,44 @@ const formSchema = z.object({
 });
 
 export function Register() {
+  const router = useRouter();
+
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
 
-  const { handleSubmit } = methods;
+  const { handleSubmit, setError } = methods;
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    // try {
-    //   signIn('credentials', {
-    //     identifier: values.email,
-    //     password: values.password,
-    //   });
-    // } catch (error) {
-    //   setError('password', {
-    //     message: 'Login failed!',
-    //   });
-    // }
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      await postDataBase({
+        url: 'api/v1/mo-jwt-register',
+        body: JSON.stringify(values),
+      });
+      const { ok, error }: any = await signIn('credentials', {
+        identifier: values.username,
+        password: values.password,
+        redirect: false,
+      });
+      if (ok) {
+        router.refresh()
+      } else {
+        setError('password', {
+          message: 'Login failed!',
+        });
+      }
+    } catch (error: any) {
+      if (error?.message) {
+        setError('password', {
+          message: JSON.parse(error?.message)?.error?.message,
+        });
+        return;
+      }
+      setError('password', {
+        message: 'Login failed!',
+      });
+    }
     console.log(values);
   };
 

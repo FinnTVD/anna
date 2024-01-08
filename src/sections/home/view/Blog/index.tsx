@@ -2,6 +2,7 @@ import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive'
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import ItemBlog from '@/sections/home/view/Blog/Item';
 import SliderMobileBlogHome from '@/sections/home/view/Blog/SlideMobile';
+import map from 'lodash.map';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -34,7 +35,7 @@ const Blog = async () => {
       <div className="hidden lg:flex w-full lg:w-2/3 flex-wrap">
         <div className="w-full lg:w-1/2">
           {/* eslint-disable-next-line array-callback-return,consistent-return */}
-          {listBlog?.map((blog: any, index: number) => {
+          {map(listBlog,(blog: any, index: number) => {
             if (index <= 2) {
               return <ItemBlog key={index} dataBlog={blog} />;
             }
@@ -42,7 +43,7 @@ const Blog = async () => {
         </div>
         <div className="w-full lg:w-1/2 pt-0 sm:pt-40">
           {/* eslint-disable-next-line array-callback-return,consistent-return */}
-          {listBlog?.map((blog: any, index: number) => {
+          {map(listBlog,(blog: any, index: number) => {
             if (index > 2 && index <= 5) {
               return <ItemBlog key={index} dataBlog={blog} />;
             }
