@@ -11,26 +11,28 @@ const Blog = async () => {
 
   return (
     <div className="px-[3.2rem] sm:p-3 flex flex-wrap container max-lg:pb-6">
-      <div className="w-full lg:w-1/3 pt-[6.4rem] sm:pt-[18rem]">
-        <h4 className="text-[#55D5D2] text-[5.33333rem] text-center lg:text-start lg:text-[4rem] max-sm:pb-[3.2rem] font-black uppercase">
-          ANNA BLOG
-          <br className="hidden lg:block" /> & SHARE
-        </h4>
-        <Link
-          href="/blog"
-          className="lg:w-[252px] hidden lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
-        >
-          <div className="text-white text-[20px] lg:text-lg font-black uppercase">
-            Xem tất cả
-          </div>
-          <div className="p-1.5 bg-white rounded-[50px] justify-start items-center gap-2.5 flex">
-            <ICArrowTopRightActive
-              width={31.997}
-              height={32}
-              stroke="#55D5D2"
-            />
-          </div>
-        </Link>
+      <div className="w-full lg:w-1/3 pt-[6.4rem] sm:pt-[18rem] relative">
+        <div className="md:sticky md:top-32">
+          <h4 className="text-[#55D5D2] text-[5.33333rem] text-center lg:text-start lg:text-[4rem] max-sm:pb-[3.2rem] font-black uppercase">
+            ANNA BLOG
+            <br className="hidden lg:block" /> & SHARE
+          </h4>
+          <Link
+            href="/blog"
+            className="lg:w-[252px] hidden lg:flex lg:h-[52px] pl-12 pr-1 py-1 bg-[#55D5D2] rounded-[100px] flex justify-between items-center gap-3"
+          >
+            <div className="text-white text-[20px] lg:text-lg font-black uppercase">
+              Xem tất cả
+            </div>
+            <div className="p-1.5 bg-white rounded-[50px] justify-start items-center gap-2.5 flex">
+              <ICArrowTopRightActive
+                width={31.997}
+                height={32}
+                stroke="#55D5D2"
+              />
+            </div>
+          </Link>
+        </div>
       </div>
       <div className="hidden lg:flex w-full lg:w-2/3 flex-wrap">
         <div className="w-full lg:w-1/2">

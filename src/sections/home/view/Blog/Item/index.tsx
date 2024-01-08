@@ -22,7 +22,7 @@ function ItemBlog({ dataBlog }: IPropBlog) {
               width={445}
               height={304}
               alt=""
-              className="image-item-blog w-full h-[55rem] md:h-[23.75rem] rounded-[6.4rem] md:rounded-3xl object-cover"
+              className="image-item-blog w-full h-[81.06667rem] md:h-[19rem] rounded-[6.4rem] md:rounded-3xl object-cover"
             />
           </div>
           <div className="item-title-blog transition-opacity px-16 md:px-4 text-[#454545] text-[6rem] md:text-2xl font-extrabold line-clamp-2">
