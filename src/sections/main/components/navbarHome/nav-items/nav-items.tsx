@@ -2,7 +2,6 @@
 
 import {
   HoverCard,
-  HoverCardContent,
   HoverCardTrigger,
 } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
@@ -21,8 +20,14 @@ import { useEffect, useState } from 'react';
 import ICUser from '@/components/Icons/ICUser';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 import { delayMenu } from '@/config/config';
+import { HoverCardContent } from '@/components/ui-custom/hover-card-without-animate';
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -166,13 +171,13 @@ function NavItems(props: IProps) {
                 side="bottom"
                 align="start"
                 // sideOffset={6}
-                className="container-dropdown-menu rounded-[1.5rem]"
+                className="rounded-[1.5rem] -translate-x-[90px] container-dropdown-menu "
               >
                 <DropdownProductHeader
                   listProduct={dataProps}
                   onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                 />
-                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white !left-[30px]" />
+                <HoverCardArrow width={24} height={20} className="fill-white -translate-x-[90px]" />
               </HoverCardContent>
             </HoverCard>
           </li>
@@ -202,12 +207,16 @@ function NavItems(props: IProps) {
           >
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div className="relative rounded-[1.25rem] flex items-center h-full" onClick={() => setShowSearch(true)}>
+                <div
+                  className="relative rounded-[1.25rem] flex items-center h-full"
+                  onClick={() => setShowSearch(true)}
+                >
                   <Input
-                    className={`${styleNavbar
-                      ? 'placeholder-[#4DC0BD]'
-                      : 'opacity-25	placeholder-[#fff]'
-                      }input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
+                    className={`${
+                      styleNavbar
+                        ? 'placeholder-[#4DC0BD]'
+                        : 'opacity-25	placeholder-[#fff]'
+                    }input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
@@ -286,12 +295,12 @@ function NavItems(props: IProps) {
                 side="bottom"
                 align="start"
                 // sideOffset={6}
-                className="container-dropdown-menu rounded-[1.5rem]"
+                className="rounded-[1.5rem] -translate-x-[90px] transition-none container-dropdown-menu "
               >
                 <DropdownSeeMoreHeader
                   onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                 />
-                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white left-[30px] !left-[780px]" />
+                <HoverCardArrow width={24} height={20} className="fill-white -translate-x-[90px]" />
               </HoverCardContent>
             </HoverCard>
           </li>

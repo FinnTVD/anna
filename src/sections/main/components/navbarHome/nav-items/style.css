@@ -44,21 +44,21 @@
   width: 100vw !important; */
 
   @screen md {
-    margin-right: calc(((100vw - 720px) / 2) - 12px) !important;
-    width: calc(750px - 30px) !important;
+    padding-right: calc(((100vw - 720px) / 2) - 12px) !important;
+    width: calc(750px - 30px);
   }
 
   @screen lg {
-    width: 940px !important;
-    margin-right: calc((100vw - 940px) / 2 - 12px) !important;
+    width: 940px;
+    padding-right: calc((100vw - 940px) / 2 - 12px) !important;
   }
 
   @screen xl {
     width: 1140px !important;
-    margin-right: calc((100vw - 1140px) / 2 - 12px) !important;
+    padding-right: calc((100vw - 1140px) / 2 - 12px) !important;
   }
   @media screen and (min-width: 1401px) {
     width: 1370px !important;
-    margin-right: calc((100vw - 1370px) / 2 - 12px) !important;
+    padding-right: calc((100vw - 1370px) / 2 - 12px) !important;
   }
 }
