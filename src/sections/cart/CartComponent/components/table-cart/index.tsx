@@ -72,7 +72,7 @@ export function TableCart(props: IProps) {
       }
     }
 
-    localStorage.setItem(
+    typeof window !== 'undefined' && localStorage.setItem(
       'listMyCart',
       JSON.stringify(arrayProductSubmitLocalStorage)
     );

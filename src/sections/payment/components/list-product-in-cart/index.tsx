@@ -21,8 +21,8 @@ export default function ListProductInCart() {
   //   // console.log("getTotalPriceCart", getTotalPriceCart);
   // }
 
-  const getTotalPriceCart = localStorage.getItem('totalPriceCart');
-  console.log('asdasdsad', getTotalPriceCart);
+  // const getTotalPriceCart = localStorage.getItem('totalPriceCart');
+  // console.log('asdasdsad', getTotalPriceCart);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
