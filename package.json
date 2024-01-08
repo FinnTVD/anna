@@ -18,6 +18,7 @@
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-hover-card": "^1.0.7",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.7",
@@ -36,6 +37,7 @@
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
     "gsap": "^3.12.4",
+    "lodash.map": "^4.6.0",
     "lucide-react": "^0.292.0",
     "next": "14.0.1",
     "next-auth": "^4.24.5",
@@ -56,6 +58,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/lodash.map": "^4.6.13",
     "@types/node": "^20",
     "@types/qs": "^6.9.10",
     "@types/react": "^18",

@@ -7,6 +7,7 @@ import { IListProductMenuHeader } from '@/types/types-general';
 import './style.css';
 import { useState } from 'react';
 import Link from 'next/link';
+import map from 'lodash.map';
 
 interface IProps {
   listProduct?: IListProductMenuHeader[] | [];
@@ -26,48 +27,45 @@ function DropdownProductHeader(props: IProps) {
   };
 
   return (
-    <HoverCardContent
-      onMouseLeave={onMouseLeaveTabMenu}
-      className="dropdown-product-header-container relative dropdown-product-header rounded-[1.5rem] w-[87.5rem] -ml-[6.2rem] border-none p-0 -mt-[0.2rem] pt-[1rem] "
-      side="bottom"
-      align="start"
+    <div
+      // onMouseLeave={onMouseLeaveTabMenu}
+      className="dropdown-product-header-container relative dropdown-product-header rounded-[1.5rem] container border-none p-0 -mt-[0.2rem] pt-[1rem] "
       // sideOffset={6}
     >
       <div
         onMouseLeave={() => {
           setKeyCategoryMenu(undefined);
         }}
-        className="w-full flex justify-between bg-red rounded-[1.5rem] "
+        className="flex justify-between bg-red rounded-[1.5rem] "
       >
         <div className="py-[1.44rem] px-[2.88rem] w-[29.125rem] border-r-2 border-[#55D5D2]">
           <ul className="w-full">
-            {listProduct &&
-              listProduct.map((item, index) => (
-                <li
-                  key={index}
-                  onMouseMove={() => {
-                    handleMouseCategory(item.children);
-                    setKeyCategoryMenu(item.name);
-                  }}
-                  className={`${
-                    keyCategoryMenu === item.name ? 'item-Category-active' : ''
-                  } item-category-product cursor-pointer  mb-[3rem]`}
+            {map(listProduct, (item, index) => (
+              <li
+                key={index}
+                onMouseMove={() => {
+                  handleMouseCategory(item.children);
+                  setKeyCategoryMenu(item.name);
+                }}
+                className={`${
+                  keyCategoryMenu === item.name ? 'item-Category-active' : ''
+                } item-category-product cursor-pointer  mb-[3rem]`}
+              >
+                <Link
+                  href={`/danh-muc-san-pham/${item.slug}`}
+                  className="flex justify-between items-center"
                 >
-                  <Link
-                    href={`/danh-muc-san-pham/${item.slug}`}
-                    className="flex justify-between items-center"
-                  >
-                    <span className="text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase">
-                      {item.name}
-                    </span>
-                    <ICArrowRight2
-                      fill="#55D5D2"
-                      width="1.375rem"
-                      height="1.375rem"
-                    />
-                  </Link>
-                </li>
-              ))}
+                  <span className="text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase">
+                    {item.name}
+                  </span>
+                  <ICArrowRight2
+                    fill="#55D5D2"
+                    width="1.375rem"
+                    height="1.375rem"
+                  />
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="py-[1.5rem] px-[4rem] flex justify-between w-[33rem]">
@@ -128,7 +126,7 @@ function DropdownProductHeader(props: IProps) {
           />
         </div>
       </div>
-    </HoverCardContent>
+    </div>
   );
 }
 

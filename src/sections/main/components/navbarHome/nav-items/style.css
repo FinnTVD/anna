@@ -6,9 +6,11 @@
   .navbar-container .input-search::placeholder {
     @apply font-normal text-[1rem] not-italic leading-[5.12rem];
   }
+
   .navbar-container .tab-menu:hover span {
     @apply text-[#55D5D2] font-semibold;
   }
+
   .navbar-container .tab-menu:hover svg path {
     @apply stroke-[#55D5D2];
   }
@@ -16,21 +18,74 @@
   .navbar-container .tab-menu-active span {
     @apply text-[#55D5D2] font-semibold;
   }
+
   .navbar-container .tab-menu-active svg path {
     @apply stroke-[#55D5D2];
   }
 }
 
-.navbar-home {
-  /* background: none; */
+.navbar-store:hover .navbar-store-item,
+.navbar-action:hover .navbar-action-item {
+  color: #55d5d2;
+}
+.navbar-store:hover svg path{
+  fill: #55d5d2;
 }
 
-.navbar-main-home {
-  background: rgba(29, 29, 29, 0.26);
-  backdrop-filter: blur(12.5px);
+.bg-navbar-main-home {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  animation-delay: 2s;
+}
+
+.border-navbar {
+  border: 1px solid rgba(255, 255, 255, 0.41)
 }
 
 .search-home-navbar {
   opacity: 0.25;
   background: var(--Foundation-BACKGROUND-ELEVATION-5, #fff);
+}
+
+.container-dropdown-menu {
+  /* margin-right: calc(((100vw - 1400px)/2) - 15px) !important;
+  width: 100vw !important; */
+
+  @screen md {
+    margin-right: calc(((100vw - 720px) / 2) - 12px) !important;
+    width: calc(750px - 30px);
+  }
+
+  @screen lg {
+    width: 940px;
+    margin-right: calc((100vw - 940px) / 2 - 12px) !important;
+  }
+
+  @screen xl {
+    width: 1140px !important;
+    margin-right: calc((100vw - 1140px) / 2 - 12px) !important;
+  }
+  @media screen and (min-width: 1401px) {
+    width: 1370px !important;
+    margin-right: calc((100vw - 1370px) / 2 - 12px) !important;
+  }
+}
+
+.mr-dropdown-menu {
+  /* margin-right: calc(((100vw - 1400px)/2) - 15px) !important;
+  width: 100vw !important; */
+  @screen md {
+    margin-right: calc(((100vw - 720px) / 2) - 12px) !important;
+  }
+
+  @screen lg {
+    margin-right: calc((100vw - 940px) / 2 - 12px) !important;
+  }
+
+  @screen xl {
+    margin-right: calc((100vw - 1140px) / 2 - 12px) !important;
+  }
+  @media screen and (min-width: 1401px) {
+    margin-right: calc((100vw - 1370px) / 2 - 12px) !important;
+  }
 }

@@ -18,6 +18,7 @@ import { Fixed } from '@/sections/product/detail-view/view/Fixed';
 import './style.css';
 import { toast } from 'sonner';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface IProps {
   slug: string;
@@ -39,6 +40,9 @@ function ProductDetail({
   dataDataLenses,
   dataProductByAnyCategory,
 }: IProps) {
+  const tokenFake =
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FubmEub2todWItdGVjaC5jb20iLCJpYXQiOjE3MDQ1MDg4MjcsIm5iZiI6MTcwNDUwODgyNywiZXhwIjoxNzA1MTEzNjI3LCJkYXRhIjp7InVzZXIiOnsiaWQiOjUsImRldmljZSI6IiIsInBhc3MiOiI4ZWMzMmIzNGRlYjhjMTJlMjhmNWQwYjQ0Njk0ZjkyNiJ9fX0.6v0cLHcxNDV0nx_OKOGbntNbLO5Ztp_jCw5DwgkEHPc';
+
   const refHeightProductInfo = useRef<any>();
   const [isShowItemProduct, setIsShowItemProduct] = useState<boolean>(false);
 
@@ -73,32 +77,13 @@ function ProductDetail({
     setColorGetDetail(value);
   };
 
-  useEffect(() => {
-    getDetailProductByColor.mutate();
-    setDatainit(
-      colorGetDetail !== 'null'
-        ? getDetailProductByColor.data
-        : dataDetailProduct.data
-    );
-  }, [colorGetDetail, getDetailProductByColor.data]);
-
-  useEffect(() => {
-    setDatainit(dataDetailProduct.data);
-    setListColorProduct(dataDetailProduct?.data?.variant ?? []);
-  }, [dataDetailProduct.data]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const { scrollY } = window;
-
-      if (scrollY > refHeightProductInfo.current?.clientHeight) {
-        setIsShowItemProduct(true);
-      } else setIsShowItemProduct(false);
-    });
-  }, []);
-
-  const handleAddToCart = (data: any, quantityProduct: any): void => {
+  const handleAddToCartLocalStorage = (
+    data: any,
+    quantityProduct: any
+  ): void => {
     let getListProductInCart;
+
+    console.log("asdasdsa");
 
     if (typeof window !== 'undefined') {
       getListProductInCart = localStorage.getItem('listMyCart');
@@ -119,13 +104,6 @@ function ProductDetail({
       newArray.push(ItemAddToCard);
 
       localStorage.setItem('listMyCart', JSON.stringify(newArray));
-      // toast("Event has been created", {
-      //   description: "Sunday, December 03, 2023 at 9:00 AM",
-      //   action: {
-      //     label: "Undo",
-      //     onClick: () => console.log("Undo"),
-      //   },
-      // });
 
       toast('Thành công !', {
         duration: 200,
@@ -197,8 +175,66 @@ function ProductDetail({
     }
   };
 
+  const handleAddToCartAPI = (data: any, quantityProduct: any): void => {
+    console.log('data', data);
+    console.log('quantityProduct', quantityProduct);
+
+    // ADD PRODUCT TO CART
+    // const bodyPostProductToCart: any = {
+    //   url: `/wp-json/woocart/v1/cart`,
+    //   method: 'post',
+    // };
+    //
+    // const mutateAddToCart = useSWR(
+    //   `wp-json/custom/v1/products-details/${colorGetDetail}`,
+    //   () => postData(bodyPostProductToCart)
+    // );
+  };
+
+  useEffect(() => {
+    getDetailProductByColor.mutate();
+    setDatainit(
+      colorGetDetail !== 'null'
+        ? getDetailProductByColor.data
+        : dataDetailProduct.data
+    );
+  }, [colorGetDetail, getDetailProductByColor.data]);
+
+  useEffect(() => {
+    setDatainit(dataDetailProduct.data);
+    setListColorProduct(dataDetailProduct?.data?.variant ?? []);
+  }, [dataDetailProduct.data]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const { scrollY } = window;
+
+      if (scrollY > refHeightProductInfo.current?.clientHeight) {
+        setIsShowItemProduct(true);
+      } else setIsShowItemProduct(false);
+    });
+  }, []);
+
   return (
     <div className="pt-[3.41rem] detail-product-container">
+      <div className="fixed -left-[15.25rem] -top-[16rem] -z-20">
+        <Image
+          height={200}
+          width={200}
+          className="w-[61rem] h-[61rem]"
+          src="/img/detail/EllipseLightBlue.svg"
+          alt=""
+        />
+      </div>
+      <div className="fixed -right-[15.25rem] -top-[16rem] -z-20">
+        <Image
+          height={200}
+          width={200}
+          className="w-[61rem] h-[61rem]"
+          src="/img/detail/EllipseLightOrange.svg"
+          alt=""
+        />
+      </div>
       {/* section 1 */}
       <div
         ref={refHeightProductInfo}
@@ -211,7 +247,10 @@ function ProductDetail({
             dataInit={dataInit}
             handleChangeColorGetApi={handleChangeColorGetApi}
             listColorProduct={listColorProduct}
-            handleAddToCart={handleAddToCart}
+            // handleAddToCart={
+            //   tokenFake ? handleAddToCartAPI : handleAddToCartLocalStorage
+            // }
+            handleAddToCart={handleAddToCartLocalStorage}
           />
         </div>
       </div>
@@ -414,7 +453,9 @@ function ProductDetail({
         <Fixed
           dataInit={dataInit}
           listColorProduct={listColorProduct}
-          handleAddToCart={handleAddToCart}
+          handleAddToCart={
+            tokenFake ? handleAddToCartAPI : handleAddToCartLocalStorage
+          }
         />
       </div>
     </div>

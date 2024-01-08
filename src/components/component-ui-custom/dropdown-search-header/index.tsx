@@ -1,6 +1,5 @@
 'use client';
 
-import { HoverCardContent } from '@/components/ui/hover-card';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 
 function DropdownSearchHeader() {
@@ -89,13 +88,8 @@ function DropdownSearchHeader() {
     },
   ];
   return (
-    <HoverCardContent
-      className="border-none rounded-[1.5rem] p-0 w-[30.5rem] -mt-[0.4rem]"
-      side="bottom"
-      align="start"
-      sideOffset={6}
-    >
-      <div className="py-[2.25rem] bg-white w-[30.5rem] rounded-[1.5rem]">
+    <div className="border-none rounded-[1.5rem] container p-0">
+      <div className="py-[2.25rem] w-full bg-white rounded-[1.5rem]">
         <span className="px-[1.75rem] uppercase text-[#C5C5C5] text-[0.75rem] not-italic font-extrabold leading-[1.125rem]">
           LỊCH SỬ TÌM KIẾM
         </span>
@@ -131,7 +125,7 @@ function DropdownSearchHeader() {
           </ul>
         </div>
       </div>
-    </HoverCardContent>
+    </div>
   );
 }
 

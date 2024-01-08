@@ -20,25 +20,25 @@ export default function FormPayment() {
 
   const listInput: listInputGlobal[] = [
     {
-      name: 'username',
+      name: 'first_name',
       require: true,
       type: 'input',
       placeHolder: 'Họ và tên',
     },
     {
-      name: 'phoneNumber',
+      name: 'phone',
       require: true,
       type: 'input',
       placeHolder: 'Số điện thoại',
     },
     {
-      name: 'gmail',
+      name: 'email',
       require: true,
       type: 'input',
       placeHolder: 'Gmail',
     },
     {
-      name: 'textarea',
+      name: 'city',
       require: true,
       placeHolder: 'Tỉnh/Thành phố',
       type: 'select-option',
@@ -125,13 +125,13 @@ export default function FormPayment() {
     //   ],
     // },
     {
-      name: 'textarea',
+      name: 'address_1',
       require: true,
       type: 'input',
       placeHolder: 'Địa chỉ chi tiết',
     },
     {
-      name: 'textarea',
+      name: 'address_2',
       require: true,
       type: 'text-area',
       placeHolder: 'Thông tin bổ sung',
@@ -163,7 +163,7 @@ export default function FormPayment() {
             <RadioGroupItem value="option-one" id="option-one" />
             <Label
               htmlFor="option-one"
-              className="text-[#00225D] text-[1rem] font-normal max-md:text-[3.733rem]"
+              className="text-[#00225D] font-medium text-[1rem] max-md:text-[3.733rem]"
             >
               Trả tiền mặt khi nhận hàng
             </Label>
@@ -172,13 +172,13 @@ export default function FormPayment() {
             <RadioGroupItem value="option-two" id="option-two" />
             <Label
               htmlFor="option-two"
-              className="text-[#00225D] text-[1rem] font-normal max-md:text-[3.733rem]"
+              className="text-[#00225D] font-medium text-[1rem] max-md:text-[3.733rem]"
             >
               Trả tiền mặt khi giao hàng
             </Label>
           </div>
         </RadioGroup>
-        <p className="mt-[0.8rem] max-md:text-[3.733rem] max-md:my-[3rem]">
+        <p className="mt-[0.8rem] font-medium max-md:text-[3.733rem] max-md:my-[3rem]">
           Thông tin cá nhân của bạn sẽ được sử dụng để xử lý đơn hàng và cho các
           mục đích cụ thể khác đã được mô tả trong chính sách riêng tư của chúng
           tôi.
