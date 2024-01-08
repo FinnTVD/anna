@@ -142,3 +142,12 @@ export interface IItemAttributeProduct {
     filter?: string;
   }[];
 }
+
+export interface IItemCart {
+  key?: string;
+  product_id?: number;
+  product_image?: string;
+  product_name?: string;
+  product_price?: string;
+  quantity?: number;
+}

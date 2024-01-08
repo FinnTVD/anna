@@ -40,33 +40,32 @@ function DropdownProductHeader(props: IProps) {
       >
         <div className="py-[1.44rem] px-[2.88rem] w-[29.125rem] border-r-2 border-[#55D5D2]">
           <ul className="w-full">
-            {
-              map(listProduct,(item, index) => (
-                <li
-                  key={index}
-                  onMouseMove={() => {
-                    handleMouseCategory(item.children);
-                    setKeyCategoryMenu(item.name);
-                  }}
-                  className={`${
-                    keyCategoryMenu === item.name ? 'item-Category-active' : ''
-                  } item-category-product cursor-pointer  mb-[3rem]`}
+            {map(listProduct, (item, index) => (
+              <li
+                key={index}
+                onMouseMove={() => {
+                  handleMouseCategory(item.children);
+                  setKeyCategoryMenu(item.name);
+                }}
+                className={`${
+                  keyCategoryMenu === item.name ? 'item-Category-active' : ''
+                } item-category-product cursor-pointer  mb-[3rem]`}
+              >
+                <Link
+                  href={`/danh-muc-san-pham/${item.slug}`}
+                  className="flex justify-between items-center"
                 >
-                  <Link
-                    href={`/danh-muc-san-pham/${item.slug}`}
-                    className="flex justify-between items-center"
-                  >
-                    <span className="text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase">
-                      {item.name}
-                    </span>
-                    <ICArrowRight2
-                      fill="#55D5D2"
-                      width="1.375rem"
-                      height="1.375rem"
-                    />
-                  </Link>
-                </li>
-              ))}
+                  <span className="text-[1.125rem] not-italic font-extrabold leading-[1.6875rem] uppercase">
+                    {item.name}
+                  </span>
+                  <ICArrowRight2
+                    fill="#55D5D2"
+                    width="1.375rem"
+                    height="1.375rem"
+                  />
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="py-[1.5rem] px-[4rem] flex justify-between w-[33rem]">

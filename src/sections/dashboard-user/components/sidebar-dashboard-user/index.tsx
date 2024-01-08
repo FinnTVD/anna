@@ -47,7 +47,7 @@ function SidebarDashboardUser() {
       <h3 className="font-Nexa-Bold font-semibold text-[1.875rem] not-italic my-[0.5rem] max-md:text-[8rem]">
         Nguyen Minh Hung
       </h3>
-      <p className="font-Nexa-Normal text-[1rem] max-md:text-[4.267rem]">
+      <p className="font-medium text-[1rem] max-md:text-[4.267rem]">
         hungnm.17k2@gmail.com
       </p>
       <div className="h-[1px] my-[1.5rem] bg-[#00000026] w-3/4 mx-[4rem] max-md:w-full max-md:my-[6rem]" />

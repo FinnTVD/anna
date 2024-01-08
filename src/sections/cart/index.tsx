@@ -6,13 +6,15 @@ import Image from 'next/image';
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { CartComponent } from '@/sections/cart/CartComponent';
 import './style.css';
+import { IItemCart } from '@/types/types-general';
 
 interface IProps {
   dataListProductNew?: any;
+  dataListCart?: IItemCart[];
 }
 
 export default function Cart(props: IProps) {
-  const { dataListProductNew } = props;
+  const { dataListProductNew, dataListCart } = props;
 
   const [dataInit, setDatainit] = useState<any>();
 
@@ -55,7 +57,7 @@ export default function Cart(props: IProps) {
               Sản Phẩm
             </span>
           </div>
-          <CartComponent />
+          <CartComponent dataProps={dataListCart} />
         </div>
         <div className="flex justify-between mb-[2rem] items-center max-md:mb-[4.27rem]">
           <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[4.8rem] max-md:leading-[7.2rem] max-md:w-[64.26667rem] max-md:h-[12rem] max-md:mb-[4rem] max-md:text-start">

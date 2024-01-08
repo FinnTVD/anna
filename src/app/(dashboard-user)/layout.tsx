@@ -16,20 +16,20 @@ function MainLayout({ children }: { children: React.ReactNode }) {
         </div>
         <div className="h-[4.5rem] flex flex-col justify-center w-[87.5rem] mx-auto border-t-[1px] border-t-[#DADADA] max-md:h-fit max-md:mt-[4rem] max-md:py-[4rem]">
           <div className="flex justify-between max-md:flex-col-reverse">
-            <div className="text-[1rem] font-Nexa-Normal leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] flex max-md:flex-col-reverse">
+            <div className="text-[1rem] font-medium leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] flex max-md:flex-col-reverse">
               <h3> Anna © 2023 - 2024. </h3>
-              <h3 className="ml-[0.5rem] max-md:ml-[0rem]">
+              <h3 className="ml-[0.5rem] font-medium max-md:ml-[0rem]">
                 Design by OkHub VietNam
               </h3>
             </div>
             <div className="flex max-md:flex-col max-md:mb-[2rem]">
-              <h3 className="px-[2rem] text-[1rem] font-Nexa-Normal leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] max-md:pl-[0rem]">
+              <h3 className="px-[2rem] font-medium text-[1rem] leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] max-md:pl-[0rem]">
                 Hệ Thống Cửa Hàng
               </h3>
-              <h3 className="px-[2rem] text-[1rem] font-Nexa-Normal leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] max-md:pl-[0rem]">
+              <h3 className="px-[2rem] font-medium text-[1rem] leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] max-md:pl-[0rem]">
                 Danh sách sản phẩm
               </h3>
-              <h3 className="px-[2rem] text-[1rem] font-Nexa-Normal leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] max-md:pl-[0rem]">
+              <h3 className="px-[2rem] font-medium text-[1rem] leading-[1.7rem] text-[#444] opacity-70 max-md:text-[3.6rem] max-md:leading-[5rem] max-md:pl-[0rem]">
                 Bài viết
               </h3>
             </div>

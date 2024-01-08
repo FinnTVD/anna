@@ -57,7 +57,7 @@ export function Register() {
         redirect: false,
       });
       if (ok) {
-        router.refresh()
+        router.refresh();
       } else {
         setError('password', {
           message: 'Login failed!',

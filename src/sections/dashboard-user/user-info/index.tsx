@@ -66,7 +66,7 @@ function UserInfo() {
   ];
   return (
     <div>
-      <h3 className="text-[1.5rem] font-Nexa-Semibold leading-[1.5rem] mb-[1.5rem] max-md:text-[5rem] max-md:pb-[3rem] max-md:leading-[5rem]">
+      <h3 className="text-[1.5rem] font-semibold leading-[1.5rem] mb-[1.5rem] max-md:text-[5rem] max-md:pb-[3rem] max-md:leading-[5rem]">
         Thông tin tài khoản
       </h3>
 
@@ -97,18 +97,18 @@ function UserInfo() {
         <div className="w-1/2 max-md:w-full">
           {listInput.map((item, index) => (
             <div key={index}>
-              <span className="text-[#414141] font-Nexa-Bold text-[0.9rem] pb-[0.4rem] ml-[1rem] max-md:text-[3.733rem]">
+              <span className="text-[#414141] font-bold text-[0.9rem] pb-[0.4rem] ml-[1rem] max-md:text-[3.733rem]">
                 {item.placeHolder}
                 <span className="text-[red]">*</span>
               </span>
-              <div className=" relative mt-[0.5rem] mb-[0.88rem] max-md:mb-[3rem]">
+              <div className="relative mt-[0.5rem] mb-[0.88rem] max-md:mb-[3rem]">
                 <input
                   type="text"
                   {...register(item.name, { required: item.require })}
                   name="input"
                   placeholder={item.placeHolder}
                   onChange={(value) => setValue(item.name, value.target.value)}
-                  className="px-[1.2rem] bg-[#F4F4F4] outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[6.25rem] h-[3.43rem]  w-full text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem] max-md:px-[4rem]"
+                  className="px-[1.2rem] font-medium bg-[#F4F4F4] outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[6.25rem] h-[3.43rem]  w-full text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem] max-md:px-[4rem]"
                 />
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               </div>
@@ -144,7 +144,7 @@ function UserInfo() {
           </div>
           {listInputChangePassword.map((item, index) => (
             <div key={index} className="w-full">
-              <span className="text-[#414141] font-Nexa-Bold text-[0.9rem] pb-[0.4rem] ml-[1rem] max-md:text-[3.733rem]">
+              <span className="text-[#414141] font-bold text-[0.9rem] pb-[0.4rem] ml-[1rem] max-md:text-[3.733rem]">
                 {item.placeHolder}
               </span>
               <div className=" relative mt-[0.5rem] mb-[0.8rem] max-md:mb-[3rem]">
@@ -154,7 +154,7 @@ function UserInfo() {
                   name="input"
                   placeholder={item.placeHolder}
                   onChange={(value) => setValue(item.name, value.target.value)}
-                  className="px-[1.2rem] bg-[#F4F4F4]  outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[6.25rem] h-[3.43rem]  w-full text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem] max-md:px-[4rem]"
+                  className="px-[1.2rem] bg-[#F4F4F4] font-medium outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[6.25rem] h-[3.43rem]  w-full text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem] max-md:px-[4rem]"
                 />
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
               </div>
@@ -167,13 +167,13 @@ function UserInfo() {
           <div className="w-full flex justify-end max-md:hidden">
             <button
               type="button"
-              className="border-[1px] border-[#55D5D2] mr-[0.5rem] text-[#55D5D2] rounded-[3.125rem] py-[0.81rem] px-[2.19rem] text-[1rem] font-Nexa-Medium leading-[1.7rem] not-italic"
+              className="border-[1px] font-bold border-[#55D5D2] mr-[0.5rem] text-[#55D5D2] rounded-[3.125rem] py-[0.81rem] px-[2.19rem] text-[1rem] font-Nexa-Medium leading-[1.7rem] not-italic"
             >
               Hủy
             </button>
             <button
               type="button"
-              className="bg-[#55D5D2] text-white rounded-[3.125rem] py-[0.81rem] px-[2.19rem] text-[1rem] font-Nexa-Medium leading-[1.7rem] not-italic"
+              className="bg-[#55D5D2] font-bold text-white rounded-[3.125rem] py-[0.81rem] px-[2.19rem] text-[1rem] font-Nexa-Medium leading-[1.7rem] not-italic"
             >
               Lưu thay đổi
             </button>
@@ -183,13 +183,13 @@ function UserInfo() {
       <div className="w-full hidden justify-end max-md:grid grid-cols-2 gap-[2rem] mt-[3rem]">
         <button
           type="button"
-          className="border-[1px] border-[#55D5D2] mr-[0.5rem] text-[#55D5D2] rounded-full py-[5rem] px-[2.19rem] text-[3.733rem] font-Nexa-Medium leading-[1.7rem] not-italic"
+          className="border-[1px] font-bold border-[#55D5D2] mr-[0.5rem] text-[#55D5D2] rounded-full py-[5rem] px-[2.19rem] text-[3.733rem] font-Nexa-Medium leading-[1.7rem] not-italic"
         >
           Hủy
         </button>
         <button
           type="button"
-          className="bg-[#55D5D2] text-white rounded-full py-[5rem] text-[3.733rem] font-Nexa-Medium leading-[1.7rem] not-italic"
+          className="bg-[#55D5D2] font-bold text-white rounded-full py-[5rem] text-[3.733rem] font-Nexa-Medium leading-[1.7rem] not-italic"
         >
           Lưu thay đổi
         </button>

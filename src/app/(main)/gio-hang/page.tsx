@@ -1,5 +1,5 @@
 import Cart from '@/sections/cart';
-import { postData } from '@/lib/post-data';
+import { fetchDataAuthen, postData } from '@/lib/post-data';
 
 const CartPage = async () => {
   const bodyGetListProduct: any = {
@@ -9,7 +9,19 @@ const CartPage = async () => {
 
   const dataListProductNew = await postData(bodyGetListProduct);
 
-  return <Cart dataListProductNew={dataListProductNew} />;
+  // Get API Cart
+  const bodyGetCart: any = {
+    url: `/wp-json/woocart/v1/cart`,
+    method: 'get',
+    token:
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FubmEub2todWItdGVjaC5jb20iLCJpYXQiOjE3MDQ1OTExMTMsIm5iZiI6MTcwNDU5MTExMywiZXhwIjoxNzA1MTk1OTEzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjUsImRldmljZSI6IiIsInBhc3MiOiI4ZWMzMmIzNGRlYjhjMTJlMjhmNWQwYjQ0Njk0ZjkyNiJ9fX0.Do7zY3gSwLqfTGDwS4QrCHnATlNzai1-UxvdHICnOL4',
+  };
+
+  const dataListCart = await fetchDataAuthen(bodyGetCart);
+
+  return (
+    <Cart dataListProductNew={dataListProductNew} dataListCart={dataListCart} />
+  );
 };
 
 export default CartPage;

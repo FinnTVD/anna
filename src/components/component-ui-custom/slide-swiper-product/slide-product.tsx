@@ -95,19 +95,18 @@ function SlideProductComponent(props: IProps) {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper pl-[0rem] mx-[1rem] max-md:!h-[66.7rem]"
       >
-        {
-          map(data,(item: any, index: number) => (
-            <SwiperSlide
-              key={index}
-              className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
-            >
-              <ItemProduct
-                item={item}
-                heightImage={heightImage}
-                keySlide={keySlide}
-              />
-            </SwiperSlide>
-          ))}
+        {map(data, (item: any, index: number) => (
+          <SwiperSlide
+            key={index}
+            className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
+          >
+            <ItemProduct
+              item={item}
+              heightImage={heightImage}
+              keySlide={keySlide}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
       {isShowArrow && (
         <>

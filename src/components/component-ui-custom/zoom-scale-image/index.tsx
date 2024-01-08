@@ -8,11 +8,11 @@ interface IProps {
   width: string | number;
   image: string;
   scale?: number;
-  alt?: string;
+  alt: string;
 }
 interface IScaleImage {
-  width: null | number;
-  height: null | number;
+  widthImage: null | number;
+  heightImage: null | number;
 }
 function ZoomScaleImage(props: IProps) {
   const { height, width, image, scale, alt } = props;
@@ -20,39 +20,38 @@ function ZoomScaleImage(props: IProps) {
   const imageRef = useRef<any>(null);
 
   const [scaleImage, setScaleImage] = useState<IScaleImage>({
-    width: null,
-    height: null,
+    widthImage: null,
+    heightImage: null,
   });
 
   useEffect(() => {
     if (imageRef.current) {
       imageRef.current.addEventListener('mousemove', (event: any) => {
-        const x = event.clientX - imageRef.current.offsetLeft;
-        const y = event.clientY - imageRef.current.offsetTop;
+        const left = event.clientX - imageRef.current.offsetLeft;
+        const top = event.clientY - imageRef.current.offsetTop;
 
-        const { height } = imageRef.current.getBoundingClientRect();
-        const { width } = imageRef.current.getBoundingClientRect();
+        const sizeImage = imageRef.current.getBoundingClientRect();
+        const { height, width } = sizeImage;
+
         // Xử lý vị trí
-        const percentY = (x / height) * 100;
-        const percentX = (y / width) * 100;
+        const percentY = (top / height) * 100;
+        const percentX = (left / width) * 100;
 
-        setScaleImage({ width: percentY, height: percentX });
+        setScaleImage({ widthImage: percentX, heightImage: percentY });
       });
     }
   }, [imageRef]);
   return (
-    <div
-      ref={imageRef}
-      className={`h-[${height ?? 200}] w-[${width ?? 200}] overflow-hidden`}
-    >
+    <div className={`h-[${height ?? 200}] w-[${width ?? 200}] overflow-hidden`}>
       <Image
+        ref={imageRef}
         objectFit="cover"
         width={400}
         height={400}
         className={`w-full h-full object-cover hover:scale-[${scale ?? 1.5}]`}
         src={image ?? '/img/no_image.jpg'}
         style={{
-          transformOrigin: `${scaleImage.width}% ${scaleImage.height}%`,
+          transformOrigin: `${scaleImage.widthImage}% ${scaleImage.heightImage}%`,
         }}
         alt={alt ?? ''}
       />

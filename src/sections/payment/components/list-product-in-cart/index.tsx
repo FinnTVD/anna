@@ -1,8 +1,45 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { useEffect, useState } from 'react';
+import { IItemCart } from '@/types/types-general';
+import { formatCurrencyVND } from '@/ultils/format-price';
 
 export default function ListProductInCart() {
-  const listProductIncar = [{}, {}, {}, {}, {}, {}];
+  const [dataInit, setDataInit] = useState<IItemCart[]>([]);
+  const [totalPriceInCart, setTotalPriceInCart] = useState<number>(0);
+
+  // if (
+  //   typeof window !== 'undefined' &&
+  //   localStorage.getItem('totalPriceCart') !== null
+  // ) {
+  //   const getTotalPriceCart = localStorage.getItem('totalPriceCart');
+  //   const totalPriceCart = parseInt(getTotalPriceCart ?? '0', 10);
+  //
+  //   setTotalPriceInCart(totalPriceCart);
+  //   // console.log("getTotalPriceCart", getTotalPriceCart);
+  // }
+
+  const getTotalPriceCart = localStorage.getItem('totalPriceCart');
+  console.log('asdasdsad', getTotalPriceCart);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('listMyCart') !== null) {
+        const storedData = localStorage.getItem('listMyCart') as string;
+        const listDataLocalStorage = JSON.parse(storedData);
+
+        setDataInit(listDataLocalStorage);
+      }
+
+      if (localStorage.getItem('totalPriceCart') !== null) {
+        const getTotalPriceCart = localStorage.getItem('totalPriceCart');
+        const listDataLocalStorage = parseInt(getTotalPriceCart ?? '0', 10);
+        setTotalPriceInCart(listDataLocalStorage);
+      }
+    }
+  }, []);
   return (
     <div className="p-[2rem] bg-[#F3F3F3] max-md:p-[4rem]">
       <h3 className="text-[1.5rem] font-bold max-md:text-[6.4rem]">
@@ -30,39 +67,42 @@ export default function ListProductInCart() {
           Thành tiền
         </p>
       </div>
-      {listProductIncar.map((item, index) => (
-        <div key={index}>
-          <hr />
-          <div className="flex justify-between items-center my-[1.5rem] max-md:my-[4rem]">
-            <div className="flex items-center max-md:flex-col max-md:items-start">
-              <Image
-                height={60}
-                width={60}
-                className="w-[4.75rem] h-[4.75rem] max-md:w-[16rem] max-md:h-[16rem]"
-                src="https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png"
-                alt=""
-              />
-              <div className="flex items-center ml-[1rem] max-md:mt-[2rem]">
-                <span className="leading-[1.375rem] max-md:text-[4rem] max-md:leading-[5rem]">
-                  GK - 0123459 - Ghi
-                </span>
-                <span className="ml-[0.4rem] text-[1.3rem] font-bold leading-[1.375rem] text-[#3A3A3A] max-md:text-[4rem] max-md:leading-[5rem] max-md:ml-[2rem]">
-                  x4
-                </span>
+      {dataInit &&
+        dataInit?.map((item: IItemCart, index: number) => (
+          <div key={index}>
+            <hr />
+            <div className="flex justify-between items-center my-[1.5rem] max-md:my-[4rem]">
+              <div className="flex items-center max-md:flex-col max-md:items-start">
+                <Image
+                  height={60}
+                  width={60}
+                  className="w-[4.75rem] h-[4.75rem] max-md:w-[16rem] max-md:h-[16rem]"
+                  src="https://kinhmatanna.com/wp-content/uploads/2023/09/TU-1636-600x600.png"
+                  alt=""
+                />
+                <div className="flex items-center ml-[1rem] max-md:mt-[2rem]">
+                  <span className="leading-[1.375rem] font-medium max-md:text-[4rem] max-md:leading-[5rem]">
+                    {item.product_name}
+                  </span>
+                  <span className="ml-[0.4rem] text-[1.3rem] font-bold leading-[1.375rem] text-[#3A3A3A] max-md:text-[4rem] max-md:leading-[5rem] max-md:ml-[2rem]">
+                    x{item.quantity}
+                  </span>
+                </div>
               </div>
+              <span className="text-[#101010] font-semibold max-md:text-[3.733rem]">
+                {formatCurrencyVND(
+                  item?.product_price ? item?.product_price?.toString() : '0'
+                )}
+              </span>
             </div>
-            <span className="text-[#101010] max-md:text-[3.733rem]">
-              1,400,000₫
-            </span>
+            <hr />
           </div>
-          <hr />
-        </div>
-      ))}
+        ))}
 
       <div className="flex justify-between my-[1.5rem] max-md:my-[4rem]">
         <p className="text-[1rem] font-bold max-md:text-[4.267rem]">Tạm tính</p>
         <p className="text-[1rem] text-[#55D5D2] font-bold max-md:text-[4.267rem]">
-          3,850,000₫
+          {formatCurrencyVND(totalPriceInCart.toString())}
         </p>
       </div>
       <hr />
@@ -71,7 +111,7 @@ export default function ListProductInCart() {
           Tổng cộng
         </p>
         <p className="text-[1rem] text-[#55D5D2] font-bold max-md:text-[4.267rem]">
-          3,850,000₫
+          {formatCurrencyVND(totalPriceInCart.toString())}
         </p>
       </div>
     </div>

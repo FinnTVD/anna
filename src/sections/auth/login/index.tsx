@@ -27,10 +27,9 @@ const defaultValues = {
 };
 
 const formSchema = z.object({
-  username: z
-    .string({
-      required_error: 'Email is required',
-    }),
+  username: z.string({
+    required_error: 'Email is required',
+  }),
   password: z.string({
     required_error: 'Password is required',
   }),
@@ -52,10 +51,10 @@ export function Login() {
       const { ok, error }: any = await signIn('credentials', {
         username: values.username,
         password: values.password,
-        redirect: false
+        redirect: false,
       });
       if (ok) {
-        router.push('/list-product-dashboard')
+        router.push('/list-product-dashboard');
       } else {
         setError('password', {
           message: 'Login failed!',
@@ -121,7 +120,9 @@ export function Login() {
               </div>
               <div>
                 <Checkbox
-                  onCheckedChange={(value: boolean) => handleCheckRemember(value)}
+                  onCheckedChange={(value: boolean) =>
+                    handleCheckRemember(value)
+                  }
                   name="remember"
                   className="border-[#ccc] border-[1px] w-[3rem] md:w-[1rem] h-[3rem] md:h-[1rem]"
                 />
