@@ -27,7 +27,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
   return (
     <Link
       href={`/san-pham/${dataCollect?.slug}`}
-      className="item-product-home !mr-0 cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl"
+      className="item-product-home !mr-0 cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl shadow-[0px_4px_30px_0px_rgba(0,_0,_0,_0.05)]"
     >
       <div className="h-[40rem] md:h-[20.375rem] w-full overflow-hidden rounded-[4.26667rem] md:rounded-2xl">
         <Link href={`/san-pham/${dataCollect?.slug}`}>

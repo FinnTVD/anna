@@ -11,10 +11,9 @@ import map from 'lodash.map';
 
 interface IProps {
   listProduct?: IListProductMenuHeader[] | [];
-  onMouseLeaveTabMenu?: any;
 }
 function DropdownProductHeader(props: IProps) {
-  const { listProduct, onMouseLeaveTabMenu } = props;
+  const { listProduct } = props;
   const [listProductInCategory, setListProductInCategory] = useState<
     IListProductMenuHeader[] | []
   >([]);
@@ -27,11 +26,7 @@ function DropdownProductHeader(props: IProps) {
   };
 
   return (
-    <div
-      // onMouseLeave={onMouseLeaveTabMenu}
-      className="dropdown-product-header-container relative dropdown-product-header rounded-[1.5rem] container border-none p-0 -mt-[0.2rem] pt-[1rem] "
-      // sideOffset={6}
-    >
+    <div className="dropdown-product-header-container relative dropdown-product-header rounded-[1.5rem] container border-none p-0 -mt-[0.2rem] pt-[1rem] ">
       <div
         onMouseLeave={() => {
           setKeyCategoryMenu(undefined);
