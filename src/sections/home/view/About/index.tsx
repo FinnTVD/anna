@@ -90,7 +90,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
         width={1600}
         height={1000}
         alt="background"
-        className="w-full h-full z-[1] object-fill absolute top-0 left-0"
+        className="w-full h-full z-[1] object-fill absolute top-0 left-0 rounded-t-[2.25rem] "
       />
       <div className="container relative z-10">
         <div className="py-[6.67rem] md:py-24 flex justify-between flex-wrap">

@@ -7,7 +7,7 @@ function AddressInfo() {
   const list = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
   return (
     <div className="h-full pt-[0.5rem]">
-      <h3 className="text-[1.5rem] font-Nexa-Semibold leading-[1.5rem] mb-[0.3rem] max-md:text-[5rem] max-md:leading-[5rem] max-md:pb-[3rem]">
+      <h3 className="text-[1.5rem] font-bold leading-[1.5rem] mb-[0.3rem] max-md:text-[5rem] max-md:leading-[5rem] max-md:pb-[3rem]">
         Thông tin địa chỉ
       </h3>
       <div className="overflow-y-auto shadow-inherit">
@@ -18,14 +18,14 @@ function AddressInfo() {
           >
             <div className="max-md:w-4/5">
               <div className="flex items-center max-md:flex-col max-md:items-start">
-                <h3 className="text-[#414141] text-[1rem] font-Nexa-Bold max-md:text-[3.8rem]">
+                <h3 className="text-[#414141] font-semibold text-[1rem] font-Nexa-Bold max-md:text-[3.8rem]">
                   Nguyễn Minh Hùng
                 </h3>
-                <h3 className="text-[#454545] text-[1rem] font-Nexa-Bold ml-[0.5rem] max-md:text-[3.5rem] max-md:ml-[0rem]">
+                <h3 className="text-[#454545] font-semibold text-[1rem] font-Nexa-Bold ml-[0.5rem] max-md:text-[3.5rem] max-md:ml-[0rem]">
                   0379634246
                 </h3>
               </div>
-              <span className="text-[#454545] opacity-70 text-[0.9rem] font-Nexa-Normal max-md:text-[3.2rem]">
+              <span className="text-[#454545] font-medium opacity-70 text-[0.9rem] font-Nexa-Normal max-md:text-[3.2rem]">
                 số 79, ngõ 1, Bùi Xương Trạch, Phường Khương Đình, Quận Thanh
                 Xuân, Hà Nội
               </span>
@@ -56,7 +56,7 @@ function AddressInfo() {
       </div>
       <Link
         href="/create-address"
-        className="w-full mt-[2rem] rounded-[2rem] border-[1px] border-[#55D5D2] text-[#55D5D2] flex justify-center items-center py-[0.5rem] text-[1rem] font-Nexa-Normal max-md:text-[3.8rem] max-md:font-Nexa-Bold max-md:rounded-full max-md:py-[3rem] max-md:mt-[4rem]"
+        className="w-full mt-[2rem] rounded-[2rem] font-bold border-[2px] border-[#55D5D2] text-[#55D5D2] flex justify-center items-center py-[0.3rem] text-[1rem] font-Nexa-Normal max-md:text-[3.8rem] max-md:font-Nexa-Bold max-md:rounded-full max-md:py-[3rem] max-md:mt-[4rem]"
       >
         <span className="mr-[0.3rem] pb-[0.1rem] text-[1.7rem] max-md:text-[5rem] max-md:mr-[2rem]">
           +

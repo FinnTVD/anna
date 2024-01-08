@@ -12,6 +12,7 @@ import { ArrowSlideLeft } from '@/components/Icons/ICArrowSlideLeft';
 import { ArrowSlideRight } from '@/components/Icons/ICArrowSlideRight';
 import ItemProduct from '../item-product/ItemProduct';
 import { IItemProduct } from '@/types/types-general';
+import map from 'lodash.map';
 
 export interface IProps {
   keySlide: string;
@@ -94,19 +95,18 @@ function SlideProductComponent(props: IProps) {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper pl-[0rem] mx-[1rem] max-md:!h-[66.7rem]"
       >
-        {data &&
-          data.map((item: any, index: number) => (
-            <SwiperSlide
-              key={index}
-              className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
-            >
-              <ItemProduct
-                item={item}
-                heightImage={heightImage}
-                keySlide={keySlide}
-              />
-            </SwiperSlide>
-          ))}
+        {map(data, (item: any, index: number) => (
+          <SwiperSlide
+            key={index}
+            className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
+          >
+            <ItemProduct
+              item={item}
+              heightImage={heightImage}
+              keySlide={keySlide}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
       {isShowArrow && (
         <>

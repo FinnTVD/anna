@@ -113,11 +113,11 @@ export default function GroupInputGlobal(props: IProps) {
                     onChange={(value) =>
                       setValueInput(item.name, value.target.value)
                     }
-                    className="px-[1rem] border-[1px] border-[#EAEAEA] outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[0.3rem] h-[3.43rem]  w-full text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem]"
+                    className="px-[1rem] font-semibold border-[1px] border-[#EAEAEA] outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[0.3rem] h-[3.43rem]  w-full text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem]"
                   />
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label
-                    className="absolute bg-white top-[50%] -translate-y-1/2 left-[10px] py-[0px] px-[4px] text-[#00000040] transition-all duration-100 ease-linear max-md:text-[4rem]"
+                    className="absolute font-medium bg-white top-[50%] -translate-y-1/2 left-[10px] py-[0px] px-[4px] text-[#00000040] transition-all duration-100 ease-linear max-md:text-[4rem]"
                     htmlFor="input"
                   >
                     {item.placeHolder}
@@ -141,14 +141,14 @@ export default function GroupInputGlobal(props: IProps) {
                     onChange={(value) =>
                       setValueInput(item.name, value.target.value)
                     }
-                    className="px-[1rem] py-[1rem] border-2 border-[#EAEAEA]
+                    className="px-[1rem] py-[1rem] border-2 border-[#EAEAEA] font-semibold
                     outline-[#EAEAEA] focus:outline-[#55D5D2]
                     focus:border-[#55D5D2] rounded-[0.3rem] h-[8rem] w-full
                     text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[4rem]"
                   />
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label
-                    className="absolute bg-white top-[50%] -translate-y-1/2 left-[10px] py-[0px] px-[4px] text-[#00000040] transition-all duration-100 ease-linear max-md:text-[4rem]"
+                    className="absolute font-medium bg-white top-[50%] -translate-y-1/2 left-[10px] py-[0px] px-[4px] text-[#00000040] transition-all duration-100 ease-linear max-md:text-[4rem]"
                     htmlFor="input"
                   >
                     {item.placeHolder}

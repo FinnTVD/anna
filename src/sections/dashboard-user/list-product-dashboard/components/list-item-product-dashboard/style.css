@@ -52,7 +52,7 @@
     .body-list-product
     .row-body-list-product
     .total-product {
-    @apply px-[1.2rem] py-[1rem] max-md:py-[3.333rem];
+    @apply font-bold px-[1.2rem] py-[1rem] max-md:py-[3.333rem];
   }
 
   .list-item-product-dashboard

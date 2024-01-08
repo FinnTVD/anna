@@ -6,16 +6,16 @@ export const NEXT_AUTH_OPTIONS: AuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        identifier: {
-          label: 'Email',
+        username: {
+          label: 'username',
           type: 'text',
-          placeholder: 'email@email.com',
+          placeholder: 'username',
         },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_REST_API}/auth/local`,
+          `${process.env.NEXT_PUBLIC_V2_API}/api/v1/mo-jwt`,
           {
             method: 'POST',
             body: JSON.stringify(credentials),

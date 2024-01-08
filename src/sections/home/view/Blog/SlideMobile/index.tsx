@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import ItemMobileBlogHome from '@/sections/home/view/Blog/SlideMobile/Item';
 import './style.css';
+import map from 'lodash.map';
 
 interface IPropItem {
   dataSliderBlog: any[];
@@ -30,7 +31,7 @@ function SliderMobileBlogHome({ dataSliderBlog }: IPropItem) {
       >
         <SwiperSlide className="myBlog">
           {/* eslint-disable-next-line array-callback-return,consistent-return */}
-          {dataSliderBlog?.map((blogData: string, index: number) => {
+          {map(dataSliderBlog, (blogData: string, index: number) => {
             if (index <= 3) {
               return (
                 <div key={index} className="w-full">

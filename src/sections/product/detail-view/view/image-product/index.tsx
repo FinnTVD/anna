@@ -79,6 +79,8 @@ function ImageProduct(props: IProps) {
             width="47rem"
             height="38.8125rem"
             image={itemImagePreview}
+            scale={1.5}
+            alt="image product"
           />
         </div>
         <div className="hidden max-md:block h-full w-full">
