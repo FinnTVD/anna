@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardTrigger } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICLocation from '@/components/Icons/ICLocation';
 import { Input } from '@/components/ui/input';
@@ -23,6 +19,7 @@ import { IListProductMenuHeader } from '@/types/types-general';
 import { cn } from '@/lib/utils';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import { delayMenu } from '@/config/config';
+import { HoverCardContent } from "@/components/ui-custom/hover-card-without-animate";
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -36,33 +33,42 @@ function NavItems(props: IProps) {
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
   const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
   // const [isShowBlur, setIsShowBlur] = useState<boolean>(false);
+  const [startTime, setStartTime] = useState<any>();
 
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
-    // setTimeout(() => {
-    setKeyTabMenuActive(tab);
-    // console.log("settt");
-    // }, delayMenu.openDelay);
-    // setKeyTabMenuActive(tab);
+    // console.log('startTime', startTime);
+    // console.log('Date.now()', Date.now());
+    console.log('move');
+    setTimeout(() => {
+      if (keyTabMenuActive === null) {
+        setKeyTabMenuActive(tab);
+        // setStartTime(Date.now());
+      }
+    }, delayMenu.openDelay);
   };
 
   console.log('keyTabMenuActive', keyTabMenuActive);
 
-  const onMouseLeaveTabMenu = (): void => {
-    // const startTime = Date.now();
-    //
-    // console.log("startTime", startTime);
-    // // setKeyTabMenuActive(keyTabMenuActive);
-    //
-    // if (Date.now() - startTime > delayMenu.closeDelay) {
-    //   setKeyTabMenuActive(null);
-    //   console.log('Date.now()', Date.now());
-    // }
-    // setTimeout(() => {
+  const onMouseLeaveTabMenu = async () => {
+    setStartTime(Date.now());
+
+    await Promise.resolve();
+
+    if (keyTabMenuActive !== null) {
+      setKeyTabMenuActive(null);
+    }
+  };
+
+  const onMove = async (tab: "product" | "see-more" | "cart" | "search") => {
+    if (Date.now() - startTime < delayMenu.closeDelay) {
+      setKeyTabMenuActive(tab);
+    }
+  };
+
+  const onLeave = async () => {
     setKeyTabMenuActive(null);
-    // console.log('clear');
-    // }, delayMenu.closeDelay);
   };
 
   useEffect(() => {
@@ -88,9 +94,12 @@ function NavItems(props: IProps) {
   return (
     <nav className={` w-full py-[0.63rem]`}>
       <div className="navbar-container w-[87.5rem] mx-auto">
-        {keyTabMenuActive !== null && (
-          <div className=" fixed top-0 left-0 h-[100vh] w-full bg-[#0000004d] -z-10 backdrop-opacity-[5px]" />
-        )}
+        <div
+          className={cn(
+            ' fixed top-0 left-0 h-[100vh] transition-all duration-300 w-full bg-[#0000004d] -z-10 backdrop-opacity-[5px]',
+            keyTabMenuActive !== null ? 'visible' : 'invisible'
+          )}
+        />
 
         <div
           className={cn(
@@ -178,6 +187,8 @@ function NavItems(props: IProps) {
                   side="bottom"
                   align="start"
                   // sideOffset={6}
+                  onMouseLeave={() => onLeave()}
+                  onMouseMove={() => onMove('product')}
                   className="w-[87.5rem] -ml-[6rem] rounded-[1.5rem]"
                 >
                   <DropdownProductHeader
@@ -228,6 +239,8 @@ function NavItems(props: IProps) {
                   align="start"
                   asChild={false}
                   // sideOffset={6}
+                  onMouseLeave={() => onLeave()}
+                  onMouseMove={() => onMove('search')}
                   className="w-[30.4375rem] rounded-[1.5rem]"
                 >
                   <DropdownSearchHeader />
@@ -236,7 +249,7 @@ function NavItems(props: IProps) {
             </li>
             <li
               onMouseMove={() => onOpenChangeDropdown('see-more')}
-              onMouseLeave={() => setKeyTabMenuActive(null)}
+              onMouseLeave={() => onMouseLeaveTabMenu()}
               className="active has-child h-full"
             >
               <HoverCard
@@ -266,12 +279,14 @@ function NavItems(props: IProps) {
                 <HoverCardContent
                   side="bottom"
                   align="end"
-                  className="w-[87.5rem] -mr-[21rem] rounded-[1.5rem]"
+                  onMouseLeave={() => onLeave()}
+                  onMouseMove={() => onMove('see-more')}
+                  className="w-[87.5rem] -mr-[21rem] rounded-[1.5rem] relative mt-[12px]"
                 >
                   <DropdownSeeMoreHeader
-                    onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+                  // onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                   />
-                  <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white  left-[529px]" />
+                  <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white" />
                 </HoverCardContent>
               </HoverCard>
             </li>
@@ -282,7 +297,7 @@ function NavItems(props: IProps) {
             </li>
             <li
               onMouseMove={() => onOpenChangeDropdown('cart')}
-              onMouseLeave={() => setKeyTabMenuActive(null)}
+              onMouseLeave={() => onMouseLeaveTabMenu()}
               className="cursor-pointer has-child flex items-center h-full"
             >
               <HoverCard
@@ -318,11 +333,13 @@ function NavItems(props: IProps) {
                   side="bottom"
                   align="end"
                   // sideOffset={6}
-                  className="w-[25.875rem] rounded-[1.5rem]"
+                  onMouseLeave={() => onLeave()}
+                  onMouseMove={() => onMove('cart')}
+                  className="w-[25.875rem] -mr-[1.5rem] relative rounded-[1.5rem]"
                 >
                   <DropdownCartHeader
                     numberProductInCart={numberProductInCart}
-                    onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+                    // onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                   />
                   <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white" />
                 </HoverCardContent>

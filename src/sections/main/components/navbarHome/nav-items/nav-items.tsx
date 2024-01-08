@@ -1,9 +1,6 @@
 'use client';
 
-import {
-  HoverCard,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardTrigger } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICLocation from '@/components/Icons/ICLocation';
 import { Input } from '@/components/ui/input';
@@ -45,11 +42,19 @@ function NavItems(props: IProps) {
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
-    setKeyTabMenuActive(tab);
+    setTimeout(() => {
+      if (keyTabMenuActive === null) {
+        setKeyTabMenuActive(tab);
+      }
+    }, delayMenu.openDelay);
   };
 
   const onMouseLeaveTabMenu = (): void => {
-    setKeyTabMenuActive(null);
+    setTimeout(() => {
+      if (keyTabMenuActive !== null) {
+        setKeyTabMenuActive(null);
+      }
+    }, delayMenu.closeDelay);
   };
 
   useEffect(() => {
@@ -177,7 +182,11 @@ function NavItems(props: IProps) {
                   listProduct={dataProps}
                   onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                 />
-                <HoverCardArrow width={24} height={20} className="fill-white -translate-x-[90px]" />
+                <HoverCardArrow
+                  width={24}
+                  height={20}
+                  className="fill-white -translate-x-[90px]"
+                />
               </HoverCardContent>
             </HoverCard>
           </li>
@@ -300,7 +309,11 @@ function NavItems(props: IProps) {
                 <DropdownSeeMoreHeader
                   onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                 />
-                <HoverCardArrow width={24} height={20} className="fill-white -translate-x-[90px]" />
+                <HoverCardArrow
+                  width={24}
+                  height={20}
+                  className="fill-white -translate-x-[90px]"
+                />
               </HoverCardContent>
             </HoverCard>
           </li>
