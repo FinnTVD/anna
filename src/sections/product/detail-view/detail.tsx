@@ -83,7 +83,7 @@ function ProductDetail({
   ): void => {
     let getListProductInCart;
 
-    console.log("asdasdsa");
+    console.log('asdasdsa');
 
     if (typeof window !== 'undefined') {
       getListProductInCart = localStorage.getItem('listMyCart');
@@ -103,7 +103,9 @@ function ProductDetail({
 
       newArray.push(ItemAddToCard);
 
-      localStorage.setItem('listMyCart', JSON.stringify(newArray));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('listMyCart', JSON.stringify(newArray));
+      }
 
       toast('Thành công !', {
         duration: 200,
@@ -160,7 +162,7 @@ function ProductDetail({
         newList.push(newObjectDoNotAvailable);
       }
 
-      localStorage.setItem('listMyCart', JSON.stringify(newList));
+      typeof window !== 'undefined' && localStorage.setItem('listMyCart', JSON.stringify(newList));
 
       toast('Thành công!', {
         description: 'Thêm giỏ hàng thành công',

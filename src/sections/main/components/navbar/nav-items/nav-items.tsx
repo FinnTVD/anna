@@ -102,7 +102,7 @@ function NavItems(props: IProps) {
       const listProduct: any = localStorage.getItem('listMyCart');
       setNumberProductInCart(JSON.parse(listProduct).length);
     }
-  }, [localStorage.getItem('listMyCart')]);
+  }, []);
   return (
     <nav className={` w-full py-[0.63rem]`}>
       <div className="navbar-container w-[87.5rem] mx-auto">
