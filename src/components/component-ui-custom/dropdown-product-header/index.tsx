@@ -7,6 +7,7 @@ import { IListProductMenuHeader } from '@/types/types-general';
 import './style.css';
 import { useState } from 'react';
 import Link from 'next/link';
+import map from 'lodash.map';
 
 interface IProps {
   listProduct?: IListProductMenuHeader[] | [];
@@ -26,23 +27,21 @@ function DropdownProductHeader(props: IProps) {
   };
 
   return (
-    <HoverCardContent
+    <div
       onMouseLeave={onMouseLeaveTabMenu}
-      className="dropdown-product-header-container relative dropdown-product-header rounded-[1.5rem] w-[87.5rem] -ml-[6.2rem] border-none p-0 -mt-[0.2rem] pt-[1rem] "
-      side="bottom"
-      align="start"
+      className="dropdown-product-header-container relative dropdown-product-header rounded-[1.5rem] container border-none p-0 -mt-[0.2rem] pt-[1rem] "
       // sideOffset={6}
     >
       <div
         onMouseLeave={() => {
           setKeyCategoryMenu(undefined);
         }}
-        className="w-full flex justify-between bg-red rounded-[1.5rem] "
+        className="flex justify-between bg-red rounded-[1.5rem] "
       >
         <div className="py-[1.44rem] px-[2.88rem] w-[29.125rem] border-r-2 border-[#55D5D2]">
           <ul className="w-full">
-            {listProduct &&
-              listProduct.map((item, index) => (
+            {
+              map(listProduct,(item, index) => (
                 <li
                   key={index}
                   onMouseMove={() => {
@@ -128,7 +127,7 @@ function DropdownProductHeader(props: IProps) {
           />
         </div>
       </div>
-    </HoverCardContent>
+    </div>
   );
 }
 
