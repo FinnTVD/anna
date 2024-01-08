@@ -13,7 +13,7 @@ import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 import Link from 'next/link';
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ICUser from '@/components/Icons/ICUser';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { cn } from '@/lib/utils';
@@ -26,6 +26,8 @@ interface IProps {
 }
 function NavItems(props: IProps) {
   const { dataProps } = props;
+
+  const refBlur = useRef<any>();
 
   const [currentPositionScrollY, setCurrentPositionScrollY] =
     useState<number>(0);
@@ -40,21 +42,22 @@ function NavItems(props: IProps) {
   ) => {
     // console.log('startTime', startTime);
     // console.log('Date.now()', Date.now());
-    console.log('move');
+    // console.log('move');
     setTimeout(() => {
       if (keyTabMenuActive === null) {
         setKeyTabMenuActive(tab);
+        console.log('keyTabMenuActive', keyTabMenuActive);
         // setStartTime(Date.now());
       }
     }, delayMenu.openDelay);
   };
 
-  console.log('keyTabMenuActive', keyTabMenuActive);
+  // console.log('keyTabMenuActive', keyTabMenuActive);
 
   const onMouseLeaveTabMenu = async () => {
     setStartTime(Date.now());
-
-    await Promise.resolve();
+    console.log('keyTabMenuActive', keyTabMenuActive);
+    // await Promise.resolve();
 
     if (keyTabMenuActive !== null) {
       setKeyTabMenuActive(null);
@@ -64,12 +67,24 @@ function NavItems(props: IProps) {
   const onMove = async (tab: "product" | "see-more" | "cart" | "search") => {
     if (Date.now() - startTime < delayMenu.closeDelay) {
       setKeyTabMenuActive(tab);
+      console.log("keyTabMenuActive", keyTabMenuActive);
     }
   };
 
   const onLeave = async () => {
     setKeyTabMenuActive(null);
+    console.log('keyTabMenuActive', keyTabMenuActive);
   };
+
+  useEffect(() => {
+    refBlur?.current.addEventListener('mouseover', () => {
+      setKeyTabMenuActive(null);
+    });
+
+    refBlur.current.addEventListener('mouseout', () => {
+      setKeyTabMenuActive(null);
+    });
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -95,6 +110,7 @@ function NavItems(props: IProps) {
     <nav className={` w-full py-[0.63rem]`}>
       <div className="navbar-container w-[87.5rem] mx-auto">
         <div
+          ref={refBlur}
           className={cn(
             ' fixed top-0 left-0 h-[100vh] transition-all duration-300 w-full bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
             keyTabMenuActive !== null ? 'visible' : 'invisible'
