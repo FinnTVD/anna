@@ -97,7 +97,8 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
                 formatCurrencyVND(dataCollect?.price.toString())}
             </div>
           </div>
-          <Link href={`/san-pham/${dataCollect?.slug}`}
+          <Link
+            href={`/san-pham/${dataCollect?.slug}`}
             className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]"
           >
             <p className="text-[4.8rem] md:text-[1.5rem] font-extrabold text-[#55D5D2] md:text-[#fff]">

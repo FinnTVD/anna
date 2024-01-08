@@ -9,6 +9,8 @@ import { IListProductMenuHeader } from '@/types/types-general';
 import { Input } from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
+import useSWR from 'swr';
+import { fetchDataAuthen } from '@/lib/post-data';
 
 interface IProps {
   dataListProductHeader?: IListProductMenuHeader[];
@@ -26,6 +28,22 @@ function NavbarHome(props: IProps) {
         setStyleNavbar(false);
       }
     });
+  }
+
+  // GET API cart
+  const bodyGetCart: any = {
+    url: `/wp-json/woocart/v1/cart`,
+    method: 'get',
+    token:
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FubmEub2todWItdGVjaC5jb20iLCJpYXQiOjE3MDQ1OTExMTMsIm5iZiI6MTcwNDU5MTExMywiZXhwIjoxNzA1MTk1OTEzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjUsImRldmljZSI6IiIsInBhc3MiOiI4ZWMzMmIzNGRlYjhjMTJlMjhmNWQwYjQ0Njk0ZjkyNiJ9fX0.Do7zY3gSwLqfTGDwS4QrCHnATlNzai1-UxvdHICnOL4',
+  };
+
+  const dataListCart = useSWR(bodyGetCart.url, () =>
+    fetchDataAuthen(bodyGetCart)
+  );
+
+  if (dataListCart.data) {
+    localStorage.setItem('listMyCart', JSON.stringify(dataListCart.data));
   }
 
   return (

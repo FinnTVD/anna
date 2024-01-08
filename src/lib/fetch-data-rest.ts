@@ -28,17 +28,16 @@ export const fetchDataRest = async (
   return res.json();
 };
 
-
 export const postDataBase = async ({
   url,
   body,
   token,
-  method = 'post'
+  method = 'post',
 }: {
   url: string;
   body: FormData | any;
   token?: string;
-  method?: 'post' | 'put' | 'get' | 'delete'
+  method?: 'post' | 'put' | 'get' | 'delete';
 }) => {
   const res = await fetch(`${baseUrl}/${url}`, {
     body: body,

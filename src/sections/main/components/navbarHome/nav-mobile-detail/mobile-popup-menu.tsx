@@ -68,14 +68,14 @@ function MenuPopupMobile({
           Sản phẩm
         </span>
         <ul className="mt-[2rem] list-disc list-inside grid grid-cols-2">
-          {map(dataListProductHeader,(item: any, index: number) => (
-              <li
-                key={index}
-                className="text-[3.73333rem] text-white not-italic font-extrabold leading-[4.85333rem] uppercase py-[2.27rem] mb-[0.93rem]"
-              >
-                {item?.name}
-              </li>
-            ))}
+          {map(dataListProductHeader, (item: any, index: number) => (
+            <li
+              key={index}
+              className="text-[3.73333rem] text-white not-italic font-extrabold leading-[4.85333rem] uppercase py-[2.27rem] mb-[0.93rem]"
+            >
+              {item?.name}
+            </li>
+          ))}
         </ul>
         <hr className="bg-white mt-[2.13rem] mb-[6.93rem]" />
         <Link href="/">

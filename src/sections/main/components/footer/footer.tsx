@@ -120,7 +120,7 @@ function Footer() {
             <p>Đăng kí để nhận tin mới nhất</p>
             <div className="relative input-search">
               <Input
-                className="input-email"
+                className="input-email outline-0"
                 type="text"
                 placeholder="Để lại email của bạn"
               />

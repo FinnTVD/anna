@@ -1,11 +1,26 @@
+'use client';
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ICBag2 from '@/components/Icons/ICBag2';
 import ICCoupons from '@/components/Icons/ICCoupons';
 import FavoriteProduct from '@/sections/dashboard-user/list-product-dashboard/components/favorite-product';
 import PurchasedProduct from '@/sections/dashboard-user/list-product-dashboard/components/purchased-product';
+import useSWR from 'swr';
+import { fetchDataAuthen } from '@/lib/post-data';
 
 function ListProductDashboard() {
+  const bodyGetWishList: any = {
+    url: `/wp-json/custom/v1/get-wishlist`,
+    method: 'get',
+    token:
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3dvby1hcGkub2todWIudGVjaCIsImlhdCI6MTcwMzk2MDQ1OSwibmJmIjoxNzAzOTYwNDU5LCJleHAiOjE3MDQ1NjUyNTksImRhdGEiOnsidXNlciI6eyJpZCI6NSwiZGV2aWNlIjoiIiwicGFzcyI6IjhlYzMyYjM0ZGViOGMxMmUyOGY1ZDBiNDQ2OTRmOTI2In19fQ.xyeVnJeXoZW6ZdtUH2xKOC2SzzDmp_49h7DvQ_R90-M',
+  };
+
+  const dataWishList = useSWR(bodyGetWishList.url, () =>
+    fetchDataAuthen(bodyGetWishList)
+  );
+
   return (
     <Tabs
       defaultValue="purchased-product"
@@ -26,7 +41,7 @@ function ListProductDashboard() {
             <h3 className="hidden max-md:block text-[3.733rem] text-[#494949]  font-Nexa-Medium mb-[0.55rem] ml-[1rem]">
               (50)
             </h3>
-            <span className="font-Nexa-Medium text-[0.8rem] text-[#494949] max-md:text-[3.733rem] max-md:ml-[1rem]">
+            <span className="font-bold text-[0.8rem] text-[#494949] max-md:text-[3.733rem] max-md:ml-[1rem]">
               Sản phẩm đã mua
             </span>
           </div>
@@ -45,7 +60,7 @@ function ListProductDashboard() {
             <h3 className="hidden max-md:block text-[3.733rem] text-[#494949]  font-Nexa-Medium mb-[0.55rem] ml-[1rem]">
               (50)
             </h3>
-            <span className="font-Nexa-Medium text-[0.8rem] text-[#494949] max-md:text-[3.733rem] max-md:ml-[1rem]">
+            <span className="font-bold text-[0.8rem] text-[#494949] max-md:text-[3.733rem] max-md:ml-[1rem]">
               Sản phẩm yêu thích
             </span>
           </div>
@@ -55,7 +70,7 @@ function ListProductDashboard() {
         <PurchasedProduct />
       </TabsContent>
       <TabsContent value="favorite-product">
-        <FavoriteProduct />
+        <FavoriteProduct dataWishList={dataWishList.data} />
       </TabsContent>
     </Tabs>
   );

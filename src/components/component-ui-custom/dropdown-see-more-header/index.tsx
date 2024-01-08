@@ -1,4 +1,3 @@
-import { HoverCardContent } from '@/components/ui/hover-card';
 import Image from 'next/image';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Link from 'next/link';
@@ -29,12 +28,7 @@ function DropdownSeeMoreHeader(props: IProps) {
   ];
 
   return (
-    <div
-      className="dropdown-see-more-header-container border-none p-0 container rounded-[1.5rem] -mt-[0.34rem]"
-      // side="bottom"
-      // align="end"
-      // sideOffset={6}
-    >
+    <div className="dropdown-see-more-header-container border-none p-0 rounded-[1.5rem] -mt-[0.34rem]">
       <div className="w-full flex justify-between bg-white rounded-[1.5rem]">
         <div className="py-[2rem] px-[2.88rem] w-[24.5rem] border-r-2 border-[#55D5D2] ">
           <ul className="w-full">

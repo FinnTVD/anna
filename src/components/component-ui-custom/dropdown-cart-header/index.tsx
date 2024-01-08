@@ -1,4 +1,3 @@
-import { HoverCardContent } from '@/components/ui/hover-card';
 import Image from 'next/image';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
@@ -7,10 +6,11 @@ import './style.css';
 
 interface IProps {
   onMouseLeaveTabMenu?: () => void;
+  numberProductInCart: number;
 }
 
 function DropdownCartHeader(props: IProps) {
-  const { onMouseLeaveTabMenu } = props;
+  const { onMouseLeaveTabMenu, numberProductInCart } = props;
   let listProductInCart = [];
 
   if (
@@ -22,9 +22,7 @@ function DropdownCartHeader(props: IProps) {
   }
 
   return (
-    <div
-      className="dropdown-cart-header border-none p-0 rounded-[1.5rem] container"
-    >
+    <div className="dropdown-cart-header border-none p-0 rounded-[1.5rem]">
       <div className="bg-white px-[1.25rem] py-[1.75rem] rounded-[1.5rem] mt-[0rem]">
         <div className="flex justify-between mb-[1.5rem] pb-[1rem] border-b-2 border-[#ECECEC]">
           <div className="flex items-center">
@@ -32,7 +30,7 @@ function DropdownCartHeader(props: IProps) {
               Giỏ hàng
             </span>
             <div className="h-[1.0625rem] w-[1.0625rem] rounded-full bg-[#F58F5D] flex justify-center items-center text-[0.75rem] not-italic leading-[1.125rem] font-bold">
-              2
+              {numberProductInCart}
             </div>
           </div>
           <Link
@@ -43,7 +41,7 @@ function DropdownCartHeader(props: IProps) {
             Xem tất cả
           </Link>
         </div>
-        <div>
+        <div className="max-h-[30rem] overflow-y-auto mb-[1rem]">
           {listProductInCart?.map((item: any, index: number) => (
             <div
               key={index}
@@ -53,15 +51,15 @@ function DropdownCartHeader(props: IProps) {
                 height={80}
                 width={80}
                 className="w-[8.125rem] h-[8.125rem] rounded-[0.5rem] mr-[1rem]"
-                src={item?.imageProduct ?? '/img/no_image.jpg'}
+                src={item?.product_image ?? '/img/no_image.jpg'}
                 alt=""
               />
               <div className="grow">
                 <div className="h-fit w-fit py-[0.3rem] px-[0.625rem] rounded-[2.5rem] bg-[#CAF2F1] text-[0.75rem] not-italic font-bold">
-                  {item.category}
+                  {item?.category}
                 </div>
                 <h3 className="mt-[0.5rem] text-[1rem] not-italic font-extrabold leading-[1.2rem]">
-                  {item.nameProduct}
+                  {item?.product_name}
                 </h3>
                 <div className="flex items-center mt-[0.5rem]">
                   <div className="w-[0.375rem] h-[0.375rem] bg-[#55D5D2] rounded-full mr-[0.38rem]" />
@@ -77,7 +75,8 @@ function DropdownCartHeader(props: IProps) {
                 </div>
                 <div className="flex items-center">
                   <span className="mr-[0.62rem] text-[1.125rem] text-[#55D5D2] not-italic font-extrabold leading-[1.35rem]">
-                    {item?.price && formatCurrencyVND(item.price.toString())}
+                    {item?.product_price &&
+                      formatCurrencyVND(item.product_price.toString())}
                   </span>
                   <span className="text-[0.875rem] not-italic font-normal leading-[1.05rem] line-through">
                     {/* {formatCurrencyVND(item.salePrice.toString())} */}

@@ -76,7 +76,7 @@ const NewCollection = async () => {
       <div>
         <div className="grid grid-cols-2 md:grid-cols-4 max-sm:px-4">
           {/* eslint-disable-next-line array-callback-return,consistent-return */}
-          {map(collectNewData,(dataCollect: any, index: number) => {
+          {map(collectNewData, (dataCollect: any, index: number) => {
             if (index <= 7) {
               return (
                 <div key={index} className="px-8 md:px-4">

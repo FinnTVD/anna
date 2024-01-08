@@ -25,11 +25,11 @@
 }
 
 .navbar-home:hover a {
-  color: #55D5D2;
+  color: #55d5d2;
 }
 
 .bg-navbar-main-home {
-  background: rgba(0, 0, 0, 0.30);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
 }
 
@@ -43,23 +43,21 @@
   width: 100vw !important; */
 
   @screen md {
-    margin-right: calc(((100vw - 720px)/2) - 12px) !important;
+    margin-right: calc(((100vw - 720px) / 2) - 12px) !important;
     width: calc(750px - 30px) !important;
   }
 
   @screen lg {
     width: 940px !important;
-    margin-right: calc((100vw - 940px)/2 - 12px) !important;
+    margin-right: calc((100vw - 940px) / 2 - 12px) !important;
   }
 
   @screen xl {
     width: 1140px !important;
-    margin-right: calc((100vw - 1140px)/2 - 12px) !important;
-
+    margin-right: calc((100vw - 1140px) / 2 - 12px) !important;
   }
   @media screen and (min-width: 1401px) {
     width: 1370px !important;
-    margin-right: calc((100vw - 1370px)/2 - 12px) !important;
-
+    margin-right: calc((100vw - 1370px) / 2 - 12px) !important;
   }
 }

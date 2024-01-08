@@ -4,8 +4,8 @@ import { getServerSession } from 'next-auth';
 
 const ListProductDashboardPage = async () => {
   const session = await getServerSession(NEXT_AUTH_OPTIONS);
-  console.log("session: ", session);
-  
+  console.log('session: ', session);
+
   return (
     <div className="h-full">
       <ListProductDashboard />

@@ -31,7 +31,7 @@ function SliderMobileBlogHome({ dataSliderBlog }: IPropItem) {
       >
         <SwiperSlide className="myBlog">
           {/* eslint-disable-next-line array-callback-return,consistent-return */}
-          {map(dataSliderBlog,(blogData: string, index: number) => {
+          {map(dataSliderBlog, (blogData: string, index: number) => {
             if (index <= 3) {
               return (
                 <div key={index} className="w-full">
