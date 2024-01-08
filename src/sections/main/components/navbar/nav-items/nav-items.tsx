@@ -20,6 +20,7 @@ import { cn } from '@/lib/utils';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import { delayMenu } from '@/config/config';
 import { HoverCardContent } from "@/components/ui-custom/hover-card-without-animate";
+import ICLocationComponent from "@/components/component-ui-custom/ic-location-component";
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -216,7 +217,8 @@ function NavItems(props: IProps) {
                 <span className=" cursor-pointer mr-[0.5rem] capitalize not-italic font-bold text-white text-[1.125rem] leading-[1.575rem]">
                   Tìm cửa hàng
                 </span>
-                <ICLocation fill="white" width="1.25rem" height="1.51338rem" />
+                {/* <ICLocation fill="white" width="1.25rem" height="1.51338rem" /> */}
+                <ICLocationComponent />
               </Link>
             </li>
             <li

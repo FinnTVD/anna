@@ -1,8 +1,25 @@
 function ICLocationComponent() {
   // @ts-ignore
   return (
-    <div className="bg-black">
-      <div className="">
+    <div>
+      <div className="animate-bounce duration-[1800] -mb-[10px]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="25"
+          viewBox="0 0 20 25"
+          fill="none"
+        >
+          <g id="Group 1000005557">
+            <path
+              id="Vector"
+              d="M10 17C10.5746 17 11.0965 16.7039 11.3962 16.2079C13.4965 12.7326 16 8.15241 16 6.06824C16 2.7222 13.3084 0 10 0C6.69157 0 4 2.7222 4 6.06824C4 8.15241 6.50357 12.7326 8.60379 16.2079C8.90353 16.7039 9.42547 17 10 17ZM7.58834 5.65159C7.58834 4.30673 8.67022 3.21257 10 3.21257C11.3298 3.21257 12.4117 4.30673 12.4117 5.65159C12.4117 6.99651 11.3298 8.09066 10 8.09066C8.67022 8.09066 7.58834 6.99655 7.58834 5.65159Z"
+              fill="white"
+            />
+          </g>
+        </svg>
+      </div>
+      <div className="transform-rotate-y-15 transform-duration-1000 transition-ease-in-out">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

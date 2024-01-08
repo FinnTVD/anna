@@ -65,14 +65,12 @@ function AboutHome({ dataAbout }: IPropAbout) {
 
   const splitLetters = (word: string) => {
     const letters: any = [];
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     word.split('').forEach((letter: any, i: string) => {
       letters.push(
         <span
           key={letter + '_' + i}
           ref={(el) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             refs.current.push(el);
           }}
