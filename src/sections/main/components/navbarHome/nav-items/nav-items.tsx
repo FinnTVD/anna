@@ -107,7 +107,7 @@ function NavItems(props: IProps) {
             className="active navbar-home has-child h-full"
           >
             <HoverCard
-              open={true}
+            // open={true}
             // open={keyTabMenuActive === 'product'}
             // openDelay={5000}
             // closeDelay={0}
@@ -140,13 +140,13 @@ function NavItems(props: IProps) {
                 side="bottom"
                 align="start"
                 // sideOffset={6}
-                className='w-[calc(1400px-30px)] mr-[30px] rounded-[1.5rem]'
+                className='container-dropdown-menu rounded-[1.5rem]'
               >
                 <DropdownProductHeader
                   listProduct={dataProps}
                   onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                 />
-                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white left-[30px] !left-[30px]" />
+                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white !left-[30px]" />
               </HoverCardContent>
             </HoverCard>
           </li>
@@ -171,12 +171,13 @@ function NavItems(props: IProps) {
           <li
             onMouseMove={() => onOpenChangeDropdown('search')}
             onMouseLeave={() => setKeyTabMenuActive(null)}
-            className="grow has-child mx-[2.31rem] w-[29rem] h-full"
+            className="grow has-child mx-[2.31rem] w-[30.4375rem] h-full"
           >
             <HoverCard
-              open={keyTabMenuActive === 'search'}
-              openDelay={0}
-              closeDelay={0}
+            // open={keyTabMenuActive === 'search'}
+            // openDelay={0}
+            // closeDelay={0}
+            open={true}
             >
               <HoverCardTrigger asChild>
                 <div className="relative rounded-[1.25rem] flex items-center h-full">
@@ -193,7 +194,14 @@ function NavItems(props: IProps) {
                   </div>
                 </div>
               </HoverCardTrigger>
-              <DropdownSearchHeader />
+              <HoverCardContent
+                side="bottom"
+                align="start"
+                // sideOffset={6}
+                className='rounded-[1.5rem] w-[30.4375rem]'
+              >
+                <DropdownSearchHeader />
+              </HoverCardContent>
             </HoverCard>
           </li>
           <li
@@ -202,9 +210,9 @@ function NavItems(props: IProps) {
             className="active has-child h-full"
           >
             <HoverCard
-              open={keyTabMenuActive === 'see-more'}
-              openDelay={0}
-              closeDelay={0}
+            // open={keyTabMenuActive === 'see-more'}
+            // openDelay={0}
+            // closeDelay={0}
             >
               <HoverCardTrigger asChild>
                 <div className="tab-menu cursor-pointer px-[6px] py-[4px] flex items-center h-full">
@@ -221,9 +229,17 @@ function NavItems(props: IProps) {
                   />
                 </div>
               </HoverCardTrigger>
-              <DropdownSeeMoreHeader
-                onMouseLeaveTabMenu={onMouseLeaveTabMenu}
-              />
+              <HoverCardContent
+                side="bottom"
+                align="start"
+                // sideOffset={6}
+                className='container-dropdown-menu rounded-[1.5rem]'
+              >
+                <DropdownSeeMoreHeader
+                  onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+                />
+                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white left-[30px] !left-[780px]" />
+              </HoverCardContent>
             </HoverCard>
           </li>
           <li className="tab-menu cursor-pointer has-child flex items-center mx-[1.75rem]">
@@ -240,9 +256,9 @@ function NavItems(props: IProps) {
             className="cursor-pointer has-child flex items-center h-full"
           >
             <HoverCard
-              open={keyTabMenuActive === 'cart'}
-              openDelay={0}
-              closeDelay={0}
+            // open={keyTabMenuActive === 'cart'}
+            // openDelay={0}
+            // closeDelay={0}
             >
               <HoverCardTrigger asChild>
                 <div className="tab-menu flex items-center relative h-full">
@@ -262,7 +278,15 @@ function NavItems(props: IProps) {
                   </div>
                 </div>
               </HoverCardTrigger>
-              <DropdownCartHeader onMouseLeaveTabMenu={onMouseLeaveTabMenu} />
+              <HoverCardContent
+                side="bottom"
+                align="start"
+                // sideOffset={6}
+                className='container-dropdown-menu rounded-[1.5rem] !w-[414px]'
+              >
+                <DropdownCartHeader onMouseLeaveTabMenu={onMouseLeaveTabMenu} />
+                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white !left-[30px]" />
+              </HoverCardContent>
             </HoverCard>
           </li>
         </ul>

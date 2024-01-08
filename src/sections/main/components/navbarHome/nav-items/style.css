@@ -38,31 +38,28 @@
   background: var(--Foundation-BACKGROUND-ELEVATION-5, #fff);
 }
 
-/* .container-dropdown-menu {
-  margin-right: calc(((100vw - 1400px)/2) - 15px) !important;
-  width: 100vw !important;
+.container-dropdown-menu {
+  /* margin-right: calc(((100vw - 1400px)/2) - 15px) !important;
+  width: 100vw !important; */
 
   @screen md {
-    max-width: 750px;
-    margin-right: calc(((100vw - 750px)/2) - 15px) !important;
-
+    margin-right: calc(((100vw - 720px)/2) - 12px) !important;
+    width: calc(750px - 30px) !important;
   }
 
   @screen lg {
-    max-width: 1170px;
-    margin-right: calc(((100vw - 1170px)/2) - 15px) !important;
-
+    width: 940px !important;
+    margin-right: calc((100vw - 940px)/2 - 12px) !important;
   }
 
   @screen xl {
-    max-width: 1400px;
-    margin-right: calc(((100vw - 1400px)/2) - 15px) !important;
+    width: 1140px !important;
+    margin-right: calc((100vw - 1140px)/2 - 12px) !important;
 
   }
-
-  @screen 2xl {
-    max-width: 1400px;
-    margin-right: calc(((100vw - 1400px)/2) - 15px) !important;
+  @media screen and (min-width: 1401px) {
+    width: 1370px !important;
+    margin-right: calc((100vw - 1370px)/2 - 12px) !important;
 
   }
-} */
+}

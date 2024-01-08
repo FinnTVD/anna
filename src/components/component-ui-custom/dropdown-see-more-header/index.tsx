@@ -29,11 +29,11 @@ function DropdownSeeMoreHeader(props: IProps) {
   ];
 
   return (
-    <HoverCardContent
-      className="dropdown-see-more-header-container border-none p-0 w-[87.5rem] -mr-[20.5rem] rounded-[1.5rem] -mt-[0.34rem]"
-      side="bottom"
-      align="end"
-      sideOffset={6}
+    <div
+      className="dropdown-see-more-header-container border-none p-0 container rounded-[1.5rem] -mt-[0.34rem]"
+      // side="bottom"
+      // align="end"
+      // sideOffset={6}
     >
       <div className="w-full flex justify-between bg-white rounded-[1.5rem]">
         <div className="py-[2rem] px-[2.88rem] w-[24.5rem] border-r-2 border-[#55D5D2] ">
@@ -52,8 +52,8 @@ function DropdownSeeMoreHeader(props: IProps) {
           </ul>
         </div>
         <div className="flex grow items-center justify-between p-[2rem]">
-          <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
-            <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
+          <div className="item-cart-seemore w-1/3 p-2 h-[19.3125rem] relative flex justify-center">
+            <div className="w-full h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
               <Image
                 height={200}
                 width={200}
@@ -80,8 +80,8 @@ function DropdownSeeMoreHeader(props: IProps) {
               </div>
             </button>
           </div>
-          <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
-            <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
+          <div className="item-cart-seemore w-1/3 p-2 h-[19.3125rem] relative flex justify-center">
+            <div className="w-full h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
               <Image
                 height={200}
                 width={200}
@@ -109,8 +109,8 @@ function DropdownSeeMoreHeader(props: IProps) {
               </div>
             </Link>
           </div>
-          <div className="item-cart-seemore w-[18.66669rem] h-[19.3125rem] relative flex justify-center">
-            <div className="w-[18.66669rem] h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
+          <div className="item-cart-seemore w-1/3 p-2 h-[19.3125rem] relative flex justify-center">
+            <div className="w-full h-[19.3125rem] rounded-[0.75rem] overflow-hidden">
               <Image
                 height={200}
                 width={200}
@@ -140,7 +140,7 @@ function DropdownSeeMoreHeader(props: IProps) {
           </div>
         </div>
       </div>
-    </HoverCardContent>
+    </div>
   );
 }
 

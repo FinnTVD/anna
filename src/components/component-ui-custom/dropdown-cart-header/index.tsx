@@ -22,13 +22,10 @@ function DropdownCartHeader(props: IProps) {
   }
 
   return (
-    <HoverCardContent
-      className="dropdown-cart-header border-none p-0 w-[25.875rem] rounded-[1.5rem] -mr-[1rem] -mt-[0.34rem]"
-      side="bottom"
-      align="end"
-      sideOffset={6}
+    <div
+      className="dropdown-cart-header border-none p-0 rounded-[1.5rem] container"
     >
-      <div className="w-[25.875rem] bg-white px-[1.25rem] py-[1.75rem] rounded-[1.5rem] mt-[0rem]">
+      <div className="bg-white px-[1.25rem] py-[1.75rem] rounded-[1.5rem] mt-[0rem]">
         <div className="flex justify-between mb-[1.5rem] pb-[1rem] border-b-2 border-[#ECECEC]">
           <div className="flex items-center">
             <span className="text-[1.25rem] not-italic font-extrabold leading-[1.5rem] mr-[0.5rem]">
@@ -105,7 +102,7 @@ function DropdownCartHeader(props: IProps) {
           </div>
         </Link>
       </div>
-    </HoverCardContent>
+    </div>
   );
 }
 
