@@ -11,10 +11,7 @@ import DropdownProductHeader from '@/components/component-ui-custom/dropdown-pro
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
 import DropdownSeeMoreHeader from '@/components/component-ui-custom/dropdown-see-more-header';
 import { HoverCardContent } from '@/components/ui-custom/hover-card-without-animate';
-import {
-  HoverCard,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Input } from '@/components/ui/input';
 import { delayMenu } from '@/config/config';
 import { IListProductMenuHeader } from '@/types/types-general';
@@ -23,7 +20,12 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import './style.css';
 import { useBoolean } from '@/hooks/use-boolean';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import ICLocationComponent from "@/components/component-ui-custom/ic-location-component";
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -49,7 +51,6 @@ function NavItems(props: IProps) {
       }
     }, delayMenu.openDelay);
   };
-
 
   const onMouseLeaveTabMenu = async () => {
     setStartTime(Date.now());
@@ -98,27 +99,31 @@ function NavItems(props: IProps) {
       )}
 
       <div
-        className={`${isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
-          } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
+        className={`${
+          isShowTopNav ? "h-[1.84rem]" : "h-[0rem]"
+        } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
       >
         <span
-          className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${keyTabMenuActive !== null || !styleNavbar
-            ? 'text-white'
-            : 'text-[#828282]'
-            } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
+          className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
+            keyTabMenuActive !== null || !styleNavbar
+              ? "text-white"
+              : "text-[#828282]"
+          } ${keyTabMenuActive !== null ? "font-semibold" : "font-bold"} `}
         >
           giảm ngay 15% cho đơn hàng đầu tiên
         </span>
         <div className="flex items-center">
           <span
-            className={`${styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
-              } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}
+            className={`${
+              styleNavbar ? "bg-[#55D5D2]" : "bg-[#1D1D1D42]"
+            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}
           >
             Chính sách
           </span>
           <span
-            className={`${styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
-              } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}
+            className={`${
+              styleNavbar ? "bg-[#55D5D2]" : "bg-[#1D1D1D42]"
+            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}
           >
             Tra cứu đơn hàng
           </span>
@@ -131,8 +136,11 @@ function NavItems(props: IProps) {
         </div>
       </div>
       <div
-        className={`${styleNavbar ? 'bg-white border-2 border-[#55D5D2]' : 'bg-[#1D1D1D42]'
-          } ${keyTabMenuActive !== null && 'border-navbar'} h-[3.75rem] w-full flex items-center rounded-[6.25rem] px-[1.25rem]`}
+        className={`${
+          styleNavbar ? "bg-white border-2 border-[#55D5D2]" : "bg-[#1D1D1D42]"
+        } ${
+          keyTabMenuActive !== null && "border-navbar"
+        } h-[3.75rem] w-full flex items-center rounded-[6.25rem] px-[1.25rem]`}
       >
         <Link href="/">
           <ICLogo
@@ -162,17 +170,39 @@ function NavItems(props: IProps) {
                     paddingRight: 0,
                   }}
                   href="/cua-hang"
-                  className={`${keyTabMenuActive === null ? 'tab-menu' : 'tab-menu-active'
-                    } flex items-center h-full`}
+                  className={`${
+                    keyTabMenuActive === null ? "tab-menu" : "tab-menu-active"
+                  } flex items-center h-full`}
                 >
                   <span
-                    className={`mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] ${styleNavbar ? `${keyTabMenuActive === 'product' ? 'text-[#55D5D2]' : 'text-[#454545]'}` : `${keyTabMenuActive === 'product' ? 'text-[#55D5D2]' : 'text-[#fff]'}`
-                      }`}
+                    className={`mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] ${
+                      styleNavbar
+                        ? `${
+                            keyTabMenuActive === "product"
+                              ? "text-[#55D5D2]"
+                              : "text-[#454545]"
+                          }`
+                        : `${
+                            keyTabMenuActive === "product"
+                              ? "text-[#55D5D2]"
+                              : "text-[#fff]"
+                          }`
+                    }`}
                   >
                     Sản phẩm
                   </span>
                   <ICArrowDown
-                    stroke={`${styleNavbar ? `${keyTabMenuActive === 'product' ? '#55D5D2' : '#454545'}` : `${keyTabMenuActive === 'product' ? '#55D5D2' : '#fff'}`}`}
+                    stroke={`${
+                      styleNavbar
+                        ? `${
+                            keyTabMenuActive === "product"
+                              ? "#55D5D2"
+                              : "#454545"
+                          }`
+                        : `${
+                            keyTabMenuActive === "product" ? "#55D5D2" : "#fff"
+                          }`
+                    }`}
                     width="0.7rem"
                     height="0.5rem"
                   />
@@ -200,16 +230,18 @@ function NavItems(props: IProps) {
               className="tab-menu flex items-center ml-[1.75rem]"
             >
               <span
-                className={`${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                  } cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] navbar-store-item`}
+                className={`${
+                  styleNavbar ? "text-[#454545]" : "text-[#fff]"
+                } cursor-pointer mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] navbar-store-item`}
               >
                 Tìm cửa hàng
               </span>
-              <ICLocation
-                fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`}
-                width="1.25rem"
-                height="1.51338rem"
-              />
+              {/* <ICLocation */}
+              {/*  fill={`${styleNavbar ? '#4DC0BD' : '#fff'}`} */}
+              {/*  width="1.25rem" */}
+              {/*  height="1.51338rem" */}
+              {/* /> */}
+              <ICLocationComponent />
             </Link>
           </li>
           <li
@@ -219,12 +251,16 @@ function NavItems(props: IProps) {
           >
             <Popover>
               <PopoverTrigger asChild>
-                <div className="relative rounded-[1.25rem] flex items-center h-full" onClick={menuMobile.onToggle}>
+                <div
+                  className="relative rounded-[1.25rem] flex items-center h-full"
+                  onClick={menuMobile.onToggle}
+                >
                   <Input
-                    className={`${styleNavbar
-                      ? 'placeholder-[#4DC0BD]'
-                      : 'opacity-25	placeholder-[#fff]'
-                      }input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
+                    className={`${
+                      styleNavbar
+                        ? "placeholder-[#4DC0BD]"
+                        : "opacity-25	placeholder-[#fff]"
+                    }input-search px-[1.5rem] py-[0.75rem] rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
@@ -283,13 +319,34 @@ function NavItems(props: IProps) {
               <HoverCardTrigger asChild>
                 <div className="tab-menu cursor-pointer px-[6px] py-[4px] flex items-center h-full">
                   <span
-                    className={`${styleNavbar ? `${keyTabMenuActive === 'see-more' ? 'text-[#55D5D2]' : 'text-[#454545]'}` : `${keyTabMenuActive === 'see-more' ? 'text-[#55D5D2]' : 'text-[#fff]'}`
-                      } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+                    className={`${
+                      styleNavbar
+                        ? `${
+                            keyTabMenuActive === "see-more"
+                              ? "text-[#55D5D2]"
+                              : "text-[#454545]"
+                          }`
+                        : `${
+                            keyTabMenuActive === "see-more"
+                              ? "text-[#55D5D2]"
+                              : "text-[#fff]"
+                          }`
+                    } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
                   >
                     Xem Thêm
                   </span>
                   <ICArrowDown
-                    stroke={`${styleNavbar ? `${keyTabMenuActive === 'see-more' ? '#55D5D2' : '#454545'}` : `${keyTabMenuActive === 'see-more' ? '#55D5D2' : '#fff'}`}`}
+                    stroke={`${
+                      styleNavbar
+                        ? `${
+                            keyTabMenuActive === "see-more"
+                              ? "#55D5D2"
+                              : "#454545"
+                          }`
+                        : `${
+                            keyTabMenuActive === "see-more" ? "#55D5D2" : "#fff"
+                          }`
+                    }`}
                     width="0.7rem"
                     height="0.5rem"
                   />
@@ -312,8 +369,9 @@ function NavItems(props: IProps) {
           </li>
           <li className="tab-menu cursor-pointer has-child flex items-center mx-[1.75rem] navbar-action">
             <span
-              className={`${styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
-                } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] navbar-action-item`}
+              className={`${
+                styleNavbar ? "text-[#454545]" : "text-[#fff]"
+              } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem] navbar-action-item`}
             >
               Hành trình tử tế
             </span>
@@ -333,13 +391,26 @@ function NavItems(props: IProps) {
               <HoverCardTrigger asChild>
                 <div className="tab-menu flex items-center relative h-full">
                   <span
-                    className={`${styleNavbar ? 'text-[#454545]' : `${keyTabMenuActive === 'cart' ? 'text-[#55D5D2]' : 'text-[#fff]'}`
-                      } ${keyTabMenuActive === 'cart' && 'text-[#55D5D2]'} mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
+                    className={`${
+                      styleNavbar
+                        ? "text-[#454545]"
+                        : `${
+                            keyTabMenuActive === "cart"
+                              ? "text-[#55D5D2]"
+                              : "text-[#fff]"
+                          }`
+                    } ${
+                      keyTabMenuActive === "cart" && "text-[#55D5D2]"
+                    } mr-[0.38rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.575rem]`}
                   >
                     Giỏ hàng
                   </span>
                   <ICCart
-                    fill={`${styleNavbar ? '#4DC0BD' : `${keyTabMenuActive === 'cart' ? '#55D5D2' : '#fff'}`}`}
+                    fill={`${
+                      styleNavbar
+                        ? "#4DC0BD"
+                        : `${keyTabMenuActive === "cart" ? "#55D5D2" : "#fff"}`
+                    }`}
                     width="1.47381rem"
                     height="1.44581rem"
                   />
