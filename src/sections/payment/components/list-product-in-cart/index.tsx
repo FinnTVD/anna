@@ -2,14 +2,17 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IItemCart } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
+// eslint-disable-next-line import/no-cycle
+import { FormPaymentContext } from '@/sections/payment';
 
 export default function ListProductInCart() {
   const [dataInit, setDataInit] = useState<IItemCart[]>([]);
   const [totalPriceInCart, setTotalPriceInCart] = useState<number>(0);
 
+  const { handleUpdate } = useContext<any>(FormPaymentContext);
   // if (
   //   typeof window !== 'undefined' &&
   //   localStorage.getItem('totalPriceCart') !== null
@@ -49,6 +52,7 @@ export default function ListProductInCart() {
         <input
           type="text"
           name="input"
+          onChange={(val: any) => handleUpdate(val.target.value)}
           placeholder="Nhập mã giảm giá"
           className="px-[1rem] border-2 border-[#EAEAEA] outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[0.8rem] h-[3.43rem]  w-[80%] text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[3.733rem] max-md:w-[70%]"
         />

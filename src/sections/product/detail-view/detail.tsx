@@ -162,7 +162,8 @@ function ProductDetail({
         newList.push(newObjectDoNotAvailable);
       }
 
-      typeof window !== 'undefined' && localStorage.setItem('listMyCart', JSON.stringify(newList));
+      typeof window !== 'undefined' &&
+        localStorage.setItem('listMyCart', JSON.stringify(newList));
 
       toast('Thành công!', {
         description: 'Thêm giỏ hàng thành công',

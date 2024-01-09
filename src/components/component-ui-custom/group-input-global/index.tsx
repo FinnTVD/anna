@@ -18,22 +18,29 @@ import {
 } from '@/components/ui/command';
 import { CheckIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import map from 'lodash.map';
 
 interface IProps {
   listInputGlobal: listInputGlobal[];
   setValueInput?: any;
   register: any;
   errors: any;
+  handleOnChangeArea?: (key: string, value: string) => void;
 }
 
 interface IPropsItemSelectOption {
   itemSelectOption: any;
   setValueInputSelectOption: any;
+  handleOnChangeArea?: (key: string, value: string) => void;
 }
 function ItemSelectOption(props: IPropsItemSelectOption) {
-  const { itemSelectOption, setValueInputSelectOption } = props;
+  const { itemSelectOption, setValueInputSelectOption, handleOnChangeArea } =
+    props;
   const [open, setOpen] = useState(false);
-  const [currentValue, setCurrentValue] = useState('');
+  const [currentValue, setCurrentValue] = useState<string | number | undefined>(
+    undefined
+  );
+
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -46,7 +53,7 @@ function ItemSelectOption(props: IPropsItemSelectOption) {
           {currentValue
             ? itemSelectOption.listOption &&
               itemSelectOption.listOption.find(
-                (framework: any) => framework.value === currentValue
+                (item: any) => item.value === currentValue
               )?.label
             : itemSelectOption.placeHolder ?? 'No data found.'}
           {/* <CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" /> */}
@@ -63,30 +70,33 @@ function ItemSelectOption(props: IPropsItemSelectOption) {
             className="h-9 w-full"
           />
           <CommandEmpty>No data found.</CommandEmpty>
-          <CommandGroup className="w-full">
-            {itemSelectOption.listOption &&
-              itemSelectOption.listOption.map((itemOption: any) => (
-                <CommandItem
-                  key={itemOption.value}
-                  value={itemOption.value}
-                  onSelect={(value) => {
-                    setCurrentValue(value === currentValue ? '' : value);
-                    setValueInputSelectOption(itemSelectOption.name, value);
-                    setOpen(false);
-                  }}
-                  className="w-full"
-                >
-                  {itemOption.label}
-                  <CheckIcon
-                    className={cn(
-                      'ml-auto h-4 w-4',
-                      currentValue === itemOption.value
-                        ? 'opacity-100'
-                        : 'opacity-0'
-                    )}
-                  />
-                </CommandItem>
-              ))}
+          <CommandGroup className="w-full max-h-[30rem] overflow-y-auto">
+            {map(itemSelectOption.listOption, (itemOption: any) => (
+              <CommandItem
+                key={itemOption.value}
+                value={itemOption.value}
+                onSelect={(value: string) => {
+                  console.log('value', value);
+                  // eslint-disable-next-line no-unused-expressions
+                  handleOnChangeArea &&
+                    handleOnChangeArea(itemSelectOption?.name, value);
+                  setCurrentValue(value === currentValue ? '' : value);
+                  setValueInputSelectOption(itemSelectOption.name, value);
+                  setOpen(false);
+                }}
+                className="w-full"
+              >
+                {itemOption.label}
+                <CheckIcon
+                  className={cn(
+                    'ml-auto h-4 w-4',
+                    currentValue === itemOption.value
+                      ? 'opacity-100'
+                      : 'opacity-0'
+                  )}
+                />
+              </CommandItem>
+            ))}
           </CommandGroup>
         </Command>
       </PopoverContent>
@@ -95,7 +105,8 @@ function ItemSelectOption(props: IPropsItemSelectOption) {
 }
 
 export default function GroupInputGlobal(props: IProps) {
-  const { listInputGlobal, setValueInput, register } = props;
+  const { listInputGlobal, setValueInput, register, handleOnChangeArea } =
+    props;
 
   return (
     <div className="input-global">
@@ -165,6 +176,7 @@ export default function GroupInputGlobal(props: IProps) {
                 <ItemSelectOption
                   itemSelectOption={item}
                   setValueInputSelectOption={setValueInput}
+                  handleOnChangeArea={handleOnChangeArea}
                 />
                 {/* <Popover open={open} onOpenChange={setOpen}> */}
                 {/*  <PopoverTrigger asChild> */}

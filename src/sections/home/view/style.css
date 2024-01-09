@@ -136,7 +136,6 @@
 }
 
 .about-card-content {
-  display: flex;
   min-height: 500px;
   align-items: flex-start;
   justify-content: center;
@@ -153,7 +152,7 @@
   flex-wrap: wrap;
 }
 
-.about-content p {
+.about-content {
   font-size: 2.8125rem;
   margin: 0px;
   margin-right: 0.5rem;
