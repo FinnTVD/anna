@@ -49,7 +49,7 @@ function ZoomScaleImage(props: IProps) {
         objectFit="cover"
         width={400}
         height={400}
-        className={`w-full h-full object-cover hover:scale-[1.5]`}
+        className="w-full h-full object-cover hover:scale-[1.5]"
         src={image ?? '/img/no_image.jpg'}
         style={{
           transformOrigin: `${scaleImage.widthImage}% ${scaleImage.heightImage}%`,

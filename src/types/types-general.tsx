@@ -97,7 +97,7 @@ export interface listInputGlobal {
   placeHolder?: string;
   width?: string;
   listOption?: {
-    value: string;
+    value: string | number;
     label: string;
   }[];
 }

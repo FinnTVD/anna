@@ -3,7 +3,7 @@ import { formatCurrencyVND } from '@/ultils/format-price';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Link from 'next/link';
 import './style.css';
-import map from "lodash.map";
+import map from 'lodash.map';
 
 interface IProps {
   onMouseLeaveTabMenu?: () => void;

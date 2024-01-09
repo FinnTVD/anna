@@ -1,8 +1,8 @@
 'use client';
 
-import {HoverCard, HoverCardTrigger} from '@/components/ui/hover-card';
+import { HoverCard, HoverCardTrigger } from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
-import {Input} from '@/components/ui/input';
+import { Input } from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
 import ICArrowDown from '@/components/Icons/ICArrowDown';
@@ -12,15 +12,17 @@ import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 import Link from 'next/link';
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useState } from 'react';
 import ICUser from '@/components/Icons/ICUser';
-import {IListProductMenuHeader} from '@/types/types-general';
-import {cn} from '@/lib/utils';
-import {HoverCardArrow} from '@radix-ui/react-hover-card';
-import {delayMenu} from '@/config/config';
-import {HoverCardContent} from "@/components/ui-custom/hover-card-without-animate";
-import ICLocationComponent from "@/components/component-ui-custom/ic-location-component";
-import {useBoolean} from "@/hooks/use-boolean";
+import { IListProductMenuHeader } from '@/types/types-general';
+import { cn } from '@/lib/utils';
+import { HoverCardArrow } from '@radix-ui/react-hover-card';
+import { delayMenu } from '@/configs/config';
+import { HoverCardContent } from '@/components/ui-custom/hover-card-without-animate';
+import ICLocationComponent from '@/components/component-ui-custom/ic-location-component';
+import { useBoolean } from '@/hooks/use-boolean';
+import { useSession } from "next-auth/react";
+import {NEXT_AUTH_OPTIONS} from "@/configs/auth-option";
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -28,8 +30,10 @@ interface IProps {
 function NavItems(props: IProps) {
   const { dataProps } = props;
 
-
   const isShowOverlay = useBoolean(false);
+
+  console.log('session', NEXT_AUTH_OPTIONS.callbacks?.session);
+
   const [currentPositionScrollY, setCurrentPositionScrollY] =
     useState<number>(0);
   const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
@@ -37,7 +41,7 @@ function NavItems(props: IProps) {
   const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
 
   const onOpenChangeDropdown = (
-      tab: 'product' | 'see-more' | 'cart' | 'search'
+    tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
     if (keyTabMenuActive === null) {
       setKeyTabMenuActive(tab);
@@ -79,7 +83,9 @@ function NavItems(props: IProps) {
         <div
           className={cn(
             ' fixed top-0 left-0 transition-all duration-2s bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
-            keyTabMenuActive !== null ? 'opacity-100 w-full h-[100vh]' : 'opacity-0',
+            keyTabMenuActive !== null
+              ? 'opacity-100 w-full h-[100vh]'
+              : 'opacity-0'
           )}
         />
 
@@ -130,14 +136,14 @@ function NavItems(props: IProps) {
             <ICLogo fill="white" width="2.8125rem" height="2.5rem" />
           </Link>
           <ul className="h-full grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center ml-[2.12rem]">
-            <li
-              className="active has-child h-full group"
-            >
+            <li className="active has-child h-full group">
               <HoverCard
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
                 onOpenChange={(status: any) =>
-                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                  status
+                    ? onOpenChangeDropdown('product')
+                    : onMouseLeaveTabMenu()
                 }
               >
                 <HoverCardTrigger asChild>
@@ -188,14 +194,14 @@ function NavItems(props: IProps) {
                 <ICLocationComponent />
               </Link>
             </li>
-            <li
-              className="grow has-child mx-[1.75rem] h-full"
-            >
+            <li className="grow has-child mx-[1.75rem] h-full">
               <HoverCard
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
                 onOpenChange={(status: any) =>
-                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                  status
+                    ? onOpenChangeDropdown('product')
+                    : onMouseLeaveTabMenu()
                 }
               >
                 <HoverCardTrigger>
@@ -228,15 +234,15 @@ function NavItems(props: IProps) {
                 </HoverCardContent>
               </HoverCard>
             </li>
-            <li
-              className="active has-child h-full"
-            >
+            <li className="active has-child h-full">
               <HoverCard
                 // open={keyTabMenuActive === 'see-more'}
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
                 onOpenChange={(status: any) =>
-                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                  status
+                    ? onOpenChangeDropdown('product')
+                    : onMouseLeaveTabMenu()
                 }
               >
                 <HoverCardTrigger asChild>
@@ -277,15 +283,15 @@ function NavItems(props: IProps) {
                 Hành trình tử tế
               </span>
             </li>
-            <li
-              className="cursor-pointer has-child flex items-center h-full"
-            >
+            <li className="cursor-pointer has-child flex items-center h-full">
               <HoverCard
                 // open={keyTabMenuActive === 'cart'}
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
                 onOpenChange={(status: any) =>
-                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                  status
+                    ? onOpenChangeDropdown('product')
+                    : onMouseLeaveTabMenu()
                 }
               >
                 <HoverCardTrigger asChild>

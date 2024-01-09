@@ -30,22 +30,6 @@ function NavbarHome(props: IProps) {
     });
   }
 
-  // // GET API cart
-  // const bodyGetCart: any = {
-  //   url: `/wp-json/woocart/v1/cart`,
-  //   method: 'get',
-  //   token:
-  //     'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FubmEub2todWItdGVjaC5jb20iLCJpYXQiOjE3MDQ1OTExMTMsIm5iZiI6MTcwNDU5MTExMywiZXhwIjoxNzA1MTk1OTEzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjUsImRldmljZSI6IiIsInBhc3MiOiI4ZWMzMmIzNGRlYjhjMTJlMjhmNWQwYjQ0Njk0ZjkyNiJ9fX0.Do7zY3gSwLqfTGDwS4QrCHnATlNzai1-UxvdHICnOL4',
-  // };
-
-  // const dataListCart = useSWR(bodyGetCart.url, () =>
-  //   fetchDataAuthen(bodyGetCart)
-  // );
-
-  // if (dataListCart.data) {
-  //   localStorage.setItem('listMyCart', JSON.stringify(dataListCart.data));
-  // }
-
   return (
     <div>
       {/* <Logo /> */}

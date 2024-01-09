@@ -18,14 +18,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { delayMenu } from '@/config/config';
+import { delayMenu } from '@/configs/config';
 import { useBoolean } from '@/hooks/use-boolean';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import './style.css';
-import {cn} from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -34,7 +34,6 @@ interface IProps {
 function NavItems(props: IProps) {
   const { dataProps, styleNavbar } = props;
   const menuMobile = useBoolean();
-
   const isShowOverlay = useBoolean(false);
 
   const [currentPositionScrollY, setCurrentPositionScrollY] =
@@ -79,43 +78,44 @@ function NavItems(props: IProps) {
       setNumberProductInCart(JSON.parse(listProduct).length);
     }
   }, []);
+
   return (
-      <nav className="container">
-        {/*<div*/}
-        {/*    className={`${isShowOverlay.value ? 'opacity-100  fixed top-0 left-0 h-[100vh] w-full transition duration-300 ease-in-out bg-navbar-main-home -z-10' : 'opacity-0'}`}/>*/}
-        <div
-            className={cn(
-                ' fixed top-0 left-0 transition-all duration-2s bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
-                isShowOverlay.value ? 'opacity-100 w-full h-[100vh]' : 'opacity-0',
-            )}
-        />
-        <div
-            className={`${
-                isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
-            } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
-        >
+    <nav className="container">
+      {/* <div */}
+      {/*    className={`${isShowOverlay.value ? 'opacity-100  fixed top-0 left-0 h-[100vh] w-full transition duration-300 ease-in-out bg-navbar-main-home -z-10' : 'opacity-0'}`}/> */}
+      <div
+        className={cn(
+          ' fixed top-0 left-0 transition-all duration-2s bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
+          isShowOverlay.value ? 'opacity-100 w-full h-[100vh]' : 'opacity-0'
+        )}
+      />
+      <div
+        className={`${
+          isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
+        } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
+      >
         <span
-            className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
-                keyTabMenuActive !== null || !styleNavbar
-                    ? 'text-white'
-                    : 'text-[#828282]'
-            } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
+          className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
+            keyTabMenuActive !== null || !styleNavbar
+              ? 'text-white'
+              : 'text-[#828282]'
+          } ${keyTabMenuActive !== null ? 'font-semibold' : 'font-bold'} `}
         >
           giảm ngay 15% cho đơn hàng đầu tiên
         </span>
-          <div className="flex items-center">
+        <div className="flex items-center">
           <span
-              className={`${
-                  styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
-              } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}
+            className={`${
+              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
+            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}
           >
             Chính sách
           </span>
-            <span
-                className={`${
-                    styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
-                } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}
-            >
+          <span
+            className={`${
+              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
+            } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}
+          >
             Tra cứu đơn hàng
           </span>
             <Link
@@ -141,7 +141,7 @@ function NavItems(props: IProps) {
             />
           </Link>
           <ul className="h-full grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center ml-[2.12rem]">
-            <li className="active has-child h-full">
+            <li className="active has-child nav navbar-product h-full">
               <HoverCard
                   openDelay={delayMenu.openDelay}
                   closeDelay={delayMenu.closeDelay}
@@ -161,7 +161,7 @@ function NavItems(props: IProps) {
                       } flex items-center h-full`}
                   >
                   <span
-                      className={`mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.6875rem] ${
+                      className={`navbar-product-item mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.6875rem] ${
                           styleNavbar
                               ? `${
                                   keyTabMenuActive === 'product'
@@ -195,23 +195,23 @@ function NavItems(props: IProps) {
                   </Link>
                 </HoverCardTrigger>
 
-                <HoverCardContent
-                    side="bottom"
-                    align="start"
-                    // onMouseLeave={() => onLeave()}
-                    // onMouseMove={() => onMove('product')}
-                    className="rounded-[1.5rem] container-dropdown-menu "
-                >
-                  <DropdownProductHeader listProduct={dataProps}/>
-                  <HoverCardArrow width={24} height={20} className="fill-white"/>
-                </HoverCardContent>
-              </HoverCard>
-            </li>
-            <li className="has-child navbar-store w-fit">
-              <Link
-                  href="/he-thong-cua-hang"
-                  className="tab-menu flex items-center ml-[1.75rem]"
+              <HoverCardContent
+                side="bottom"
+                align="start"
+                // onMouseLeave={() => onLeave()}
+                // onMouseMove={() => onMove('product')}
+                className="rounded-[1.5rem] container-dropdown-menu "
               >
+                <DropdownProductHeader listProduct={dataProps} />
+                <HoverCardArrow width={24} height={20} className="fill-white" />
+              </HoverCardContent>
+            </HoverCard>
+          </li>
+          <li className="has-child navbar-store">
+            <Link
+              href="/he-thong-cua-hang"
+              className="tab-menu flex items-center ml-[1.75rem]"
+            >
               <span
                   className={`${
                       styleNavbar ? 'text-[#454545]' : 'text-[#fff]'
@@ -219,7 +219,7 @@ function NavItems(props: IProps) {
               >
                 Tìm cửa hàng
               </span>
-                <ICLocationComponent/>
+                <ICLocationComponent fill={styleNavbar ? '#454545' : '#fff'}/>
               </Link>
             </li>
             <li className="grow mx-[1.75rem] has-child h-full">
@@ -252,7 +252,7 @@ function NavItems(props: IProps) {
                 </PopoverContent>
               </Popover>
             </li>
-            <li className="active has-child h-full">
+            <li className="active has-child navbar-more h-full">
               <HoverCard
                   openDelay={delayMenu.openDelay}
                   closeDelay={delayMenu.closeDelay}
@@ -277,7 +277,7 @@ function NavItems(props: IProps) {
                                       ? 'text-[#55D5D2]'
                                       : 'text-[#fff]'
                               }`
-                      } mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.6875rem]`}
+                      } navbar-more-item mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.6875rem]`}
                   >
                     Xem Thêm
                   </span>
@@ -319,7 +319,7 @@ function NavItems(props: IProps) {
               Hành trình tử tế
             </span>
             </li>
-            <li className="cursor-pointer has-child flex items-center h-full">
+            <li className="cursor-pointer has-child navbar-card flex items-center h-full">
               <HoverCard
                   openDelay={delayMenu.openDelay}
                   closeDelay={delayMenu.closeDelay}
@@ -340,41 +340,40 @@ function NavItems(props: IProps) {
                               }`
                       } ${
                           keyTabMenuActive === 'cart' && 'text-[#55D5D2]'
-                      } mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.6875rem]`}
+                      } navbar-card-item mr-[0.5rem] not-italic font-bold text-[#454545] text-[1.125rem] leading-[1.6875rem]`}
                   >
                     Giỏ hàng
                   </span>
-                    <ICCart
-                        fill={`${
-                            styleNavbar
-                                ? '#4DC0BD'
-                                : `${keyTabMenuActive === 'cart' ? '#55D5D2' : '#fff'}`
-                        }`}
-                        width="1.47381rem"
-                        height="1.44581rem"
-                    />
-                    <div
-                        className="flex items-center justify-center absolute bottom-2.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem] leading-[1.125rem]">
-                      {numberProductInCart}
-                    </div>
-                  </div>
-                </HoverCardTrigger>
-                <HoverCardContent
-                    side="bottom"
-                    align="start"
-                    className="!w-[414px] mr-dropdown-menu rounded-[1.5rem]"
-                >
-                  <DropdownCartHeader
-                      numberProductInCart={numberProductInCart}
-                      onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+                  <ICCart
+                    fill={`${
+                      styleNavbar
+                        ? '#4DC0BD'
+                        : `${keyTabMenuActive === 'cart' ? '#55D5D2' : '#fff'}`
+                    }`}
+                    width="1.47381rem"
+                    height="1.44581rem"
                   />
-                  <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white"/>
-                </HoverCardContent>
-              </HoverCard>
-            </li>
-          </ul>
-        </div>
-      </nav>
+                  <div className="flex items-center justify-center absolute bottom-2.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem] leading-[1.125rem]">
+                    {numberProductInCart}
+                  </div>
+                </div>
+              </HoverCardTrigger>
+              <HoverCardContent
+                side="bottom"
+                align="start"
+                className="!w-[414px] mr-dropdown-menu rounded-[1.5rem]"
+              >
+                <DropdownCartHeader
+                  numberProductInCart={numberProductInCart}
+                  onMouseLeaveTabMenu={onMouseLeaveTabMenu}
+                />
+                <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white" />
+              </HoverCardContent>
+            </HoverCard>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 

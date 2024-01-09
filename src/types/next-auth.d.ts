@@ -25,3 +25,8 @@ export interface IFetchData {
   body?: FormData | any;
   token?: string;
 }
+
+export interface IGetArea {
+  valueFiler: string | null;
+  key: 'district' | 'wards';
+}

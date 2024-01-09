@@ -26,23 +26,23 @@ function AboutHome({ dataAbout }: IPropAbout) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: box.current,
-        start: 'top',
-        end: '+=1000',
-        pin: true,
-        // scrub: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        // once: true,
-      });
+      // ScrollTrigger.create({
+      //   trigger: box.current,
+      //   start: 'top',
+      //   end: '+=1000',
+      //   // pin: true,
+      //   // scrub: true,
+      //   pinSpacing: true,
+      //   anticipatePin: 1,
+      //   // once: true,
+      // });
       gsap.to(refs.current, {
         scrollTrigger: {
           trigger: refs.current,
           scrub: true,
-          start: `top 20%`,
+          start: `-=500 top`,
           // pin: '.pin',
-          end: `+=1000`,
+          end: `+=500`,
         },
         opacity: 1,
         ease: 'none',
@@ -102,19 +102,21 @@ function AboutHome({ dataAbout }: IPropAbout) {
               </div>
             </div>
           </div>
-          <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10">
-            <SliceAbout dataInfo={dataAbout?.info} />
-            <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
-              <p className="text-[4.48179rem] md:text-[1rem] font-extrabold text-white">
-                TÌM KIẾM CỬA HÀNG GẦN BẠN
-              </p>
-              <div className="arrow-about-slide p-[0.5rem] bg-white rounded-full justify-start items-center gap-2.5 inline-flex">
-                <ICArrowTopRightActive
-                  width={30}
-                  height={30}
-                  stroke="#F58F5D"
-                  fill="#F58F5D"
-                />
+          <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10 relative">
+            <div className=" md:sticky md:top-32">
+              <SliceAbout dataInfo={dataAbout?.info} />
+              <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
+                <p className="text-[4.48179rem] md:text-[1rem] font-extrabold text-white">
+                  TÌM KIẾM CỬA HÀNG GẦN BẠN
+                </p>
+                <div className="arrow-about-slide p-[0.5rem] bg-white rounded-full justify-start items-center gap-2.5 inline-flex">
+                  <ICArrowTopRightActive
+                    width={30}
+                    height={30}
+                    stroke="#F58F5D"
+                    fill="#F58F5D"
+                  />
+                </div>
               </div>
             </div>
           </div>

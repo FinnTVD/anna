@@ -11,7 +11,7 @@ import ActionHome from '@/sections/home/view/Action';
 import { fetchDataRest } from '@/lib/fetch-data-rest';
 import BannerHome from '@/sections/home/view/Banner';
 import SlideMobileSocial from './Social/SlideMobile';
-import AboutHomeV2 from './About';
+import AboutHome from '@/sections/home/view/About';
 
 const Home = async () => {
   const dataHome = await fetchDataRest('GET', 'acf/v3/posts/334');
@@ -36,7 +36,7 @@ const Home = async () => {
         <SectionHome />
       </div>
       <Feature dataFeature={dataHome?.acf?.for_you[0]} />
-      <AboutHomeV2 dataAbout={dataHome?.acf?.about[0]} />
+      <AboutHome dataAbout={dataHome?.acf?.about[0]} />
       <Social />
       <SlideMobileSocial />
       <div className="hidden md:block">

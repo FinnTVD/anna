@@ -72,10 +72,11 @@ export function TableCart(props: IProps) {
       }
     }
 
-    typeof window !== 'undefined' && localStorage.setItem(
-      'listMyCart',
-      JSON.stringify(arrayProductSubmitLocalStorage)
-    );
+    typeof window !== 'undefined' &&
+      localStorage.setItem(
+        'listMyCart',
+        JSON.stringify(arrayProductSubmitLocalStorage)
+      );
 
     toast('Thành công !', {
       position: 'top-right',
