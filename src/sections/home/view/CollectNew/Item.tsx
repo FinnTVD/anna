@@ -25,8 +25,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
   };
 
   return (
-    <Link
-      href={`/san-pham/${dataCollect?.slug}`}
+    <div
       className="item-product-home !mr-0 cursor-pointer relative rounded-[4.26667rem] md:rounded-2xl shadow-[0px_4px_30px_0px_rgba(0,_0,_0,_0.05)]"
     >
       <div className="h-[40rem] md:h-[20.375rem] w-full overflow-hidden rounded-[4.26667rem] md:rounded-2xl">
@@ -87,7 +86,7 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
                 : formatCurrencyVND(dataCollect?.regular_price.toString() || 0)}
             </div>
           </div>
-          <div className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
+          <Link href={`/san-pham/${dataCollect?.slug}`} className="max-sm:border border-[#55D5D2] bg-white md:bg-[#55D5D2] price-product-slide flex justify-between items-center px-[3rem] md:px-[1.25rem] py-[0.5rem] rounded-[13.33333rem] md:rounded-[3.125rem]">
             <p className="text-[4.8rem] md:text-[1.5rem] font-extrabold text-[#55D5D2] md:text-[#fff]">
               {changeInfo?.price !== ''
                 ? formatCurrencyVND(changeInfo?.price.toString())
@@ -96,10 +95,10 @@ function ItemCollect({ dataCollect, key }: IPropsItemCollect) {
             <div className="arrow-product-slide p-[0.5rem] text-[#fff]">
               <ArrowTopRight />
             </div>
-          </div>
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

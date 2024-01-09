@@ -20,8 +20,8 @@ function ZoomScaleImage(props: IProps) {
   const imageRef = useRef<any>(null);
 
   const [scaleImage, setScaleImage] = useState<IScaleImage>({
-    widthImage: null,
-    heightImage: null,
+    widthImage: 50,
+    heightImage: 50,
   });
 
   useEffect(() => {
@@ -41,6 +41,7 @@ function ZoomScaleImage(props: IProps) {
       });
     }
   }, [imageRef]);
+
   return (
     <div className={`h-[${height ?? 200}] w-[${width ?? 200}] overflow-hidden`}>
       <Image
@@ -48,7 +49,7 @@ function ZoomScaleImage(props: IProps) {
         objectFit="cover"
         width={400}
         height={400}
-        className={`w-full h-full object-cover hover:scale-[${scale ?? 1.5}]`}
+        className={`w-full h-full object-cover hover:scale-[1.5]`}
         src={image ?? '/img/no_image.jpg'}
         style={{
           transformOrigin: `${scaleImage.widthImage}% ${scaleImage.heightImage}%`,

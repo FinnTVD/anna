@@ -1,5 +1,6 @@
 import { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import FacebookProvider from "next-auth/providers/facebook";
 
 export const NEXT_AUTH_OPTIONS: AuthOptions = {
   providers: [
@@ -11,11 +12,11 @@ export const NEXT_AUTH_OPTIONS: AuthOptions = {
           type: 'text',
           placeholder: 'username',
         },
-        password: { label: 'Password', type: 'password' },
+        password: { label: 'password', type: 'password' },
       },
       async authorize(credentials, req) {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_V2_API}/api/v1/mo-jwt`,
+          `${process.env.NEXT_PUBLIC_V2_API}/jwt-auth/v1/token`,
           {
             method: 'POST',
             body: JSON.stringify(credentials),
@@ -23,14 +24,18 @@ export const NEXT_AUTH_OPTIONS: AuthOptions = {
           }
         );
 
-        const { user, jwt } = await res.json();
+        const { data } = await res.json();
 
-        if (res.ok && user) {
-          return { ...user, accessToken: jwt };
+        if (res.ok && data) {
+          return data;
         }
         return null;
       },
     }),
+    FacebookProvider({
+      clientId: "7838673589552016",
+      clientSecret: "7dac65851961ce836601e73a1a7cc5a9"
+    })
   ],
   // pages: {
   //   signIn: "/"
@@ -41,6 +46,8 @@ export const NEXT_AUTH_OPTIONS: AuthOptions = {
       return { ...token, ...user };
     },
     async session({ session, token }) {
+      console.log({token});
+      
       session.user = token as any;
       return session;
     },
