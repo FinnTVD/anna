@@ -35,7 +35,7 @@
 .bg-navbar-main-home {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
-  animation-delay: 2s;
+  transition-duration: 200ms
 }
 
 .border-navbar {

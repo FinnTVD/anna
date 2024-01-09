@@ -2,7 +2,7 @@ function ICLocationComponent() {
   // @ts-ignore
   return (
     <div>
-      <div className="animate-bounce duration-[1800ms] -mb-[10px]">
+      <div className="animate-bounce delay-300 -mb-[10px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

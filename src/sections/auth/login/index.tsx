@@ -70,6 +70,10 @@ export function Login() {
     setCheckRemember(value);
   };
 
+  const handleFacebookLogin = () => {
+    signIn('facebook')
+  }
+
   return (
     <div>
       <div className="container flex flex-wrap m-auto items-center justify-center py-36 md:py-32">
@@ -143,6 +147,7 @@ export function Login() {
               <button
                 type="button"
                 className="w-full text-white flex items-center"
+                onClick={handleFacebookLogin}
               >
                 <ICFacebook width={35} height={35} />
                 <p className="text-center w-full">

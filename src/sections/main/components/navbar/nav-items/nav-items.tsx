@@ -1,9 +1,8 @@
 'use client';
 
-import { HoverCard, HoverCardTrigger } from '@/components/ui/hover-card';
+import {HoverCard, HoverCardTrigger} from '@/components/ui/hover-card';
 import ICLogo from '@/components/Icons/ICLogo';
-import ICLocation from '@/components/Icons/ICLocation';
-import { Input } from '@/components/ui/input';
+import {Input} from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
 import ICArrowDown from '@/components/Icons/ICArrowDown';
@@ -13,14 +12,15 @@ import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 import Link from 'next/link';
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
-import { useEffect, useRef, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import ICUser from '@/components/Icons/ICUser';
-import { IListProductMenuHeader } from '@/types/types-general';
-import { cn } from '@/lib/utils';
-import { HoverCardArrow } from '@radix-ui/react-hover-card';
-import { delayMenu } from '@/config/config';
-import { HoverCardContent } from "@/components/ui-custom/hover-card-without-animate";
+import {IListProductMenuHeader} from '@/types/types-general';
+import {cn} from '@/lib/utils';
+import {HoverCardArrow} from '@radix-ui/react-hover-card';
+import {delayMenu} from '@/config/config';
+import {HoverCardContent} from "@/components/ui-custom/hover-card-without-animate";
 import ICLocationComponent from "@/components/component-ui-custom/ic-location-component";
+import {useBoolean} from "@/hooks/use-boolean";
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -28,60 +28,30 @@ interface IProps {
 function NavItems(props: IProps) {
   const { dataProps } = props;
 
-  const refBlur = useRef<any>();
 
+  const isShowOverlay = useBoolean(false);
   const [currentPositionScrollY, setCurrentPositionScrollY] =
     useState<number>(0);
   const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
   const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
-  const [startTime, setStartTime] = useState<any>();
 
   const onOpenChangeDropdown = (
-    tab: 'product' | 'see-more' | 'cart' | 'search'
+      tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
-    setTimeout(() => {
-      if (keyTabMenuActive === null) {
-        setKeyTabMenuActive(tab);
-      }
-    }, delayMenu.openDelay);
+    if (keyTabMenuActive === null) {
+      setKeyTabMenuActive(tab);
+    }
+    isShowOverlay.onTrue();
   };
 
   const onMouseLeaveTabMenu = async () => {
-    setStartTime(Date.now());
-
-    await Promise.resolve();
+    isShowOverlay.onFalse();
 
     if (keyTabMenuActive !== null) {
       setKeyTabMenuActive(null);
     }
   };
-
-  const onMove = async (tab: "product" | "see-more" | "cart" | "search") => {
-    if (Date.now() - startTime < delayMenu.closeDelay) {
-      setKeyTabMenuActive(tab);
-      console.log("keyTabMenuActive", keyTabMenuActive);
-    }
-  };
-
-  useEffect(() => {
-    refBlur?.current?.addEventListener('mouseover', () => {
-      setTimeout(() => {
-        if (keyTabMenuActive === null) {
-          setKeyTabMenuActive(null);
-          // setStartTime(Date.now());
-        }
-      }, delayMenu.closeDelay);
-    });
-
-    refBlur?.current?.addEventListener('mouseout', () => {
-      setTimeout(() => {
-        if (keyTabMenuActive === null) {
-          setKeyTabMenuActive(null);
-        }
-      }, delayMenu.closeDelay);
-    });
-  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -107,10 +77,9 @@ function NavItems(props: IProps) {
     <nav className={` w-full py-[0.63rem]`}>
       <div className="navbar-container w-[87.5rem] mx-auto">
         <div
-          ref={refBlur}
           className={cn(
-            ' fixed top-0 left-0 h-[100vh] transition-all duration-300 w-full bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
-            keyTabMenuActive !== null ? 'visible' : 'invisible'
+            ' fixed top-0 left-0 transition-all duration-2s bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
+            keyTabMenuActive !== null ? 'opacity-100 w-full h-[100vh]' : 'opacity-0',
           )}
         />
 
@@ -162,13 +131,14 @@ function NavItems(props: IProps) {
           </Link>
           <ul className="h-full grow flex justify-between primary-nav md:flex text-[11px] font-bold items-center ml-[2.12rem]">
             <li
-              onMouseMove={() => onOpenChangeDropdown('product')}
-              onMouseLeave={() => onMouseLeaveTabMenu()}
               className="active has-child h-full group"
             >
               <HoverCard
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
+                onOpenChange={(status: any) =>
+                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                }
               >
                 <HoverCardTrigger asChild>
                   <Link
@@ -199,9 +169,6 @@ function NavItems(props: IProps) {
                 <HoverCardContent
                   side="bottom"
                   align="start"
-                  // sideOffset={6}
-                  // onMouseLeave={() => onLeave()}
-                  onMouseMove={() => onMove('product')}
                   className="w-[87.5rem] -ml-[6rem] rounded-[1.5rem]"
                 >
                   <DropdownProductHeader
@@ -222,14 +189,14 @@ function NavItems(props: IProps) {
               </Link>
             </li>
             <li
-              onMouseMove={() => onOpenChangeDropdown('search')}
-              onMouseLeave={() => setKeyTabMenuActive(null)}
-              className="grow has-child mx-[2.31rem] w-[29rem] h-full"
+              className="grow has-child mx-[1.75rem] h-full"
             >
               <HoverCard
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
-                // open={keyTabMenuActive === "search"}
+                onOpenChange={(status: any) =>
+                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                }
               >
                 <HoverCardTrigger>
                   <div className="relative rounded-[1.25rem] flex items-center h-full">
@@ -262,14 +229,15 @@ function NavItems(props: IProps) {
               </HoverCard>
             </li>
             <li
-              onMouseMove={() => onOpenChangeDropdown('see-more')}
-              onMouseLeave={() => onMouseLeaveTabMenu()}
               className="active has-child h-full"
             >
               <HoverCard
                 // open={keyTabMenuActive === 'see-more'}
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
+                onOpenChange={(status: any) =>
+                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                }
               >
                 <HoverCardTrigger asChild>
                   <div
@@ -310,14 +278,15 @@ function NavItems(props: IProps) {
               </span>
             </li>
             <li
-              onMouseMove={() => onOpenChangeDropdown('cart')}
-              onMouseLeave={() => onMouseLeaveTabMenu()}
               className="cursor-pointer has-child flex items-center h-full"
             >
               <HoverCard
                 // open={keyTabMenuActive === 'cart'}
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
+                onOpenChange={(status: any) =>
+                    status ? onOpenChangeDropdown('product') : onMouseLeaveTabMenu()
+                }
               >
                 <HoverCardTrigger asChild>
                   <div
