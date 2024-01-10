@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import { Pagination } from 'swiper/modules';
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
+import ImgAnna from '@/assets/blogImg/kinh-mat-anna.jpg'
 
 interface ItemSlice {
   image: string;
@@ -37,13 +38,13 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
             key={index}
           >
             <Image
-              src="/img/home/q12.jpg"
+              src={info?.image ? info?.image : ImgAnna}
               alt=""
               width={612}
               height={488}
               className=" w-full h-full object-fill max-sm:rounded-[4rem] lg:rounded-[1.25rem] border-[6px] border-solid border-[#E6F9F8]"
             />
-            <div className="absolute bottom-0 w-full p-[6px]">
+            <div className="absolute bottom-12 w-full p-[6px]">
               <div className="p-8 md:p-3 bg-black/30 rounded-[1rem] backdrop-blur-[12.5px] lg:py-[1.13rem] lg:pl-[1.31rem] lg:pr-[1.94rem]">
                 <h4 className="text-left text-white text-[3.73333rem] md:text-2xl lg:text-[1.5rem] font-black uppercase leading-[1.2]">
                   {info?.title}
@@ -71,6 +72,7 @@ function SliceAbout({ dataInfo }: IpropSlideAbout) {
                 </div>
               </div>
             </div>
+            <div className='h-12'/>
           </SwiperSlide>
         ))}
       </Swiper>

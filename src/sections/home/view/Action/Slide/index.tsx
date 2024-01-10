@@ -24,7 +24,7 @@ function SliceAction({ dataSlider }: IPropItem) {
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper-action h-[66.625rem] md:h-[35.625rem]"
+        className="mySwiper-action h-[66.625rem] md:h-[33.625rem]"
       >
         {dataSlider?.map((img: string, index: number) => (
           <SwiperSlide
