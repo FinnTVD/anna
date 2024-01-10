@@ -7,7 +7,7 @@ declare module 'next-auth' {
       provider: string;
       confirmed: boolean;
       blocked: boolean;
-      accessToken: string;
+      token: string;
     };
   }
 }

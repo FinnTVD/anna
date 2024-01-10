@@ -11,10 +11,11 @@ import { IItemCart } from '@/types/types-general';
 interface IProps {
   dataListProductNew?: any;
   dataListCart?: IItemCart[];
+  accessToken?: string;
 }
 
 export default function Cart(props: IProps) {
-  const { dataListProductNew, dataListCart } = props;
+  const { dataListProductNew, dataListCart, accessToken } = props;
 
   const [dataInit, setDatainit] = useState<any>();
 
@@ -57,7 +58,7 @@ export default function Cart(props: IProps) {
               Sản Phẩm
             </span>
           </div>
-          <CartComponent dataProps={dataListCart} />
+          <CartComponent dataProps={dataListCart} accessToken={accessToken} />
         </div>
         <div className="flex justify-between mb-[2rem] items-center max-md:mb-[4.27rem]">
           <h4 className="text-[2rem] not-italic font-extrabold text-[#313131] leading-[2.4rem] h-[2.4rem] text-center max-md:text-[4.8rem] max-md:leading-[7.2rem] max-md:w-[64.26667rem] max-md:h-[12rem] max-md:mb-[4rem] max-md:text-start">

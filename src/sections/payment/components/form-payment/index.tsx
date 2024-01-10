@@ -13,6 +13,7 @@ import { IItemProvinceConvert } from '@/app/(main)/thanh-toan/page';
 import { useEffect, useState } from 'react';
 import { undefined } from 'zod';
 import map from 'lodash.map';
+import { keyProductsInCart } from '@/configs/config';
 
 interface IProps {
   listProvinceConvert?: IItemProvinceConvert[];
@@ -69,9 +70,9 @@ export default function FormPayment(props: IProps) {
     const arrayProduct: any = [];
     if (
       typeof window !== 'undefined' &&
-      localStorage.getItem('listMyCart') !== null
+      localStorage.getItem(keyProductsInCart) !== null
     ) {
-      const storedData = localStorage.getItem('listMyCart') as string;
+      const storedData = localStorage.getItem(keyProductsInCart) as string;
       const tmpArray = JSON.parse(storedData);
 
       map(tmpArray, (item) =>
@@ -144,8 +145,6 @@ export default function FormPayment(props: IProps) {
   );
   // END
 
-  console.log('listWards', listWards);
-
   useEffect(() => {
     listDataDistrict.mutate();
     const arrayDistrict: IParamItemDistrict[] = [];
@@ -154,7 +153,6 @@ export default function FormPayment(props: IProps) {
         value: item.code.toString(),
         label: item.name,
       });
-      // console.log('item', item)
     });
 
     setListDistrict(arrayDistrict);

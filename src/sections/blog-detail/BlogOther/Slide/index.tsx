@@ -6,8 +6,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/pagination';
+
 import ItemBlog from '@/sections/blog-detail/BlogOther/Slide/Item';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { ItemBlogType } from '@/types/types-general';
 
 interface IPropBlogOther {
@@ -30,8 +32,11 @@ function SliceBlogOther({ listBlogOther }: IPropBlogOther) {
             slidesPerView: 3,
           },
         }}
-        modules={[Autoplay]}
-        className="mySwiper"
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination]}
+        className="mySwiperBlog min-h-[30rem] md:min-h-[26.813rem]"
       >
         {listBlogOther?.map((dataBlog: any, index: number) => (
           <SwiperSlide key={index}>

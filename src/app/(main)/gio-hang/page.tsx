@@ -1,7 +1,11 @@
 import Cart from '@/sections/cart';
 import { fetchDataAuthen, postData } from '@/lib/post-data';
+import { getServerSession } from 'next-auth';
+import { NEXT_AUTH_OPTIONS } from '@/configs/auth-option';
 
 const CartPage = async () => {
+  const session = await getServerSession(NEXT_AUTH_OPTIONS);
+
   const bodyGetListProduct: any = {
     url: `wp-json/custom/v1/products?per_page=6&page=2`,
     method: 'get',
@@ -13,14 +17,18 @@ const CartPage = async () => {
   const bodyGetCart: any = {
     url: `/wp-json/woocart/v1/cart`,
     method: 'get',
-    token:
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FubmEub2todWItdGVjaC5jb20iLCJpYXQiOjE3MDQ1OTExMTMsIm5iZiI6MTcwNDU5MTExMywiZXhwIjoxNzA1MTk1OTEzLCJkYXRhIjp7InVzZXIiOnsiaWQiOjUsImRldmljZSI6IiIsInBhc3MiOiI4ZWMzMmIzNGRlYjhjMTJlMjhmNWQwYjQ0Njk0ZjkyNiJ9fX0.Do7zY3gSwLqfTGDwS4QrCHnATlNzai1-UxvdHICnOL4',
+    token: session?.user.token,
   };
 
-  const dataListCart = await fetchDataAuthen(bodyGetCart);
+  const dataListCart =
+    session !== null ? await fetchDataAuthen(bodyGetCart) : undefined;
 
   return (
-    <Cart dataListProductNew={dataListProductNew} dataListCart={dataListCart} />
+    <Cart
+      accessToken={session?.user.token}
+      dataListProductNew={dataListProductNew}
+      dataListCart={dataListCart}
+    />
   );
 };
 

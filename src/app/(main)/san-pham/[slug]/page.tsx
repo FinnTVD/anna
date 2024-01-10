@@ -1,8 +1,12 @@
 import ProductDetail from '@/sections/product/detail-view/detail';
 import { postData } from '@/lib/post-data';
 import { IPostData } from '@/types/next-auth';
+import { getServerSession } from 'next-auth';
+import { NEXT_AUTH_OPTIONS } from '@/configs/auth-option';
 
 const DetaiPage = async ({ params: { slug } }: any) => {
+  const session = await getServerSession(NEXT_AUTH_OPTIONS);
+
   // GET DETAIL PRODUCT
   const bodyGetDetailProduct: any = {
     url: `wp-json/custom/v1/products-by-slug/${slug}`,
@@ -43,9 +47,11 @@ const DetaiPage = async ({ params: { slug } }: any) => {
     method: 'get',
   };
   const dataProductByAnyCategory = await postData(getProductByAnyCategory);
+  // END
 
   return (
     <ProductDetail
+      accessToken={session?.user.token}
       slug={slug}
       dataInitDetail={dataDetailProduct}
       dataGlasses={dataGlasses}

@@ -76,7 +76,6 @@ function ItemSelectOption(props: IPropsItemSelectOption) {
                 key={itemOption.value}
                 value={itemOption.value}
                 onSelect={(value: string) => {
-                  console.log('value', value);
                   // eslint-disable-next-line no-unused-expressions
                   handleOnChangeArea &&
                     handleOnChangeArea(itemSelectOption?.name, value);

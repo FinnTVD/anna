@@ -9,13 +9,15 @@ import { IItemCart } from '@/types/types-general';
 import Link from 'next/link';
 import { TableCart } from '@/sections/cart/CartComponent/components/table-cart';
 import { formatCurrencyVND } from '@/ultils/format-price';
+import { keyProductsInCart } from '@/configs/config';
 
 interface IProps {
   dataProps?: IItemCart[];
+  accessToken?: string;
 }
 
 export function CartComponent(props: IProps) {
-  const { dataProps } = props;
+  const { dataProps, accessToken } = props;
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
   useEffect(() => {
@@ -40,9 +42,9 @@ export function CartComponent(props: IProps) {
     } else {
       if (
         typeof window !== 'undefined' &&
-        localStorage.getItem('listMyCart') !== null
+        localStorage.getItem(keyProductsInCart) !== null
       ) {
-        const storedData = localStorage.getItem('listMyCart') as string;
+        const storedData = localStorage.getItem(keyProductsInCart) as string;
         const listDataLocalStorage = JSON.parse(storedData);
 
         listDataLocalStorage?.map(
@@ -58,7 +60,7 @@ export function CartComponent(props: IProps) {
     <div className="cart-component mt-[2rem] flex justify-between max-md:flex-col">
       <BottomTabCart />
       <div className="w-3/4 max-md:w-full">
-        <TableCart dataProps={dataProps} />
+        <TableCart dataProps={dataProps} accessToken={accessToken} />
       </div>
 
       <div className="grow ml-[1rem] max-md:mt-[7.5rem] ">

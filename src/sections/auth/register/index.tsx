@@ -78,8 +78,8 @@ export function Register() {
   };
 
   const handleLoginByFaceBook = () => {
-    router.push('https://anna.okhub-tech.com/?wooslg=facebook')
-  }
+    router.push('https://anna.okhub-tech.com/?wooslg=facebook');
+  };
 
   return (
     <div className="container flex flex-wrap m-auto items-center justify-center py-36 md:py-32">
@@ -158,7 +158,11 @@ export function Register() {
           </div>
         </FormProvider>
         <div className="bg-[#1877F2] p-12 md:p-3 text-[3.5rem] md:text-base rounded-3xl md:rounded-xl mt-6 md:mt-2">
-          <button type="button" className="w-full text-white flex items-center" onClick={handleLoginByFaceBook}>
+          <button
+            type="button"
+            className="w-full text-white flex items-center"
+            onClick={handleLoginByFaceBook}
+          >
             <ICFacebook width={35} height={35} />
             <p className="text-center w-full">
               Đăng nhập bằng

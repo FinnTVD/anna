@@ -150,4 +150,5 @@ export interface IItemCart {
   product_name?: string;
   product_price?: string;
   quantity?: number;
+  stock_quantity?: number;
 }

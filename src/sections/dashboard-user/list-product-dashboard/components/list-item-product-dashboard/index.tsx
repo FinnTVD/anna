@@ -15,7 +15,6 @@ interface IProps {
 export function ListItemProductDashboard(props: IProps) {
   const { listProduct, keyTab } = props;
 
-  console.log('listProduct', listProduct);
   return (
     <div className="list-item-product-dashboard mt-[1rem] flex justify-between max-md:flex-col">
       <div className="list-product-cart">

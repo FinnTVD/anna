@@ -4,20 +4,20 @@ import { cn } from '@/lib/utils';
 import NavItems from './nav-items/nav-items';
 import NavMobileDetail from './nav-mobile-detail';
 import './nav-items/style.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { Input } from '@/components/ui/input';
 import ICSearch from '@/components/Icons/ICSearch';
 import './style.css';
-import useSWR from 'swr';
-import { fetchDataAuthen } from '@/lib/post-data';
+import { keyProductsInCart } from '@/configs/config';
 
 interface IProps {
   dataListProductHeader?: IListProductMenuHeader[];
+  dataListCart?: any;
 }
 
 function NavbarHome(props: IProps) {
-  const { dataListProductHeader } = props;
+  const { dataListProductHeader, dataListCart } = props;
 
   const [styleNavbar, setStyleNavbar] = useState(false);
   if (typeof window !== 'undefined') {
@@ -29,6 +29,12 @@ function NavbarHome(props: IProps) {
       }
     });
   }
+
+  useEffect(() => {
+    if (dataListCart) {
+      localStorage.setItem(keyProductsInCart, JSON.stringify(dataListCart));
+    }
+  }, [dataListCart]);
 
   return (
     <div>

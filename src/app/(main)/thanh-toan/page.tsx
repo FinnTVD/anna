@@ -1,6 +1,4 @@
 import Payment from '@/sections/payment';
-import useSWR from 'swr';
-import { postData } from '@/lib/post-data';
 import map from 'lodash.map';
 
 export interface IItemProvinceConvert {

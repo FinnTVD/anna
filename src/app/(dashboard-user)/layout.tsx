@@ -1,11 +1,32 @@
 import Navbar from '@/sections/main/components/navbar/navbar';
 import SidebarDashboardUser from '../../sections/dashboard-user/components/sidebar-dashboard-user';
+import { fetchDataAuthen } from '@/lib/post-data';
+import { getServerSession } from 'next-auth';
+import { NEXT_AUTH_OPTIONS } from '@/configs/auth-option';
 
-function MainLayout({ children }: { children: React.ReactNode }) {
+const MainLayout = async ({
+  children,
+  request,
+}: {
+  children: React.ReactNode;
+  request: Request;
+}) => {
+  const session = await getServerSession(NEXT_AUTH_OPTIONS);
+
+  // GET API cart
+  const bodyGetCart: any = {
+    url: `/wp-json/woocart/v1/cart`,
+    method: 'get',
+    token: session?.user.token,
+  };
+
+  const dataListCart =
+    session !== null ? await fetchDataAuthen(bodyGetCart) : undefined;
+
   return (
     <div>
       <main className="bg-[#FAFAFA] mt-[9rem] max-md:mt-0 max-md:h-fit max-md:max-h-fit">
-        <Navbar />
+        <Navbar dataListCart={dataListCart} />
         <div className="h-[calc(100vh-4.5rem-9rem)] w-[87.5rem] mx-auto flex py-[2rem] max-h-full max-md:flex-col max-md:h-fit max-md:max-h-auto max-md:w-full max-md:px-[3rem]">
           <div className="w-1/3 h-full max-md:w-full">
             <SidebarDashboardUser />
@@ -38,6 +59,6 @@ function MainLayout({ children }: { children: React.ReactNode }) {
       </main>
     </div>
   );
-}
+};
 
 export default MainLayout;

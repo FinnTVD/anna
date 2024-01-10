@@ -16,6 +16,7 @@ import ICGoogle from '@/components/Icons/ICGoogle';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import SectionHome from '@/sections/home/view/SectionHome';
+import { keyProductsInCart } from '@/configs/config';
 
 // interface IProps {
 //   children: ReactNode;
@@ -55,6 +56,8 @@ export function Login() {
       });
       if (ok) {
         router.push('/list-product-dashboard');
+
+        localStorage.removeItem(keyProductsInCart);
       } else {
         setError('password', {
           message: 'Login failed!',
@@ -71,8 +74,8 @@ export function Login() {
   };
 
   const handleFacebookLogin = () => {
-    signIn('facebook')
-  }
+    signIn('facebook');
+  };
 
   return (
     <div>

@@ -11,12 +11,14 @@ import useSWR from 'swr';
 
 import './style.css';
 import Link from 'next/link';
+import LoadingGlobal from '@/components/component-ui-custom/loading-global';
 
 interface IProps {
   dataInit?: IDetailProductRes;
   handleChangeColorGetApi: (value: string | number | null) => void;
   listColorProduct: any;
   handleAddToCart: (data: any, quantity: any) => void;
+  isLoadingAddToCart: boolean;
 }
 
 interface IDataProduct {
@@ -31,6 +33,7 @@ function InfoProduct(props: IProps) {
     handleChangeColorGetApi,
     listColorProduct,
     handleAddToCart,
+    isLoadingAddToCart,
   } = props;
 
   const refInfo = useRef<any>(null);
@@ -69,20 +72,6 @@ function InfoProduct(props: IProps) {
       }).then((response) => response.json()) // Parse JSON response
   );
   // END
-
-  // const bodyAddToCart: any = {
-  //   url: `wp-json/woocart/v1/cart`,
-  //   method: 'post',
-  //   body: {
-  //     product_id: 304,
-  //     quantity: 1,
-  //     variation_id: 324,
-  //   },
-  // };
-
-  // const getDetailProductByColor = useSWR(`wp-json/woocart/v1/cart`, () =>
-  //   postData(bodyAddToCart)
-  // );
 
   const handleChangeColor = (value: any) => {
     setDataProductSubmit({
@@ -252,6 +241,7 @@ function InfoProduct(props: IProps) {
             type="button"
             className="box-shadow-button cursor-pointer flex items-center grow bg-[#55D5D2] max-lg:whitespace-nowrap max-lg:px-[0.75rem] text-white text-[1rem] font-extrabold leading-[1.4rem] px-[1.25rem] h-full rounded-[6.25rem] ml-[1.5rem] max-sm:w-full max-sm:ml-0 max-sm:justify-between max-lg:ml-[0.5rem]"
           >
+            {isLoadingAddToCart && <LoadingGlobal />}
             <div className="flex justify-between items-center">
               <div className="hidden max-md:block mr-[2.67rem] ml-[5.33rem]">
                 <ICBag />
