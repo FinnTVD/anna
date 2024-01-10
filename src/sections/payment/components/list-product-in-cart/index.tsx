@@ -7,6 +7,7 @@ import { IItemCart } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
 // eslint-disable-next-line import/no-cycle
 import { FormPaymentContext } from '@/sections/payment';
+import { keyProductsInCart } from '@/configs/config';
 
 export default function ListProductInCart() {
   const [dataInit, setDataInit] = useState<IItemCart[]>([]);
@@ -29,8 +30,8 @@ export default function ListProductInCart() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (localStorage.getItem('listMyCart') !== null) {
-        const storedData = localStorage.getItem('listMyCart') as string;
+      if (localStorage.getItem(keyProductsInCart) !== null) {
+        const storedData = localStorage.getItem(keyProductsInCart) as string;
         const listDataLocalStorage = JSON.parse(storedData);
 
         setDataInit(listDataLocalStorage);

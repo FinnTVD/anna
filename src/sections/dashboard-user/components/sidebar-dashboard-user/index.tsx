@@ -8,11 +8,13 @@ import { ICLogout } from '@/components/Icons/ICLogout';
 import { ICUser2 } from '@/components/Icons/ICUser2';
 import './style.css';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
+import { keyProductsInCart } from '@/configs/config';
 
 function SidebarDashboardUser() {
   const pathname = usePathname();
-
+  const router = useRouter();
   const listTab = [
     {
       icon: <ICProduct width="1.25rem" height="1.25rem" fill="#414141" />,
@@ -29,12 +31,23 @@ function SidebarDashboardUser() {
       title: 'Thông tin địa chỉ',
       route: '/address-info',
     },
-    {
-      icon: <ICLogout width="1.25rem" height="1.25rem" stroke="#414141" />,
-      title: 'Đăng xuất',
-      route: '/tai-khoan',
-    },
+    // {
+    //   icon: <ICLogout width="1.25rem" height="1.25rem" stroke="#414141" />,
+    //   title: 'Đăng xuất',
+    //   route: '/tai-khoan',
+    // },
   ];
+
+  const handleSignOut = async () => {
+    try {
+      await signOut({ redirect: false }); // Sign out without redirecting immediately
+      localStorage.removeItem(keyProductsInCart);
+      router.push('/tai-khoan'); // Redirect to the home page after successful sign-out
+    } catch (error) {
+      console.error('Error signing out:', error);
+      // Handle sign-out error if needed
+    }
+  };
   return (
     <div className="side-bar-dashboard-user h-full bg-white w-full flex flex-col items-center py-[3rem] px-[1rem] rounded-[1rem] max-md:w-full max-md:mb-[5.5rem] max-md:px-[5.8rem]">
       <Image
@@ -70,6 +83,17 @@ function SidebarDashboardUser() {
             </span>
           </Link>
         ))}
+        <div
+          className="item-memu-sidebar cursor-pointer mb-[0.2rem] flex items-center py-[0.3rem] rounded-[0.4rem] transition-all duration-150 max-md:mb-[4rem]"
+          onClick={handleSignOut}
+        >
+          <div className="w-[1.2rem] max-md:w-[10.667rem] max-md:h-[10.667rem] max-md:flex max-md:justify-center max-md:items-center max-md:bg-[#55D5D2]">
+            <ICLogout width="1.25rem" height="1.25rem" stroke="#414141" />
+          </div>
+          <span className="font-Nexa-Normal font-medium ml-[0.5rem] mt-[0.2rem] max-md:text-[3.733rem] max-md:ml-[3rem]">
+            Đăng xuất
+          </span>
+        </div>
       </div>
     </div>
   );

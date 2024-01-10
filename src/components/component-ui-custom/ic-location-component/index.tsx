@@ -4,7 +4,6 @@ interface IProps {
   fill?: string;
 }
 function ICLocationComponent(props: IProps) {
-  // @ts-ignore
   return (
     <div>
       <div className="animate-bounce delay-300 -mb-[10px]">

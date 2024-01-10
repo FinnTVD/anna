@@ -28,13 +28,13 @@
 .navbar-action:hover .navbar-action-item,
 .navbar-product:hover .navbar-product-item,
 .navbar-more:hover .navbar-more-item,
-.navbar-card:hover .navbar-card-item  {
+.navbar-card:hover .navbar-card-item {
   color: #55d5d2;
 }
 .navbar-store:hover svg path,
 .navbar-product:hover svg path,
 .navbar-more:hover svg path,
-.navbar-card:hover svg path{
+.navbar-card:hover svg path {
   stroke: #55d5d2;
   fill: #55d5d2;
 }
@@ -42,11 +42,11 @@
 .bg-navbar-main-home {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(5px);
-  transition-duration: 200ms
+  transition-duration: 200ms;
 }
 
 .border-navbar {
-  border: 1px solid rgba(255, 255, 255, 0.41)
+  border: 1px solid rgba(255, 255, 255, 0.41);
 }
 
 .mr-dropdown-menu {
@@ -94,5 +94,3 @@
     margin-right: calc((100vw - 1370px) / 2 - 12px) !important;
   }
 }
-
-

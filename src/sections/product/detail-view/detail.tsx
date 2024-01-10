@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ImageProduct from '@/sections/product/detail-view/view/image-product';
 import InfoProduct from '@/sections/product/detail-view/view/info-product';
 import RecommendProduct from '@/sections/product/detail-view/view/recommend-product';
-import { postData } from '@/lib/post-data';
+import { fetchDataAuthen, postData } from '@/lib/post-data';
 import { IPostData } from '@/types/next-auth';
 import useSWR from 'swr';
 import { ICProtected } from '@/components/Icons/ICProtected';
@@ -16,9 +16,11 @@ import ItemMobile from '../../../components/component-ui-custom/item-product-mob
 import SlideProductComponent from '@/components/component-ui-custom/slide-swiper-product/slide-product';
 import { Fixed } from '@/sections/product/detail-view/view/Fixed';
 import './style.css';
-import { toast } from 'sonner';
 import Link from 'next/link';
 import Image from 'next/image';
+import { keyProductsInCart } from '@/configs/config';
+import map from 'lodash.map';
+import { onSuccess } from '@/ultils/notification';
 
 interface IProps {
   slug: string;
@@ -29,6 +31,7 @@ interface IProps {
   dataProductGlasses: any;
   dataDataLenses: any;
   dataProductByAnyCategory: any;
+  accessToken?: string;
 }
 
 function ProductDetail({
@@ -39,10 +42,8 @@ function ProductDetail({
   dataProductGlasses,
   dataDataLenses,
   dataProductByAnyCategory,
+  accessToken,
 }: IProps) {
-  const tokenFake =
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2FubmEub2todWItdGVjaC5jb20iLCJpYXQiOjE3MDQ1MDg4MjcsIm5iZiI6MTcwNDUwODgyNywiZXhwIjoxNzA1MTEzNjI3LCJkYXRhIjp7InVzZXIiOnsiaWQiOjUsImRldmljZSI6IiIsInBhc3MiOiI4ZWMzMmIzNGRlYjhjMTJlMjhmNWQwYjQ0Njk0ZjkyNiJ9fX0.6v0cLHcxNDV0nx_OKOGbntNbLO5Ztp_jCw5DwgkEHPc';
-
   const refHeightProductInfo = useRef<any>();
   const [isShowItemProduct, setIsShowItemProduct] = useState<boolean>(false);
 
@@ -53,6 +54,7 @@ function ProductDetail({
   const [listColorProduct, setListColorProduct] = useState<any>(
     dataInitDetail?.data?.variant ?? []
   );
+  const [isLoadingAddToCart, setIsLoadingAddToCart] = useState<boolean>(false);
 
   // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
 
@@ -83,58 +85,47 @@ function ProductDetail({
   ): void => {
     let getListProductInCart;
 
-    console.log('asdasdsa');
-
-    if (typeof window !== 'undefined') {
-      getListProductInCart = localStorage.getItem('listMyCart');
+    if (
+      typeof window !== 'undefined' &&
+      localStorage.getItem(keyProductsInCart) !== null
+    ) {
+      getListProductInCart = localStorage.getItem(keyProductsInCart);
     }
 
-    if (getListProductInCart === null) {
+    if (!getListProductInCart) {
       const newArray = [];
       const ItemAddToCard = {
-        id: data?.id,
-        imageProduct: data?.featuredImage,
-        nameProduct: data?.sku,
+        product_id: data?.id,
+        product_image: data?.featuredImage,
+        product_name: data?.sku,
         category: data?.categories ? data?.categories[0] : 'no-data',
-        price: data?.price,
-        salePrice: data?.sale_price,
+        product_price: data?.price,
+        // salePrice: data?.sale_price,
+        stock_quantity: data?.stock_quantity,
         quantity: quantityProduct,
       };
 
       newArray.push(ItemAddToCard);
 
       if (typeof window !== 'undefined') {
-        localStorage.setItem('listMyCart', JSON.stringify(newArray));
+        localStorage.setItem(keyProductsInCart, JSON.stringify(newArray));
       }
 
-      toast('Thành công !', {
-        duration: 200,
-        description: 'Thêm giỏ hàng thành công',
-        position: 'top-right',
-        style: {
-          color: '#14ae5c',
-          fontWeight: '800',
-          fontSize: '1.1rem',
-        },
-        action: {
-          label: 'Undo',
-          onClick: () => console.log('Undo'),
-        },
-      });
+      onSuccess({ message: 'Thêm giỏ hàng thành công' });
     } else {
-      // @ts-ignore
       const initCurrentCart = JSON.parse(getListProductInCart);
 
-      const newList = initCurrentCart.map((item: any) => {
+      const newList = map(initCurrentCart, (item: any) => {
         const newObject = {
-          id: item.id,
-          imageProduct: item.imageProduct,
-          nameProduct: item.nameProduct,
+          product_id: item.product_id,
+          product_image: item.product_image,
+          product_name: item.product_name,
           category: item.category,
-          price: item.price,
-          salePrice: item.salePrice,
+          product_price: item?.product_price,
+          // salePrice: item.salePrice,
+          stock_quantity: data?.stock_quantity,
           quantity:
-            item.id === data?.id
+            item.product_id === data?.id
               ? item.quantity + quantityProduct > data?.stock_quantity
                 ? data?.stock_quantity
                 : item.quantity + quantityProduct
@@ -145,16 +136,17 @@ function ProductDetail({
 
       // add item if item do not available in cart
       const findItemAvailable = initCurrentCart.filter(
-        (item: any) => item.id === data?.id
+        (item: any) => item.product_id === data?.id
       );
 
       const newObjectDoNotAvailable = {
-        id: data?.id,
-        imageProduct: data?.featuredImage,
-        nameProduct: data?.sku,
+        product_id: data?.id,
+        product_image: data?.featuredImage,
+        product_name: data?.sku,
         category: data?.categories ? data?.categories[0] : 'no-data',
-        price: data?.price,
-        salePrice: data?.sale_price,
+        stock_quantity: data?.stock_quantity,
+        product_price: data?.price,
+        // salePrice: data?.sale_price,
         quantity: quantityProduct,
       };
 
@@ -162,35 +154,41 @@ function ProductDetail({
         newList.push(newObjectDoNotAvailable);
       }
 
+      // eslint-disable-next-line no-unused-expressions
       typeof window !== 'undefined' &&
-        localStorage.setItem('listMyCart', JSON.stringify(newList));
+        localStorage.setItem(keyProductsInCart, JSON.stringify(newList));
 
-      toast('Thành công!', {
-        description: 'Thêm giỏ hàng thành công',
-        position: 'top-right',
-        style: {
-          color: '#14ae5c',
-          fontWeight: '800',
-          fontSize: '1.1rem',
-        },
-      });
+      onSuccess({ message: 'Thêm giỏ hàng thành công' });
     }
   };
 
-  const handleAddToCartAPI = (data: any, quantityProduct: any): void => {
-    console.log('data', data);
-    console.log('quantityProduct', quantityProduct);
+  const handleAddToCartAPI = async (data: any, quantityProduct: any) => {
+    setIsLoadingAddToCart(true);
 
-    // ADD PRODUCT TO CART
-    // const bodyPostProductToCart: any = {
-    //   url: `/wp-json/woocart/v1/cart`,
-    //   method: 'post',
-    // };
-    //
-    // const mutateAddToCart = useSWR(
-    //   `wp-json/custom/v1/products-details/${colorGetDetail}`,
-    //   () => postData(bodyPostProductToCart)
-    // );
+    const objectSubmit = {
+      product_id: data?.id,
+      quantity: quantityProduct,
+      variation_id: data?.variation_id,
+    };
+
+    try {
+      await fetchDataAuthen({
+        url: `/wp-json/woocart/v1/cart`,
+        method: 'post',
+        body: JSON.stringify(objectSubmit),
+        token: accessToken,
+      });
+      // toast({
+      //   title: 'Save changes successfully!',
+      // });
+
+      handleAddToCartLocalStorage(data, quantityProduct);
+
+      onSuccess({ message: 'Thêm giỏ hàng thành công' });
+      setIsLoadingAddToCart(false);
+    } catch (error) {
+      setIsLoadingAddToCart(false);
+    }
   };
 
   useEffect(() => {
@@ -247,12 +245,15 @@ function ProductDetail({
           {/* right */}
           <InfoProduct
             dataInit={dataInit}
+            isLoadingAddToCart={isLoadingAddToCart}
             handleChangeColorGetApi={handleChangeColorGetApi}
             listColorProduct={listColorProduct}
-            // handleAddToCart={
-            //   tokenFake ? handleAddToCartAPI : handleAddToCartLocalStorage
-            // }
-            handleAddToCart={handleAddToCartLocalStorage}
+            handleAddToCart={
+              accessToken && accessToken.length > 0
+                ? handleAddToCartAPI
+                : handleAddToCartLocalStorage
+            }
+            // handleAddToCart={handleAddToCartLocalStorage}
           />
         </div>
       </div>
@@ -456,7 +457,9 @@ function ProductDetail({
           dataInit={dataInit}
           listColorProduct={listColorProduct}
           handleAddToCart={
-            tokenFake ? handleAddToCartAPI : handleAddToCartLocalStorage
+            accessToken && accessToken.length > 0
+              ? handleAddToCartAPI
+              : handleAddToCartLocalStorage
           }
         />
       </div>

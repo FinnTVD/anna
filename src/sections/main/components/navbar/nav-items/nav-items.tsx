@@ -17,12 +17,10 @@ import ICUser from '@/components/Icons/ICUser';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { cn } from '@/lib/utils';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
-import { delayMenu } from '@/configs/config';
+import { delayMenu, keyProductsInCart } from '@/configs/config';
 import { HoverCardContent } from '@/components/ui-custom/hover-card-without-animate';
 import ICLocationComponent from '@/components/component-ui-custom/ic-location-component';
 import { useBoolean } from '@/hooks/use-boolean';
-import { useSession } from "next-auth/react";
-import {NEXT_AUTH_OPTIONS} from "@/configs/auth-option";
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
@@ -31,8 +29,6 @@ function NavItems(props: IProps) {
   const { dataProps } = props;
 
   const isShowOverlay = useBoolean(false);
-
-  console.log('session', NEXT_AUTH_OPTIONS.callbacks?.session);
 
   const [currentPositionScrollY, setCurrentPositionScrollY] =
     useState<number>(0);
@@ -71,10 +67,14 @@ function NavItems(props: IProps) {
   useEffect(() => {
     if (
       typeof window !== 'undefined' &&
-      localStorage.getItem('listMyCart') !== null
+      localStorage.getItem(keyProductsInCart) !== null
     ) {
-      const listProduct: any = localStorage.getItem('listMyCart');
-      setNumberProductInCart(JSON.parse(listProduct).length);
+      const listProduct: any = localStorage.getItem(keyProductsInCart);
+      const parseListProduct = JSON.parse(listProduct);
+
+      if (parseListProduct.length > 0) {
+        setNumberProductInCart(parseListProduct.length);
+      }
     }
   }, []);
   return (

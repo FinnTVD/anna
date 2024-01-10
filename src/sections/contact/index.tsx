@@ -4,30 +4,35 @@ import { RHFInput } from '@/components/hook-form';
 import { baseUrl, fetchDataRest } from '@/lib/fetch-data-rest';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import FormProvider from '@/components/hook-form/form-provider';
+import loginImg from '@/assets/images/contact.png';
+
 import useSWR from 'swr';
 import { z } from 'zod';
 import './style.css';
+import Image from 'next/image';
 import Link from 'next/link';
+import { TextareaUnderline } from '@/components/ui/textarea-underline';
 
-interface BlogItemType {
-  content: string;
-  post_date: string;
-  post_id: string | number;
-  post_type: string;
-  thumbnail_url: string | boolean;
-  title: string;
-}
 const defaultValues = {
-  search: '',
+  title: '',
+  username: '',
+  phone: '',
+  content: '',
+  email: '',
 };
 
 const formSchema = z.object({
-  search: z.string(),
+  title: z.string(),
+  username: z.string(),
+  phone: z.string(),
+  content: z.string(),
+  email: z.string(),
 });
 function Contact() {
   const [dataContact, setDataContact] = useState(null) as any;
-  const [dataBlog, setDataBlog] = useState(null) as any;
+  const [message, setMessage] = useState('');
 
   const paramApi: any = {
     method: 'get',
@@ -39,83 +44,178 @@ function Contact() {
       setDataContact(res[0])
     )
   );
-  const getListBlog = useSWR(`${baseUrl}${paramApi.urlBlog}`, () =>
-    fetchDataRest(paramApi.method, paramApi.urlBlog).then((res: any) =>
-      setDataBlog(res)
-    )
-  );
+
   useEffect(() => {
     getListContact.mutate();
-    getListBlog.mutate();
   }, []);
 
   const methods = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
+  const { handleSubmit } = methods;
+
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log('value: ', values);
   };
-  const { handleSubmit } = methods;
+  const handleMessage = (e: any) => {
+    setMessage(e?.target?.value);
+  };
   return (
-    <div className="md:max-w-[83.75rem] py-24 md:py-12 px-[5rem] md:px-0 m-auto">
-      <FormProvider {...methods}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex justify-end mb-4 md:mb-2"
-        >
-          <div className="mr-8 md:mr-4">
-            <div className="flex justify-between">
-              <div className="w-full">
-                <RHFInput
-                  name="search"
-                  inputStyle="input-underline"
-                  placeholder="Tìm kiếm"
-                  className="w-full border border-stone-300 bg-[#FAFAFA] text-[3rem] md:text-base p-3"
-                />
-              </div>
-            </div>
+    <div className="bg-[#fcfbf9]">
+      <div className="container flex flex-wrap-reverse py-24 md:py-12 px-[5rem] md:px-0">
+        <div className="md:relative w-full md:w-2/5 p-[3.75rem] bg-[#127daf] max-sm:rounded-br-[3.625rem] rounded-bl-[3.625rem] md:rounded-bl-[0.625rem] md:rounded-tl-[0.625rem]">
+          <h4 className="text-white font-bold text-[4.5rem] md:text-[2.25rem] max-sm:pt-20">
+            Liên hệ
+          </h4>
+          <p className="py-[1.375rem] text-[3.25rem] md:text-base text-white max-sm:pt-20">
+            Quý khách sẽ trở thành Khách hàng thân thiết của GUMAC ngay sau khi
+            mua sản phẩm bất kỳ
+          </p>
+          <ul className="max-sm:pt-20">
+            <li className="flex flex-wrap py-2">
+              <p className="w-full md:w-1/3 text-white font-medium text-[3.5rem] md:text-base">
+                Chat
+              </p>
+              <Link
+                href="#"
+                className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base"
+              >
+                http://m.me/gumacfashion
+              </Link>
+            </li>
+            <li className="flex flex-wrap py-2">
+              <p className="w-full md:w-1/3 text-white font-medium text-[3.5rem] md:text-base">
+                Email
+              </p>
+              <p className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base">
+                cskh@gumac.vn
+              </p>
+            </li>
+            <li className="flex flex-wrap py-2">
+              <p className="w-full md:w-1/3 text-white font-medium text-[3.5rem] md:text-base">
+                Hotline
+              </p>
+              <p className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base">
+                1800 6013 (miễn phí cước gọi)
+              </p>
+            </li>
+            <li className="flex flex-wrap py-2">
+              <p className="w-full md:w-1/3 text-white font-medium text-[3.5rem] md:text-base">
+                Fanpage
+              </p>
+              <Link
+                href="#"
+                className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base"
+              >
+                https://www.facebook.com/gumacfashion
+              </Link>
+            </li>
+            <li className="flex flex-wrap py-2">
+              <p className="w-full md:w-1/3 text-white font-medium text-[3.5rem] md:text-base">
+                Website
+              </p>
+              <Link
+                href="#"
+                className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base"
+              >
+                https://gumac.vn
+              </Link>
+            </li>
+            <li className="flex flex-wrap py-2">
+              <p className="w-full md:w-1/3 text-white font-medium text-[3.5rem] md:text-base">
+                Giờ làm việc
+              </p>
+              <p className="w-2/3 text-[#AEC1C8] text-[3.5rem] md:text-base">
+                Thứ 2 - Chủ nhật: 8h-20h. Ngày lễ: 8h-17h.
+              </p>
+            </li>
+          </ul>
+          <div className="hidden md:block absolute w-full md:w-1/2 left-0 bottom-0">
+            <Image
+              src={loginImg}
+              alt=""
+              quality={80}
+              width={614}
+              height={496}
+              className="w-full object-cover h-[16.625rem]"
+            />
           </div>
-          <button
-            type="submit"
-            className="text-white p-6 md:p-[0.65rem] text-[3rem] md:text-[1.25rem] bg-[#81C8C2]"
-          >
-            Post Comments
-          </button>
-        </form>
-      </FormProvider>
-      <h4 className="text-black text-[3.5rem] md:text-2xl font-semibold  pb-10 md:pb-4">
-        LIÊN HỆ
-      </h4>
-      <div className="flex justify-between flex-wrap">
-        <div
-          className="w-full md:w-2/3 contact-page"
-          dangerouslySetInnerHTML={{
-            __html: `${dataContact ? dataContact?.content?.rendered : ''}`,
-          }}
-        />
-        <div className="w-full md:w-1/3">
+        </div>
+        <div className="w-full md:w-3/5 p-[4.75rem] bg-white">
+          <h4 className="text-[#252425] font-bold text-[4.5rem] md:text-[2.25rem]">
+            Thông tin hỗ trợ
+          </h4>
           <div>
-            <h4 className="font-semibold text-[4.5rem] md:text-[2rem]">
-              Recent Posts
-            </h4>
-            <div className="flex flex-wrap">
-              {dataBlog?.map((data: BlogItemType, index: number) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="text-[4.5rem] md:text-[1.75rem] w-full py-6 md:py-2"
+            <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
+              <div className="grid gap-12 md:gap-4 py-12 md:py-4">
+                <div className="flex flex-col gap-2">
+                  <span className="text-black-[.08] text-[4rem] md:text-base text-[10px]">
+                    Tên của bạn<em className="text-red-500">*</em>
+                  </span>
+                  <RHFInput
+                    name="username"
+                    inputStyle="input-underline"
+                    placeholder="Tên của bạn"
+                    className="w-full border border-[#55D5D2] p-8 md:p-3 text-[4rem] md:text-base rounded-[6rem] md:rounded-[1.75rem]"
+                  />
+                </div>
+                <div className="flex flex-wrap justify-between gap-2">
+                  <div className="w-full md:w-[45%]">
+                    <span className="text-black-[.08] text-[4rem] md:text-base text-[10px]">
+                      Email<em className="text-red-500">*</em>
+                    </span>
+                    <RHFInput
+                      name="email"
+                      inputStyle="input-underline"
+                      placeholder="Email"
+                      className="w-full border border-[#55D5D2] p-8 md:p-3 text-[4rem] md:text-base rounded-[6rem] md:rounded-[1.75rem]"
+                    />
+                  </div>
+                  <div className="w-full md:w-[45%]">
+                    <span className="text-black-[.08] text-[4rem] md:text-base text-[10px]">
+                      Số điện thoại<em className="text-red-500">*</em>
+                    </span>
+                    <RHFInput
+                      name="phone"
+                      inputStyle="input-underline"
+                      placeholder="Số điện thoại"
+                      className="w-full border border-[#55D5D2] p-8 md:p-3 text-[4rem] md:text-base rounded-[6rem] md:rounded-[1.75rem]"
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-black-[.08] text-[4rem] md:text-base text-[10px]">
+                    Tiêu đề<em className="text-red-500">*</em>
+                  </span>
+                  <RHFInput
+                    name="title"
+                    inputStyle="input-underline"
+                    placeholder="Tiêu đề"
+                    className="w-full border border-[#55D5D2] p-8 md:p-3 text-[4rem] md:text-base rounded-[6rem] md:rounded-[1.75rem]"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-black-[.08] text-[4rem] md:text-base text-[10px]">
+                    Nội dung<em className="text-red-500">*</em>
+                  </span>
+                  <TextareaUnderline
+                    name="message"
+                    onChange={(e) => handleMessage(e)}
+                    placeholder="Nội dung"
+                    className="w-full border border-[#55D5D2] p-8 md:p-3 text-[4rem] md:text-base rounded-[6rem] md:rounded-[1.75rem] h-[25rem] md:h-[12rem]"
+                  />
+                </div>
+              </div>
+              <div className="text-end">
+                <button
+                  type="submit"
+                  className="w-[134px] bg-[#55D5D2] hover:bg-[#f58f5d] text-white uppercase p-12 md:p-3 text-[3.5rem] md:text-base rounded-[6rem] md:rounded-[1.75rem]"
                 >
-                  {data?.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="mt-12 md:mt-8">
-            <h4 className="font-semibold text-[4.5rem] md:text-[2rem]">
-              Recent Comments
-            </h4>
-            <div className="flex flex-wrap" />
+                  Gửi ngay
+                </button>
+              </div>
+            </FormProvider>
           </div>
         </div>
       </div>

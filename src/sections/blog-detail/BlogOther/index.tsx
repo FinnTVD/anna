@@ -21,8 +21,8 @@ const BlogOther = async () => {
         </div>
         <div className="w-full md:w-2/3 flex items-center">
           <div>
-            <div className="text-black pt-8 md:pt-4 text-[4.5rem] md:text-[2.25rem] font-semibold">
-              VIẾT BÌNH LUẬN
+            <div className="text-black pt-8 md:pt-4 text-[3.5rem] md:text-[1.25rem] font-semibold">
+              KinhMatAnna
             </div>
             <p className="text-[3.25rem] md:text-base text-opacity-70">
               Kính mắt Anna là thương hiệu kính mắt lớn được nhiều người biết
@@ -34,7 +34,12 @@ const BlogOther = async () => {
           </div>
         </div>
       </div>
-      <SliceBlogOther listBlogOther={listBlogOther} />
+      <div>
+        <h4 className="pt-3 px-2 font-bold text-[4.5rem] md:text-[1.5rem]">
+          Bài viết xem nhiều
+        </h4>
+        <SliceBlogOther listBlogOther={listBlogOther} />
+      </div>
     </div>
   );
 };

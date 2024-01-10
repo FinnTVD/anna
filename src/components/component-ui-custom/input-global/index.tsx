@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/command';
 import { CheckIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import map from "lodash.map";
+import map from 'lodash.map';
 
 interface IProps {
   // listInputGlobal: listInputGlobal[];

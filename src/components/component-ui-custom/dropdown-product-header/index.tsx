@@ -1,6 +1,5 @@
 'use client';
 
-import { HoverCardContent } from '@/components/ui/hover-card';
 import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Image from 'next/image';
 import { IListProductMenuHeader } from '@/types/types-general';

@@ -4,6 +4,7 @@ import ICArrowRight2 from '@/components/Icons/ICArrowRight2';
 import Link from 'next/link';
 import './style.css';
 import map from 'lodash.map';
+import { keyProductsInCart } from '@/configs/config';
 
 interface IProps {
   onMouseLeaveTabMenu?: () => void;
@@ -16,9 +17,9 @@ function DropdownCartHeader(props: IProps) {
 
   if (
     typeof window !== 'undefined' &&
-    localStorage.getItem('listMyCart') !== null
+    localStorage.getItem(keyProductsInCart) !== null
   ) {
-    const storedData = localStorage.getItem('listMyCart') as string;
+    const storedData = localStorage.getItem(keyProductsInCart) as string;
     listProductInCart = JSON.parse(storedData);
   }
 
