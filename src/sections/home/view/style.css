@@ -152,7 +152,7 @@
   flex-wrap: wrap;
 }
 
-.about-content {
+.about-content p{
   font-size: 2.8125rem;
   margin: 0px;
   margin-right: 0.5rem;
@@ -169,7 +169,7 @@
   color: #fff;
 }
 
-.mySwiper-about {
+/* .mySwiper-about {
   height: 620px;
 
   @media screen and (max-width: 767px) {
@@ -184,7 +184,7 @@
     height: 350px;
     border: none;
   }
-}
+} */
 
 .search-about-slide:hover .arrow-about-slide {
   transition: transform 0.3s ease-in-out;
@@ -279,7 +279,7 @@
     rgba(0, 0, 0, 0.05) 100%
   );
   border-radius: 1.875rem 0rem 0rem 1.875rem;
-
+  backdrop-filter: blur(2px);
   @media screen and (max-width: 767px) {
     border-radius: 8rem;
   }
@@ -288,7 +288,6 @@
 .card-item-action {
   border-radius: 2.5rem;
   border: 10px solid rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(2px);
 
   @media screen and (max-width: 767px) {
     border: none;
@@ -303,6 +302,9 @@
   }
 }
 
+.mySwiper-action .swiper-pagination {
+  bottom: -6px
+}
 .mySwiper-action .swiper-pagination-bullet {
   background: #fff;
   width: 12px;

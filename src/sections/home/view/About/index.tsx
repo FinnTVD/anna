@@ -2,6 +2,7 @@
 
 import { ICArrowTopRightActive } from '@/components/Icons/ICArrowTopRightActive';
 import ICLocation3 from '@/components/Icons/ICLocation3';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import SliceAbout from '@/sections/home/view/About/Slide';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -91,7 +92,7 @@ function AboutHome({ dataAbout }: IPropAbout) {
         className="w-full h-full z-[1] object-fill absolute top-0 left-0 rounded-t-[2.25rem] "
       />
       <div className="container relative z-10">
-        <div className="py-[6.67rem] md:py-24 flex justify-between flex-wrap">
+        <div className="py-[6.67rem] md:py-24 flex md:pb-[9rem] justify-between flex-wrap">
           <div className="w-full lg:w-1/2 px-4 md:px-[2rem] pt-10 about_paragraph">
             <h4 className="text-white text-[8.53333rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
@@ -102,22 +103,25 @@ function AboutHome({ dataAbout }: IPropAbout) {
               </div>
             </div>
           </div>
+
           <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10 relative">
             <div className=" md:sticky md:top-32">
-              <SliceAbout dataInfo={dataAbout?.info} />
-              <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
-                <p className="text-[4.48179rem] md:text-[1rem] font-extrabold text-white">
-                  TÌM KIẾM CỬA HÀNG GẦN BẠN
-                </p>
-                <div className="arrow-about-slide p-[0.5rem] bg-white rounded-full justify-start items-center gap-2.5 inline-flex">
-                  <ICArrowTopRightActive
-                    width={30}
-                    height={30}
-                    stroke="#F58F5D"
-                    fill="#F58F5D"
-                  />
+              <AspectRatio ratio={5 / 4}>
+                <SliceAbout dataInfo={dataAbout?.info} />
+                <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">
+                  <p className="text-[4.48179rem] md:text-[1rem] font-extrabold text-white">
+                    TÌM KIẾM CỬA HÀNG GẦN BẠN
+                  </p>
+                  <div className="arrow-about-slide p-[0.5rem] bg-white rounded-full justify-start items-center gap-2.5 inline-flex">
+                    <ICArrowTopRightActive
+                      width={30}
+                      height={30}
+                      stroke="#F58F5D"
+                      fill="#F58F5D"
+                    />
+                  </div>
                 </div>
-              </div>
+              </AspectRatio>
             </div>
           </div>
 

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
+    "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -36,8 +37,8 @@
     "clsx": "^2.0.0",
     "cmdk": "^0.2.0",
     "date-fns": "^2.30.0",
-    "lodash.map": "^4.6.0",
     "gsap": "file:gsap-bonus.tgz",
+    "lodash.map": "^4.6.0",
     "lucide-react": "^0.292.0",
     "next": "14.0.1",
     "next-auth": "^4.24.5",
