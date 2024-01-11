@@ -25,10 +25,21 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   const dataListCart =
     session !== null ? await fetchDataAuthen(bodyGetCart) : undefined;
 
+  // GET INFOR USER
+  const bodyGetInfoUser: any = {
+    url: `/wp-json/wp/v2/users/me`,
+    method: 'get',
+    token: session?.user.token,
+  };
+
+  const dataGetInforUser =
+    session !== null ? await fetchDataAuthen(bodyGetInfoUser) : undefined;
+
   return (
     <div>
-      <main className="mt-[9rem] max-md:mt-0">
+      <main className="max-md:mt-0">
         <Navbar
+          avatarUser={dataGetInforUser?.m_avatar}
           dataListCart={dataListCart}
           dataListProductHeader={dataListProductHeader}
         />

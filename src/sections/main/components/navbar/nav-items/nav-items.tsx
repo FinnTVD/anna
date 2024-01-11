@@ -12,29 +12,30 @@ import ICCart from '@/components/Icons/ICCart';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 import Link from 'next/link';
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
-import { useEffect, useState } from 'react';
-import ICUser from '@/components/Icons/ICUser';
+import React, { useContext, useState } from 'react';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { cn } from '@/lib/utils';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
-import { delayMenu, keyProductsInCart } from '@/configs/config';
+import { delayMenu } from '@/configs/config';
 import { HoverCardContent } from '@/components/ui-custom/hover-card-without-animate';
 import ICLocationComponent from '@/components/component-ui-custom/ic-location-component';
 import { useBoolean } from '@/hooks/use-boolean';
+import { ProductCartContext } from '@/context-provider';
+import Image from 'next/image';
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
+  avatarUser?: string;
 }
 function NavItems(props: IProps) {
-  const { dataProps } = props;
+  const { dataProps, avatarUser } = props;
+  const { listCartGlobal } = useContext(ProductCartContext);
 
   const isShowOverlay = useBoolean(false);
-
-  const [currentPositionScrollY, setCurrentPositionScrollY] =
-    useState<number>(0);
-  const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
+  // const [currentPositionScrollY, setCurrentPositionScrollY] =
+  //   useState<number>(0);
+  // const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
-  const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
 
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
@@ -53,30 +54,17 @@ function NavItems(props: IProps) {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const { scrollY } = window;
-      setCurrentPositionScrollY(scrollY);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', () => {
+  //     const { scrollY } = window;
+  //     setCurrentPositionScrollY(scrollY);
 
-      if (scrollY > currentPositionScrollY) {
-        setIsShowTopNav(false);
-      } else setIsShowTopNav(true);
-    });
-  }, [currentPositionScrollY]);
+  //     if (scrollY > currentPositionScrollY) {
+  //       setIsShowTopNav(false);
+  //     } else setIsShowTopNav(true);
+  //   });
+  // }, [currentPositionScrollY]);
 
-  useEffect(() => {
-    if (
-      typeof window !== 'undefined' &&
-      localStorage.getItem(keyProductsInCart) !== null
-    ) {
-      const listProduct: any = localStorage.getItem(keyProductsInCart);
-      const parseListProduct = JSON.parse(listProduct);
-
-      if (parseListProduct.length > 0) {
-        setNumberProductInCart(parseListProduct.length);
-      }
-    }
-  }, []);
   return (
     <nav className={` w-full py-[0.63rem]`}>
       <div className="navbar-container w-[87.5rem] mx-auto">
@@ -91,8 +79,7 @@ function NavItems(props: IProps) {
 
         <div
           className={cn(
-            'transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]',
-            isShowTopNav ? 'h-[1.9rem]' : 'h-[0rem]'
+            'transition-all duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem] h-[1.9rem]'
           )}
         >
           <span
@@ -125,13 +112,21 @@ function NavItems(props: IProps) {
             </span>
             <Link
               href="/list-product-dashboard"
-              className="h-full w-auto p-[0.25rem] ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#ACACAC]"
+              // className="h-full w-auto p-[0.25rem] ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#1D1D1D42] bg-[#1D1D1D42]"
+              className="h-full w-auto ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#ACACAC]"
             >
-              <ICUser width="1rem" height="1rem" />
+              <Image
+                src={avatarUser ?? '/img/no-avatar.png'}
+                height={31}
+                width={124}
+                className="w-[1.6rem] object-cover h-[1.6rem] rounded-full"
+                alt="Logo"
+              />
+              {/* <ICUser width="1rem" height="1rem" /> */}
             </Link>
           </div>
         </div>
-        <div className="h-[3.75rem] hover:border-[1px] border-[#ffffff69] bg-[#1d1d1d42] backdrop-blur-[12.5px] w-full flex items-center rounded-[6.25rem] px-[1.25rem]">
+        <div className="h-[3.75rem] hover:border-[1px] border-[#ffffff69] bg-[#1d1d1d57] backdrop-blur-[12.5px] w-full flex items-center rounded-[6.25rem] px-[1.25rem]">
           <Link href="/">
             <ICLogo fill="white" width="2.8125rem" height="2.5rem" />
           </Link>
@@ -241,7 +236,7 @@ function NavItems(props: IProps) {
                 closeDelay={delayMenu.closeDelay}
                 onOpenChange={(status: any) =>
                   status
-                    ? onOpenChangeDropdown('product')
+                    ? onOpenChangeDropdown('see-more')
                     : onMouseLeaveTabMenu()
                 }
               >
@@ -289,9 +284,7 @@ function NavItems(props: IProps) {
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
                 onOpenChange={(status: any) =>
-                  status
-                    ? onOpenChangeDropdown('product')
-                    : onMouseLeaveTabMenu()
+                  status ? onOpenChangeDropdown('cart') : onMouseLeaveTabMenu()
                 }
               >
                 <HoverCardTrigger asChild>
@@ -313,7 +306,7 @@ function NavItems(props: IProps) {
                         height="1.44581rem"
                       />
                       <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem] leading-[1.125rem]">
-                        {numberProductInCart}
+                        {listCartGlobal?.length}
                       </div>
                     </div>
                   </div>
@@ -327,7 +320,7 @@ function NavItems(props: IProps) {
                   className="w-[25.875rem] -mr-[1.5rem] relative rounded-[1.5rem]"
                 >
                   <DropdownCartHeader
-                    numberProductInCart={numberProductInCart}
+                    listCartGlobal={listCartGlobal}
                     // onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                   />
                   <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white" />

@@ -20,47 +20,39 @@ export function CartComponent(props: IProps) {
   const { dataProps, accessToken } = props;
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
-  useEffect(() => {
+  const handleTotalCart = (data: IItemCart[]): void => {
     let total = 0;
-    // if (dataProps) {
-    //   dataProps?.map(
-    //     // eslint-disable-next-line no-return-assign
-    //     (item) =>
-    //       (total +=
-    //         (item?.quantity ?? 0) * parseInt(item?.product_price ?? '0', 10))
-    //   );
-    // }
 
-    if (dataProps && dataProps?.length > 0) {
-      dataProps?.map(
-        // eslint-disable-next-line no-return-assign
-        (item) =>
-          (total +=
-            (item?.quantity ?? 0) * parseInt(item?.product_price ?? '0', 10))
-      );
-      setTotalPrice(total);
-    } else {
-      if (
-        typeof window !== 'undefined' &&
-        localStorage.getItem(keyProductsInCart) !== null
-      ) {
-        const storedData = localStorage.getItem(keyProductsInCart) as string;
-        const listDataLocalStorage = JSON.parse(storedData);
+    data?.map(
+      // eslint-disable-next-line no-return-assign
+      (item: any) =>
+        (total +=
+          (item?.quantity ?? 0) * parseInt(item?.product_price ?? '0', 10))
+    );
 
-        listDataLocalStorage?.map(
-          // eslint-disable-next-line no-return-assign
-          (item: any) =>
-            (total += (item?.quantity ?? 0) * parseInt(item?.price ?? '0', 10))
-        );
-        setTotalPrice(total);
-      }
+    setTotalPrice(total);
+  };
+
+  useEffect(() => {
+    if (
+      typeof window !== 'undefined' &&
+      localStorage.getItem(keyProductsInCart) !== null
+    ) {
+      const storedData = localStorage.getItem(keyProductsInCart) as string;
+      const listDataLocalStorage = JSON.parse(storedData);
+
+      handleTotalCart(listDataLocalStorage);
     }
-  }, [dataProps]);
+  }, []);
   return (
     <div className="cart-component mt-[2rem] flex justify-between max-md:flex-col">
       <BottomTabCart />
       <div className="w-3/4 max-md:w-full">
-        <TableCart dataProps={dataProps} accessToken={accessToken} />
+        <TableCart
+          handleTotalCart={handleTotalCart}
+          dataProps={dataProps}
+          accessToken={accessToken}
+        />
       </div>
 
       <div className="grow ml-[1rem] max-md:mt-[7.5rem] ">
@@ -74,19 +66,19 @@ export function CartComponent(props: IProps) {
               Tạm tính
             </div>
             <div className="text-black text-[1rem] font-bold not-italic leading-[1.5rem] max-md:text-[3.5rem] max-md:leading-[6.4rem]">
-              {formatCurrencyVND(totalPrice.toString())}đ
-            </div>
-          </div>
-          <div className="w-full px-[1.5rem] flex justify-between my-[0.9rem] max-md:px-[4.27rem] max-md:mb-[3rem]">
-            <div className="text-black text-[1rem] not-italic font-semibold leading-[1.5rem] max-md:text-[3.5rem] max-md:leading-[4.8rem]">
-              Phí vận chuyển
-            </div>
-            <div className="text-black text-[1rem] font-bold not-italic leading-[1.5rem] max-md:text-[3.5rem] max-md:leading-[6.4rem]">
-              40.000đ
+              {formatCurrencyVND(totalPrice.toString())}
             </div>
           </div>
           <hr />
-          <div className="w-full border-t-2 border-[#DADADA] border-dotted flex justify-center">
+          <div className="border-t-2 pt-[0.9rem] border-[#DADADA] border-dotted w-full px-[1.5rem] flex justify-between max-md:px-[4.27rem] max-md:mb-[3rem]">
+            <div className="text-black text-[1rem] not-italic font-semibold leading-[1.5rem] max-md:text-[3.5rem] max-md:leading-[4.8rem]">
+              Tổng
+            </div>
+            <div className="text-black text-[1rem] font-bold not-italic leading-[1.5rem] max-md:text-[3.5rem] max-md:leading-[6.4rem]">
+              {formatCurrencyVND(totalPrice.toString())}
+            </div>
+          </div>
+          <div className="w-full flex justify-center">
             <Link
               href="/thanh-toan"
               className="mt-[1.25rem] px-[2rem] py-[0.75rem] bg-[#55D5D2] rounded-[2.125rem] text-white text-[0.875rem] not-italic font-bold leading-[1.5rem] max-md:text-[3.2rem] max-md:leading-[5.6rem] max-md:px-[6.4rem] max-md:py-[2.93rem] max-md:mt-[6.5rem]"

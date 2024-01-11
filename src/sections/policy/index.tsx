@@ -1,124 +1,57 @@
 'use client';
 
-import { RHFInput } from '@/components/hook-form';
 import { baseUrl, fetchDataRest } from '@/lib/fetch-data-rest';
-import { zodResolver } from '@hookform/resolvers/zod';
+import SectionHome from '@/sections/home/view/SectionHome';
 import { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
 import useSWR from 'swr';
-import { z } from 'zod';
 import './style.css';
-import Link from 'next/link';
+import LoadingGlobal from '@/components/component-ui-custom/loading-global';
 
-interface BlogItemType {
-  content: string;
-  post_date: string;
-  post_id: string | number;
-  post_type: string;
-  thumbnail_url: string | boolean;
-  title: string;
+interface IPropPolicy {
+  slug: string;
 }
-const defaultValues = {
-  search: '',
-};
 
-const formSchema = z.object({
-  search: z.string(),
-});
-function Policy() {
+function Policy({ slug }: IPropPolicy) {
   const [dataPolicy, setDataPolicy] = useState(null) as any;
-  const [dataBlog, setDataBlog] = useState(null) as any;
-
+  const [isLoading, setIsLoading] = useState(true);
   const paramApi: any = {
     method: 'get',
-    urlPolicy: 'wp/v2/pages?slug=lien-he',
-    urlBlog: 'post/v1/posts',
+    urlPolicy: `wp/v2/pages?slug=${slug}`,
   };
   const getListPolicy = useSWR(`${baseUrl}${paramApi.urlPolicy}`, () =>
-    fetchDataRest(paramApi.method, paramApi.urlPolicy).then((res: any) =>
-      setDataPolicy(res[0])
-    )
+    fetchDataRest(paramApi.method, paramApi.urlPolicy).then((res: any) => {
+      setDataPolicy(res[0]);
+      setIsLoading(false);
+    })
   );
-  const getListBlog = useSWR(`${baseUrl}${paramApi.urlBlog}`, () =>
-    fetchDataRest(paramApi.method, paramApi.urlBlog).then((res: any) =>
-      setDataBlog(res)
-    )
-  );
+
   useEffect(() => {
     getListPolicy.mutate();
-    getListBlog.mutate();
   }, []);
 
-  const methods = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues,
-  });
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log('value: ', values);
-  };
-  const { handleSubmit } = methods;
   return (
-    <div className="md:max-w-[83.75rem] py-24 md:py-12 px-[5rem] md:px-0 m-auto">
-      <FormProvider {...methods}>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex justify-end mb-4 md:mb-2"
-        >
-          <div className="mr-8 md:mr-4">
-            <div className="flex justify-between">
-              <div className="w-full">
-                <RHFInput
-                  name="search"
-                  inputStyle="input-underline"
-                  placeholder="Tìm kiếm"
-                  className="w-full border border-stone-300 bg-[#FAFAFA] text-[3rem] md:text-base p-3"
-                />
-              </div>
-            </div>
-          </div>
-          <button
-            type="submit"
-            className="text-white p-6 md:p-[0.65rem] text-[3rem] md:text-[1.25rem] bg-[#81C8C2]"
-          >
-            Post Comments
-          </button>
-        </form>
-      </FormProvider>
-      <h4 className="text-black text-[3.5rem] md:text-2xl font-semibold  pb-10 md:pb-4">
-        Chính sách bảo hành
-      </h4>
-      <div className="flex justify-between flex-wrap">
-        <div
-          className="w-full md:w-2/3 policy-page"
-          dangerouslySetInnerHTML={{
-            __html: `${dataPolicy ? dataPolicy?.content?.rendered : ''}`,
-          }}
-        />
-        <div className="w-full md:w-1/3">
-          <div>
-            <h4 className="font-semibold text-[4.5rem] md:text-[2rem]">
-              Recent Posts
-            </h4>
-            <div className="flex flex-wrap">
-              {dataBlog?.map((data: BlogItemType, index: number) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="text-[4.5rem] md:text-[1.75rem] w-full py-6 md:py-2"
-                >
-                  {data?.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="mt-12 md:mt-8">
-            <h4 className="font-semibold text-[4.5rem] md:text-[2rem]">
-              Recent Comments
-            </h4>
-            <div className="flex flex-wrap" />
+    <div>
+      {isLoading ? (
+        <div className="flex justify-center policy py-24 md:py-12 mb-12">
+          {' '}
+          <LoadingGlobal stroke="#55D5D2" />
+        </div>
+      ) : (
+        <div className="container py-24 md:py-12 px-[5rem] md:px-4 m-auto">
+          <h4 className="text-black text-[7.5rem] md:text-2xl font-semibold pb-10 md:pb-4">
+            {dataPolicy?.title?.rendered}
+          </h4>
+          <div className="flex justify-between flex-wrap">
+            <div
+              className="w-full min-h-[300px] policy-page"
+              dangerouslySetInnerHTML={{
+                __html: `${dataPolicy ? dataPolicy?.content?.rendered : ''}`,
+              }}
+            />
           </div>
         </div>
-      </div>
+      )}
+      <SectionHome />
     </div>
   );
 }

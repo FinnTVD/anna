@@ -1,6 +1,6 @@
 import Navbar from '@/sections/main/components/navbar/navbar';
 import SidebarDashboardUser from '../../sections/dashboard-user/components/sidebar-dashboard-user';
-import { fetchDataAuthen } from '@/lib/post-data';
+import { fetchDataAuthen, postData } from '@/lib/post-data';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH_OPTIONS } from '@/configs/auth-option';
 
@@ -13,6 +13,13 @@ const MainLayout = async ({
 }) => {
   const session = await getServerSession(NEXT_AUTH_OPTIONS);
 
+  const bodyGetProductHeader: any = {
+    url: `wp-json/custom/v1/categories`,
+    method: 'get',
+  };
+
+  const dataListProductHeader = await postData(bodyGetProductHeader);
+
   // GET API cart
   const bodyGetCart: any = {
     url: `/wp-json/woocart/v1/cart`,
@@ -23,15 +30,32 @@ const MainLayout = async ({
   const dataListCart =
     session !== null ? await fetchDataAuthen(bodyGetCart) : undefined;
 
+  // GET INFOR USER
+  const bodyGetInfoUser: any = {
+    url: `/wp-json/wp/v2/users/me`,
+    method: 'get',
+    token: session?.user.token,
+  };
+
+  const dataGetInforUser =
+    session !== null ? await fetchDataAuthen(bodyGetInfoUser) : undefined;
+
   return (
     <div>
       <main className="bg-[#FAFAFA] mt-[9rem] max-md:mt-0 max-md:h-fit max-md:max-h-fit">
-        <Navbar dataListCart={dataListCart} />
+        <Navbar
+          avatarUser={dataGetInforUser?.m_avatar}
+          dataListCart={dataListCart}
+          dataListProductHeader={dataListProductHeader}
+        />
         <div className="h-[calc(100vh-4.5rem-9rem)] w-[87.5rem] mx-auto flex py-[2rem] max-h-full max-md:flex-col max-md:h-fit max-md:max-h-auto max-md:w-full max-md:px-[3rem]">
           <div className="w-1/3 h-full max-md:w-full">
-            <SidebarDashboardUser />
+            <SidebarDashboardUser
+              avatarUser={dataGetInforUser?.m_avatar}
+              userSession={session}
+            />
           </div>
-          <div className="grow py-[1.5rem] bg-white rounded-[1rem] ml-[1rem] mx-[2rem] max-md:px-[2.5rem] max-md:py-[4.5rem]">
+          <div className="w-2/3 py-[1.5rem] bg-white rounded-[1rem] ml-[1rem] max-md:w-full max-md:px-[2.5rem] max-md:py-[4.5rem]">
             <div className="overflow-y-auto h-full px-[2rem]">{children}</div>
           </div>
         </div>

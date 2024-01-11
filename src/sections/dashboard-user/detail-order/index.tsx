@@ -2,8 +2,16 @@ import React from 'react';
 import Image from 'next/image';
 import ICPhone from '@/components/Icons/ICPhone';
 import './style.css';
+import { formatCurrencyVND } from '@/ultils/format-price';
 
-function DetailOrder() {
+interface IProps {
+  dataGetDetailOrder?: any;
+}
+function DetailOrder(props: IProps) {
+  const { dataGetDetailOrder } = props;
+
+  console.log('dataGetDetailOrder', dataGetDetailOrder);
+
   const listProductIncar = [{}, {}, {}, {}];
   return (
     <div className="detail-order-dashboard">
@@ -16,13 +24,15 @@ function DetailOrder() {
             <div className="flex items-center max-md:hidden">
               <ICPhone stroke="black" height="1rem" width="1rem" />
               <h3 className="ml-[0.2rem] leading-[1.5rem] text-[0.875rem] not-italic font-medium max-md:text-[2.93333rem] max-md:leading-[3rem]">
-                03.07.2022, 10:01 AM
+                {/* 03.07.2022, 10:01 AM */}
+                {dataGetDetailOrder?.order?.date_created?.date}
               </h3>
             </div>
             <div className="items-center hidden max-md:flex ">
               <ICPhone stroke="black" height="3rem" width="3rem" />
               <h3 className="leading-[1.5rem] text-[0.875rem] not-italic font-medium max-md:text-[2.93333rem] max-md:leading-[3rem] ml-[2rem]">
-                03.07.2022, 10:01 AM
+                {/* 03.07.2022, 10:01 AM */}
+                {dataGetDetailOrder?.order?.date_created?.date}
               </h3>
             </div>
             <div className="flex max-md:mt-[2.13rem]">
@@ -30,13 +40,12 @@ function DetailOrder() {
                 Đơn hàng ID:{' '}
               </h3>
               <h3 className="ml-[0.2rem] leading-[1.5rem] text-[0.875rem] font-medium not-italic font-Nexa-Normal max-md:text-[2.93333rem] max-md:leading-[3rem] ">
-                {' '}
-                015
+                {dataGetDetailOrder?.order?.id}
               </h3>
             </div>
           </div>
           <div className="w-[6.25rem] h-[1.875rem] bg-[#D9F3E2] flex justify-center font-semibold items-center text-[0.75rem] not-italic rounded-[0.25rem] text-[#00AD3B] max-md:text-[2.999rem] max-md:h-[7rem] max-md:w-[15rem] max-md:rounded-[4rem]">
-            Đã giao
+            {dataGetDetailOrder?.order?.status}
           </div>
         </div>
         <div className="flex justify-between mt-[1.5rem]">
@@ -144,7 +153,7 @@ function DetailOrder() {
               Tổng tiền:
             </span>
             <span className="text-[0.875rem] font-semibold leading-[1.3125rem] font-Nexa-Medium not-italic max-md:text-[3.2rem] max-md:leading-[5.6rem]">
-              540.000 đ
+              {formatCurrencyVND(dataGetDetailOrder?.order?.total.toString())}
             </span>
           </div>
           <div className="mb-[0.3rem] flex justify-between">
@@ -160,7 +169,7 @@ function DetailOrder() {
               Phương thức thanh toán:
             </span>
             <span className="text-[0.875rem] leading-[1.3125rem] font-semibold not-italic max-md:text-[3.2rem] max-md:leading-[5.6rem]">
-              540.000 đ
+              {dataGetDetailOrder?.order?.payment_method_title}
             </span>
           </div>
           <hr className="bg-[#E5EAEA]" />
@@ -169,7 +178,7 @@ function DetailOrder() {
               Thành tiền:
             </span>
             <span className="text-[0.875rem] leading-[1.3125rem] font-extrabold not-italic max-md:text-[3.2rem] max-md:leading-[5.6rem]">
-              540.000 đ
+              {formatCurrencyVND(dataGetDetailOrder?.order?.total.toString())}
             </span>
           </div>
         </div>

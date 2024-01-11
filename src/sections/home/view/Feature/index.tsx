@@ -37,7 +37,7 @@ function Feature({ dataFeature }: IpropFeature) {
           ) => (
             <div
               key={index}
-              className={`feature-item cursor-pointer pt-[2.75rem] pb-[2.5rem] flex items-start md:items-center w-full justify-between md:max-w-[63rem] ${
+              className={`feature-item cursor-pointer pt-[2.75rem] pb-[2.5rem] flex items-start md:items-center w-full justify-between md:max-w-[63rem] relative before:absolute before:top-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#f58f5d] hover:before:w-full before:transition-all before:duration-500 before:z-10 before:-translate-y-full ${
                 index > 0
                   ? 'border-t-2 border-[#55D5D2]'
                   : 'border-t-2 border-[#55D5D2] md:border-[#fff]'

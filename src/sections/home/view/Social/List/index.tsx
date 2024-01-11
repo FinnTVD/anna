@@ -16,7 +16,7 @@ import IMGIg from '@/assets/images/ig.png';
 import IMGTiktok from '@/assets/images/tiktok.png';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Autoplay, Mousewheel, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 function ListSocial() {
@@ -40,8 +40,7 @@ function ListSocial() {
           },
         }}
         loop
-        mousewheel={true}
-        modules={[Navigation, Autoplay, Mousewheel]}
+        modules={[Navigation, Autoplay]}
         className="myTextEvent pl-[0rem] mx-[1rem]"
       >
         <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">

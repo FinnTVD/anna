@@ -4,7 +4,6 @@ import ICArrowDown from '@/components/Icons/ICArrowDown';
 import ICCart from '@/components/Icons/ICCart';
 import ICLogo from '@/components/Icons/ICLogo';
 import ICSearch from '@/components/Icons/ICSearch';
-import ICUser from '@/components/Icons/ICUser';
 import DropdownCartHeader from '@/components/component-ui-custom/dropdown-cart-header';
 import DropdownProductHeader from '@/components/component-ui-custom/dropdown-product-header';
 import DropdownSearchHeader from '@/components/component-ui-custom/dropdown-search-header';
@@ -18,29 +17,30 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { delayMenu, keyProductsInCart } from '@/configs/config';
+import { delayMenu } from '@/configs/config';
 import { useBoolean } from '@/hooks/use-boolean';
 import { IListProductMenuHeader } from '@/types/types-general';
 import { HoverCardArrow } from '@radix-ui/react-hover-card';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './style.css';
 import { cn } from '@/lib/utils';
+import { ProductCartContext } from '@/context-provider';
+import Image from 'next/image';
 
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
   styleNavbar: boolean;
+  avatarUser?: string;
 }
 function NavItems(props: IProps) {
-  const { dataProps, styleNavbar } = props;
+  const { dataProps, styleNavbar, avatarUser } = props;
   const menuMobile = useBoolean();
   const isShowOverlay = useBoolean(false);
+  const { listCartGlobal } = useContext(ProductCartContext);
 
-  const [currentPositionScrollY, setCurrentPositionScrollY] =
-    useState<number>(0);
-  const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
-  const [numberProductInCart, setNumberProductInCart] = useState<number>(0);
+
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
@@ -58,29 +58,18 @@ function NavItems(props: IProps) {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', () => {
-      const { scrollY } = window;
-      setCurrentPositionScrollY(scrollY);
-
-      if (scrollY > currentPositionScrollY) {
-        setIsShowTopNav(false);
-      } else setIsShowTopNav(true);
-    });
-  }, [currentPositionScrollY]);
-
-  useEffect(() => {
-    if (
-      typeof window !== 'undefined' &&
-      localStorage.getItem(keyProductsInCart) !== null
-    ) {
-      const listProduct: any = localStorage.getItem(keyProductsInCart);
-      const parseListProduct = JSON.parse(listProduct);
-      if (parseListProduct.length > 0) {
-        setNumberProductInCart(parseListProduct.length);
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (
+  //     typeof window !== 'undefined' &&
+  //     localStorage.getItem(keyProductsInCart) !== null
+  //   ) {
+  //     const listProduct: any = localStorage.getItem(keyProductsInCart);
+  //     const parseListProduct = JSON.parse(listProduct);
+  //     if (parseListProduct.length > 0) {
+  //       setNumberProductInCart(parseListProduct.length);
+  //     }
+  //   }
+  // }, []);
 
   return (
     <nav className="container">
@@ -93,9 +82,7 @@ function NavItems(props: IProps) {
         )}
       />
       <div
-        className={`${
-          isShowTopNav ? 'h-[1.84rem]' : 'h-[0rem]'
-        } transition-all  duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
+        className={`h-[1.84rem] transition-all duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
       >
         <span
           className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${
@@ -109,32 +96,38 @@ function NavItems(props: IProps) {
         <div className="flex items-center">
           <span
             className={`${
-              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
+              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1d1d1d75]'
             } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem]  font-bold rounded-[6.25rem] `}
           >
             Chính sách
           </span>
           <span
             className={`${
-              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1D1D1D42]'
+              styleNavbar ? 'bg-[#55D5D2]' : 'bg-[#1d1d1d75]'
             } text-white text-[0.875rem] not-italic leading-[1.3125rem] px-[0.88rem] py-[0.25rem] ml-[0.38rem] font-bold rounded-[6.25rem] `}
           >
             Tra cứu đơn hàng
           </span>
           <Link
             href="/list-product-dashboard"
-            className="h-full w-auto p-[0.25rem] ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#ACACAC]"
+            // className="h-full w-auto p-[0.25rem] ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#1D1D1D42] bg-[#1D1D1D42]"
+            className="h-full w-auto ml-[0.4rem] flex justify-center items-center rounded-full border-[1px] border-[#ACACAC]"
           >
-            <ICUser width="1rem" height="1rem" />
+            <Image
+              src={avatarUser ?? '/img/no-avatar.png'}
+              height={31}
+              width={124}
+              className="w-[1.6rem] object-cover h-[1.6rem] rounded-full"
+              alt="Logo"
+            />
+            {/* <ICUser width="1rem" height="1rem" /> */}
           </Link>
         </div>
       </div>
       <div
-        className={`${
-          styleNavbar ? 'bg-white border-2 border-[#55D5D2]' : 'bg-[#1D1D1D42]'
-        } ${
-          keyTabMenuActive !== null && 'border-navbar'
-        } h-[3.75rem] w-full flex items-center rounded-[6.25rem] px-[1.5rem]`}
+        className={`bg-[#1d1d1d75] ${
+          keyTabMenuActive !== null ? 'border-navbar' : ''
+        } h-[3.75rem] w-full flex items-center rounded-[6.25rem] px-[1.5rem] backdrop-blur-[12.5px]`}
       >
         <Link href="/">
           <ICLogo
@@ -255,11 +248,7 @@ function NavItems(props: IProps) {
                   onClick={menuMobile.onToggle}
                 >
                   <Input
-                    className={`${
-                      styleNavbar
-                        ? 'placeholder-[#4DC0BD]'
-                        : 'opacity-25	placeholder-[#fff]'
-                    }input-search px-[1.5rem] py-[0.75rem] w-full rounded-[1.25rem] placeholder:opacity: 0.75 bg-[#EEFBFB] border-[#EEFBFB] focus-visible:outline-0`}
+                    className={`placeholder-[#fff] placeholder:font-normal placeholder:opacity-75 input-search px-[1.5rem] py-[0.75rem] w-full rounded-[1.25rem] bg-[#EEFBFB]/20 border-[#EEFBFB]/20 focus-visible:outline-0 text-white`}
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
@@ -375,7 +364,7 @@ function NavItems(props: IProps) {
                     height="1.44581rem"
                   />
                   <div className="flex items-center justify-center absolute bottom-2.5 -right-1.5 bg-[#F58F5D] rounded-full w-[1.0625rem] h-[1.0625rem] font-bold not-italic text-[0.75rem] leading-[1.125rem]">
-                    {numberProductInCart}
+                    {listCartGlobal?.length}
                   </div>
                 </div>
               </HoverCardTrigger>
@@ -385,7 +374,7 @@ function NavItems(props: IProps) {
                 className="!w-[414px] mr-dropdown-menu rounded-[1.5rem]"
               >
                 <DropdownCartHeader
-                  numberProductInCart={numberProductInCart}
+                  listCartGlobal={listCartGlobal}
                   onMouseLeaveTabMenu={onMouseLeaveTabMenu}
                 />
                 <HoverCardArrow className="w-[1.625rem] h-[1.25rem] fill-white" />

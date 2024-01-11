@@ -27,9 +27,20 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   const dataListCart =
     session !== null ? await fetchDataAuthen(bodyGetCart) : undefined;
 
+  // GET INFOR USER
+  const bodyGetInfoUser: any = {
+    url: `/wp-json/wp/v2/users/me`,
+    method: 'get',
+    token: session?.user.token,
+  };
+
+  const dataGetInforUser =
+    session !== null ? await fetchDataAuthen(bodyGetInfoUser) : undefined;
+
   return (
     <div>
       <NavbarHome
+        avatarUser={dataGetInforUser?.m_avatar}
         dataListProductHeader={dataListProductHeader}
         dataListCart={dataListCart}
       />

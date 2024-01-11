@@ -1,16 +1,22 @@
+import Link from 'next/link';
 import React, { Dispatch, SetStateAction } from 'react';
 
 interface IPropsItem {
+  dataSystem: any;
   index: number;
   checkLocate: { index: number; link: string };
-  link: string;
   setCheckLocate: Dispatch<SetStateAction<{ index: number; link: string }>>;
 }
-function ItemStore({ index, setCheckLocate, checkLocate, link }: IPropsItem) {
+function ItemStore({
+  dataSystem,
+  index,
+  setCheckLocate,
+  checkLocate,
+}: IPropsItem) {
   const handleChangeMap = () => {
     setCheckLocate({
       index: index,
-      link: link,
+      link: dataSystem?.emble[0],
     });
   };
   return (
@@ -22,15 +28,19 @@ function ItemStore({ index, setCheckLocate, checkLocate, link }: IPropsItem) {
       onClick={handleChangeMap}
     >
       <h4 className="text-black text-[3.5rem] md:text-xl font-semibold">
-        VIẾT BÌNH LUẬN
+        {dataSystem?.title}
       </h4>
       <ul>
         <li className="text-[2.75rem] md:text-base">
-          224 Nam Kỳ Khởi Nghĩa, Tp Mỹ Tho, Tỉnh Tiền Giang
+          {dataSystem?.address[0]}
         </li>
-        <li className="text-[2.75rem] md:text-base">0987654321</li>
+        <li className="text-[2.75rem] md:text-base">{dataSystem?.phone}</li>
         <li className="text-[2.75rem] md:text-base">09:00 - 21:00</li>
-        <li className="text-[2.75rem] md:text-base">Gọi điện</li>
+        <li className="text-[2.75rem] md:text-base">
+          <Link href={`tel:${dataSystem?.phone}`} className="text-[#007bff]">
+            Gọi điện
+          </Link>
+        </li>
       </ul>
     </div>
   );

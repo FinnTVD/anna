@@ -38,4 +38,21 @@ const onError = () => {
   });
 };
 
-export { onSuccess, onError };
+const onErrorContact = (props: IProps) => {
+  toast('Thất bại!', {
+    duration: 1500,
+    description: props.message,
+    position: 'top-right',
+    style: {
+      color: 'red',
+      fontWeight: '800',
+      fontSize: '1.1rem',
+    },
+    action: {
+      label: 'Undo',
+      onClick: () => console.log('Undo'),
+    },
+  });
+};
+
+export { onSuccess, onError, onErrorContact };

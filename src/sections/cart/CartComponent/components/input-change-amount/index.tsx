@@ -5,17 +5,16 @@ import { IItemCart } from '@/types/types-general';
 
 interface IProps {
   dataItemCart?: IItemCart;
-  setListProductChangeAmount: Dispatch<SetStateAction<IItemCart[]>>;
-  listProductChangeAmount: IItemCart[];
+  setDataInit: Dispatch<SetStateAction<IItemCart[]>>;
+  dataInit: IItemCart[];
 }
 export function InputChangeAmount(props: IProps): React.JSX.Element {
-  const { dataItemCart, setListProductChangeAmount, listProductChangeAmount } =
-    props;
+  const { dataItemCart, setDataInit, dataInit } = props;
 
   const [quantityItem, setQuantityItem] = useState<any>(1);
 
   const handleChangeQuantityItem = (quantityChange: number): void => {
-    const arrayTmp = map(listProductChangeAmount, (item) => {
+    const arrayTmp = map(dataInit, (item) => {
       const newObject = {
         ...item,
         quantity:
@@ -26,7 +25,7 @@ export function InputChangeAmount(props: IProps): React.JSX.Element {
       return newObject;
     });
 
-    setListProductChangeAmount(arrayTmp);
+    setDataInit(arrayTmp);
   };
 
   const subQuantityProduct = (): void => {
@@ -45,8 +44,16 @@ export function InputChangeAmount(props: IProps): React.JSX.Element {
       10
     );
 
-    const check = valueConvert;
+    let check;
 
+    if (dataItemCart?.stock_quantity) {
+      check =
+        valueConvert > dataItemCart?.stock_quantity
+          ? dataItemCart?.stock_quantity
+          : valueConvert;
+    } else check = valueConvert;
+
+    handleChangeQuantityItem(check);
     setQuantityItem(Number.isNaN(check) ? 1 : check);
   };
 
@@ -68,7 +75,6 @@ export function InputChangeAmount(props: IProps): React.JSX.Element {
       <div className="quantity-product flex grow">
         <input
           type="text"
-          defaultValue={dataItemCart?.quantity}
           value={quantityItem}
           onChange={(value) => handleOnchangeQuantity(value)}
           // pattern="[0-9]/g*"

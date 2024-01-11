@@ -12,9 +12,15 @@ import { usePathname, useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 import { keyProductsInCart } from '@/configs/config';
 
-function SidebarDashboardUser() {
+interface IProps {
+  userSession?: any;
+  avatarUser?: string;
+}
+function SidebarDashboardUser(props: IProps) {
+  const { userSession, avatarUser } = props;
   const pathname = usePathname();
   const router = useRouter();
+
   const listTab = [
     {
       icon: <ICProduct width="1.25rem" height="1.25rem" fill="#414141" />,
@@ -51,17 +57,17 @@ function SidebarDashboardUser() {
   return (
     <div className="side-bar-dashboard-user h-full bg-white w-full flex flex-col items-center py-[3rem] px-[1rem] rounded-[1rem] max-md:w-full max-md:mb-[5.5rem] max-md:px-[5.8rem]">
       <Image
-        src="/img/no_image.jpg"
+        src={avatarUser ?? '/img/no-avatar.png'}
         height={31}
         width={124}
         className="w-[7.9375rem] object-cover h-[7.9375rem] rounded-full max-md:w-[34.133rem] max-md:h-[34.133rem]"
         alt="Logo"
       />
       <h3 className="font-Nexa-Bold font-semibold text-[1.875rem] not-italic my-[0.5rem] max-md:text-[8rem]">
-        Nguyen Minh Hung
+        {userSession?.user?.firstName}
       </h3>
       <p className="font-medium text-[1rem] max-md:text-[4.267rem]">
-        hungnm.17k2@gmail.com
+        {userSession?.user?.email}
       </p>
       <div className="h-[1px] my-[1.5rem] bg-[#00000026] w-3/4 mx-[4rem] max-md:w-full max-md:my-[6rem]" />
       <div className="w-[57%] h-[15rem] max-md:w-full max-md:h-auto">
@@ -84,6 +90,7 @@ function SidebarDashboardUser() {
           </Link>
         ))}
         <div
+          role="button"
           className="item-memu-sidebar cursor-pointer mb-[0.2rem] flex items-center py-[0.3rem] rounded-[0.4rem] transition-all duration-150 max-md:mb-[4rem]"
           onClick={handleSignOut}
         >

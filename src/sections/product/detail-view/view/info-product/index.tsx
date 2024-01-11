@@ -210,7 +210,7 @@ function InfoProduct(props: IProps) {
             >
               -
             </div>
-            <div className="quantity-product flex grow">
+            <div className="quantity-product flex grow border-x-[0.0625rem] border-x-[#454545] border-opacity-10">
               <input
                 type="text"
                 // pattern="[0-9]/g*"
@@ -246,7 +246,7 @@ function InfoProduct(props: IProps) {
               <div className="hidden max-md:block mr-[2.67rem] ml-[5.33rem]">
                 <ICBag />
               </div>
-              <p className="max-lg:mr-[0.49rem] text-[1rem] not-italic font-extrabold leading-[1.4rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] pb-[0rem] mb-[0rem]">
+              <p className="max-lg:mr-[0.49rem] text-[1rem] mb-0 pb-0 not-italic font-extrabold leading-[1.4rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] pb-[0rem] mb-[0rem]">
                 Thêm vào giỏ
               </p>
             </div>
@@ -271,8 +271,10 @@ function InfoProduct(props: IProps) {
               >
                 <circle cx="2" cy="2" r="2" fill="#CAF2F1" />
               </svg>
-              <p className="title-add-cart text-[1rem] not-italic font-extrabold leading-[1.4rem] ml-[0.62rem] max-md:ml-[2.67rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:font-extrabold max-md:mr-[5.33rem]">
-                {priceProduct * dataProductSubmit.quantityProduct}
+              <p className="title-add-cart text-[1rem] mb-0 pb-0 not-italic font-extrabold leading-[1.4rem] ml-[0.62rem] max-md:ml-[2.67rem] max-md:text-[4.26667rem] max-md:leading-[5.97333rem] max-md:font-extrabold max-md:mr-[5.33rem]">
+                {formatCurrencyVND(
+                  (priceProduct * dataProductSubmit.quantityProduct).toString()
+                )}
               </p>
             </div>
           </button>
@@ -382,7 +384,7 @@ function InfoProduct(props: IProps) {
             </div>
             <div ref={refTranform} className="absolute left-0">
               {apiTransport?.data && (
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: `${apiTransport?.data[0].content.rendered}`,
                   }}
@@ -427,7 +429,7 @@ function InfoProduct(props: IProps) {
             </div>
             <div ref={refReturnInfo} className="absolute left-0">
               {apiReturnProduct?.data && (
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: `${apiReturnProduct?.data[0]?.content.rendered}`,
                   }}

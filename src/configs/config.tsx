@@ -1,6 +1,6 @@
 const delayMenu = {
-  openDelay: 700,
-  closeDelay: 200,
+  openDelay: 300,
+  closeDelay: 300,
 };
 
 const keyProductsInCart = 'listMyCart';

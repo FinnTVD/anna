@@ -1,3 +1,7 @@
+.policy svg {
+  width: 10rem;
+  height: 10rem;
+}
 .policy-page ul {
   list-style-type: disc;
   margin: 1.5em 0 1.5em 3em;
@@ -13,6 +17,9 @@
     font-size: 4.25rem;
     font-size: 4rem;
   }
+}
+.policy-page p {
+  padding-bottom: 1.5rem;
 }
 .policy-page p a,
 .policy-page p,

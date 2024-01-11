@@ -74,7 +74,6 @@ export function Register() {
         message: 'Login failed!',
       });
     }
-    console.log(values);
   };
 
   const handleLoginByFaceBook = () => {

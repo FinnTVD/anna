@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import Payment from '@/sections/payment';
 import map from 'lodash.map';
 

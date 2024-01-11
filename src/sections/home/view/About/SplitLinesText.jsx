@@ -1,6 +1,6 @@
 'use client';
 
-import { gsap } from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 import { SplitText } from 'gsap/SplitText';
 import { useEffect, useRef, useState } from 'react';
 import ClipPathText from './ClipPathText';
