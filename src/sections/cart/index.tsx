@@ -26,13 +26,13 @@ export default function Cart(props: IProps) {
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
-      <div className="relative bg-banner-about-us bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
+      <div className="relative bg-banner-about-us bg-cover bg-no-repeat h-[42.6875rem] max-md:h-[36.25rem]">
         <Image
           src="/img/about-us/bg-banner-about-us.jpg"
-          width={100}
-          height={32}
+          width={1600}
+          height={1000}
           alt="banner cart"
-          className="w-full h-full"
+          className="w-full h-full object-fill"
         />
         <div className="absolute bottom-20 left-[8rem]">
           <h1 className="text-white text-[3.125rem] leading-[4.6875rem] font-semibold font-sans not-italic max-md:font-bold max-md:text-[4.8rem] max-md:leading-[7.2rem]">

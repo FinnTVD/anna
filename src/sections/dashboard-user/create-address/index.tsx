@@ -1,10 +1,19 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { listInputGlobal } from '@/types/types-general';
 
-function CreateAddress() {
+interface IProps {
+  dataDetailAddress?: any;
+}
+function CreateAddress(props: IProps) {
+  const { dataDetailAddress } = props;
+
+  const [dataDetailAddressInit, setDataDetailAddressInit] = useState<any>({});
+
+  console.log('dataDetailAddressInit', dataDetailAddressInit);
+
   const {
     register,
     // formState: { errors },
@@ -61,6 +70,9 @@ function CreateAddress() {
     },
   ];
 
+  useEffect(() => {
+    setDataDetailAddressInit(dataDetailAddress);
+  }, [dataDetailAddress]);
   return (
     <div>
       <h3 className="text-[1.5rem] font-bold leading-[1.5rem] max-md:text-[5rem] max-md:leading-[5rem] max-md:pb-[3rem]">

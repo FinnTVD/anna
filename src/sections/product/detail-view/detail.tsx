@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import ImageProduct from '@/sections/product/detail-view/view/image-product';
 import InfoProduct from '@/sections/product/detail-view/view/info-product';
 import RecommendProduct from '@/sections/product/detail-view/view/recommend-product';
@@ -21,6 +21,7 @@ import Image from 'next/image';
 import { keyProductsInCart } from '@/configs/config';
 import map from 'lodash.map';
 import { onSuccess } from '@/ultils/notification';
+import { ProductCartContext } from '@/context-provider';
 
 interface IProps {
   slug: string;
@@ -46,7 +47,6 @@ function ProductDetail({
 }: IProps) {
   const refHeightProductInfo = useRef<any>();
   const [isShowItemProduct, setIsShowItemProduct] = useState<boolean>(false);
-
   const [dataInit, setDatainit] = useState(dataInitDetail);
   const [colorGetDetail, setColorGetDetail] = useState<number | string | null>(
     null
@@ -56,7 +56,7 @@ function ProductDetail({
   );
   const [isLoadingAddToCart, setIsLoadingAddToCart] = useState<boolean>(false);
 
-  // console.log('dataListSimilarGlasses', dataListSimilarGlasses);
+  const { handleChangeDataGlobal } = useContext<any>(ProductCartContext);
 
   const bodyApi: IPostData = {
     url: `wp-json/custom/v1/products-by-slug/${slug}`,
@@ -107,6 +107,9 @@ function ProductDetail({
 
       newArray.push(ItemAddToCard);
 
+      // add product in context
+      handleChangeDataGlobal(newArray);
+
       if (typeof window !== 'undefined') {
         localStorage.setItem(keyProductsInCart, JSON.stringify(newArray));
       }
@@ -153,6 +156,9 @@ function ProductDetail({
       if (findItemAvailable.length === 0) {
         newList.push(newObjectDoNotAvailable);
       }
+
+      // add product in context
+      handleChangeDataGlobal(newList);
 
       // eslint-disable-next-line no-unused-expressions
       typeof window !== 'undefined' &&
@@ -216,7 +222,7 @@ function ProductDetail({
   }, []);
 
   return (
-    <div className="pt-[3.41rem] detail-product-container">
+    <div className="pt-[12rem] detail-product-container">
       <div className="fixed -left-[15.25rem] -top-[16rem] -z-20">
         <Image
           height={200}

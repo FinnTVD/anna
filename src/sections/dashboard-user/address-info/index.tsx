@@ -1,9 +1,17 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import ICEdit from '@/components/Icons/ICEdit';
 import ICDelete from '@/components/Icons/ICDelete';
 
-function AddressInfo() {
+interface IProps {
+  dataListAddress?: any;
+}
+function AddressInfo(props: IProps) {
+  const { dataListAddress } = props;
+
+  console.log('dataListAddress', dataListAddress);
   const list = [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
   return (
     <div className="h-full pt-[0.5rem]">

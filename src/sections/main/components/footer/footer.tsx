@@ -114,23 +114,23 @@ function Footer() {
         <div className="footer-layout">
           <div className="footer-left">
             <h3 className="title-anna">ANNA</h3>
-            <h4 className="description-anna">
+            <h4 className="description-anna lg:!w-[18.875rem]">
               THƯƠNG HIỆU KÍNH MẮT CỦA SỰ TỬ TẾ
             </h4>
             <p>Đăng kí để nhận tin mới nhất</p>
-            <div className="relative input-search">
+            <form className="relative input-search">
               <Input
-                className="input-email outline-0"
+                className="input-email outline-0 placeholder:!pl-0 lg:pl-[1.25rem] text-[1rem] font-bold leading-normal text-[#55D5D2]"
                 type="text"
                 placeholder="Để lại email của bạn"
               />
-              <div className="icon-arrow-input">
+              <button className="icon-arrow-input">
                 <ICArrowTopLeft height="2rem" width="1.99981rem" />
-              </div>
-              <div className="icon-arrow-input-mobile">
+              </button>
+              <button className="icon-arrow-input-mobile">
                 <ICArrowTopLeft height="4.73333rem" width="4.73333rem" />
-              </div>
-            </div>
+              </button>
+            </form>
             <div className="list-icon-footer-left">
               {listIcon.map((item, index) => (
                 <div key={index} className="mr-[2rem]">
@@ -142,12 +142,12 @@ function Footer() {
           <div className="footer-right">
             <div className="footer-info-row">
               <div className="footer-info-row-left">
-                <p className="title">SẢN PHẨM</p>
+                <p className="title !font-bold">SẢN PHẨM</p>
                 <ul>
                   {listProduct.map((item: any, index) => (
                     <li
                       key={index}
-                      className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                      className="text-white text-[1.125rem] font-bold not-italic leading-6"
                     >
                       {item.title}
                     </li>
@@ -155,12 +155,12 @@ function Footer() {
                 </ul>
               </div>
               <div className="footer-info-row-right">
-                <p className="title">THÔNG TIN LIÊN HỆ</p>
+                <p className="title !font-bold">THÔNG TIN LIÊN HỆ</p>
                 <ul>
                   {listContact.map((item: any, index) => (
                     <li
                       key={index}
-                      className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                      className="text-white text-[1.125rem] font-bold not-italic leading-6"
                     >
                       {item.title}
                     </li>
@@ -170,12 +170,12 @@ function Footer() {
             </div>
             <div className="footer-info-row mt-[2.62rem]">
               <div className="footer-info-row-left">
-                <p className="title">CHÍNH SÁCH MUA HÀNG</p>
+                <p className="title !font-bold">CHÍNH SÁCH MUA HÀNG</p>
                 <ul>
                   {listPolicy.map((item: any, index) => (
                     <li
                       key={index}
-                      className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                      className="text-white text-[1.125rem] font-bold not-italic leading-6"
                     >
                       {item.title}
                     </li>
@@ -225,7 +225,7 @@ function Footer() {
             </div>
           </div>
 
-          <div className="hidden max-md:flex text-white text-[1.125rem] font-extrabold not-italic leading-6 items-center mt-[2rem]">
+          <div className="hidden max-md:flex text-white text-[1.125rem] font-bold not-italic leading-6 items-center mt-[2rem]">
             <div className="mr-[2rem]">
               <ICEmail />
             </div>
@@ -241,7 +241,7 @@ function Footer() {
               {listContactMobile.map((item: any, index) => (
                 <li
                   key={index}
-                  className="text-white text-[1.125rem] font-extrabold not-italic leading-6"
+                  className="text-white text-[1.125rem] font-bold not-italic leading-6"
                 >
                   {item.icon && <div className="mr-[2rem]">{item.icon}</div>}
 
@@ -259,7 +259,7 @@ function Footer() {
           </div>
         </div>
         <hr className="mt-[2.5rem]" />
-        <div className="text-author">
+        <div className="text-author !font-medium">
           <span>Anna © 2018 - 2023. Design by OKHUB Viet Nam</span>
         </div>
       </div>

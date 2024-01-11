@@ -9,6 +9,16 @@
     font-size: 4rem !important;
   }
 }
+.select-system button {
+  @media screen and (max-width: 767px) {
+    height: 100%;
+    font-size: 4rem;
+  }
+}
+.map-locate iframe {
+  height: 100%;
+  width: 100%;
+}
 .select-system select option {
   @media screen and (max-width: 767px) {
     font-size: 4rem !important;
@@ -27,4 +37,9 @@
 .style-scroll::-webkit-scrollbar-thumb {
   border-radius: 20px;
   background-color: #000000;
+}
+
+.loading svg {
+  height: 5rem;
+  width: 5rem;
 }

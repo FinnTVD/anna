@@ -90,7 +90,7 @@ const NewCollection = async () => {
       <div className="px-4">
         <Link
           href="/cua-hang"
-          className="hidden md:inline-flex collect-more w-full mt-11 mb-[7.5rem] h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5"
+          className="hidden md:inline-flex collect-more w-full mt-11 mb-[7.5rem] h-[58px] px-[30px] py-[17px] rounded-[50px] border-2 border-teal-300 justify-center items-center gap-2.5 hover:border-[#f58f5d] transition-all duration-200"
         >
           <div className="collect-title text-center text-[#55D5D2] text-[4.8rem] md:text-lg font-extrabold md:leading-[1.4625rem] leading-normal">
             XEM THÊM GỌNG KÍNH

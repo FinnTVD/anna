@@ -76,10 +76,10 @@
   }
 }
 
-.feature-item:hover {
+/* .feature-item:hover {
   border-top: 1px solid #f58f5d;
   transition: transform 0.2s ease-in;
-}
+} */
 
 .feature-item:hover svg path {
   fill: #f58f5d;
@@ -112,7 +112,7 @@
 }
 
 .collect-more:hover rect {
-  fill: #55c3c4;
+  fill: #f58f5d;
 }
 
 .arrow-product-slide svg path {
@@ -152,7 +152,7 @@
   flex-wrap: wrap;
 }
 
-.about-content p{
+.about-content p {
   font-size: 2.8125rem;
   margin: 0px;
   margin-right: 0.5rem;
@@ -303,7 +303,7 @@
 }
 
 .mySwiper-action .swiper-pagination {
-  bottom: -6px
+  bottom: -6px;
 }
 .mySwiper-action .swiper-pagination-bullet {
   background: #fff;

@@ -8,11 +8,11 @@ import { keyProductsInCart } from '@/configs/config';
 
 interface IProps {
   onMouseLeaveTabMenu?: () => void;
-  numberProductInCart: number;
+  listCartGlobal: any;
 }
 
 function DropdownCartHeader(props: IProps) {
-  const { onMouseLeaveTabMenu, numberProductInCart } = props;
+  const { onMouseLeaveTabMenu, listCartGlobal } = props;
   let listProductInCart = [];
 
   if (
@@ -32,7 +32,7 @@ function DropdownCartHeader(props: IProps) {
               Giỏ hàng
             </span>
             <div className="h-[1.0625rem] w-[1.0625rem] rounded-full bg-[#F58F5D] flex justify-center items-center text-[0.75rem] not-italic leading-[1.125rem] font-bold">
-              {numberProductInCart}
+              {listCartGlobal?.length}
             </div>
           </div>
           <Link
@@ -44,8 +44,8 @@ function DropdownCartHeader(props: IProps) {
           </Link>
         </div>
         <div className="max-h-[30rem] overflow-y-auto mb-[1rem]">
-          {listProductInCart.length > 0 ? (
-            map(listProductInCart, (item: any, index: number) => (
+          {listCartGlobal && listCartGlobal.length > 0 ? (
+            map(listCartGlobal, (item: any, index: number) => (
               <div
                 key={index}
                 className="flex pb-[1.25rem] border-b-2 border-[#8258282] mb-[1.25rem]"
@@ -77,10 +77,15 @@ function DropdownCartHeader(props: IProps) {
                     </span>
                   </div>
                   <div className="flex items-center">
-                    <span className="mr-[0.62rem] text-[1.125rem] text-[#55D5D2] not-italic font-extrabold leading-[1.35rem]">
-                      {item?.product_price &&
-                        formatCurrencyVND(item.product_price.toString())}
-                    </span>
+                    <div className="mr-[0.62rem] text-[1.125rem] text-[#55D5D2] not-italic font-extrabold leading-[1.35rem]">
+                      <span className="mr-[0.5rem] text-[1rem]">
+                        {item?.quantity} x
+                      </span>
+                      <span>
+                        {item?.product_price &&
+                          formatCurrencyVND(item.product_price.toString())}
+                      </span>
+                    </div>
                     <span className="text-[0.875rem] not-italic font-normal leading-[1.05rem] line-through">
                       {/* {formatCurrencyVND(item.salePrice.toString())} */}
                     </span>

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
+import { ContextProvider } from '@/context-provider';
+import Head from 'next/head';
 
 // const lato = Lato({
 //   subsets: ['latin'],
@@ -21,11 +23,6 @@ export const viewport = {
 
 const fontNexa = localFont({
   src: [
-    {
-      path: '../assets/fonts/SVN-Nexa-Thin.otf',
-      weight: '400',
-      style: 'normal',
-    },
     {
       path: '../assets/fonts/SVN-Nexa-Thin.otf',
       weight: '400',
@@ -62,7 +59,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fontNexa.variable}>{children}</body>
+      <Head>
+        <title>Next App</title>
+        <link rel="icon" type="image/png" href="/favicon.ico" />
+      </Head>
+      <body className={fontNexa.variable}>
+        <ContextProvider>{children}</ContextProvider>
+      </body>
     </html>
   );
 }

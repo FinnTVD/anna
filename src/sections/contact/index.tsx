@@ -1,7 +1,7 @@
 'use client';
 
 import { RHFInput } from '@/components/hook-form';
-import { baseUrl, fetchDataRest } from '@/lib/fetch-data-rest';
+import { baseUrl, fetchDataRest, postDataBase } from '@/lib/fetch-data-rest';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -14,6 +14,8 @@ import './style.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TextareaUnderline } from '@/components/ui/textarea-underline';
+import { onErrorContact, onSuccess } from '@/ultils/notification';
+import SectionHome from '@/sections/home/view/SectionHome';
 
 const defaultValues = {
   title: '',
@@ -36,12 +38,11 @@ function Contact() {
 
   const paramApi: any = {
     method: 'get',
-    urlContact: 'wp/v2/pages?slug=lien-he',
-    urlBlog: 'post/v1/posts',
+    urlContact: 'acf/v3/posts/379?_fields=acf',
   };
   const getListContact = useSWR(`${baseUrl}${paramApi.urlContact}`, () =>
     fetchDataRest(paramApi.method, paramApi.urlContact).then((res: any) =>
-      setDataContact(res[0])
+      setDataContact(res)
     )
   );
 
@@ -55,9 +56,37 @@ function Contact() {
   });
   const { handleSubmit } = methods;
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log('value: ', values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const param = {
+      name: values?.username,
+      email: values?.email,
+      tel: values?.phone,
+      subject: values?.title,
+      message: message,
+    };
+    try {
+      await postDataBase({
+        url: 'custom-feedback/v1/submit',
+        body: JSON.stringify(param),
+      });
+      onSuccess({
+        message: 'Gửi thông tin thành công!',
+      });
+    } catch (error: any) {
+      if (error?.message) {
+        onErrorContact({
+          message:
+            'Gửi thông tin thất bại! Kiểm tra lại email và các thông tin khác',
+        });
+        return;
+      }
+      onErrorContact({
+        message:
+          'Gửi thông tin thất bại! Kiểm tra lại email và các thông tin khác',
+      });
+    }
   };
+
   const handleMessage = (e: any) => {
     setMessage(e?.target?.value);
   };
@@ -69,7 +98,7 @@ function Contact() {
             Liên hệ
           </h4>
           <p className="py-[1.375rem] text-[3.25rem] md:text-base text-white max-sm:pt-20">
-            Quý khách sẽ trở thành Khách hàng thân thiết của GUMAC ngay sau khi
+            Quý khách sẽ trở thành Khách hàng thân thiết của Anna ngay sau khi
             mua sản phẩm bất kỳ
           </p>
           <ul className="max-sm:pt-20">
@@ -81,7 +110,7 @@ function Contact() {
                 href="#"
                 className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base"
               >
-                http://m.me/gumacfashion
+                {dataContact?.acf?.chat}
               </Link>
             </li>
             <li className="flex flex-wrap py-2">
@@ -89,7 +118,7 @@ function Contact() {
                 Email
               </p>
               <p className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base">
-                cskh@gumac.vn
+                {dataContact?.acf?.email}
               </p>
             </li>
             <li className="flex flex-wrap py-2">
@@ -97,7 +126,7 @@ function Contact() {
                 Hotline
               </p>
               <p className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base">
-                1800 6013 (miễn phí cước gọi)
+                {dataContact?.acf?.hotline} (miễn phí cước gọi)
               </p>
             </li>
             <li className="flex flex-wrap py-2">
@@ -108,7 +137,7 @@ function Contact() {
                 href="#"
                 className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base"
               >
-                https://www.facebook.com/gumacfashion
+                {dataContact?.acf?.fanpage}
               </Link>
             </li>
             <li className="flex flex-wrap py-2">
@@ -119,7 +148,7 @@ function Contact() {
                 href="#"
                 className="w-2/3 text-[#AEC1C8] text-[3.5rem] line-clamp-1 md:text-base"
               >
-                https://gumac.vn
+                {dataContact?.acf?.website}
               </Link>
             </li>
             <li className="flex flex-wrap py-2">
@@ -127,7 +156,7 @@ function Contact() {
                 Giờ làm việc
               </p>
               <p className="w-2/3 text-[#AEC1C8] text-[3.5rem] md:text-base">
-                Thứ 2 - Chủ nhật: 8h-20h. Ngày lễ: 8h-17h.
+                {dataContact?.acf?.time}
               </p>
             </li>
           </ul>
@@ -219,6 +248,7 @@ function Contact() {
           </div>
         </div>
       </div>
+      <SectionHome />
     </div>
   );
 }

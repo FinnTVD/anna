@@ -14,21 +14,26 @@ import { keyProductsInCart } from '@/configs/config';
 interface IProps {
   dataListProductHeader?: IListProductMenuHeader[];
   dataListCart?: any;
+  avatarUser?: string;
 }
 
 function NavbarHome(props: IProps) {
-  const { dataListProductHeader, dataListCart } = props;
+  const { dataListProductHeader, dataListCart, avatarUser } = props;
+  const [currentPositionScrollY, setCurrentPositionScrollY] =
+    useState<number>(0);
 
   const [styleNavbar, setStyleNavbar] = useState(false);
-  if (typeof window !== 'undefined') {
-    window?.addEventListener('scroll', function scrolled() {
-      if (window.scrollY >= 300) {
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const { scrollY } = window;
+      setCurrentPositionScrollY(scrollY);
+      if (scrollY > currentPositionScrollY && window.scrollY >= 300) {
         setStyleNavbar(true);
       } else {
         setStyleNavbar(false);
       }
     });
-  }
+  }, [currentPositionScrollY]);
 
   useEffect(() => {
     if (dataListCart) {
@@ -41,13 +46,14 @@ function NavbarHome(props: IProps) {
       {/* <Logo /> */}
       <div
         className={cn(
-          `flex justify-between w-full py-[6px] py-6 fixed top-[0px] z-50 max-md:hidden navbar-home ${
-            styleNavbar ? 'bg-white' : ''
+          `flex justify-between w-full py-6 fixed top-0 z-50 max-md:hidden navbar-home transition-all duration-500 ${
+            styleNavbar ? '-translate-y-[110%]' : ''
           }`
         )}
       >
         <NavItems
-          styleNavbar={styleNavbar}
+          avatarUser={avatarUser}
+          styleNavbar={false}
           dataProps={dataListProductHeader ?? []}
         />
         <div className="mt-5 max-md:mt-1" />

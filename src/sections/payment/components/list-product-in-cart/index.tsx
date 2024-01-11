@@ -55,7 +55,7 @@ export default function ListProductInCart() {
           name="input"
           onChange={(val: any) => handleUpdate(val.target.value)}
           placeholder="Nhập mã giảm giá"
-          className="px-[1rem] border-2 border-[#EAEAEA] outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[0.8rem] h-[3.43rem]  w-[80%] text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[3.733rem] max-md:w-[70%]"
+          className="px-[1rem] border-2 border-[#EAEAEA] font-medium outline-[#EAEAEA] focus:outline-[#55D5D2] focus:border-[#55D5D2] rounded-[0.8rem] h-[3.43rem]  w-[80%] text-[1rem] transition-all duration-100 ease-linear max-md:h-[10rem] max-md:text-[3.733rem] max-md:w-[70%]"
         />
         <Button
           type="submit"

@@ -14,10 +14,13 @@ import { useEffect, useState } from 'react';
 import { undefined } from 'zod';
 import map from 'lodash.map';
 import { keyProductsInCart } from '@/configs/config';
+import { fetchDataAuthen } from '@/lib/post-data';
+import { onError, onSuccess } from '@/ultils/notification';
+import { useRouter } from 'next/navigation';
 
 interface IProps {
   listProvinceConvert?: IItemProvinceConvert[];
-  voucher: string;
+  voucher: any;
 }
 
 interface IParamItemDistrict {
@@ -31,6 +34,7 @@ interface IParamSearchArea {
 }
 export default function FormPayment(props: IProps) {
   const { listProvinceConvert, voucher } = props;
+  const router = useRouter();
 
   const [paramSearchArea, setParamSearchArea] = useState<IParamSearchArea>({
     district: '',
@@ -50,13 +54,12 @@ export default function FormPayment(props: IProps) {
   ]);
   const [dataSubmit, setDataSubmit] = useState({});
 
-  console.log('dataSubmit', dataSubmit);
-
   const {
     register,
     formState: { errors },
     handleSubmit,
     setValue,
+    reset,
   } = useForm();
 
   const handleFindLabelByValue = (value: string, data: any) => {
@@ -65,7 +68,7 @@ export default function FormPayment(props: IProps) {
     return findObject[0].label;
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     // list product
     const arrayProduct: any = [];
     if (
@@ -77,6 +80,7 @@ export default function FormPayment(props: IProps) {
 
       map(tmpArray, (item) =>
         arrayProduct.push({
+          cart_key: item.key,
           product_id: item.product_id,
           quantity: item.quantity,
         })
@@ -103,7 +107,21 @@ export default function FormPayment(props: IProps) {
       products: arrayProduct,
     });
 
-    alert(JSON.stringify(dataSubmitTmp));
+    try {
+      await fetchDataAuthen({
+        url: 'wp-json/custom/v1/create-order',
+        method: 'post',
+        body: JSON.stringify(dataSubmitTmp),
+      }).then(() => {
+        onSuccess({
+          message: 'Đặt hàng thành công!',
+        });
+        reset();
+        router.push('/cua-hang');
+      });
+    } catch (error: any) {
+      onError();
+    }
   };
 
   const handleOnChangeArea = (key: string, value: string): void => {

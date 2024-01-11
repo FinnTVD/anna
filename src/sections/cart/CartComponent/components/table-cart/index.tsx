@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Checkbox } from '@/components/ui/checkbox';
 import Image from 'next/image';
 import './style.css';
@@ -16,20 +16,30 @@ import { fetchDataAuthen } from '@/lib/post-data';
 import { onError, onSuccess } from '@/ultils/notification';
 import LoadingGlobal from '@/components/component-ui-custom/loading-global';
 import { cn } from '@/lib/utils';
+import { ProductCartContext } from '@/context-provider';
 
 interface IProps {
   dataProps?: IItemCart[];
   accessToken?: string;
+  handleTotalCart: (data: IItemCart[]) => void;
+}
+
+interface ILoading {
+  isLoadingDelete: boolean;
+  isLoadingUpdate: boolean;
 }
 
 export function TableCart(props: IProps) {
-  const { dataProps, accessToken } = props;
+  const { dataProps, accessToken, handleTotalCart } = props;
+
+  const { handleChangeDataGlobal } = useContext<any>(ProductCartContext);
+
   const [dataInit, setDataInit] = useState<IItemCart[]>([]);
   const [listIdSelected, setListIdSelected] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [listProductChangeAmount, setListProductChangeAmount] = useState<
-    IItemCart[]
-  >([]);
+  const [isLoading, setIsLoading] = useState<ILoading>({
+    isLoadingDelete: false,
+    isLoadingUpdate: false,
+  });
 
   const handleSelecAllProduct = (value: any): void => {
     const listID: any = [];
@@ -46,7 +56,8 @@ export function TableCart(props: IProps) {
   };
 
   const handleUpdateCart = async () => {
-    const newArrayUpdateCart = map(listProductChangeAmount, (item) => {
+    setIsLoading({ ...isLoading, isLoadingUpdate: true });
+    const newArrayUpdateCart = map(dataInit, (item) => {
       const newObject = {
         key: item.key,
         quantity: item.quantity,
@@ -62,19 +73,19 @@ export function TableCart(props: IProps) {
         body: JSON.stringify({ cart_items: newArrayUpdateCart }),
         token: accessToken,
       }).then(() => {
-        setIsLoading(false);
+        setIsLoading({ ...isLoading, isLoadingUpdate: false });
 
-        localStorage.setItem(
-          keyProductsInCart,
-          JSON.stringify(listProductChangeAmount)
-        );
+        localStorage.setItem(keyProductsInCart, JSON.stringify(dataInit));
+
+        handleChangeDataGlobal(dataInit);
+        handleTotalCart(dataInit);
 
         onSuccess({
           message: 'Cập nhật giỏ hàng thành công!',
         });
       });
     } catch (error: any) {
-      setIsLoading(false);
+      setIsLoading({ ...isLoading, isLoadingUpdate: false });
       onError();
     }
   };
@@ -117,6 +128,9 @@ export function TableCart(props: IProps) {
       }
     }
 
+    handleChangeDataGlobal(arrayProductSubmitLocalStorage);
+    handleTotalCart(arrayProductSubmitLocalStorage);
+
     typeof window !== 'undefined' &&
       localStorage.setItem(
         keyProductsInCart,
@@ -156,7 +170,7 @@ export function TableCart(props: IProps) {
   };
 
   const handleDeleteProductAPI = async () => {
-    setIsLoading(true);
+    setIsLoading({ ...isLoading, isLoadingDelete: true });
 
     const listKeySubmit: any = [];
 
@@ -166,11 +180,6 @@ export function TableCart(props: IProps) {
       });
     });
 
-    console.log(
-      'handleFilterArrayDataCart()',
-      handleArrayProductCartLocalStorage()
-    );
-
     try {
       await fetchDataAuthen({
         url: 'wp-json/woocart/v1/cart',
@@ -178,7 +187,7 @@ export function TableCart(props: IProps) {
         body: JSON.stringify({ cart_items: listKeySubmit }),
         token: accessToken,
       }).then(() => {
-        setIsLoading(false);
+        setIsLoading({ ...isLoading, isLoadingDelete: false });
 
         localStorage.setItem(
           keyProductsInCart,
@@ -186,7 +195,9 @@ export function TableCart(props: IProps) {
         );
 
         setDataInit(handleArrayProductCartLocalStorage());
-        setListProductChangeAmount(handleArrayProductCartLocalStorage());
+        // setDataInit(handleArrayProductCartLocalStorage());
+        handleChangeDataGlobal(handleArrayProductCartLocalStorage());
+        handleTotalCart(handleArrayProductCartLocalStorage());
 
         setListIdSelected([]);
 
@@ -195,8 +206,7 @@ export function TableCart(props: IProps) {
         });
       });
     } catch (error: any) {
-      console.log('error', error);
-      setIsLoading(false);
+      setIsLoading({ ...isLoading, isLoadingDelete: false });
       onError();
     }
   };
@@ -210,9 +220,12 @@ export function TableCart(props: IProps) {
       const listDataLocalStorage = JSON.parse(storedData);
 
       setDataInit(listDataLocalStorage);
-      setListProductChangeAmount(listDataLocalStorage);
     }
   }, []);
+
+  useEffect(() => {
+    handleTotalCart(dataInit);
+  }, [dataInit]);
 
   return (
     <>
@@ -301,8 +314,8 @@ export function TableCart(props: IProps) {
                     <div className="mt-[2.5rem] hidden max-md:block ">
                       <InputChangeAmount
                         dataItemCart={item}
-                        setListProductChangeAmount={setListProductChangeAmount}
-                        listProductChangeAmount={listProductChangeAmount}
+                        setDataInit={setDataInit}
+                        dataInit={dataInit}
                       />
                     </div>
 
@@ -320,8 +333,8 @@ export function TableCart(props: IProps) {
               <div className="amount-product">
                 <InputChangeAmount
                   dataItemCart={item}
-                  setListProductChangeAmount={setListProductChangeAmount}
-                  listProductChangeAmount={listProductChangeAmount}
+                  setDataInit={setDataInit}
+                  dataInit={dataInit}
                 />
               </div>
               <div className="total-product ">
@@ -358,37 +371,37 @@ export function TableCart(props: IProps) {
           <div
             className={cn(
               'transition-all duration-300 overflow-hidden',
-              isLoading && listIdSelected.length > 0 ? 'w-fit pl-[1rem]' : 'w-0'
+              isLoading.isLoadingDelete && listIdSelected.length > 0
+                ? 'w-[2rem]'
+                : 'w-0'
             )}
           >
             <LoadingGlobal stroke="black" />
           </div>
           {/* )} */}
-          <span className="">Xóa tất cả các sản phẩm</span>
+          <span className="mb-0 pb-0">Xóa tất cả các sản phẩm</span>
         </button>
         <div className="flex justify-between">
           <button
             type="button"
             onClick={handleUpdateCart}
-            className="flex items-center rounded-[0.5rem] mt-[1.25rem] px-[2rem] py-[0.75rem] bg-[#55D5D2] text-white text-[0.875rem] not-italic font-bold leading-[1.5rem] max-md:text-[2.8rem] max-md:leading-[6.4rem]"
+            className="flex relative w-fit items-center rounded-[0.5rem] mt-[1.25rem] px-[2rem] py-[0.75rem] bg-[#55D5D2] text-white text-[0.875rem] not-italic font-bold leading-[1.5rem] max-md:text-[2.8rem] max-md:leading-[6.4rem]"
           >
             <div
               className={cn(
                 'transition-all duration-300 overflow-hidden',
-                isLoading && listIdSelected.length > 0
-                  ? 'w-fit pl-[1rem]'
-                  : 'w-0'
+                isLoading.isLoadingUpdate ? 'w-[2rem]' : 'w-0'
               )}
             >
-              <LoadingGlobal stroke="black" />
+              <LoadingGlobal stroke="white" />
             </div>
-            <span>Cập nhật giỏ hàng</span>
+            <span className="mb-0 pb-0">Cập nhật giỏ hàng</span>
           </button>
           <Link
             href="/cua-hang"
-            className="ml-[1rem] mt-[1.25rem] rounded-[0.5rem] px-[2rem] py-[0.75rem] bg-[#55D5D2] text-white text-[0.875rem] not-italic font-bold leading-[1.5rem] max-md:text-[2.8rem] max-md:leading-[6.4rem]"
+            className="ml-[1rem] mt-[1.25rem] flex items-center  rounded-[0.5rem] px-[2rem] py-[0.75rem] bg-[#55D5D2] text-white text-[0.875rem] not-italic font-bold leading-[1.5rem] max-md:text-[2.8rem] max-md:leading-[6.4rem]"
           >
-            Tiếp tục mua hàng
+            <span>Tiếp tục mua hàng</span>
           </Link>
         </div>
       </div>
