@@ -20,11 +20,12 @@ function SliceAction({ dataSlider }: IPropItem) {
     <div className="w-full">
       <Swiper
         spaceBetween={30}
+        grabCursor={true}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper-action h-[66.625rem] md:h-[33.625rem]"
+        className="mySwiper-action h-[66.625rem] md:h-[34.625rem]"
       >
         {dataSlider?.map((img: string, index: number) => (
           <SwiperSlide
@@ -38,7 +39,7 @@ function SliceAction({ dataSlider }: IPropItem) {
               height={504}
               className="w-full h-full rounded-[8rem] md:rounded-2xl object-cover"
             />
-            <div className="absolute bottom-0 mb-8 right-[2.5rem] md:right-[0.5rem]">
+            <div className="absolute bottom-0 mb-8 right-[2.5rem] md:right-[0.5rem] cursor-pointer">
               <ICButton />
             </div>
           </SwiperSlide>

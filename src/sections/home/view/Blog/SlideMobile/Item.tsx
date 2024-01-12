@@ -13,7 +13,7 @@ function ItemMobileBlogHome({ blog, index }: IPropItem) {
     <Link
       key={index}
       href={`/blog/${blog?.post_slug}`}
-      className="flex lg:hidden rounded-[3.2rem] bg-white  mb-8"
+      className="flex lg:hidden rounded-[3.2rem] bg-white mb-8 h-[27.2rem]"
     >
       <div className="w-2/5  rounded-[3.2rem]">
         <Image
@@ -24,13 +24,14 @@ function ItemMobileBlogHome({ blog, index }: IPropItem) {
           src={blog?.thumbnail_url ? blog?.thumbnail_url : serviceImg}
         />
       </div>
-      <div className="p-[2.3rem] w-3/5">
-        <p className="font-extrabold text-[3.73333rem] line-clamp-3 pb-12 text-[#454545]">
+      <div className="p-[2.3rem] w-3/5 flex flex-col justify-between">
+        <p className="font-bold text-[3.73333rem] line-clamp-3 text-[#454545] leading-[1.4]">
           {blog?.title}
         </p>
-        <span className="text-[2.66667rem] text-neutral-400 font-bold">
-          {blog && formatDate(blog.post_date)}
-        </span>
+        <div className="text-[2.66667rem] text-[#A9A9A9] font-bold leading-normal">
+          <span>Blog / </span>
+          <span>{blog && formatDate(blog.post_date).replaceAll('/', '.')}</span>
+        </div>
       </div>
     </Link>
   );

@@ -9,8 +9,8 @@ function ICShopeeFooter(props: IProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={props.width ?? '44'}
-      height={props.height ?? '44'}
+      width="44"
+      height="44"
       viewBox="0 0 44 44"
       fill="none"
     >

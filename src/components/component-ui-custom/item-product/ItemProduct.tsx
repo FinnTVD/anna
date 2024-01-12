@@ -87,7 +87,7 @@ function ItemProduct(props: IProps) {
             </span>
           </div>
           {keySlide === 'flash-sale' ? (
-            <div className="md:flex justify-between">
+            <div className="md:flex justify-between lg:mb-[0.5rem]">
               <div className="text-[2.66667rem] md:text-[0.875rem] text-[#6A6A6A] font-bold md:font-extrabold">
                 Tiết kiệm được
                 {item?.salePrice && item?.salePrice !== 0 && (

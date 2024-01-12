@@ -12,6 +12,11 @@ export function ContextProvider({ children }: any) {
     setListCartGlobal(data);
   };
 
+  // const contextValueProductCart = useMemo(
+  //   () => ({ handleChangeDataGlobal, listCartGlobal }),
+  //   []
+  // );
+
   useEffect(() => {
     if (
       typeof window !== 'undefined' &&

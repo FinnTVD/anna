@@ -27,27 +27,36 @@ function AboutHome({ dataAbout }: IPropAbout) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ScrollTrigger.create({
-      //   trigger: box.current,
-      //   start: 'top',
-      //   end: '+=1000',
-      //   // pin: true,
-      //   // scrub: true,
-      //   pinSpacing: true,
-      //   anticipatePin: 1,
-      //   // once: true,
-      // });
-      gsap.to(refs.current, {
+      gsap.to(container.current, {
         scrollTrigger: {
           trigger: refs.current,
           scrub: true,
           start: `-=500 top`,
-          // pin: '.pin',
           end: `+=500`,
+        },
+        y: '-30%',
+      });
+      gsap.to(refs.current, {
+        scrollTrigger: {
+          trigger: box.current,
+          scrub: true,
+          start: `top top`,
+          // pin: '.pin',
+          end: `+=600`,
         },
         opacity: 1,
         ease: 'none',
         stagger: 0.1,
+      });
+      gsap.to(box.current, {
+        scrollTrigger: {
+          trigger: box.current,
+          scrub: true,
+          start: `top top`,
+          end: `+=600`,
+          pin: true,
+          pinSpacing: true,
+        },
       });
     }, box);
     return () => {
@@ -83,29 +92,38 @@ function AboutHome({ dataAbout }: IPropAbout) {
     return letters;
   };
   return (
-    <div ref={box} className="rounded-t-[2.25rem] -mt-[2rem] relative">
+    <div
+      ref={box}
+      className="rounded-t-[2.25rem] -mt-[2rem] relative h-screen "
+    >
       <Image
         src="/img/home/about_bg.jpg"
         width={1600}
         height={1000}
         alt="background"
-        className="w-full h-full z-[1] object-fill absolute top-0 left-0 rounded-t-[2.25rem] "
+        className="w-full z-[1] object-fill top-0 left-0 rounded-t-[2.25rem] h-full absolute"
       />
       <div className="container relative z-10">
         <div className="py-[6.67rem] md:py-24 flex md:pb-[9rem] justify-between flex-wrap">
-          <div className="w-full lg:w-1/2 px-4 md:px-[2rem] pt-10 about_paragraph">
+          <div
+            ref={container}
+            className="w-full lg:w-1/2 px-4 md:px-[2rem] pt-10 about_paragraph"
+          >
             <h4 className="text-white text-[8.53333rem] md:text-[4rem] font-black uppercase">
               {dataAbout?.title}
             </h4>
-            <div ref={container} className="about-card-content">
+            <div className="about-card-content">
               <div className="about-content hidden md:block">
                 {splitWords(dataAbout?.description)}
               </div>
             </div>
           </div>
 
-          <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10 relative">
-            <div className=" md:sticky md:top-32">
+          <div className="hidden md:block w-full lg:w-1/2 px-4 pt-10 relative lg:pb-[7rem]">
+            <div
+              id="box_q12"
+              className=" md:absolute md:top-[2.5rem] w-full h-full"
+            >
               <AspectRatio ratio={5 / 4}>
                 <SliceAbout dataInfo={dataAbout?.info} />
                 <div className="search-about-slide flex justify-between items-center pl-[10rem] md:pl-[2.75rem] pr-1 py-[1.25rem] md:py-[0.25rem] bg-orange-400 rounded-[26rem] md:rounded-[3.125rem] border-[1px] border-[#55D5D2]">

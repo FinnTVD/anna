@@ -22,6 +22,7 @@ function SliderMobileBlogHome({ dataSliderBlog }: IPropItem) {
       <Swiper
         watchSlidesProgress
         slidesPerView={1}
+        spaceBetween={12}
         loop
         pagination={{
           clickable: true,

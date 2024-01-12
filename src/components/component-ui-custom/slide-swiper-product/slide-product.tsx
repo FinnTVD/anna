@@ -74,9 +74,11 @@ function SlideProductComponent(props: IProps) {
         breakpoints={{
           0: {
             slidesPerView: 2,
+            spaceBetween: 8,
           },
           767: {
             slidesPerView: 2,
+            spaceBetween: 12,
           },
           910: {
             slidesPerView: breakPoint?.PerView910 ?? 3,
@@ -98,7 +100,7 @@ function SlideProductComponent(props: IProps) {
         {map(data, (item: any, index: number) => (
           <SwiperSlide
             key={index}
-            className="slide-hover overflow-hidden  rounded-[1rem]  box-shadown"
+            className="slide-hover overflow-hidden rounded-[1rem] box-shadown lg:max-w-[20.375rem] lg:mr-[2rem] lg:last:mr-0"
           >
             <ItemProduct
               item={item}

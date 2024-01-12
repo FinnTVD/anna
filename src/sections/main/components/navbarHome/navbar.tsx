@@ -23,14 +23,22 @@ function NavbarHome(props: IProps) {
     useState<number>(0);
 
   const [styleNavbar, setStyleNavbar] = useState(false);
+  const [isHide, setIsHide] = useState(false);
   useEffect(() => {
     window.addEventListener('scroll', () => {
       const { scrollY } = window;
       setCurrentPositionScrollY(scrollY);
       if (scrollY > currentPositionScrollY && window.scrollY >= 300) {
         setStyleNavbar(true);
+      } else if (scrollY < currentPositionScrollY && window.scrollY >= 300) {
+        setIsHide(true);
+        setStyleNavbar(false);
+      } else if (scrollY < currentPositionScrollY && window.scrollY < 300) {
+        setIsHide(false);
+        setStyleNavbar(false);
       } else {
         setStyleNavbar(false);
+        setIsHide(false);
       }
     });
   }, [currentPositionScrollY]);
@@ -55,6 +63,7 @@ function NavbarHome(props: IProps) {
           avatarUser={avatarUser}
           styleNavbar={false}
           dataProps={dataListProductHeader ?? []}
+          isHide={isHide}
         />
         <div className="mt-5 max-md:mt-1" />
       </div>

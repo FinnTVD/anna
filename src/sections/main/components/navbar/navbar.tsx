@@ -29,7 +29,6 @@ function Navbar(props: IProps) {
       }
     });
   }, [currentPositionScrollY]);
-  console.log('dataListCart', dataListCart);
   useEffect(() => {
     if (dataListCart) {
       localStorage.setItem(keyProductsInCart, JSON.stringify(dataListCart));

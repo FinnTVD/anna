@@ -10,7 +10,7 @@ const Blog = async () => {
   const listBlog = await fetchDataRest('GET', 'post/v1/posts');
 
   return (
-    <div className="px-[3.2rem] sm:p-3 flex flex-wrap container max-lg:pb-6">
+    <div className="px-[3.2rem] max-md:pb-[6.4rem] flex flex-wrap container max-lg:pb-6">
       <div className="w-full lg:w-1/3 pt-[6.4rem] sm:pt-[18rem] relative">
         <div className="md:sticky md:top-32">
           <h4 className="text-[#55D5D2] text-[5.33333rem] text-center lg:text-start lg:text-[4rem] max-sm:pb-[3.2rem] font-black uppercase">

@@ -20,7 +20,7 @@ export default function Payment(props: IProps) {
     setVoucher(value);
   };
 
-  const contextValue = useMemo(() => ({ handleUpdate }), []);
+  const contextValue = useMemo(() => ({ handleUpdate, voucher }), []);
   return (
     <FormPaymentContext.Provider value={contextValue}>
       <div className="w-[87.5rem] mx-auto flex pt-[12rem] mb-[5rem] max-md:flex-col">

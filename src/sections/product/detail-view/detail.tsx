@@ -108,8 +108,8 @@ function ProductDetail({
       newArray.push(ItemAddToCard);
 
       // add product in context
-      handleChangeDataGlobal(newArray);
 
+      handleChangeDataGlobal(newArray);
       if (typeof window !== 'undefined') {
         localStorage.setItem(keyProductsInCart, JSON.stringify(newArray));
       }

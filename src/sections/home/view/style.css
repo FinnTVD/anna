@@ -45,7 +45,7 @@
 }
 .item-collect-slide:hover .icon-arrow-right,
 .item-collect:hover .icon-arrow-right {
-  display: block;
+  opacity: 1;
   transition: all 0.4s ease;
 }
 .item-collect-slide:hover .icon-arrow-right svg path,
@@ -295,7 +295,7 @@
 }
 
 .mySwiper-action .swiper-slide {
-  height: 31.875rem;
+  height: 33.5rem;
 
   @media screen and (max-width: 767px) {
     height: 60rem;

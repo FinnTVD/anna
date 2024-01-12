@@ -23,11 +23,11 @@ function ListSocial() {
   return (
     <div>
       <Swiper
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-        }}
-        speed={6000}
+        // autoplay={{
+        //   delay: 0,
+        //   disableOnInteraction: false,
+        // }}
+        // speed={6000}
         breakpoints={{
           0: {
             slidesPerView: 2,
@@ -43,43 +43,39 @@ function ListSocial() {
         modules={[Navigation, Autoplay]}
         className="myTextEvent pl-[0rem] mx-[1rem]"
       >
-        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
+        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black">
           <ItemSocial
             img={IMGFacebook}
-            icon={
-              <ICFacebookFooter width={100} height={100} stroke="#55D5D2" />
-            }
+            icon={<ICFacebookFooter width={100} height={100} />}
             social="Facebook"
             infor="@kinhmatanna"
           />
         </SwiperSlide>
-        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
+        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black">
           <ItemSocial
             img={IMGTiktok}
-            icon={<ICTiktokFooter width={100} height={100} stroke="#55D5D2" />}
+            icon={<ICTiktokFooter width={100} height={100} />}
             social="Tiktok"
             infor="@kinhmatanna"
           />
         </SwiperSlide>
-        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
+        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black">
           <ItemSocial
             img={IMGIg}
-            icon={
-              <ICInstagramFooter width={100} height={100} stroke="#55D5D2" />
-            }
+            icon={<ICInstagramFooter width={100} height={100} />}
             social="Instagram"
             infor="@kinhmatanna"
           />
         </SwiperSlide>
-        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
+        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black">
           <ItemSocial
             img={IMGTiktok}
-            icon={<ICTiktokFooter width={100} height={100} stroke="#55D5D2" />}
+            icon={<ICTiktokFooter width={100} height={100} />}
             social="Tiktok"
             infor="@kinhmatanna"
           />
         </SwiperSlide>
-        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
+        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black">
           <ItemSocial
             img={IMGYoutube}
             icon={<ICYoutube />}
@@ -87,7 +83,7 @@ function ListSocial() {
             infor="@kinhmatanna"
           />
         </SwiperSlide>
-        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black uppercase">
+        <SwiperSlide className="text-[#CAF2F1] text-[8rem] md:text-[4.25rem] font-black">
           <ItemSocial
             img={IMGTiktok}
             icon={<ICTiktokFooter width={100} height={100} stroke="#55D5D2" />}

@@ -32,7 +32,7 @@ const MainLayout = async ({
 
   // GET INFOR USER
   const bodyGetInfoUser: any = {
-    url: `/wp-json/wp/v2/users/me`,
+    url: `wp-json/custom-woo-api/v1/customer`,
     method: 'get',
     token: session?.user.token,
   };
@@ -44,16 +44,13 @@ const MainLayout = async ({
     <div>
       <main className="bg-[#FAFAFA] mt-[9rem] max-md:mt-0 max-md:h-fit max-md:max-h-fit">
         <Navbar
-          avatarUser={dataGetInforUser?.m_avatar}
+          avatarUser={dataGetInforUser?.avatar_url}
           dataListCart={dataListCart}
           dataListProductHeader={dataListProductHeader}
         />
         <div className="h-[calc(100vh-4.5rem-9rem)] w-[87.5rem] mx-auto flex py-[2rem] max-h-full max-md:flex-col max-md:h-fit max-md:max-h-auto max-md:w-full max-md:px-[3rem]">
           <div className="w-1/3 h-full max-md:w-full">
-            <SidebarDashboardUser
-              avatarUser={dataGetInforUser?.m_avatar}
-              userSession={session}
-            />
+            <SidebarDashboardUser dataGetInforUser={dataGetInforUser} />
           </div>
           <div className="w-2/3 py-[1.5rem] bg-white rounded-[1rem] ml-[1rem] max-md:w-full max-md:px-[2.5rem] max-md:py-[4.5rem]">
             <div className="overflow-y-auto h-full px-[2rem]">{children}</div>

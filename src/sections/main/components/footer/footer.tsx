@@ -120,7 +120,7 @@ function Footer() {
             <p>Đăng kí để nhận tin mới nhất</p>
             <form className="relative input-search">
               <Input
-                className="input-email outline-0 placeholder:!pl-0 lg:pl-[1.25rem] text-[1rem] font-bold leading-normal text-[#55D5D2]"
+                className="input-email outline-0 placeholder:!pl-0 lg:pl-[1.25rem] text-[1rem] font-bold leading-normal text-[#55D5D2] max-md:!text-[3.2rem]"
                 type="text"
                 placeholder="Để lại email của bạn"
               />
@@ -133,7 +133,7 @@ function Footer() {
             </form>
             <div className="list-icon-footer-left">
               {listIcon.map((item, index) => (
-                <div key={index} className="mr-[2rem]">
+                <div key={index} className="mr-[2rem] ">
                   {item.icon}
                 </div>
               ))}
@@ -249,9 +249,12 @@ function Footer() {
                 </li>
               ))}
             </ul>
-            <div>
+            <div className="flex items-center">
               {listIconMobile.map((item, index) => (
-                <div key={index} className="mr-[2rem]">
+                <div
+                  key={index}
+                  className="mr-[2rem] max-md:mr-[4.27rem] max-md:last:mr-0 max-md:w-[8.53333rem] max-md:h-[8.53333rem] flex items-center justify-center"
+                >
                   {item.icon}
                 </div>
               ))}

@@ -29,7 +29,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
 
   // GET INFOR USER
   const bodyGetInfoUser: any = {
-    url: `/wp-json/wp/v2/users/me`,
+    url: `wp-json/custom-woo-api/v1/customer`,
     method: 'get',
     token: session?.user.token,
   };
@@ -40,7 +40,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <NavbarHome
-        avatarUser={dataGetInforUser?.m_avatar}
+        avatarUser={dataGetInforUser?.avatar_url}
         dataListProductHeader={dataListProductHeader}
         dataListCart={dataListCart}
       />
