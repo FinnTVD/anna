@@ -128,7 +128,7 @@ function NavItems(props: IProps) {
             </Link>
           </div>
         </div>
-        <div className="h-[3.75rem] hover:border-[1px] border-[#ffffff69] bg-[#1d1d1d57] backdrop-blur-[12.5px] w-full flex items-center rounded-[6.25rem] px-[1.25rem]">
+        <div className="h-[3.75rem] hover:border-[1px] transition-all duration-500 border-[#ffffff69] bg-[#1d1d1d57] backdrop-blur-[12.5px] w-full flex items-center rounded-[6.25rem] px-[1.25rem]">
           <Link href="/">
             <ICLogo fill="white" width="2.8125rem" height="2.5rem" />
           </Link>

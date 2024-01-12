@@ -48,7 +48,7 @@ function CreateAddress(props: IProps) {
     phuong: dataDetailAddress?.phuong ?? '',
   };
 
-  const methods = useForm<INameItemForm>({
+  const methods = useForm<any>({
     // resolver: yupResolver(schema) as any,
     defaultValues,
   });

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { IItemProduct } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 interface IProps {
   item?: IItemProduct;
@@ -12,9 +13,34 @@ interface IProps {
   keySlide?: string;
 }
 
+interface IImageItem {
+  variation_id?: number;
+  image?: string;
+}
+
 function ItemProduct(props: IProps) {
   const { item, heightImage, heightImageMobile, keySlide } = props;
   const [heightSlider, setHeightSlider] = useState<number>(20.375);
+  const [imageItem, setImageItem] = useState<IImageItem>({
+    variation_id: undefined,
+    image: '',
+  });
+  const handleChangeColor = (item: any): void => {
+    const tmp = {
+      variation_id: item?.variation_id,
+      image: item?.image?.full_src,
+    };
+
+    setImageItem(tmp);
+    // if (tmp?.variation_id === imageItem?.variation_id) {
+    //   setImageItem({
+    //     variation_id: undefined,
+    //     image: item?.featuredImage,
+    //   });
+    // } else setImageItem(tmp);
+  };
+
+  console.log('item?.featuredImage', item?.featuredImage);
 
   useEffect(() => {
     if (window.innerWidth < 767) {
@@ -22,12 +48,14 @@ function ItemProduct(props: IProps) {
     } else setHeightSlider(heightImage ?? 20.375);
   }, []);
 
+  useEffect(() => {
+    setImageItem({ ...imageItem, image: item?.featuredImage });
+  }, [item]);
+
   return (
-    <Link
-      href={`/san-pham/${item?.slug?.trim()}`}
-      className="item-slider-product rounded-2xl overflow-hidden  cursor-pointer relative max-md:mb-[2rem]"
-    >
-      <div
+    <div className="item-slider-product rounded-2xl overflow-hidden  cursor-pointer relative max-md:mb-[2rem]">
+      <Link
+        href={`/san-pham/${item?.slug?.trim()}`}
         style={{
           height: `${heightSlider}rem`,
         }}
@@ -38,15 +66,15 @@ function ItemProduct(props: IProps) {
           height={326}
           className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 max-md:rounded-[1.5rem]"
           src={
-            item?.featuredImage
-              ? item?.featuredImage?.length > 0
-                ? item?.featuredImage
+            imageItem?.image
+              ? imageItem?.image.length > 0
+                ? imageItem?.image
                 : '/img/no_image.jpg'
               : '/img/no_image.jpg'
           }
           alt=""
         />
-      </div>
+      </Link>
       <div className="relative z-2  -mt-[5.1rem] z-9 left-0 right-0 w-full box-slide max-md:h-[35.5rem] max-md:-mt-[15.1rem]">
         <div className="flex ml-[1rem] mb-[0.9rem]">
           {/* show in PC */}
@@ -109,12 +137,19 @@ function ItemProduct(props: IProps) {
                   item?.variations.map(
                     (item: any, index: number) =>
                       index <= 2 && (
-                        <div
+                        <button
+                          role="button"
+                          onClick={() => handleChangeColor(item)}
                           key={index}
                           style={{
                             background: item.attributes.attribute_color,
                           }}
-                          className="h-[1rem] w-[1rem] rounded-full mr-[0.31rem] max-md:h-[3.2rem] max-md:w-[3.2rem]"
+                          className={cn(
+                            'h-[1rem] w-[1rem] rounded-full mr-[0.31rem] max-md:h-[3.2rem] max-md:w-[3.2rem]',
+                            item?.variation_id === imageItem.variation_id
+                              ? 'border-[2px] border-[#55D5D2]'
+                              : ''
+                          )}
                         />
                       )
                   )}
@@ -137,7 +172,7 @@ function ItemProduct(props: IProps) {
             </div>
           )}
           {/* button show in PC */}
-          <div>
+          <Link href={`/san-pham/${item?.slug?.trim()}`}>
             <div className="max-md:hidden bg-[#55D5D2] price-product-slide flex justify-between items-center px-[1.25rem] py-[0.5rem] rounded-[3.125rem] ">
               <p className="text-[1.5rem] font-extrabold text-[#fff] not-italic leading-[1.8rem] h-[1.8rem]">
                 {item?.price ? formatCurrencyVND(item?.price.toString()) : ' '}
@@ -146,11 +181,11 @@ function ItemProduct(props: IProps) {
                 <ArrowTopRight />
               </div>
             </div>
-          </div>
+          </Link>
 
           {/* button show in mobile */}
 
-          <div>
+          <Link href={`/san-pham/${item?.slug?.trim()}`}>
             <div
               className={`hidden max-md:flex price-product-slide justify-between items-center rounded-[10.66667rem] py-[1.6rem] px-[3.2rem] mt-[2rem] ${
                 keySlide === 'flash-sale'
@@ -173,10 +208,10 @@ function ItemProduct(props: IProps) {
                 <ArrowTopRight />
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 
