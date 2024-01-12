@@ -31,10 +31,11 @@ import Image from 'next/image';
 interface IProps {
   dataProps: IListProductMenuHeader[] | [];
   styleNavbar: boolean;
+  isHide: boolean;
   avatarUser?: string;
 }
 function NavItems(props: IProps) {
-  const { dataProps, styleNavbar, avatarUser } = props;
+  const { dataProps, styleNavbar, avatarUser, isHide } = props;
   const menuMobile = useBoolean();
   const isShowOverlay = useBoolean(false);
   const { listCartGlobal } = useContext(ProductCartContext);
@@ -82,7 +83,9 @@ function NavItems(props: IProps) {
         )}
       />
       <div
-        className={`h-[1.84rem] transition-all duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
+        className={`${
+          isHide ? 'h-0' : 'h-[1.84rem]'
+        } transition-all duration-200 overflow-hidden top-nav flex items-center justify-between mb-[0.5rem]`}
       >
         <span
           className={` text-[0.875rem] transition-all duration-300 not-italic leading-[1.3125rem] uppercase ${

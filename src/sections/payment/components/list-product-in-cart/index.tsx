@@ -7,43 +7,30 @@ import { IItemCart } from '@/types/types-general';
 import { formatCurrencyVND } from '@/ultils/format-price';
 // eslint-disable-next-line import/no-cycle
 import { FormPaymentContext } from '@/sections/payment';
-import { keyProductsInCart } from '@/configs/config';
+import { ProductCartContext } from '@/context-provider';
 
 export default function ListProductInCart() {
   const [dataInit, setDataInit] = useState<IItemCart[]>([]);
   const [totalPriceInCart, setTotalPriceInCart] = useState<number>(0);
 
   const { handleUpdate } = useContext<any>(FormPaymentContext);
-  // if (
-  //   typeof window !== 'undefined' &&
-  //   localStorage.getItem('totalPriceCart') !== null
-  // ) {
-  //   const getTotalPriceCart = localStorage.getItem('totalPriceCart');
-  //   const totalPriceCart = parseInt(getTotalPriceCart ?? '0', 10);
-  //
-  //   setTotalPriceInCart(totalPriceCart);
-  //   // console.log("getTotalPriceCart", getTotalPriceCart);
-  // }
-
-  // const getTotalPriceCart = localStorage.getItem('totalPriceCart');
-  // console.log('asdasdsad', getTotalPriceCart);
+  const { listCartGlobal } = useContext(ProductCartContext);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (localStorage.getItem(keyProductsInCart) !== null) {
-        const storedData = localStorage.getItem(keyProductsInCart) as string;
-        const listDataLocalStorage = JSON.parse(storedData);
+    setDataInit(listCartGlobal);
 
-        setDataInit(listDataLocalStorage);
-      }
+    let total = 0;
 
-      if (localStorage.getItem('totalPriceCart') !== null) {
-        const getTotalPriceCart = localStorage.getItem('totalPriceCart');
-        const listDataLocalStorage = parseInt(getTotalPriceCart ?? '0', 10);
-        setTotalPriceInCart(listDataLocalStorage);
-      }
-    }
-  }, []);
+    listCartGlobal?.map(
+      // eslint-disable-next-line no-return-assign
+      (item: any) =>
+        (total +=
+          (item?.quantity ?? 0) * parseInt(item?.product_price ?? '0', 10))
+    );
+
+    setTotalPriceInCart(total);
+  }, [listCartGlobal]);
+
   return (
     <div className="p-[2rem] bg-[#F3F3F3] max-md:p-[4rem]">
       <h3 className="text-[1.5rem] font-bold max-md:text-[6.4rem]">
@@ -96,7 +83,11 @@ export default function ListProductInCart() {
               </div>
               <span className="text-[#101010] font-semibold max-md:text-[3.733rem]">
                 {formatCurrencyVND(
-                  item?.product_price ? item?.product_price?.toString() : '0'
+                  (
+                    (item?.product_price
+                      ? parseInt(item?.product_price, 10)
+                      : 0) * (item?.quantity ?? 0)
+                  ).toString()
                 )}
               </span>
             </div>

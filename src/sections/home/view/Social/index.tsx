@@ -1,6 +1,6 @@
 function Social() {
   return (
-    <div className="bg-[#EEF9F9] md:mt-[8rem]">
+    <div className="bg-[#EEF9F9] md:mt-[8rem] relative">
       <div className="px-[6.67rem] sm:px-3 pb-[2.88rem] pt-[9.6rem] md:pt-[8.12rem] container">
         <h4 className="text-[#55D5D2] text-[5.33333rem] md:text-[4.25rem] font-black">
           ANNA ON SOCIAL

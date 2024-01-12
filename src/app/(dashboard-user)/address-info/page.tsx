@@ -1,7 +1,7 @@
 import AddressInfo from '@/sections/dashboard-user/address-info';
 import { getServerSession } from 'next-auth';
 import { NEXT_AUTH_OPTIONS } from '@/configs/auth-option';
-import { fetchDataAuthen, postData } from '@/lib/post-data';
+import { fetchDataAuthen } from '@/lib/post-data';
 
 const AddessInfo = async () => {
   const session = await getServerSession(NEXT_AUTH_OPTIONS);
@@ -12,11 +12,13 @@ const AddessInfo = async () => {
     token: session?.user?.token,
   };
 
-  const dataListAddress = await fetchDataAuthen(bodyGetListAddress);
+  const dataListAddress = session?.user?.token
+    ? await fetchDataAuthen(bodyGetListAddress)
+    : undefined;
 
   return (
     <div className="h-full">
-      <AddressInfo dataListAddress={dataListAddress} />
+      <AddressInfo dataListAddress={dataListAddress?.shipping_addresses} />
     </div>
   );
 };

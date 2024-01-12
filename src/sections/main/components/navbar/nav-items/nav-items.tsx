@@ -29,6 +29,7 @@ interface IProps {
 }
 function NavItems(props: IProps) {
   const { dataProps, avatarUser } = props;
+
   const { listCartGlobal } = useContext(ProductCartContext);
 
   const isShowOverlay = useBoolean(false);
@@ -37,6 +38,7 @@ function NavItems(props: IProps) {
   // const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
 
+  console.log("listCartGlobal223232", listCartGlobal);
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {

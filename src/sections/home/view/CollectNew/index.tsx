@@ -28,7 +28,7 @@ const NewCollection = async () => {
         <div className="max-sm:hidden flex flex-wrap w-full md:w-fit max-sm:pb-8">
           <div className="item-collect pl-0 lg:px-[1.25rem] cursor-pointer relative z-10 flex items-center">
             {/* <ArrowRight className="icon-arrow-right hidden" /> */}
-            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+            <div className="icon-arrow-right opacity-0 pr-[3.2rem] md:pr-3">
               <ICVectorRight width={16} height={16} />
             </div>
             <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
@@ -36,7 +36,7 @@ const NewCollection = async () => {
             </p>
           </div>
           <div className="item-collect px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+            <div className="icon-arrow-right opacity-0 pr-[3.2rem] md:pr-3">
               <ICVectorRight width={16} height={16} />
             </div>
             <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
@@ -44,7 +44,7 @@ const NewCollection = async () => {
             </p>
           </div>
           <div className="item-collect px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+            <div className="icon-arrow-right opacity-0 pr-[3.2rem] md:pr-3">
               <ICVectorRight width={16} height={16} />
             </div>
             <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">
@@ -52,7 +52,7 @@ const NewCollection = async () => {
             </p>
           </div>
           <div className="item-collect px-[1.25rem] cursor-pointer relative z-10 flex items-center">
-            <div className="icon-arrow-right hidden pr-[3.2rem] md:pr-3">
+            <div className="icon-arrow-right opacity-0 pr-[3.2rem] md:pr-3">
               <ICVectorRight width={16} height={16} />
             </div>
             <p className="category-collect text-[#828282] md:text-[#454545] text-[3.2rem] md:text-[1.125rem] font-extrabold md:font-black md:uppercase">

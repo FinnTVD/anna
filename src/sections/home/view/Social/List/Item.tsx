@@ -11,25 +11,25 @@ interface IProps {
 
 function ItemSocial(props: IProps) {
   return (
-    <div className="w-full relative h-[133.26667rem] md:h-[29.188rem] item-social overflow-hidden max-md:hidden">
+    <div className="w-full relative h-[133.26667rem] md:h-[29.188rem] lg:h-[31.9375rem] item-social overflow-hidden max-md:hidden">
       <Image
         src={props?.img}
-        alt=""
+        alt="image social"
         width={400}
         height={400}
-        className="w-full object-cover image-item-slide ease-out duration-300"
+        className="w-full object-cover image-item-slide ease-out duration-300 h-full"
       />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer">
         <div className="flex justify-center">{props?.icon}</div>
-        <h4 className="text-center text-[#55D5D2] text-[3.375rem] font-extrabold">
+        <h4 className="text-center text-white text-[3.375rem] font-extrabold leading-[1.29] lg:mt-[1rem]">
           {props?.social}
         </h4>
-        <div className="text-center text-[#55D5D2] text-lg font-bold">
+        <div className="text-center text-white text-lg font-bold leading-[1.77]">
           {props?.infor}
         </div>
-        <div className="flex justify-center pt-3">
-          <div className="pl-[5rem] md:pl-5 pr-1 py-1 bg-orange-400 rounded-[100px] justify-start items-center gap-3 inline-flex">
-            <div className="text-right text-white text-[3.46667rem] md:text-[1rem] font-extrabold">
+        <div className="flex justify-center pt-3 lg:pt-[0.56rem]">
+          <div className="pl-[5rem] md:pl-5 pr-1 py-1 bg-[#F58F5D] rounded-[100px] justify-start items-center gap-3 inline-flex">
+            <div className="text-right text-white text-[3.46667rem] md:text-[1rem] font-bold">
               KHÁM PHÁ
             </div>
             <div className="h-[10.5rem] md:h-10 w-[10.5rem] md:w-10 bg-white rounded-[100px] justify-center items-center flex">

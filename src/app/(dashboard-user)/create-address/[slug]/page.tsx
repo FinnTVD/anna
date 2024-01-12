@@ -14,9 +14,11 @@ const CreateAddressPage = async ({ params: { slug } }: any) => {
 
   const dataDetailAddress = await fetchDataAuthen(bodyGetDetailAddress);
   return (
-    <div>
-      <CreateAddress dataDetailAddress={dataDetailAddress} />
-    </div>
+    <CreateAddress
+      slug={slug}
+      accessToken={session?.user?.token}
+      dataDetailAddress={dataDetailAddress?.address_details}
+    />
   );
 };
 

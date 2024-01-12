@@ -36,12 +36,12 @@ const fetchDataAuthen = async ({
     headers: headers,
   });
 
-  if (res.ok) {
-    return res.json();
+  if (!res.ok) {
+    return res.text().then((text) => {
+      throw new Error(text);
+    });
   }
-  return res.text().then((text) => {
-    throw new Error(text);
-  });
+  return res.json();
 };
 
 export { postData, fetchDataAuthen };

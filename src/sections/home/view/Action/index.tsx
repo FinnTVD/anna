@@ -16,7 +16,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
       className="py-[6.4rem] md:!pt-[2.19rem] sm-px-0 sm:py-[7.19rem]  bg-cover"
       style={{ backgroundImage: `url(${dataTrip?.banner})` }}
     >
-      <div className="container">
+      <div className="container max-md:!px-[3.2rem]">
         <div className="flex justify-between items-end">
           <Image
             src="/img/home/Logo_HTTT.png"
@@ -25,7 +25,7 @@ function ActionHome({ dataTrip }: IPropsAction) {
             height={120}
             className="w-[25rem] md:w-[12.563rem]"
           />
-          <div className="h-[50px] pl-5 pr-1 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-between items-center gap-3 hidden md:inline-flex">
+          <div className="h-[50px] pl-5 pr-1 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-between items-center gap-3 hidden md:inline-flex cursor-pointer">
             <div className="text-right text-white text-[4rem] md:text-base font-extrabold">
               Cộng đồng sống tử tế
             </div>
@@ -34,26 +34,26 @@ function ActionHome({ dataTrip }: IPropsAction) {
             </div>
           </div>
         </div>
-        <div className="flex justify-center flex-wrap md:px-8 md:py-6 card-item-action mt-10">
+        <div className="flex justify-center flex-wrap md:px-8 md:py-6 card-item-action mt-10 lg:pb-[0.56rem] lg:pt-[1.62rem]">
           <div className="w-full md:w-1/2 md:h-[30.125rem] flex-col justify-start items-start gap-5 inline-flex">
-            <div className="item-actions self-stretch px-[3.2rem] md:px-5 py-20 md:py-6 bg-gradient-to-r from-black via-black to-black rounded-tl-[1.75rem] rounded-bl-[1.75rem] border-l border-white flex-col justify-start items-start gap-2 flex">
+            <div className="item-actions self-stretch px-[3.2rem] md:px-5 py-20 md:py-6 bg-gradient-to-r from-black via-black to-black rounded-tl-[1.75rem] rounded-bl-[1.75rem] border-l border-white flex-col justify-start items-start gap-2 max-md:gap-0 flex max-md:py-[3.2rem] max-md:px-[2.67rem]">
               <div className="max-md:w-full px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-[1rem] justify-start items-start gap-2.5 inline-flex">
-                <div className="text-center w-full text-white text-[3.733rem] font-extrabold md:text-[2rem] max-md:p-[1.5rem]">
+                <div className="text-center w-full text-white text-[3.733rem] font-extrabold md:text-[2rem] max-md:p-[1.5rem] max-md:font-bold">
                   ĐÔI MẮT MẶT TRỜI
                 </div>
               </div>
-              <div className="self-stretch px-4 py-6 md:py-3 rounded-xl justify-start items-start inline-flex">
+              <div className="self-stretch px-4 py-6 md:py-3 rounded-xl justify-start items-start inline-flex max-md:pt-[2.67rem] max-md:pb-[3.73rem] max-md:px-[2.67rem]">
                 <div className="grow shrink basis-0 text-white text-[3.733rem] md:text-xl font-bold md:font-extrabold">
                   Tài trợ các ca mổ mắt dị tật bẩm sinh cho các em nhỏ có hoàn
                   cảnh khó khăn.
                 </div>
               </div>
               <div className="max-md:w-full px-5 bg-white bg-opacity-50 rounded-[4.25rem] md:rounded-[1rem] justify-start items-start gap-2.5 inline-flex">
-                <div className="text-center w-full text-white text-[3.733rem] font-extrabold md:text-[2rem] max-md:p-[1.5rem]">
+                <div className="text-center w-full text-white text-[3.733rem] font-extrabold md:text-[2rem] max-md:p-[1.5rem] max-md:font-bold">
                   TÚI TỬ TẾ
                 </div>
               </div>
-              <div className="self-stretch px-4 py-6 md:py-3 rounded-xl justify-start items-start inline-flex">
+              <div className="self-stretch px-4 py-6 md:py-3 rounded-xl justify-start items-start inline-flex max-md:px-[2.67rem] max-md:pb-[1.6rem] max-md:pt-[2.67rem]">
                 <div className="grow shrink basis-0 text-white text-[3.733rem] md:text-xl font-bold md:font-extrabold">
                   Anna sẽ in 500.000 chiếc túi tử tế nhằm lan toả câu chuyện tìm
                   người thân mất lạc, cùng hy vọng phép màu sẽ xảy ra.
@@ -112,11 +112,16 @@ function ActionHome({ dataTrip }: IPropsAction) {
             <SliceAction dataSlider={dataTrip?.slider} />
           </div>
         </div>
-        <div className="inline-flex md:hidden w-full h-[50px] pl-5 pr-1 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-center items-center gap-3">
+        <div className="inline-flex md:hidden w-full h-[50px] pl-5 pr-1 py-2 bg-zinc-800 bg-opacity-30 rounded-[100px] border border-white backdrop-blur-[5px] justify-center items-center gap-3 max-md:font-bold">
           <div className="text-right text-white text-[4rem] md:text-base font-extrabold">
             Cộng đồng sống tử tế
           </div>
-          <ICArrowTopRightActive height={25} width={25} stroke="#fff" />
+          <ICArrowTopRightActive
+            height={25}
+            width={25}
+            stroke="#fff"
+            fill="#fff"
+          />
         </div>
       </div>
     </div>

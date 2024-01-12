@@ -17,7 +17,7 @@ const listIcon = [
   '/img/home/you_icon.svg',
 ];
 export default function SlideMobileSocial() {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<any>(null);
   const [indexSlider, setIndexSlider] = useState(0);
   const handleSlideChange = (swiper: any) => {
     setIndexSlider(swiper.realIndex);
