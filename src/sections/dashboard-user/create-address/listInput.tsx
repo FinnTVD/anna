@@ -1,16 +1,15 @@
 import { listInputGlobal } from '@/types/types-general';
 
 export interface INameItemForm {
-  name: string;
-  email: string;
-  company: string;
-  address: string;
+  name?: string;
+  email?: string;
+  company?: string;
+  address?: string;
   city: string;
-  state: string;
-  postcode: string;
-  country: string;
-  phone: string;
-  phuong: string;
+  state?: string;
+  country?: string;
+  phone?: string;
+  phuong?: string;
 }
 export const listInput: listInputGlobal[] = [
   {
