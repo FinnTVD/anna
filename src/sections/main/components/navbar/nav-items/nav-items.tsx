@@ -38,7 +38,6 @@ function NavItems(props: IProps) {
   // const [isShowTopNav, setIsShowTopNav] = useState<boolean>(true);
   const [keyTabMenuActive, setKeyTabMenuActive] = useState<string | null>(null);
 
-  console.log("listCartGlobal223232", listCartGlobal);
   const onOpenChangeDropdown = (
     tab: 'product' | 'see-more' | 'cart' | 'search'
   ) => {
@@ -191,7 +190,7 @@ function NavItems(props: IProps) {
                 <ICLocationComponent />
               </Link>
             </li>
-            <li className="grow has-child mx-[1.75rem] h-full">
+            <li className="w-[30rem] has-child mx-[1.75rem] h-full">
               <HoverCard
                 openDelay={delayMenu.openDelay}
                 closeDelay={delayMenu.closeDelay}
@@ -205,10 +204,10 @@ function NavItems(props: IProps) {
                   <div className="relative rounded-[1.25rem] flex items-center h-full">
                     <Input
                       className={cn(
-                        'input-search px-[1.5rem] py-[0.75rem] border-0 outline-0 rounded-[6.25rem] bg-[#D4D4D4] focus-visible:outline-0',
-                        keyTabMenuActive !== null
-                          ? 'placeholder-[#7B7B7B]'
-                          : 'placeholder-[#F4F4F4]'
+                        'input-search px-[1.5rem] py-[0.75rem] placeholder:text-white placeholder:opacity-75 border-0 outline-0 rounded-[6.25rem] bg-white bg-opacity-25 focus-visible:outline-0'
+                        // keyTabMenuActive !== null
+                        //   ? 'placeholder-[#7B7B7B]'
+                        //   : 'placeholder-[#F4F4F4]'
                       )}
                       type="text"
                       placeholder="Tìm kiếm sản phẩm"
@@ -225,7 +224,7 @@ function NavItems(props: IProps) {
                   // sideOffset={6}
                   // onMouseLeave={() => onLeave()}
                   // onMouseMove={() => onMove('search')}
-                  className="w-[30.4375rem] rounded-[1.5rem]"
+                  className="w-[30rem] rounded-[1.5rem]"
                 >
                   <DropdownSearchHeader />
                 </HoverCardContent>

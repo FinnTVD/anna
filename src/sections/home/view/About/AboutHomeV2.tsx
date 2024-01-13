@@ -24,11 +24,11 @@ function AboutHomeV2({ dataAbout }: IPropAbout) {
   const box = useRef(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: box.current,
-        start: 'top top',
-        end: '+=500',
+        start: "top top",
+        end: "+=500",
         pin: true,
         pinSpacing: false,
         anticipatePin: 1,
@@ -43,7 +43,7 @@ function AboutHomeV2({ dataAbout }: IPropAbout) {
   return (
     <div ref={box} className="rounded-t-[2.25rem] -mt-[2rem] relative">
       <Image
-        src={'/img/home/about_bg.jpg'}
+        src="/img/home/about_bg.jpg"
         width={1600}
         height={1000}
         alt="background"

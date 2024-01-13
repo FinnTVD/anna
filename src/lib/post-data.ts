@@ -1,4 +1,5 @@
 import { IPostData } from '@/types/next-auth';
+import { useSession } from "next-auth/react";
 
 const postData = async ({ url, method = 'post', body, token }: IPostData) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_REST_API}/${url}`, {

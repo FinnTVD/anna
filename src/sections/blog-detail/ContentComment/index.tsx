@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import React, { useState } from 'react';
 import loginImg from '@/assets/images/img-register.jpg';
@@ -18,16 +19,16 @@ interface IPropComment {
   slug: string;
   session: any;
 }
-const ContentComment = ({ listComment, slug, session }: IPropComment) => {
-  const [replies, setReplies] = useState('');
+function ContentComment({ listComment, slug, session }: IPropComment) {
+  const [replies, setReplies] = useState("");
 
-  const CommonComment = ({
+  function CommonComment({
     dataComment,
     key,
   }: {
     dataComment: IPropCommentItem;
     key: number;
-  }) => {
+  }) {
     return (
       <div key={key} className="pl-8 py-[3rem] md:py-[1rem]">
         <div>
@@ -80,7 +81,7 @@ const ContentComment = ({ listComment, slug, session }: IPropComment) => {
         </div>
       </div>
     );
-  };
+  }
   return (
     <div className="md:max-w-[57.25rem] px-12 md:px-2 m-auto mb-20 md:mb-16">
       <h4 className="pt-[4rem] md:pt-8 text-[4.5rem] md:text-[2.25rem] font-semibold">
@@ -91,9 +92,9 @@ const ContentComment = ({ listComment, slug, session }: IPropComment) => {
           <CommonComment dataComment={dataComment} key={index} />
         ))}
       </div>
-      {replies === '' && <FormCommentBlog slug={slug} session={session} />}
+      {replies === "" && <FormCommentBlog slug={slug} session={session} />}
     </div>
   );
-};
+}
 
 export default ContentComment;

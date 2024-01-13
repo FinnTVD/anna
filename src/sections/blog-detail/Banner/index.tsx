@@ -2,6 +2,7 @@ import ICDots from '@/components/Icons/ICDots';
 import Image from 'next/image';
 import Link from 'next/link';
 import BannerImg from '@/assets/blogImg/Rectangle146.jpg';
+
 function BannerBlogDetail() {
   return (
     <div className="relative">

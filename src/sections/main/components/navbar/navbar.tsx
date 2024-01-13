@@ -49,7 +49,7 @@ function Navbar(props: IProps) {
         />
         <div className="mt-5 max-md:mt-1" />
       </div>
-      <div className="hidden max-sm:block fixed top-[20px] right-[3.2rem] z-10">
+      <div className="hidden max-sm:flex fixed top-0 z-10">
         <NavMobileDetail dataListProductHeader={dataListProductHeader} />
       </div>
     </div>

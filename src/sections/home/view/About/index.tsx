@@ -41,7 +41,6 @@ function AboutHome({ dataAbout }: IPropAbout) {
           trigger: box.current,
           scrub: true,
           start: `top top`,
-          // pin: '.pin',
           end: `+=600`,
         },
         opacity: 1,

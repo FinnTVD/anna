@@ -11,15 +11,15 @@ export default function Banner() {
         height={900}
       />
       <h1 className="absolute z-0">Hành trình tử tế by anna</h1>
-      <div className="w-[87.5rem] absolute z-10 top-[27.473vh] left-1/2 -translate-x-1/2">
+      <div className="w-[87.5rem] absolute z-10 bottom-0 md:top-[27.473vh] left-1/2 -translate-x-1/2">
         <Image
-          className="w-[33.1rem] h-[35.vh] object-contain"
+          className="w-[61.6rem] md:w-[33.1rem] h-[36.4496rem] md:h-[35.vh] object-contain"
           src={'/img/httt/slogan.png'}
           alt="slogan hanh trinh tu te"
           width={550}
           height={350}
         />
-        <p className="mt-[3.835vh] text-[#414141] text-[1.25rem] font-medium leading-[1.65] tracking-[-0.0625rem] w-[38.4375rem]">
+        <p className="mt-[3.835vh] text-[#414141] text-[3.73333rem] md:text-[1.25rem] font-medium leading-[1.65] tracking-[-0.0625rem] md:w-[38.4375rem]">
           Là một dự án phi lợi nhuận hướng đến cộng đồng và xã hội, chúng mình
           mong muốn{' '}
           <span className="text-[#7BD7D6]">lan toả giá trị nhân ái</span>, tiếp

@@ -76,7 +76,6 @@ function ListProductDashboard(props: IProps) {
       newArrayListOrder.push(newObject);
     });
 
-    console.log('newArrayListOrder', newArrayListOrder);
     setDataInitListOrder(newArrayListOrder);
   }, [dataGetListOrder]);
 

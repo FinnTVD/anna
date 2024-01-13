@@ -2,7 +2,10 @@ import ListProduct from '@/sections/list-product';
 import { postData } from '@/lib/post-data';
 import { IItemAttributeProduct } from '@/types/types-general';
 
-const ListProductPage = async () => {
+const ListProductPage = async ({
+  searchParams,
+  params: { slug, query },
+}: any) => {
   // GET LIST ATTRIBUTE PRODUCT
   const bodyGetlistAttribute: any = {
     url: `wp-json/custom/v1/attributes`,
@@ -36,6 +39,7 @@ const ListProductPage = async () => {
     <ListProduct
       dataListAttribute={arrayListAttributeProuct}
       dataListProductInit={dataListProductInit}
+      searchParams={searchParams}
     />
   );
 };

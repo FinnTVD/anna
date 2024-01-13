@@ -26,15 +26,12 @@ function CreateAddress(props: IProps) {
   const { dataDetailAddress, accessToken, slug } = props;
   const router = useRouter();
 
-  console.log('dataDetailAddress', dataDetailAddress);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const schema = yup.object().shape({
     username: yup.string().required('Required').email('Email invalid'),
     pass: yup.string().required('Required'),
   });
-
-  console.log('dataDetailAddress', dataDetailAddress);
 
   const defaultValues = {
     name: dataDetailAddress?.name ?? '',
@@ -144,7 +141,7 @@ function CreateAddress(props: IProps) {
               <LoadingGlobal stroke="white" />
             </div>
             <span className="pb-0 mb-0">
-              {dataDetailAddress ? 'Chỉnh sửa 11' : 'Thêm'}
+              {dataDetailAddress ? 'Chỉnh sửa' : 'Thêm'}
             </span>
           </button>
         </div>

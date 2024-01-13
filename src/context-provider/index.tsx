@@ -3,6 +3,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { IItemCart } from '@/types/types-general';
 import { keyProductsInCart } from '@/configs/config';
+import { SessionProvider } from 'next-auth/react';
 
 export const ProductCartContext = createContext<any>({});
 export function ContextProvider({ children }: any) {
@@ -11,11 +12,6 @@ export function ContextProvider({ children }: any) {
   const handleChangeDataGlobal = (data: IItemCart[]): void => {
     setListCartGlobal(data);
   };
-
-  // const contextValueProductCart = useMemo(
-  //   () => ({ handleChangeDataGlobal, listCartGlobal }),
-  //   []
-  // );
 
   useEffect(() => {
     if (
@@ -28,10 +24,12 @@ export function ContextProvider({ children }: any) {
   }, []);
 
   return (
-    <ProductCartContext.Provider
-      value={{ handleChangeDataGlobal, listCartGlobal }}
-    >
-      {children}
-    </ProductCartContext.Provider>
+    <SessionProvider>
+      <ProductCartContext.Provider
+        value={{ handleChangeDataGlobal, listCartGlobal }}
+      >
+        {children}
+      </ProductCartContext.Provider>
+    </SessionProvider>
   );
 }
