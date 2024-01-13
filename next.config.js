@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ['image/webp'],
     minimumCacheTTL: 60,
     remotePatterns: [
       {
@@ -10,8 +10,6 @@ const nextConfig = {
       },
     ],
   },
-  // staticPageGenerationTimeout: 1000,
-  // output: 'standalone',
 };
 
 module.exports = nextConfig;
