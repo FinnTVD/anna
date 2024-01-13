@@ -1,4 +1,4 @@
-const revalidate = Number(process.env.NEXT_PUBLIC_REVALIDATE) || 3600; // 1h
+const revalidate = 60
 export const baseUrlAcf = process.env.NEXT_PUBLIC_ACF_API;
 export const baseUrl = process.env.NEXT_PUBLIC_V2_API;
 export const baseUrlBlog = 'https://woo-api.okhub.tech/wp-json/post/v1/posts';
