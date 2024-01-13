@@ -194,7 +194,7 @@ function UserInfo(props: IProps) {
                 <div className=" relative mt-[0.5rem] mb-[0.8rem] max-md:mb-[3rem]">
                   <input
                     type="text"
-                    {...register(item.name, { required: item.require })}
+                    {...register(item.name)}
                     name="input"
                     placeholder={item.placeHolder}
                     onChange={(value) =>
