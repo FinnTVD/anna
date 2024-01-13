@@ -1,0 +1,4 @@
+.bg-navbar-mobile-detail {
+    background: rgba(127, 127, 127, 0.3);
+    backdrop-filter: blur(6px);
+}

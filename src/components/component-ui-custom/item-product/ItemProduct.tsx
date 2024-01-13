@@ -40,8 +40,6 @@ function ItemProduct(props: IProps) {
     // } else setImageItem(tmp);
   };
 
-  console.log('item?.featuredImage', item?.featuredImage);
-
   useEffect(() => {
     if (window.innerWidth < 767) {
       setHeightSlider(heightImageMobile ?? 44);
@@ -64,7 +62,7 @@ function ItemProduct(props: IProps) {
         <Image
           width={326}
           height={326}
-          className="image-item-slide rounded-2xl w-full h-full object-cover bg-slate-500 max-md:rounded-[1.5rem]"
+          className="image-item-slide rounded-2xl w-full h-[20.56588rem] object-cover bg-slate-500 max-md:rounded-[1.5rem]"
           src={
             imageItem?.image
               ? imageItem?.image.length > 0

@@ -14,7 +14,6 @@ interface IProps {
 function DetailOrder(props: IProps) {
   const { dataGetDetailOrder } = props;
 
-  console.log('dataGetDetailOrder', dataGetDetailOrder);
   const handleConvertAddress = () => {
     const company = `${dataGetDetailOrder?.shipping?.company}${
       dataGetDetailOrder?.shipping?.company ? ',' : ''

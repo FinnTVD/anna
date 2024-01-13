@@ -16,6 +16,7 @@ import { Progress } from '@/components/ui/progress';
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 interface IpropFlash {
   smallBanner1: string;
   smallBanner2: string;
@@ -29,6 +30,7 @@ function FlashSale({
   dataSellingProduct,
 }: IpropFlash) {
   const [progress, setProgress] = useState(13);
+  const [height, setHeight] = useState(100);
   const [isTab, setIsTab] = useState(false);
   const lineRef = useRef(null);
   useEffect(() => {
@@ -46,6 +48,15 @@ function FlashSale({
         translateX: '-25%',
       });
     }, lineRef);
+    ScrollTrigger.create({
+      trigger: '#box_arrow',
+      scrub: true,
+      start: `top bottom`,
+      end: `top top`,
+      onUpdate: (self) => {
+        setHeight(Math.abs(Number(self.progress.toFixed(3)) * 100 - 100));
+      },
+    });
     return () => {
       ctx.revert();
     };
@@ -129,7 +140,26 @@ function FlashSale({
         </Tabs>
       </div>
       <div className="pt-[6.4rem] pb-[1.17rem] md:pt-10 flex justify-center max-sm:bg-white">
-        <ICDown />
+        {/* <ICDown /> */}
+        <div id="box_arrow" className="w-[4.25rem] h-[4.25rem] relative">
+          <Image
+            className="w-full h-full object-contain"
+            src={'/img/home/mt.png'}
+            alt="arrow no background"
+            height={60}
+            width={60}
+          />
+          <Image
+            style={{
+              clipPath: `polygon(0 ${height}%, 100% ${height}%, 100% 100%, 0 100%)`,
+            }}
+            className="h-full object-contain absolute top-0 left-0 w-full"
+            src={'/img/home/mto.png'}
+            alt="arrow background"
+            height={60}
+            width={60}
+          />
+        </div>
       </div>
       <div className="max-sm:bg-white relative h-[6.375rem] max-md:h-[10.375rem] overflow-hidden w-full">
         <div

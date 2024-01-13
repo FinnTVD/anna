@@ -9,6 +9,7 @@ interface IProps {
   slug?: any;
   dataListAttribute: IItemAttributeProduct[];
   dataListProductInit: any;
+  searchParams?: any;
 }
 
 // interface IParamsFilter {
@@ -17,19 +18,26 @@ interface IProps {
 // }
 
 export default function ListProduct(props: IProps) {
-  const { slug, dataListAttribute, dataListProductInit } = props;
+  const { slug, dataListAttribute, dataListProductInit, searchParams } = props;
   console.log('slug', slug);
   return (
     <div className="list-product-container mb-[2.94rem]">
       {/* banner */}
-      <div className="relative bg-banner-about-us bg-cover bg-no-repeat h-[32.6875rem] max-md:h-[47.2rem]">
+      <div className="relative bg-banner-about-us bg-cover bg-no-repeat h-[42.6875rem] max-md:h-[36.25rem]">
+        {/* <Image */}
+        {/*  src="/img/about-us/bg-banner-about-us.jpg" */}
+        {/*  width={100} */}
+        {/*  height={32} */}
+        {/*  alt="banner cart" */}
+        {/*  className="w-full h-full" */}
+        {/*  quality={100} */}
+        {/* /> */}
         <Image
           src="/img/about-us/bg-banner-about-us.jpg"
-          width={100}
-          height={32}
+          width={1600}
+          height={1000}
           alt="banner cart"
-          className="w-full h-full"
-          quality={100}
+          className="w-full h-full object-fill"
         />
         <div className="absolute bottom-20 left-[8rem]">
           <h1 className="text-white text-[3.125rem] leading-[4.6875rem] font-semibold font-sans not-italic max-md:font-bold max-md:text-[4.8rem] max-md:leading-[7.2rem]">
@@ -52,6 +60,7 @@ export default function ListProduct(props: IProps) {
         <FilterListProduct
           data={dataListProductInit}
           listAttribute={dataListAttribute}
+          searchParams={searchParams}
         />
         <div className="mb-[5rem] max-lg:mx-[3.25rem] mt-[3.75rem] relative max-md:mx-0 max-md:mb-[3.5rem] max-md:mt-[8.53rem]">
           <div className="flex justify-between mb-[2rem] items-center max-md:px-[2.67rem] max-md:mb-[4.27rem]">

@@ -10,10 +10,12 @@ import useSWR from 'swr';
 import { postData } from '@/lib/post-data';
 import SkeletonItemProduct from '@/sections/list-product/components/skeleton-item-product';
 import Image from 'next/image';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface IProps {
   data: IItemProduct[];
   listAttribute: IItemAttributeProduct[];
+  searchParams?: any;
 }
 
 interface IParamsFilter {
@@ -21,7 +23,7 @@ interface IParamsFilter {
   subAtttribute: string[];
 }
 export default function FilterListProduct(props: IProps) {
-  const { data, listAttribute } = props;
+  const { data, listAttribute, searchParams } = props;
 
   const [paramsFilter, setParamsFilter] = useState<IParamsFilter[]>([]);
   const [paramRouterGetApi, setParamRouterGetApi] = useState<any>();
@@ -37,6 +39,9 @@ export default function FilterListProduct(props: IProps) {
   //   }
   // );
   // const [name1111, setName1111] = useQueryState('name1234433');
+
+  console.log('searchParamaa', searchParams);
+  console.log('paramRouterGetApi', paramRouterGetApi);
 
   const bodyGetListProduct: any = {
     url: `wp-json/product/v1/filter-products?${paramRouterGetApi}`,

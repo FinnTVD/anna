@@ -20,7 +20,7 @@ function SliceAction({ dataSlider }: IPropItem) {
     <div className="w-full">
       <Swiper
         spaceBetween={30}
-        grabCursor={true}
+        grabCursor
         pagination={{
           clickable: true,
         }}

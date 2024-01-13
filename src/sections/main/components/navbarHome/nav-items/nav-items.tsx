@@ -79,7 +79,7 @@ function NavItems(props: IProps) {
       <div
         className={cn(
           ' fixed top-0 left-0 transition-all duration-2s bg-[#0000004d] -z-10 backdrop-blur-[12.5px]',
-          isShowOverlay.value ? 'opacity-100 w-full h-[100vh]' : 'opacity-0'
+          isShowOverlay.value ? "opacity-100 w-full h-[100vh]" : 'opacity-0'
         )}
       />
       <div
@@ -238,7 +238,7 @@ function NavItems(props: IProps) {
               <ICLocationComponent fill={styleNavbar ? '#454545' : '#fff'} />
             </Link>
           </li>
-          <li className="grow mx-[1.75rem] has-child h-full">
+          <li className="w-[30rem] mx-[1.75rem] has-child h-full">
             <Popover
               onOpenChange={(status: any) =>
                 status ? onOpenChangeDropdown('search') : onMouseLeaveTabMenu()
@@ -251,7 +251,7 @@ function NavItems(props: IProps) {
                   onClick={menuMobile.onToggle}
                 >
                   <Input
-                    className={`placeholder-[#fff] placeholder:font-normal placeholder:opacity-75 input-search px-[1.5rem] py-[0.75rem] w-full rounded-[1.25rem] bg-[#EEFBFB]/20 border-[#EEFBFB]/20 focus-visible:outline-0 text-white`}
+                    className="placeholder-[#fff] placeholder:font-normal placeholder:opacity-75 input-search px-[1.5rem] py-[0.75rem] w-full rounded-[1.25rem] bg-[#EEFBFB]/20 border-[#EEFBFB]/20 focus-visible:outline-0 text-white"
                     type="text"
                     placeholder="Tìm kiếm sản phẩm"
                   />
@@ -260,7 +260,7 @@ function NavItems(props: IProps) {
                   </div>
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="rounded-[1.5rem] w-[30.4375rem]">
+              <PopoverContent className="rounded-[1.5rem] w-[30rem]">
                 <DropdownSearchHeader />
               </PopoverContent>
             </Popover>

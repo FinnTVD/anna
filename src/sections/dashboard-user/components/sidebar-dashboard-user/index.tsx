@@ -56,7 +56,7 @@ function SidebarDashboardUser(props: IProps) {
   return (
     <div className="side-bar-dashboard-user h-full bg-white w-full flex flex-col items-center py-[3rem] px-[1rem] rounded-[1rem] max-md:w-full max-md:mb-[5.5rem] max-md:px-[5.8rem]">
       <Image
-        src={dataGetInforUser.avatar_url ?? '/img/no-avatar.png'}
+        src={dataGetInforUser?.avatar_url ?? '/img/no-avatar.png'}
         height={31}
         width={124}
         className="w-[7.9375rem] object-cover h-[7.9375rem] rounded-full max-md:w-[34.133rem] max-md:h-[34.133rem]"
@@ -66,7 +66,7 @@ function SidebarDashboardUser(props: IProps) {
         {dataGetInforUser?.first_name} {dataGetInforUser?.last_name}
       </h3>
       <p className="font-medium text-[1rem] max-md:text-[4.267rem]">
-        {dataGetInforUser.email}
+        {dataGetInforUser?.email}
       </p>
       <div className="h-[1px] my-[1.5rem] bg-[#00000026] w-3/4 mx-[4rem] max-md:w-full max-md:my-[6rem]" />
       <div className="w-[57%] h-[15rem] max-md:w-full max-md:h-auto">

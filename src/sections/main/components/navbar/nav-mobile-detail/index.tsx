@@ -7,12 +7,17 @@ import ICLocation2 from '@/components/Icons/ICLocation2';
 import { ICClean } from '@/components/Icons/ICClose';
 import ICLogo from '@/components/Icons/ICLogo';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ICFacebookFooter from '@/components/Icons/ICFacebookFooter';
 import ICInstagramFooter from '@/components/Icons/ICInstagramFooter';
 import ICTiktokFooter from '@/components/Icons/ICTiktokFooter';
 import ICShopeeFooter from '@/components/Icons/ICShoppeeFooter';
 import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import './style.css';
+import ICCartMobile from '@/components/Icons/ICCartMobile';
+import { cn } from '@/lib/utils';
+import LayoutAttributeHeader from '@/sections/main/components/navbar/nav-mobile-detail/item-attribute-header';
 
 interface IProps {
   dataListProductHeader?: any;
@@ -20,40 +25,116 @@ interface IProps {
 function NavMobileDetail(props: IProps) {
   const { dataListProductHeader } = props;
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+  const [isShowChildrenMenu, setIsShowChildrenMenu] = useState<any>({
+    isShow: false,
+    listProductInCategory: [],
+  });
 
+  const handleHideChildrenMenu = (): void => {
+    setIsShowChildrenMenu({
+      isShow: false,
+      listProductInCategory: [],
+    });
+  };
+
+  const handleShowChildrenMenu = (data: any): void => {
+    setIsShowChildrenMenu({
+      isShow: true,
+      listProductInCategory: data,
+    });
+  };
+
+  const [currentPositionScrollY, setCurrentPositionScrollY] =
+    useState<number>(0);
+  const [styleNavbar, setStyleNavbar] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const { scrollY } = window;
+      setCurrentPositionScrollY(scrollY);
+      if (scrollY > currentPositionScrollY && window.scrollY >= 150) {
+        setStyleNavbar(true);
+      } else {
+        setStyleNavbar(false);
+      }
+    });
+  }, [currentPositionScrollY]);
   const handleTogleMenu = (): void => {
     setIsShowMenu(!isShowMenu);
   };
 
   return (
-    <div className="py-[2.66667rem] px-[2.13333rem] bg-[#7f7f7f4d] rounded-[13.33333rem]">
-      <button type="button" onClick={handleTogleMenu} className="pb-[2.67rem]">
-        <ICTabMenu />
-      </button>
-      <Link href="/he-thong-cua-hang" onClick={handleTogleMenu}>
-        <div className="mb-[2.67rem]">
-          <ICLocation2 stroke="white" width="6.4rem" height="6.4rem" />
-        </div>
-      </Link>
-      <Link href="/gio-hang" onClick={handleTogleMenu}>
-        <div className="mb-[2.67rem] relative w-[6.4rem] h-[6.4rem] ml-[0.8rem]">
-          <ICCart fill="white" width="5rem" height="5rem" />
-          <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[3.46667rem] h-[3.46667rem] font-bold not-italic text-[2.13333rem]">
-            3
+    <div
+      className={cn(
+        'py-[2.13rem] px-[3.2rem]  w-full transition-all duration-300',
+        styleNavbar ? 'bg-white' : ''
+      )}
+    >
+      {/* <button type="button" onClick={handleTogleMenu} className="pb-[2.67rem]"> */}
+      {/*  <ICTabMenu /> */}
+      {/* </button> */}
+      {/* <Link href="/he-thong-cua-hang" onClick={handleTogleMenu}> */}
+      {/*  <div className="mb-[2.67rem]"> */}
+      {/*    <ICLocation2 stroke="white" width="6.4rem" height="6.4rem" /> */}
+      {/*  </div> */}
+      {/* </Link> */}
+
+      {/* <Link href=""> */}
+      {/*  <div className="flex justify-center"> */}
+      {/*    <ICSearch fill="white" width="5.5rem" height="5.5rem" /> */}
+      {/*  </div> */}
+      {/* </Link> */}
+      <div className="h-[10.67rem] flex">
+        <div className="rounded-[26.66667rem] h-[10.67rem] bg-navbar-mobile-detail flex items-center w-[71.2rem] z-10">
+          <div className="absolute top-[50%] -translate-y-1/2 left-[3.5rem] z-10">
+            <ICSearch fill="#fff" width="5.333rem" height="5.333rem" />
           </div>
+          <Input
+            className="text-[3.73333rem] text-white h-full not-italic pl-[10.5rem] py-[5rem] rounded-[13.33333rem] border-[1px] border-[#C5C5C5] placeholder-[#fff] bg-[#7F7F7F4D] focus-visible:outline-0"
+            type="text"
+            placeholder="Tìm sản phẩm"
+          />
         </div>
-      </Link>
-      <Link href="">
-        <div className="flex justify-center">
-          <ICSearch fill="white" width="5.5rem" height="5.5rem" />
-        </div>
-      </Link>
+        <Link
+          href="/gio-hang"
+          // onClick={handleTogleMenu}
+          className="mx-[2.93rem] flex items-center"
+        >
+          <div className="relative w-[7.54293rem] h-[7.54293rem] ml-[0.8rem]">
+            <ICCartMobile
+              stroke={styleNavbar ? '#454545' : 'white'}
+              width="7.54293rem"
+              height="7.54293rem"
+            />
+            <div className="flex items-center justify-center absolute -bottom-1.5 -right-1.5 bg-[#F58F5D] rounded-full w-[3.46667rem] h-[3.46667rem] font-bold not-italic text-[2.13333rem]">
+              3
+            </div>
+          </div>
+        </Link>
+        <button type="button" onClick={handleTogleMenu}>
+          <ICTabMenu stroke={styleNavbar ? '#454545' : 'white'} />
+        </button>
+      </div>
+
+      {/* children menu */}
+      <div
+        className={cn(
+          'fixed top-0 left-0 z-50 h-full w-full transition-all duration-500',
+          isShowChildrenMenu.isShow ? 'opacity-100 z-50' : 'opacity-0 -z-50'
+        )}
+      >
+        <LayoutAttributeHeader
+          handleHideChildrenMenu={handleHideChildrenMenu}
+          isShowChildrenMenu={isShowChildrenMenu}
+          handleTogleMenu={handleTogleMenu}
+        />
+      </div>
 
       {/* navbar mobile */}
       <div
         className={`${
-          isShowMenu ? 'block' : 'hidden'
-        } h-screen w-full fixed top-0 left-0 z-50 bg-[#55D5D2] pt-[9.6rem] overflow-y-auto`}
+          isShowMenu ? 'opacity-100 z-20' : 'opacity-0 -z-20'
+        } h-screen w-full fixed transition-all duration-500 top-0 left-0 bg-[#55D5D2] pt-[9.6rem] overflow-y-auto`}
       >
         <div className="px-[3.2rem]">
           <div className="flex justify-between">
@@ -62,7 +143,7 @@ function NavMobileDetail(props: IProps) {
               <ICClean width="6.4rem" height="6.4rem" />
             </button>
           </div>
-          <div className="mt-[6rem] flex justify-between mb-[7.09rem]">
+          <div className="mt-[5.33rem] flex justify-between mb-[6.93rem]">
             <Link
               href="/gio-hang"
               onClick={handleTogleMenu}
@@ -101,6 +182,7 @@ function NavMobileDetail(props: IProps) {
               dataListProductHeader.map((item: any, index: number) => (
                 <li
                   key={index}
+                  onClick={() => handleShowChildrenMenu(item)}
                   className="text-[3.73333rem] text-white not-italic font-extrabold leading-[4.85333rem] uppercase py-[2.27rem] mb-[0.93rem]"
                 >
                   {item?.name}

@@ -1,18 +1,60 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import ICEdit from '@/components/Icons/ICEdit';
 import ICDelete from '@/components/Icons/ICDelete';
 import Image from 'next/image';
+import LoadingGlobal from "@/components/component-ui-custom/loading-global";
+import { fetchDataAuthen, postData } from "@/lib/post-data";
+import { onError, onSuccess } from "@/ultils/notification";
+import { useSession } from "next-auth/react";
+import { IPostData } from "@/types/next-auth";
+import useSWR from "swr";
 
 interface IProps {
   dataListAddress?: any;
 }
 function AddressInfo(props: IProps) {
   const { dataListAddress } = props;
+  const { data: session } = useSession();
 
-  console.log('dataListAddress', dataListAddress);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [keySelected, setKeySelected] = useState<any>(undefined);
+
+  const bodyGetListAddress: IPostData = {
+    url: `wp-json/shipping/v1/customer-shipping-addresses`,
+    method: 'get',
+    token: session?.user?.token,
+  };
+  const dataDetailProduct = useSWR(bodyGetListAddress.url, () =>
+    fetchDataAuthen(bodyGetListAddress)
+  );
+
+  console.log('dataDetailProduct', dataDetailProduct?.data);
+
+  const deleteAddress = async (value: any) => {
+    setKeySelected(value);
+    console.log("value", value);
+    setIsLoading(true);
+
+    try {
+      await fetchDataAuthen({
+        url: 'wp-json/shipping/v1/delete-shipping-address',
+        method: 'delete',
+        body: JSON.stringify({ address: [{ id: value }] }),
+        token: session?.user?.token,
+      }).then(() => {
+        onSuccess({
+          message: 'Xóa sản phẩm yêu thích thành công!',
+        });
+        setIsLoading(false);
+      });
+    } catch (error: any) {
+      setIsLoading(false);
+      onError();
+    }
+  };
 
   const handleConvertAddress = (
     address: string,
@@ -34,7 +76,7 @@ function AddressInfo(props: IProps) {
         Thông tin địa chỉ
       </h3>
       <div className="overflow-y-auto shadow-inherit">
-        {dataListAddress ? (
+        {dataListAddress && dataListAddress?.length > 0 ? (
           dataListAddress.map((item: any, index: number) => (
             <div
               key={index}
@@ -65,12 +107,19 @@ function AddressInfo(props: IProps) {
                 >
                   <ICEdit fill="#55D5D2" width="1.2rem" height="1.2rem" />
                 </Link>
-                <Link
-                  href="/create-address"
-                  className="text-[#E14C5F] ml-[0.8rem] max-md:ml-[0rem]"
-                >
-                  <ICDelete fill="#E14C5F" width="1.2rem" height="1.2rem" />
-                </Link>
+                {index === keySelected && isLoading ? (
+                  <div className="text-[#E14C5F] ml-[0.7rem] -mr-3 max-md:ml-[0rem]">
+                    <LoadingGlobal stroke="red" />
+                  </div>
+                ) : (
+                  <button
+                    role="button"
+                    onClick={() => deleteAddress(index)}
+                    className="text-[#E14C5F] ml-[0.8rem] max-md:ml-[0rem]"
+                  >
+                    <ICDelete fill="#E14C5F" width="1.2rem" height="1.2rem" />
+                  </button>
+                )}
               </div>
               <div className="hidden max-md:block h-full">
                 <Link
@@ -80,9 +129,17 @@ function AddressInfo(props: IProps) {
                   <ICEdit fill="#55D5D2" width="6rem" height="6rem" />
                 </Link>
                 <div className="mt-[2rem]">
-                  <Link href="/create-address" className="text-[#E14C5F]">
-                    <ICDelete fill="#E14C5F" width="6rem" height="6rem" />
-                  </Link>
+                  {index === keySelected && isLoading ? (
+                    <LoadingGlobal stroke="#55D5D2" />
+                  ) : (
+                    <button
+                      role="button"
+                      onClick={() => deleteAddress(index)}
+                      className="text-[#E14C5F]"
+                    >
+                      <ICDelete fill="#E14C5F" width="6rem" height="6rem" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

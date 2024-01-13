@@ -19,7 +19,6 @@ import LoadingGlobal from '@/components/component-ui-custom/loading-global';
 
 interface IPropsSystem {
   listCity: any;
-  listDistrict: any;
 }
 const mockData = {
   link1:
@@ -28,10 +27,11 @@ const mockData = {
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.804718437435!2d105.73897487584011!3d20.96035599012345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134533c20016423%3A0x9973b003daef8451!2sHH2A%20xu%C3%A2n%20mai%20complex!5e0!3m2!1svi!2s!4v1703481268016!5m2!1svi!2s',
 };
 
-function SystemStore({ listCity, listDistrict }: IPropsSystem) {
+function SystemStore({ listCity }: IPropsSystem) {
   const [dataSystemStore, setDataSystemStore] = useState([]) as any;
   const [isLoading, setIsLoading] = useState(true);
-  const [dataDistrict, setDataDistrict] = useState([]) as any;
+  const [idDistrict, setIdDistrict] = useState('');
+  const [district, setDistrict] = useState([]) as any;
   const [param, setParam] = useState({
     tinh: '',
     huyen: '',
@@ -42,12 +42,10 @@ function SystemStore({ listCity, listDistrict }: IPropsSystem) {
   });
 
   const handleChangeCity = (item: any) => {
-    setDataDistrict(
-      listDistrict?.filter((value: any) => item?.code === value?.province_code)
-    );
+    setIdDistrict(item?.id);
     if (item) {
       setParam({
-        tinh: item?.name.replace('Thành phố ', '').replace('Tỉnh ', ''),
+        tinh: item?.slug,
         huyen: '',
       });
     } else {
@@ -63,7 +61,7 @@ function SystemStore({ listCity, listDistrict }: IPropsSystem) {
     if (item) {
       setParam({
         ...param,
-        huyen: item?.name.replace('Quận ', '').replace('Huyện ', ''),
+        huyen: item,
       });
     } else {
       setParam({
@@ -73,14 +71,26 @@ function SystemStore({ listCity, listDistrict }: IPropsSystem) {
     }
   };
 
+  const getListDist = useSWR(
+    `${baseUrl}custom/v1/get-cate-location-child/${idDistrict}`,
+    () =>
+      fetchDataRest(
+        'get',
+        `custom/v1/get-cate-location-child/${idDistrict}`
+      ).then((res: any) => {
+        setDistrict(res?.children);
+        setIsLoading(false);
+      })
+  );
+
   const getListSystemStore = useSWR(
-    `${baseUrl}custom/v1/fillter-location?tinh=${encodeURIComponent(
+    `${baseUrl}custom/v1/get-location?tinh=${encodeURIComponent(
       param?.tinh
     )}&huyen=${encodeURIComponent(param?.huyen)}`,
     () =>
       fetchDataRest(
         'get',
-        `custom/v1/fillter-location?tinh=${encodeURIComponent(
+        `custom/v1/get-location?tinh=${encodeURIComponent(
           param?.tinh
         )}&huyen=${encodeURIComponent(param?.huyen)}`
       ).then((res: any) => {
@@ -96,9 +106,10 @@ function SystemStore({ listCity, listDistrict }: IPropsSystem) {
 
   useEffect(() => {
     getListSystemStore.mutate();
-  }, [dataDistrict, param]);
+    getListDist.mutate();
+  }, [param, idDistrict]);
   return (
-    <div>
+    <div className="mt-[4rem]">
       <div className="md:max-w-[83.75rem] py-24 md:py-12 px-[5rem] md:px-0 m-auto">
         <h4 className="text-black pt-8 md:pt-4 text-[4.5rem] md:text-[2.25rem] font-semibold">
           DANH SÁCH ĐẠI LÝ KÍNH MẮT ANNA
@@ -127,9 +138,7 @@ function SystemStore({ listCity, listDistrict }: IPropsSystem) {
                           value={item}
                           className="text-[4rem] md:text-base"
                         >
-                          {item?.name
-                            .replace('Thành phố', '')
-                            .replace('Tỉnh', '')}
+                          {item?.name}
                         </SelectItem>
                       ))}
                     </SelectGroup>
@@ -149,12 +158,12 @@ function SystemStore({ listCity, listDistrict }: IPropsSystem) {
                       >
                         Quận/Huyện
                       </SelectItem>
-                      {map(dataDistrict, (item) => (
+                      {map(district, (item) => (
                         <SelectItem
-                          value={item}
+                          value={item?.slug}
                           className="text-[4rem] md:text-base"
                         >
-                          {item?.name.replace('Quận', '').replace('Huyện', '')}
+                          {item?.name}
                         </SelectItem>
                       ))}
                     </SelectGroup>

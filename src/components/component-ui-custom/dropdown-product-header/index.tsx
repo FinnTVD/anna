@@ -20,6 +20,8 @@ function DropdownProductHeader(props: IProps) {
     undefined
   );
 
+  console.log('listProduct', listProduct);
+
   const handleMouseCategory = (value: any): void => {
     setListProductInCategory(value);
   };
