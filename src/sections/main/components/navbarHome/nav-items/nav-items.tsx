@@ -238,7 +238,7 @@ function NavItems(props: IProps) {
               <ICLocationComponent fill={styleNavbar ? '#454545' : '#fff'} />
             </Link>
           </li>
-          <li className="w-[30rem] mx-[1.75rem] has-child h-full">
+          <li className="w-[26rem] mx-[1.75rem] has-child h-full">
             <Popover
               onOpenChange={(status: any) =>
                 status ? onOpenChangeDropdown('search') : onMouseLeaveTabMenu()
@@ -260,7 +260,7 @@ function NavItems(props: IProps) {
                   </div>
                 </div>
               </PopoverTrigger>
-              <PopoverContent className="rounded-[1.5rem] w-[30rem]">
+              <PopoverContent className="rounded-[1.5rem] w-[26rem]">
                 <DropdownSearchHeader />
               </PopoverContent>
             </Popover>
