@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
 import { ContextProvider } from '@/context-provider';
-import Head from 'next/head';
 
 // const lato = Lato({
 //   subsets: ['latin'],
@@ -59,10 +58,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <title>Next App</title>
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-      </Head>
       <body className={fontNexa.variable}>
         <ContextProvider>{children}</ContextProvider>
       </body>

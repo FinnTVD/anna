@@ -21,7 +21,7 @@ function Feature({ dataFeature }: IpropFeature) {
           alt=""
           width={635}
           height={755}
-          className="w-full pr-5 md:pr-[4.688rem]"
+          className="w-full pr-5 md:pr-[4.688rem] lg:h-[40.0625rem]"
         />
       </div>
       <div className="w-full md:w-2/3 max-sm:p-[3.2rem] md:pr-[6.25rem]">
